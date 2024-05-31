@@ -13,14 +13,14 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="C#（读作「See Sharp」）是由微软开发的一种面向对象且类型安全的新式编程语言，运行在 .NET 上，开发人员利用 C#能够生成在 .NET 中运行的多种安全可靠的应用程序。C# 源自 C 系列语言，因此有过基本程设基础的同学可以很快上手使用，有过 C++ 基础的同学可以更快地掌握面向对象部分。当然没有完全也不要紧，本篇技术贴将带你从环境安装开始快速入门 C#  环境安装和建立项目对于 W">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/Users/A/cecmsast_blog/source/wp-content_uploads/2022/03/1-1024x519.png">
-<meta property="og:image" content="http://example.com/Users/A/cecmsast_blog/source/wp-content_uploads/2022/03/2-1024x655.png">
-<meta property="og:image" content="http://example.com/Users/A/cecmsast_blog/source/wp-content_uploads/2022/03/3-1024x545.png">
+<meta property="og:image" content="http://example.com/wp-content_uploads/2022/03/1-1024x519.png">
+<meta property="og:image" content="http://example.com/wp-content_uploads/2022/03/2-1024x655.png">
+<meta property="og:image" content="http://example.com/wp-content_uploads/2022/03/3-1024x545.png">
 <meta property="article:published_time" content="2022-03-26T14:51:32.000Z">
-<meta property="article:modified_time" content="2024-04-13T10:50:46.000Z">
+<meta property="article:modified_time" content="2024-05-29T04:01:52.000Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/Users/A/cecmsast_blog/source/wp-content_uploads/2022/03/1-1024x519.png">
+<meta name="twitter:image" content="http://example.com/wp-content_uploads/2022/03/1-1024x519.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -106,18 +106,18 @@
 </blockquote>
 <h2 id="环境安装和建立项目"><a href="#环境安装和建立项目" class="headerlink" title="环境安装和建立项目"></a>环境安装和建立项目</h2><p>对于 Windows 或 macOS，推荐使用 <a target="_blank" rel="noopener" href="https://visualstudio.microsoft.com/zh-hans/">Visual Studio</a>，目前对于个人用户这一强大的 IDE 是免费使用的，对于 Linux 用户，相信您一定不需要这份粗浅的教程可以考虑使用 <a target="_blank" rel="noopener" href="https://www.mono-project.com/download/stable/">Mono</a> 等。本文将以 Windows 平台为例进行演示。</p>
 <p>下载 Visual Studio 后，启动下好的安装包，将会为你安装 Visual Studio Installer 方便管理，全流程都是提供简体中文描述的，比较容易理解，整体而言一路下一步即可，注意在如图所示的「工作负载」部分要勾选「.NET 桌面开发」即可。（当然即使忘记了后续也可以通过 Visual Studio Installer 补上，所以放轻松！）</p>
-<p><img src="/Users/A/cecmsast_blog/source/wp-content_uploads/2022/03/1-1024x519.png"></p>
+<p><img src="/../wp-content_uploads/2022/03/1-1024x519.png"></p>
 <p>安装过程由于需要现场下载几个 G 的内容，可能需要耗费一点时间，记得在这个过程中保持网络通畅。可以趁机冲一杯咖啡</p>
 <p>安装好后让我们来创建第一个项目：启动 Visual Studio，选择右侧的「创建新项目」-「控制台应用」，给项目起一个好听的名称，选择一个合适的存储位置，点击创建，就可以等待 Visual Studio 为你建好一个全新的项目了。</p>
 <h2 id="Hello-World-与程序结构"><a href="#Hello-World-与程序结构" class="headerlink" title="Hello, World! 与程序结构"></a>Hello, World! 与程序结构</h2><p>如果你和笔者一样使用的是非常新版本的 Visual Studio（比如刚刚下载好的 Visual Studio 2022），在建立新项目之后大概率会见到一个总共两行还有一行是注释的 Hello World! 程序：</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// See https://aka.ms/new-console-template for more information</span></span><br><span class="line">Console.WriteLine(<span class="string">&quot;Hello, World!&quot;</span>);</span><br></pre></td></tr></table></figure>
 
-<p><img src="/Users/A/cecmsast_blog/source/wp-content_uploads/2022/03/2-1024x655.png"></p>
+<p><img src="/../wp-content_uploads/2022/03/2-1024x655.png"></p>
 <p>这是通过 C# 9.0 中新增的顶级语句特性实现的，暂时不在本文的讨论范围内，我们考虑一个标准的 Hello World! 程序：</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">HelloWorld</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;Hello World!&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>用上述代码替换原先的极简版本，点击菜单栏下面的绿色箭头运行，当场可以得到输出了 Hello World! 的小黑框：</p>
-<p><img src="/Users/A/cecmsast_blog/source/wp-content_uploads/2022/03/3-1024x545.png"></p>
+<p><img src="/../wp-content_uploads/2022/03/3-1024x545.png"></p>
 <p>我们观察这个程序的各个部分可以得到典型 C# 程序的基本结构和一些需要注意的关键点：</p>
 <ul>
 <li>第一行<code>using System;</code>使用了<code>using</code>关键字在程序中包含了<code>System</code>命名空间，一般 C# 程序通常会有多个<code>using</code>语句；</li>
@@ -164,7 +164,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/03/26/c-%E6%95%99%E7%A8%8B%EF%BC%9A%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8-2/" data-id="clwozd67000eyygtl32ih1qiv" data-title="C# 教程：环境安装与快速入门" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2022/03/26/c-%E6%95%99%E7%A8%8B%EF%BC%9A%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8-2/" data-id="clwur3ygs00f330tla7iv1035" data-title="C# 教程：环境安装与快速入门" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -174,7 +174,7 @@
     
 <nav id="article-nav">
   
-    <a href="/2022/03/26/c-%E6%95%99%E7%A8%8B%EF%BC%9A%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8-1/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/03/26/c-%E6%95%99%E7%A8%8B%EF%BC%9A%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
@@ -184,9 +184,9 @@
     </a>
   
   
-    <a href="/2022/03/26/c-%E6%95%99%E7%A8%8B%EF%BC%9A%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2022/03/18/c%EF%BC%9A%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%88%9D%E6%AD%A5-1/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">C# 教程：环境安装与快速入门</div>
+      <div class="article-nav-title">C#：面向对象初步</div>
     </a>
   
 </nav>
@@ -232,7 +232,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/1970/01/">January 1970</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/1970/01/">January 1970</a></li></ul>
     </div>
   </div>
 
@@ -245,23 +245,23 @@
       <ul>
         
           <li>
-            <a href="/2024/04/28/%E7%BB%84%E7%BB%87%E8%A7%84%E5%88%92%E9%83%A8-3/">[object Object]</a>
+            <a href="/2024/05/31/%E7%BB%84%E7%BB%87%E8%A7%84%E5%88%92%E9%83%A8-3/">[object Object]</a>
           </li>
         
           <li>
-            <a href="/2024/04/28/%E6%B3%A8%E5%86%8C-3/">[object Object]</a>
+            <a href="/2024/05/31/%E6%B3%A8%E5%86%8C-3/">[object Object]</a>
           </li>
         
           <li>
-            <a href="/2024/04/28/%E4%B8%BB%E5%B8%AD%E5%9B%A2-3/">[object Object]</a>
+            <a href="/2024/05/31/%E4%B8%BB%E5%B8%AD%E5%9B%A2-3/">[object Object]</a>
           </li>
         
           <li>
-            <a href="/2024/04/28/%E9%87%8D%E7%A3%85%EF%BC%81%E7%A7%91%E5%8D%8F%E7%BD%91%E7%AB%99%E6%AD%A3%E5%BC%8F%E4%B8%8A%E7%BA%BF%E5%95%A6-3/">[object Object]</a>
+            <a href="/2024/05/31/%E9%87%8D%E7%A3%85%EF%BC%81%E7%A7%91%E5%8D%8F%E7%BD%91%E7%AB%99%E6%AD%A3%E5%BC%8F%E4%B8%8A%E7%BA%BF%E5%95%A6-3/">[object Object]</a>
           </li>
         
           <li>
-            <a href="/2024/04/28/%E4%BF%A1%E6%81%AF%E9%97%A8%E6%88%B7-3/">[object Object]</a>
+            <a href="/2024/05/31/%E4%BF%A1%E6%81%AF%E9%97%A8%E6%88%B7-3/">[object Object]</a>
           </li>
         
       </ul>
