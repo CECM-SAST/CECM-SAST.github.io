@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>清华大学土木建管系科协</title>
+  <title>清华大学土木系暨建管系学生科协</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta property="og:type" content="website">
-<meta property="og:title" content="清华大学土木建管系科协">
+<meta property="og:title" content="清华大学土木系暨建管系学生科协">
 <meta property="og:url" content="http://example.com/page/9/index.html">
-<meta property="og:site_name" content="清华大学土木建管系科协">
+<meta property="og:site_name" content="清华大学土木系暨建管系学生科协">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="科协技术部">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternate" href="/atom.xml" title="清华大学土木建管系科协" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="清华大学土木系暨建管系学生科协" type="application/atom+xml">
   
   
     <link rel="shortcut icon" href="/favicon.png">
@@ -39,7 +39,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">清华大学土木建管系科协</a>
+        <a href="/" id="logo">清华大学土木系暨建管系学生科协</a>
       </h1>
       
     </div>
@@ -69,6 +69,391 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-sap2000二次开发初探之c环境搭建" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/04/09/sap2000%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E5%88%9D%E6%8E%A2%E4%B9%8Bc%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="article-date">
+  <time class="dt-published" datetime="2021-04-09T13:29:03.000Z" itemprop="datePublished">2021-04-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/04/09/sap2000%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E5%88%9D%E6%8E%A2%E4%B9%8Bc%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">SAP2000二次开发初探之C#环境搭建</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>SAP200作为进行结构分析的重要软件，其早在2007年就发布了开放的应用程序开发接口（OAPI），第三方开发者可以创建与SAP2000丰富紧密的双向连接，允许准确地转换模型至SAP2000，由SAP2000控制执行过程，并从SAP2000中提取分析和设计信息。SAP2000开放的API与大多数编程语言兼容，包括VBA（Visual Basic for Applications）、C#、python等。今天就给大家介绍一下如何搭建C#环境进行SAP2000开发。</p>
+<p>工具：SAP2000 v15以上版本（建议v21以后更高级版本）、Mirosoft Visual Studio 2019 community (VS 2019)、.Net Framework4.7及以上。</p>
+<p>SAP2000的安装大家各有各的办法，正常安装即可，操作简单不多讲。而此前装过VS较早版本的同学建议更新到2019版。VS作为一个兼容性较强的IDE，其免费的社区版以及足够我们的使用，到官网下载安装程序即可。这里有几点笔者下载安装中遇到的一点小tips可以供大家参考。</p>
+<figure class="highlight gcode"><table><tr><td class="code"><pre><code class="hljs gcode">一、<span class="hljs-attr">VS 2019</span>的下载安装     <br>    <br></code></pre></td></tr></table></figure>
+
+<p>官网上下载VS 2019的安装引导程序，选择第一项community版即可。</p>
+<p><img src="/../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%871.png"></p>
+<p>右键点击下载好的exe文件，选择“以管理员身份运行”，进入下面的界面：</p>
+<p><img src="/../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%872.png"></p>
+<p>因为笔者已经安装了社区版，所以“可用”栏目下未显示community版本的VS 2019，大家没安装的点击community版本的安装选项即可。选择安装后会下载一下准备文件：</p>
+<p><img src="/../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%873.png"></p>
+<p>接下来在出现的界面的“工作负载”栏目选择“.NET桌面开发”，即C#环境：</p>
+<p><img src="/../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%874.png"></p>
+<p>然后点击“安装位置”栏目改一下安装位置，一般默认在C盘，但我想大家一般不会把一个3、4G大的软件安装到C盘。安装位置的第一项即IDE安装位置一定要是一个空文件夹，否则无法安装。另外的两个选项则是存下载缓存和一些共享组件等，可以是非空文件夹，大家按自己习惯改一下就好。“语言包栏”一般默认勾选了中文简体，如果有其他语言需求自己勾选一下即可；单个组件项目不建议小白随便进行删减（但删减也没关系，如果不幸删了核心组件重头再装就是了），如果有其他需求可以视情况增加需要的组件。</p>
+<p><img src="/../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%875.png"></p>
+<p>然后我们就可以愉快的进行安装了，注意这里最好勾选下载时安装，会快一点。以及下载时的网络选择，笔者当时使用的是DIVI，速度连1MB&#x2F;s都达不到，于是怒而换Tsinghua-Secure，然后顺带关了一下ipv6协议，速度飙升到8MB&#x2F;s。关ipv6协议方法：控制面板—网络和 Internet—网络和共享中心—更改适配器设置—右键自己连接的WLAN—属性—取消勾选“Internet协议版本6（TCP&#x2F;IPv6）”—确定。不过在你重新连接网络后IPv6协议又会自己勾选上。</p>
+<p><img src="/../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%876.png"></p>
+<p>然后等待下载安装结束，我们就可以愉快的用C#进行SAP2000二次开发了。</p>
+<h2 id="二、开发准备"><a href="#二、开发准备" class="headerlink" title="二、开发准备"></a>二、开发准备</h2><figure class="highlight"><table><tr><td class="code"><pre><code class="hljs">1、创建项目     <br>    <br></code></pre></td></tr></table></figure>
+
+<p>打开VS 2019，创建新项目，选择类库（.Net Framework）。</p>
+<p><img src="/../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%877.png"></p>
+<p>项目配置中可以设置项目名称和选择你的文件的存放位置，框架记得选择.Net Framework 4.7及以上。如果这里框架点开后发现没有.Net Framework 4.7及以上版本，可以到微软官网进行下载安装，当然一般不会出现这种情况。</p>
+<p><img src="/../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%878.png"></p>
+<figure class="highlight"><table><tr><td class="code"><pre><code class="hljs">2、添加SAP2000类库的引用       <br>    <br></code></pre></td></tr></table></figure>
+
+<p>这一步需要提前安装好SAP2000，点击“解决方案”中的“引用”一栏，右键选择“添加引用”：</p>
+<p><img src="/../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%879.png"></p>
+<p>点击浏览，然后打开SAP2000的安装目录，找到SAP2000v1.dll，选中，确定。</p>
+<p><img src="/../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%8710.png"></p>
+<figure class="highlight"><table><tr><td class="code"><pre><code class="hljs">                                                                      <br>3、修改项目属性       <br>    <br></code></pre></td></tr></table></figure>
+
+<p>为了可以让我们使用C#从COM串口中读取数据，我们还需要修改一下项目属性，邮右键点击“解决方案”栏目下的项目名称，然后选择“属性”，在属性界面进行如下操作：1）“应用程序”—“程序集信息”—勾选“使程序集COM可见”；2）“生成”—目标平台改成“x64”—勾选“为COM互操作注册”。</p>
+<p><img src="/../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%8712.png"></p>
+<figure class="highlight"><table><tr><td class="code"><pre><code class="hljs">                                                                     <br>                                                                     <br>4、类名修改     <br>    <br></code></pre></td></tr></table></figure>
+
+<p>修改Class1类的名字为cPlugin（当然也可以另外添加一个），因为SAP2000插件的逻辑是在SAP里由主程序调用cPlugin这个类里面的Main方法。接下来就可以愉快的写代码了，不过要记得每个类的引用都需要加上“using SAP2000v1”(是数字1不是英文字母l)。</p>
+<p><img src="/../wp-content_uploads/2021/04/F7HUAu5R5L-1024x611.png"></p>
+<figure class="highlight"><table><tr><td class="code"><pre><code class="hljs">三、SAP插件添加      <br>    <br></code></pre></td></tr></table></figure>
+
+<p>当写好代码实现功能后，生成成功后，想要在SAP2000里导入插件，必须以管理员方式打开VS，然后再重新生成一次。这时打开SAP2000，点击“工具”这一栏，选择“添加”，然后输入VS里的项目名称，菜单名称可以写这个插件的功能，看个人习惯填写。然后可以看到状态为OK，就可以愉快的使用自己写的插件了~</p>
+<p><img src="/../wp-content_uploads/2021/04/xnOq6cA3F4-1024x310.png"></p>
+<figure class="highlight"><table><tr><td class="code"><pre><code class="hljs">                                    <br></code></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/04/09/sap2000%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E5%88%9D%E6%8E%A2%E4%B9%8Bc%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" data-id="cm0xlg3io00agggtlcoavac37" data-title="SAP2000二次开发初探之C#环境搭建" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-your-subject" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/03/19/your-subject/" class="article-date">
+  <time class="dt-published" datetime="2021-03-19T08:29:39.000Z" itemprop="datePublished">2021-03-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/uncategorized/">uncategorized</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/03/19/your-subject/">[your-subject]</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>You-Know-Who 摸鱼与搞事系 61 18322189720 <a href="mailto:&#x73;&#104;&#105;&#x68;&#x7a;&#49;&#57;&#x40;&#x6d;&#x61;&#x69;&#x6c;&#115;&#46;&#x74;&#x73;&#105;&#110;&#x67;&#x68;&#117;&#x61;&#46;&#x65;&#100;&#x75;&#46;&#99;&#x6e;">&#x73;&#104;&#105;&#x68;&#x7a;&#49;&#57;&#x40;&#x6d;&#x61;&#x69;&#x6c;&#115;&#46;&#x74;&#x73;&#105;&#110;&#x67;&#x68;&#117;&#x61;&#46;&#x65;&#100;&#x75;&#46;&#99;&#x6e;</a> Gandalf-膜法与长生系-2147483647 Cauchy-术学系-6666666666 1 59.66.168.76 Mozilla&#x2F;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;89.0.4389.90 Safari&#x2F;537.36 <a target="_blank" rel="noopener" href="https://thuce.top/?p=2117&preview%5C_id=2117&preview%5C_nonce=b02f89cf95&preview=true">https://thuce.top/?p=2117&amp;preview\_id=2117&amp;preview\_nonce=b02f89cf95&amp;preview=true</a> 2021年3月19日 下午4:29 2117 test_members <a target="_blank" rel="noopener" href="https://thuce.top/?p=2117">https://thuce.top/?p=2117</a> MPCB_Bishop <a href="mailto:&#x67;&#117;&#x79;&#x69;&#x32;&#48;&#48;&#x30;&#64;&#121;&#x65;&#x61;&#104;&#x2e;&#x6e;&#101;&#x74;">&#x67;&#117;&#x79;&#x69;&#x32;&#48;&#48;&#x30;&#64;&#121;&#x65;&#x61;&#104;&#x2e;&#x6e;&#101;&#x74;</a> 土木系、建管系学生科协 搞事情，我们是专业的！ <a target="_blank" rel="noopener" href="https://thuce.top/">https://thuce.top</a> <a href="mailto:&#115;&#x68;&#x7a;&#50;&#48;&#48;&#x31;&#x30;&#54;&#64;&#104;&#111;&#116;&#x6d;&#x61;&#105;&#x6c;&#x2e;&#x63;&#x6f;&#109;">&#115;&#x68;&#x7a;&#50;&#48;&#48;&#x31;&#x30;&#54;&#64;&#104;&#111;&#116;&#x6d;&#x61;&#105;&#x6c;&#x2e;&#x63;&#x6f;&#109;</a> THUce <a href="mailto:&#103;&#117;&#121;&#105;&#50;&#x30;&#48;&#x30;&#x40;&#121;&#x65;&#x61;&#x68;&#x2e;&#110;&#x65;&#x74;">&#103;&#117;&#121;&#105;&#50;&#x30;&#48;&#x30;&#x40;&#121;&#x65;&#x61;&#x68;&#x2e;&#110;&#x65;&#x74;</a> MPCB_Bishop</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/03/19/your-subject/" data-id="cm0xlg3j300c7ggtl0gvwh9xe" data-title="[your-subject]" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-神奇的不知道什么比赛报名表（？" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/03/19/%E7%A5%9E%E5%A5%87%E7%9A%84%E4%B8%8D%E7%9F%A5%E9%81%93%E4%BB%80%E4%B9%88%E6%AF%94%E8%B5%9B%E6%8A%A5%E5%90%8D%E8%A1%A8%EF%BC%88%EF%BC%9F/" class="article-date">
+  <time class="dt-published" datetime="2021-03-19T08:16:10.000Z" itemprop="datePublished">2021-03-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/uncategorized/">uncategorized</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/03/19/%E7%A5%9E%E5%A5%87%E7%9A%84%E4%B8%8D%E7%9F%A5%E9%81%93%E4%BB%80%E4%B9%88%E6%AF%94%E8%B5%9B%E6%8A%A5%E5%90%8D%E8%A1%A8%EF%BC%88%EF%BC%9F/">RegisterDemoTest</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>队长姓名 [text* leader-name] 队长院系 [text* leader-dept] 队长学号 [text* leader-stuid] 队长电话 [tel* leader-tel] 队长邮箱 [email* leader-email] 队员信息 [textarea* members-info placeholder “请填写队员的「姓名-院系-学号」，每行一个，团队总人数不超过五人”] [file file-644 limit:9999999] [submit “Submit”] 1 第xxx届xxxx竞赛报名 [_site_title] <a href="mailto:&#115;&#104;&#x7a;&#x32;&#x30;&#x30;&#49;&#x30;&#x36;&#64;&#104;&#111;&#116;&#x6d;&#97;&#105;&#108;&#x2e;&#99;&#x6f;&#x6d;">&#115;&#104;&#x7a;&#x32;&#x30;&#x30;&#49;&#x30;&#x36;&#64;&#104;&#111;&#116;&#x6d;&#97;&#105;&#108;&#x2e;&#99;&#x6f;&#x6d;</a> 「队长信息」 [leader-dept]-[leader-name] 学号：[leader-stuid] 「队长联系方式」 电话：[leader-tel] 邮件[leader-email] 「队员信息」 [members-info] 「提交时间」 [_date] [_time] – 这封邮件来自联系表单第xxx届xxx竞赛报名 Reply-To: HanochShi [file-644] [_site_title] “[your-subject]“ [_site_title] [your-email] 消息正文： [your-message] – 这封邮件来自联系表单[_site_title] ([_site_url]) Reply-To: [_site_admin_email] 谢谢。已发送您的信息。 发生错误，请稍后再试。 出现错误，请检查后重新尝试。 发生错误，请稍后再试。 您必须阅读并接受条款和条件，才能发送信息。 必填字段。 内容太长。 内容太短。 上传文件时出错。 抱歉，不允许上传这一类型的文件。 该文件太大。 上传文件时出错。 日期格式不正确。 日期早于允许的最早日期。 日期晚于允许的最后日期。 数字格式无效。 数字小于允许的最小值。 数字大于允许的最大值。 小测验的答案不正确。 输入的电子邮件地址无效。 提供的URL无效。 电话号码无效。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/03/19/%E7%A5%9E%E5%A5%87%E7%9A%84%E4%B8%8D%E7%9F%A5%E9%81%93%E4%BB%80%E4%B9%88%E6%AF%94%E8%B5%9B%E6%8A%A5%E5%90%8D%E8%A1%A8%EF%BC%88%EF%BC%9F/" data-id="cm0xlg3js00eoggtl7er3891l" data-title="RegisterDemoTest" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2104658458-qq-com" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/03/05/2104658458-qq-com/" class="article-date">
+  <time class="dt-published" datetime="2021-03-05T15:17:01.000Z" itemprop="datePublished">2021-03-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/uncategorized/">uncategorized</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/03/05/2104658458-qq-com/">2104658458@qq.com</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>鹏 陈 <a href="mailto:&#50;&#49;&#48;&#x34;&#54;&#53;&#x38;&#52;&#x35;&#56;&#64;&#x71;&#x71;&#x2e;&#99;&#111;&#x6d;">&#50;&#49;&#48;&#x34;&#54;&#53;&#x38;&#52;&#x35;&#56;&#64;&#x71;&#x71;&#x2e;&#99;&#111;&#x6d;</a> 陈, 鹏</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/03/05/2104658458-qq-com/" data-id="cm0xlg3gf003eggtl3y10g97h" data-title="2104658458@qq.com" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-lrs01-foxmail-com" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/07/lrs01-foxmail-com/" class="article-date">
+  <time class="dt-published" datetime="2021-02-07T03:01:42.000Z" itemprop="datePublished">2021-02-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/uncategorized/">uncategorized</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/02/07/lrs01-foxmail-com/">lrs01@foxmail.com</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><a href="mailto:&#x6c;&#x72;&#115;&#x30;&#49;&#64;&#102;&#x6f;&#x78;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#99;&#111;&#109;">&#x6c;&#x72;&#115;&#x30;&#49;&#64;&#102;&#x6f;&#x78;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#99;&#111;&#109;</a> lrs</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/07/lrs01-foxmail-com/" data-id="cm0xlg3ic0093ggtl0k91ao86" data-title="lrs01@foxmail.com" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-756500719-qq-com" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/05/756500719-qq-com/" class="article-date">
+  <time class="dt-published" datetime="2021-02-05T15:14:56.000Z" itemprop="datePublished">2021-02-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/uncategorized/">uncategorized</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/02/05/756500719-qq-com/">756500719@qq.com</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>欣宇 钱 <a href="mailto:&#55;&#x35;&#x36;&#53;&#x30;&#x30;&#55;&#x31;&#x39;&#x40;&#x71;&#x71;&#46;&#99;&#x6f;&#x6d;">&#55;&#x35;&#x36;&#53;&#x30;&#x30;&#55;&#x31;&#x39;&#x40;&#x71;&#x71;&#46;&#99;&#x6f;&#x6d;</a> 钱, 欣宇</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/05/756500719-qq-com/" data-id="cm0xlg3h50052ggtleg4qeacx" data-title="756500719@qq.com" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-czg18-mails-tsinghua-edu-cn" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/02/05/czg18-mails-tsinghua-edu-cn/" class="article-date">
+  <time class="dt-published" datetime="2021-02-05T13:52:06.000Z" itemprop="datePublished">2021-02-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/uncategorized/">uncategorized</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/02/05/czg18-mails-tsinghua-edu-cn/">czg18@mails.tsinghua.edu.cn</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><a href="mailto:&#x63;&#122;&#103;&#x31;&#56;&#x40;&#x6d;&#x61;&#x69;&#x6c;&#x73;&#46;&#x74;&#x73;&#105;&#x6e;&#x67;&#104;&#x75;&#97;&#x2e;&#x65;&#x64;&#x75;&#x2e;&#x63;&#x6e;">&#x63;&#122;&#103;&#x31;&#56;&#x40;&#x6d;&#x61;&#x69;&#x6c;&#x73;&#46;&#x74;&#x73;&#105;&#x6e;&#x67;&#104;&#x75;&#97;&#x2e;&#x65;&#x64;&#x75;&#x2e;&#x63;&#x6e;</a> czg</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/05/czg18-mails-tsinghua-edu-cn/" data-id="cm0xlg3hm006sggtl1f879a5c" data-title="czg18@mails.tsinghua.edu.cn" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-yaoyx17-mails-tsinghua-edu-cn" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/01/30/yaoyx17-mails-tsinghua-edu-cn/" class="article-date">
+  <time class="dt-published" datetime="2021-01-30T00:37:27.000Z" itemprop="datePublished">2021-01-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/uncategorized/">uncategorized</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/01/30/yaoyx17-mails-tsinghua-edu-cn/">yaoyx17@mails.tsinghua.edu.cn</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><a href="mailto:&#121;&#97;&#111;&#x79;&#120;&#49;&#x37;&#64;&#x6d;&#97;&#x69;&#108;&#x73;&#46;&#x74;&#115;&#105;&#110;&#103;&#104;&#117;&#x61;&#46;&#101;&#100;&#x75;&#x2e;&#x63;&#x6e;">&#121;&#97;&#111;&#x79;&#120;&#49;&#x37;&#64;&#x6d;&#97;&#x69;&#108;&#x73;&#46;&#x74;&#115;&#105;&#110;&#103;&#104;&#117;&#x61;&#46;&#101;&#100;&#x75;&#x2e;&#x63;&#x6e;</a> encore</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/01/30/yaoyx17-mails-tsinghua-edu-cn/" data-id="cm0xlg3j100byggtl09qf2zac" data-title="yaoyx17@mails.tsinghua.edu.cn" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-shihz19-mails-tsinghua-edu-cn" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2021/01/03/shihz19-mails-tsinghua-edu-cn/" class="article-date">
@@ -95,438 +480,12 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>Hanoch Shi <a href="mailto:&#x73;&#104;&#x69;&#x68;&#x7a;&#49;&#57;&#x40;&#x6d;&#x61;&#105;&#108;&#x73;&#46;&#116;&#x73;&#x69;&#110;&#x67;&#x68;&#117;&#x61;&#46;&#101;&#100;&#117;&#x2e;&#x63;&#x6e;">&#x73;&#104;&#x69;&#x68;&#x7a;&#49;&#57;&#x40;&#x6d;&#x61;&#105;&#108;&#x73;&#46;&#116;&#x73;&#x69;&#110;&#x67;&#x68;&#117;&#x61;&#46;&#101;&#100;&#117;&#x2e;&#x63;&#x6e;</a> shihz</p>
+        <p>Hanoch Shi <a href="mailto:&#115;&#x68;&#x69;&#x68;&#122;&#x31;&#57;&#64;&#109;&#x61;&#105;&#x6c;&#x73;&#x2e;&#x74;&#x73;&#x69;&#110;&#x67;&#104;&#x75;&#x61;&#46;&#101;&#100;&#117;&#x2e;&#x63;&#x6e;">&#115;&#x68;&#x69;&#x68;&#122;&#x31;&#57;&#64;&#109;&#x61;&#105;&#x6c;&#x73;&#x2e;&#x74;&#x73;&#x69;&#110;&#x67;&#104;&#x75;&#x61;&#46;&#101;&#100;&#117;&#x2e;&#x63;&#x6e;</a> shihz</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/01/03/shihz19-mails-tsinghua-edu-cn/" data-id="cm0witt4p00ar3ktl0llr94aw" data-title="shihz19@mails.tsinghua.edu.cn" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-清华大学第二十六届结构设计大赛决赛现场" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/12/22/%E6%B8%85%E5%8D%8E%E5%A4%A7%E5%AD%A6%E7%AC%AC%E4%BA%8C%E5%8D%81%E5%85%AD%E5%B1%8A%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%A4%A7%E8%B5%9B%E5%86%B3%E8%B5%9B%E7%8E%B0%E5%9C%BA/" class="article-date">
-  <time class="dt-published" datetime="2020-12-21T16:06:09.000Z" itemprop="datePublished">2020-12-22</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%96%B0%E9%97%BB/">新闻</a>►<a class="article-category-link" href="/categories/%E8%B5%9B%E4%BA%8B/">赛事</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/12/22/%E6%B8%85%E5%8D%8E%E5%A4%A7%E5%AD%A6%E7%AC%AC%E4%BA%8C%E5%8D%81%E5%85%AD%E5%B1%8A%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%A4%A7%E8%B5%9B%E5%86%B3%E8%B5%9B%E7%8E%B0%E5%9C%BA/">清华大学第二十六届结构设计大赛决赛现场</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV11v411b78o">原视频链接</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/22/%E6%B8%85%E5%8D%8E%E5%A4%A7%E5%AD%A6%E7%AC%AC%E4%BA%8C%E5%8D%81%E5%85%AD%E5%B1%8A%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%A4%A7%E8%B5%9B%E5%86%B3%E8%B5%9B%E7%8E%B0%E5%9C%BA/" data-id="cm0witt6700eq3ktl031me659" data-title="清华大学第二十六届结构设计大赛决赛现场" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-技术贴-一篇使用markdown编辑的markdown教程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/12/06/%E6%8A%80%E6%9C%AF%E8%B4%B4-%E4%B8%80%E7%AF%87%E4%BD%BF%E7%94%A8markdown%E7%BC%96%E8%BE%91%E7%9A%84markdown%E6%95%99%E7%A8%8B/" class="article-date">
-  <time class="dt-published" datetime="2020-12-06T13:17:02.000Z" itemprop="datePublished">2020-12-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/12/06/%E6%8A%80%E6%9C%AF%E8%B4%B4-%E4%B8%80%E7%AF%87%E4%BD%BF%E7%94%A8markdown%E7%BC%96%E8%BE%91%E7%9A%84markdown%E6%95%99%E7%A8%8B/">技术贴  一篇使用Markdown编辑的Markdown教程</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="Markdown是什么"><a href="#Markdown是什么" class="headerlink" title="Markdown是什么"></a>Markdown是什么</h2><blockquote>
-<p>Markdown是一种轻量级标记语言，创始人为约翰·格鲁伯（英语：John Gruber）。 它允许人们使用易读易写的纯文本格式编写文档，然后转换成有效的XHTML（或者HTML）文档。这种语言吸收了很多在电子邮件中已有的纯文本标记的特性。</p>
-</blockquote>
-<p>说人话版本：就是用一些简单的标记语法来代替排版，使我们能够专注于内容而不需要像常用的Word或Pages那样进行大量的排版、字体设置。</p>
-<p>当前许多网站都广泛使用 Markdown 来撰写帮助文档或是用于论坛上发表消息。例如：GitHub、简书、T大树洞等。</p>
-<h2 id="使用什么工具"><a href="#使用什么工具" class="headerlink" title="使用什么工具"></a>使用什么工具</h2><p>本帖将使用Typora编辑器来讲解Markdown的语法，这一编辑器支持 Windows 、MacOS、Linux等多个平台，且包含多种主题，编辑的同时可以直接渲染出效果，且支持导出HTML、PDF、Word、图片等多种类型文件。</p>
-<p>Typora官网：<a target="_blank" rel="noopener" href="https://www.typora.io/">https://www.typora.io/</a></p>
-<h2 id="Markdown语法的简要规则"><a href="#Markdown语法的简要规则" class="headerlink" title="Markdown语法的简要规则"></a>Markdown语法的简要规则</h2><p>下面介绍的是Markdown语法中比较基础且常用的部分，在typora中大多可以通过快捷键或者右键菜单快速输入，所以无需担心遇到类似$\LaTeX$那样陡峭的学习曲线，但是熟练掌握这些语法可以使码字体验更加流畅。</p>
-<ol>
-<li><p><strong>标题：</strong>如果我们需要将一行文字定义成标题，只需要在文字前加<code>#</code>即可。注意在<code>#</code>和文字中间加一个空格，这是最标准的Markdown语法。通过连续的多个<code>#</code>我们可以定义多级标题。（最多支持到6级） <a target="_blank" rel="noopener" href="https://imgchr.com/i/DLGZ8g"><img src="https://s3.ax1x.com/2020/12/05/DLGZ8g.png" alt="DLGZ8g.png"></a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">### 三级标题</span><br><span class="line">#### 四级标题</span><br><span class="line">##### 五级标题</span><br><span class="line">###### 六级标题</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>粗体与斜体：</strong>两者语法比较类似，粗体是将文字用两个<code>*</code>包裹起来，而斜体只需要一个。在typora中我们可以用<code>ctrl</code>+<code>B</code>快速插入粗体，用<code>ctrl</code>+<code>i</code>插入斜体。 <a target="_blank" rel="noopener" href="https://imgchr.com/i/DLGkUf"><img src="https://s3.ax1x.com/2020/12/05/DLGkUf.png" alt="DLGkUf.png"></a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">**这是一段粗体文本**</span><br><span class="line">*这是斜体*</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>引用：</strong>如果我们需要引用一小段别处的句子，只需要在文本前加上&gt;（大于号）即可。 <a target="_blank" rel="noopener" href="https://imgchr.com/i/DLGA58"><img src="https://s3.ax1x.com/2020/12/05/DLGA58.png" alt="DLGA58.png"></a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; 苟利国家生死以，岂因祸福避趋之。——林则徐</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>图片与链接：</strong>链接的插入由两部分组成，其基本语法为<code>[显示的文字](URL)</code>。图片的插入和链接类似，只需要在代码前多加入一个英文感叹号<code>!</code>。在typora中两者均可以通过直接复制粘贴的方式快速输入。</p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/DLGe2Q"><img src="https://s3.ax1x.com/2020/12/05/DLGe2Q.png" alt="DLGe2Q.png"></a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[世一流](https://tsinghua.edu.cn)</span><br><span class="line">![这里是图片加载失败时的替代文字](https://s1.ax1x.com/2020/10/25/BnpAxg.png)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>表格：</strong>在Markdown中输入表格相对比较复杂，这里不作展开说明，在typora中可以通过右键-插入-表格可视化的插入和编辑表格，此外<a target="_blank" rel="noopener" href="https://www.tablesgenerator.com/markdown_tables">这个网站</a>也提供在线的可视化编辑表格后生成Markdown供复制粘贴的服务。</p>
-</li>
-<li><p><strong>无序列表和有序列表：</strong>无序列表使用星号、加号或减号作为标记，选择自己喜爱的一种使用即可（不要混用，混用会被解释为不同的列表），有序列表则使用一般的数字和一个英文句号作为标记。不同的列表间可以嵌套。 <a target="_blank" rel="noopener" href="https://imgchr.com/i/DLGVPS"><img src="https://s3.ax1x.com/2020/12/05/DLGVPS.png" alt="DLGVPS.png"></a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">* 这是一个无序列表</span><br><span class="line">+ 这样也可以</span><br><span class="line">- 减号也行</span><br><span class="line">- 1. 还可以嵌套一个有序的</span><br><span class="line">     1. 还可以嵌套很多层~~（禁止套娃）~~</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>代码及代码块：</strong><code>hello world!</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hello world!</span><br><span class="line">如果您是一名程序员，您一定不需要阅读这份粗浅的教程qwq</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>如果看到了这里，恭喜你已经掌握了Markdown的基础语法，当然无论是typora编辑器还是Markdown本身都还有更多高阶玩法，可以在未来慢慢发掘~</p>
-<h2 id="公式输入专题"><a href="#公式输入专题" class="headerlink" title="公式输入专题"></a>公式输入专题</h2><p><img src="/../wp-content_uploads/2020/12/%E5%85%AC%E5%BC%8F%E8%BE%93%E5%85%A5%E4%B8%93%E9%A2%98.png"> 由于某些未知原因上面部分只能通过图片方式发出，图中涉及到的链接如下</p>
-<ul>
-<li>识别工具<a target="_blank" rel="noopener" href="https://mathpix.com/">mathpix</a></li>
-<li>一份更详细的Markdown说明文档：<a target="_blank" rel="noopener" href="http://www.wowubuntu.com/markdown/index.html">http://www.wowubuntu.com/markdown/index.html</a></li>
-<li>数学公式参考：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/blog/IowaBattleship/latex-gong-shi-tai-quan">https://www.luogu.com.cn/blog/IowaBattleship/latex-gong-shi-tai-quan</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/06/%E6%8A%80%E6%9C%AF%E8%B4%B4-%E4%B8%80%E7%AF%87%E4%BD%BF%E7%94%A8markdown%E7%BC%96%E8%BE%91%E7%9A%84markdown%E6%95%99%E7%A8%8B/" data-id="cm0witt5s00dq3ktl2tqy8oii" data-title="技术贴  一篇使用Markdown编辑的Markdown教程" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-技术帖-excel数据透视表" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/12/05/%E6%8A%80%E6%9C%AF%E5%B8%96-excel%E6%95%B0%E6%8D%AE%E9%80%8F%E8%A7%86%E8%A1%A8/" class="article-date">
-  <time class="dt-published" datetime="2020-12-05T04:33:59.000Z" itemprop="datePublished">2020-12-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/12/05/%E6%8A%80%E6%9C%AF%E5%B8%96-excel%E6%95%B0%E6%8D%AE%E9%80%8F%E8%A7%86%E8%A1%A8/">技术帖  excel数据透视表</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>数据透视表常常被誉为excel中最强大的功能，那么它的作用到底有多强大呢？一起来了解一下吧~</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">1.认识数据透视表      </span><br><span class="line">数据透视表有什么作用？     </span><br><span class="line">简单来说，数据透视表就是一个快速对详细数据进行各种分类汇总与计算的数据分析工具。它的优点在于快速灵活。我们可以从下面一个简单的例子来看。     </span><br><span class="line">                                                                      </span><br><span class="line">左边灰色部分是原始的数据表，右边是对应的两个数据透视表与数据透视图，只需要简单的几个步骤，就可以对各个公司，各个销售员的销售额进行分类汇总。通过数据透视图，我们还可以对各部分进行直观的比较。      </span><br><span class="line">数据透视表适用于哪些场景？       </span><br><span class="line">有大量的数据需要分析，使用函数计算比较繁琐；需要分类整理各类表格；数据经常需要更新……      </span><br><span class="line">2.创建一个简单的数据透视表     </span><br><span class="line">规范数据格式      </span><br><span class="line">（1）不能有空字段、空行     </span><br><span class="line">                                                                        </span><br><span class="line">（2）不能有合并单元格（如果字段所在行有合并单元格，还是会被视为空字段）     </span><br><span class="line">（3）不包含相同字段（相同的字段会自动添加序号以示区别）     </span><br><span class="line">（4）不包含文本型数字（可以通过选中文本后点击数据-分列，将数据格式改为常规）      </span><br><span class="line">创建数据透视表     </span><br><span class="line">（1）点击工具栏[插入]选项卡-数据透视图        </span><br><span class="line">                                                                        </span><br><span class="line">（2）在弹出的创建窗口中，选择数据源区域以及数据透视表的放置位置     </span><br><span class="line">                                                                        </span><br><span class="line">（3）选择列、行、值字段分别拖拽到下方区域，这里选择行字段，注意字段的上下顺序将决定数据透视表中字段的层级关系，越往上层级越高。值区间的数据则是我们需要整合计算的那部分数据。      </span><br><span class="line">                                                                     </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>对于值字段，我们不止可以进行求和运算，还可以进行取平均、计数、求最大、最小值等操作，可以点开值字段的下拉列表，在[值字段设置]中选择计算类型。下面一个简单的例子展示了求平均运算的效果。</p>
-<p><img src="/../wp-content_uploads/2020/12/%E5%88%9B%E5%BB%BA3.jpg"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">                                                                          </span><br><span class="line">至此，一个简单的数据透视表已经完成！       </span><br><span class="line">    3.小技巧      </span><br><span class="line">    制作数据透视表的步骤较为简单，但是其中也有很多需要注意的细节。        </span><br><span class="line">    （1）更改数据来源      </span><br><span class="line">    若要更改数据来源，选择[分析]选项卡-更改数据源-选择所需要的数据来源即可。       </span><br><span class="line">                                                                            </span><br><span class="line">    （2）更新数据表       </span><br><span class="line">    若原始数据表中的一些数据发生改变，我们需要手动右键单击数据透视表-刷新，以实现数据透视表的实时更新。       </span><br><span class="line">    （3）透视表筛选功能     </span><br><span class="line">    拿之前的例子来说，假如我们现在只需要看一季度、二季度的销售额，可以通过点击时间字段的下拉列表-将三季度前的勾选消除，从而筛选掉三季度的数据。       </span><br><span class="line">                                                                            </span><br><span class="line">    （4）数据透视表的美化        </span><br><span class="line">    通过单击数据透视表-[设计]选项卡，我们可以选择或新建想要的透视表样式；可以改变报表的整体布局（大纲、压缩或表格）还可以选择是否显示每个字段分类汇总的值；是否在每个项目之后加入空行。      </span><br><span class="line">                                                                            </span><br><span class="line">    （5）切片器的使用      </span><br><span class="line">    切片器的作用简单来说就是让数据透视表的筛选功能更加方便快捷，我们可以点击数据透视表-[分析]选项卡-插入切片器-选择对应字段的切片器，下面的例子展示了在切片器中选择[时间]项后的效果。     </span><br><span class="line">    </span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/05/%E6%8A%80%E6%9C%AF%E5%B8%96-excel%E6%95%B0%E6%8D%AE%E9%80%8F%E8%A7%86%E8%A1%A8/" data-id="cm0witt5l00d73ktl0tko31j0" data-title="技术帖  excel数据透视表" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-第26届结构设计大赛初赛现场实录剪辑" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/12/02/%E7%AC%AC26%E5%B1%8A%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%A4%A7%E8%B5%9B%E5%88%9D%E8%B5%9B%E7%8E%B0%E5%9C%BA%E5%AE%9E%E5%BD%95%E5%89%AA%E8%BE%91/" class="article-date">
-  <time class="dt-published" datetime="2020-12-02T06:31:45.000Z" itemprop="datePublished">2020-12-02</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%96%B0%E9%97%BB/">新闻</a>►<a class="article-category-link" href="/categories/%E8%B5%9B%E4%BA%8B/">赛事</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/12/02/%E7%AC%AC26%E5%B1%8A%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%A4%A7%E8%B5%9B%E5%88%9D%E8%B5%9B%E7%8E%B0%E5%9C%BA%E5%AE%9E%E5%BD%95%E5%89%AA%E8%BE%91/">第26届结构设计大赛初赛现场实录剪辑</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="给爷倒"><a href="#给爷倒" class="headerlink" title="给爷倒~~~"></a>给爷倒~~~</h2>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/02/%E7%AC%AC26%E5%B1%8A%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%A4%A7%E8%B5%9B%E5%88%9D%E8%B5%9B%E7%8E%B0%E5%9C%BA%E5%AE%9E%E5%BD%95%E5%89%AA%E8%BE%91/" data-id="cm0witt6500ek3ktlepivegn9" data-title="第26届结构设计大赛初赛现场实录剪辑" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-caoyk19-mails-tsinghua-edu-cn" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/11/29/caoyk19-mails-tsinghua-edu-cn/" class="article-date">
-  <time class="dt-published" datetime="2020-11-29T09:50:44.000Z" itemprop="datePublished">2020-11-29</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/uncategorized/">uncategorized</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/11/29/caoyk19-mails-tsinghua-edu-cn/">caoyk19@mails.tsinghua.edu.cn</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><a href="mailto:&#99;&#x61;&#x6f;&#121;&#107;&#49;&#57;&#64;&#109;&#97;&#105;&#108;&#115;&#46;&#x74;&#115;&#105;&#110;&#x67;&#104;&#117;&#97;&#46;&#x65;&#x64;&#x75;&#46;&#99;&#110;">&#99;&#x61;&#x6f;&#121;&#107;&#49;&#57;&#64;&#109;&#97;&#105;&#108;&#115;&#46;&#x74;&#115;&#105;&#110;&#x67;&#104;&#117;&#97;&#46;&#x65;&#x64;&#x75;&#46;&#99;&#110;</a> nvknow</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/29/caoyk19-mails-tsinghua-edu-cn/" data-id="cm0witt2g005q3ktl4mpo6bym" data-title="caoyk19@mails.tsinghua.edu.cn" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-1790973858-qq-com" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/11/13/1790973858-qq-com/" class="article-date">
-  <time class="dt-published" datetime="2020-11-13T15:15:11.000Z" itemprop="datePublished">2020-11-13</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/uncategorized/">uncategorized</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/11/13/1790973858-qq-com/">1790973858@qq.com</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>思源 周 <a href="mailto:&#49;&#x37;&#x39;&#48;&#x39;&#x37;&#51;&#x38;&#x35;&#56;&#x40;&#113;&#x71;&#x2e;&#99;&#111;&#109;">&#49;&#x37;&#x39;&#48;&#x39;&#x37;&#51;&#x38;&#x35;&#56;&#x40;&#113;&#x71;&#x2e;&#99;&#111;&#109;</a> 周, 思源</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/13/1790973858-qq-com/" data-id="cm0witt16003h3ktlbwjd5jy0" data-title="1790973858@qq.com" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-yangzixu18-mails-tsinghua-edu-cn" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/11/09/yangzixu18-mails-tsinghua-edu-cn/" class="article-date">
-  <time class="dt-published" datetime="2020-11-09T11:28:16.000Z" itemprop="datePublished">2020-11-09</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/uncategorized/">uncategorized</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/11/09/yangzixu18-mails-tsinghua-edu-cn/">yangzixu18@mails.tsinghua.edu.cn</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><a href="mailto:&#121;&#x61;&#110;&#x67;&#x7a;&#x69;&#x78;&#x75;&#49;&#x38;&#64;&#109;&#x61;&#x69;&#108;&#x73;&#x2e;&#116;&#115;&#x69;&#x6e;&#103;&#x68;&#x75;&#x61;&#x2e;&#101;&#x64;&#117;&#x2e;&#x63;&#x6e;">&#121;&#x61;&#110;&#x67;&#x7a;&#x69;&#x78;&#x75;&#49;&#x38;&#64;&#109;&#x61;&#x69;&#108;&#x73;&#x2e;&#116;&#115;&#x69;&#x6e;&#103;&#x68;&#x75;&#x61;&#x2e;&#101;&#x64;&#117;&#x2e;&#x63;&#x6e;</a> yangzixu18</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/09/yangzixu18-mails-tsinghua-edu-cn/" data-id="cm0witt4z00br3ktl2jch3sjo" data-title="yangzixu18@mails.tsinghua.edu.cn" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-t-liu19-mails-tsinghua-edu-cn" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/11/09/t-liu19-mails-tsinghua-edu-cn/" class="article-date">
-  <time class="dt-published" datetime="2020-11-09T10:33:26.000Z" itemprop="datePublished">2020-11-09</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/uncategorized/">uncategorized</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/11/09/t-liu19-mails-tsinghua-edu-cn/">t-liu19@mails.tsinghua.edu.cn</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><a href="mailto:&#x74;&#45;&#108;&#105;&#x75;&#49;&#57;&#x40;&#109;&#x61;&#x69;&#x6c;&#115;&#x2e;&#116;&#115;&#x69;&#x6e;&#x67;&#x68;&#117;&#97;&#46;&#x65;&#x64;&#117;&#46;&#99;&#x6e;">&#x74;&#45;&#108;&#105;&#x75;&#49;&#57;&#x40;&#109;&#x61;&#x69;&#x6c;&#115;&#x2e;&#116;&#115;&#x69;&#x6e;&#x67;&#x68;&#117;&#97;&#46;&#x65;&#x64;&#117;&#46;&#99;&#x6e;</a> liutai15</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/09/t-liu19-mails-tsinghua-edu-cn/" data-id="cm0witt4q00au3ktl9t3u8jpq" data-title="t-liu19@mails.tsinghua.edu.cn" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-tmr20-mails-tsinghua-edu-cn" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2020/11/09/tmr20-mails-tsinghua-edu-cn/" class="article-date">
-  <time class="dt-published" datetime="2020-11-09T04:35:39.000Z" itemprop="datePublished">2020-11-09</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/uncategorized/">uncategorized</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/11/09/tmr20-mails-tsinghua-edu-cn/">tmr20@mails.tsinghua.edu.cn</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><a href="mailto:&#x74;&#x6d;&#114;&#50;&#48;&#x40;&#x6d;&#x61;&#x69;&#x6c;&#x73;&#x2e;&#x74;&#x73;&#x69;&#110;&#x67;&#x68;&#117;&#97;&#46;&#101;&#x64;&#117;&#x2e;&#99;&#110;">&#x74;&#x6d;&#114;&#50;&#48;&#x40;&#x6d;&#x61;&#x69;&#x6c;&#x73;&#x2e;&#x74;&#x73;&#x69;&#110;&#x67;&#x68;&#117;&#97;&#46;&#101;&#x64;&#117;&#x2e;&#99;&#110;</a> Mr.Teng</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/09/tmr20-mails-tsinghua-edu-cn/" data-id="cm0witt4s00b33ktlcviucuch" data-title="tmr20@mails.tsinghua.edu.cn" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/2021/01/03/shihz19-mails-tsinghua-edu-cn/" data-id="cm0xlg3ip00ajggtl7145fj07" data-title="shihz19@mails.tsinghua.edu.cn" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -542,7 +501,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/8/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/10/">下一页 &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/8/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/10/">下一页 &raquo;</a>
   </nav>
 
 </section>
@@ -627,7 +586,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       
-      &copy; 2024 John Doe<br>
+      &copy; 2024 科协技术部<br>
       Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

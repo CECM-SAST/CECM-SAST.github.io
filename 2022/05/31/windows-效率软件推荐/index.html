@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   
   
-  <title>Windows 效率软件推荐 | 清华大学土木建管系科协</title>
+  <title>Windows 效率软件推荐 | 清华大学土木系暨建管系学生科协</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="引言当下，疫情的发展难以预料，网课学习、无纸化学习的需求也越来越大。在此背景下，我们要如何提升在 Windows 环境学习下的效率呢？ 从工具使用的角度来看，易用与高效是矛盾的，我们要提升效率，往往就需要付出较高的学习成本，甚至需要去挑战一些学习曲线陡峭的软件。而本贴旨在推荐一些 Windows 下学习成本较低的效率软件，使得同学们能够用最短的时间，达到提升效率的目的。 AutoHotkey简介">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Windows 效率软件推荐">
 <meta property="og:url" content="http://example.com/2022/05/31/windows-%E6%95%88%E7%8E%87%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/index.html">
-<meta property="og:site_name" content="清华大学土木建管系科协">
+<meta property="og:site_name" content="清华大学土木系暨建管系学生科协">
 <meta property="og:description" content="引言当下，疫情的发展难以预料，网课学习、无纸化学习的需求也越来越大。在此背景下，我们要如何提升在 Windows 环境学习下的效率呢？ 从工具使用的角度来看，易用与高效是矛盾的，我们要提升效率，往往就需要付出较高的学习成本，甚至需要去挑战一些学习曲线陡峭的软件。而本贴旨在推荐一些 Windows 下学习成本较低的效率软件，使得同学们能够用最短的时间，达到提升效率的目的。 AutoHotkey简介">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2022/05/31/kEleIsAcphyPQxq.png">
@@ -27,11 +27,11 @@
 <meta property="og:image" content="https://s2.loli.net/2022/05/31/nrLRiX1wCsM9meS.gif">
 <meta property="article:published_time" content="2022-05-31T02:36:22.000Z">
 <meta property="article:modified_time" content="2024-05-29T04:04:10.000Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="科协技术部">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://s2.loli.net/2022/05/31/kEleIsAcphyPQxq.png">
   
-    <link rel="alternate" href="/atom.xml" title="清华大学土木建管系科协" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="清华大学土木系暨建管系学生科协" type="application/atom+xml">
   
   
     <link rel="shortcut icon" href="/favicon.png">
@@ -56,7 +56,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">清华大学土木建管系科协</a>
+        <a href="/" id="logo">清华大学土木系暨建管系学生科协</a>
       </h1>
       
     </div>
@@ -132,7 +132,7 @@
 <li><p>双击文件，并且选用任何一个文本编辑器，即可编辑这个脚本（Visual Studio Code 中有 AutoHotkey 相关的插件，能够实现语法高亮等功能）。</p>
 </li>
 <li><p>创建一个简单脚本，当按下快捷键后，输入一段文本。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^j:: Send, Hello, world!</span><br></pre></td></tr></table></figure>
+<figure class="highlight rust"><table><tr><td class="code"><pre><code class="hljs rust">^j:: <span class="hljs-built_in">Send</span>, Hello, world!<br></code></pre></td></tr></table></figure>
 
 <p>简单解释一下这段代码：</p>
 <ul>
@@ -151,7 +151,7 @@
 <h4 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h4><h5 id="通过快捷键输入特殊符号"><a href="#通过快捷键输入特殊符号" class="headerlink" title="通过快捷键输入特殊符号"></a>通过快捷键输入特殊符号</h5><p>在日常使用过程中，有些键盘上没有特殊符号需要经常输入，但是开启软键盘并且寻找符号又太困难。使用 AutoHotkey 就可以设置在按下快捷键后键入特殊符号。</p>
 <p>以直角引号为例。下面的脚本，实现了在按下快捷键 <code>Alt</code>+<code>[</code> 后输入 “「”，在按下快捷键 <code>Alt</code>+<code>]</code> 后输入 “」”，在按下快捷键 <code>Alt</code>+<code>Shift</code>+<code>[</code> 后输入 “『”，在按下快捷键 <code>Alt</code>+<code>Shift</code>+<code>]</code> 后输入 “』”。</p>
 <p>脚本中，<code>!</code> 代表按键 <code>Alt</code> ，<code>+</code> 代表按键 <code>Shift</code> 。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">![:: Send 「</span><br><span class="line">!]:: Send 」</span><br><span class="line">!+[:: Send 『</span><br><span class="line">!+]:: Send 』</span><br></pre></td></tr></table></figure>
+<figure class="highlight asciidoc"><table><tr><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-bullet">![:: </span>Send 「<br><span class="hljs-bullet">!]:: </span>Send 」<br><span class="hljs-bullet">!+[:: </span>Send 『<br><span class="hljs-bullet">!+]:: </span>Send 』<br></code></pre></td></tr></table></figure>
 
 <p>需要注意的是，该脚本应该选择采用 <code>GB2312</code> 编码保存。</p>
 <h5 id="开机时自动运行脚本"><a href="#开机时自动运行脚本" class="headerlink" title="开机时自动运行脚本"></a>开机时自动运行脚本</h5><p>按下 <code>Win</code>+<code>r</code> ，输入 <code>shell:startup</code> ，进入启动项文件夹。</p>
@@ -204,7 +204,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/05/31/windows-%E6%95%88%E7%8E%87%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/" data-id="cm0witt4u00b93ktl4cbsd7im" data-title="Windows 效率软件推荐" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/2022/05/31/windows-%E6%95%88%E7%8E%87%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/" data-id="cm0xlg3iw00bgggtlcufs6tqx" data-title="Windows 效率软件推荐" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -317,7 +317,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       
-      &copy; 2024 John Doe<br>
+      &copy; 2024 科协技术部<br>
       Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
