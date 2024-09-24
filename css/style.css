@@ -540,6 +540,18 @@ a.article-title:hover {
     height: auto
     display: block
     margin: auto*/
+/*blockquote
+    font-family: font-serif
+    margin: line-height 20px
+    text-align: center
+    footer
+      font-size: font-size
+      margin: line-height 0
+      font-family: font-sans
+      cite
+        &:before
+          content: "—"
+          padding: 0 0.5em*/
 }
 .article-entry:before,
 .article-entry:after {
@@ -609,9 +621,11 @@ a.article-title:hover {
   padding: 10px 0;
 }
 .article-entry blockquote {
+  background-color: #f5f5f5;
   font-family: Georgia, "Times New Roman", serif;
-  margin: 1.6em 20px;
-  text-align: center;
+  font-size: 1.2em;
+  margin: 1.6em 10px;
+  text-align: left;
 }
 .article-entry blockquote footer {
   font-size: 15px;
