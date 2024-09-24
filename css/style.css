@@ -196,11 +196,10 @@ body {
 }
 .article-inner,
 .archive-article-inner {
-  background: #fff;
-  -webkit-box-shadow: 1px 2px 3px #ddd;
-  box-shadow: 1px 2px 3px #ddd;
-  border: 1px solid #ddd;
-  border-radius: 3px;
+  background: #fbfbfb;
+/*box-shadow: 1px 2px 3px #eee*/
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
 }
 .article-entry h1,
 .widget h1 {
@@ -1076,11 +1075,13 @@ a.article-title:hover {
 .article-entry pre,
 .article-entry .highlight {
   background: #2d2d2d;
-  margin: 0 -20px;
+/*margin: 0 article-padding * -1*/
+  margin: auto;
   padding: 15px 20px;
   border-style: solid;
   border-color: #ddd;
-  border-width: 1px 0;
+  border-width: 0px 0;
+  border-radius: 5px;
   overflow: auto;
   color: #ccc;
   line-height: 24px;
@@ -1095,9 +1096,13 @@ a.article-title:hover {
   font-family: Menlo /*Menlo必须提前面啊*/, "Source Code Pro", Monaco, Consolas, Consolas, monospace;
 }
 .article-entry code {
-  background: #eee;
+  background: #e3e3e3;
+  color: #666;
+  border-radius: 3px;
+  border-width: 1px;
+  border-color: #fff;
   text-shadow: 0 1px #fff;
-  padding: 0 0.3em;
+  padding: 0.1em 0.3em;
 }
 .article-entry pre code {
   background: none;
@@ -1112,6 +1117,8 @@ a.article-title:hover {
 .article-entry .highlight table {
   margin: 0;
   width: auto;
+  font-size: 14px;
+  letter-spacing: 1px;
 }
 .article-entry .highlight td {
   border: none;
