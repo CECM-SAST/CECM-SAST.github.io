@@ -6,16 +6,16 @@
   
   <title>技术帖  excel数据透视表 | 清华大学土木工程系暨建设管理系学生科协</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="数据透视表常常被誉为excel中最强大的功能，那么它的作用到底有多强大呢？一起来了解一下吧~ 1.认识数据透视表      数据透视表有什么作用？     简单来说，数据透视表就是一个快速对详细数据进行各种分类汇总与计算的数据分析工具。它的优点在于快速灵活。我们可以从下面一个简单的例子来看。">
+  <meta name="description" content="数据透视表常常被誉为excel中最强大的功能，那么它的作用到底有多强大呢？一起来了解一下吧~ 1.认识数据透视表       数据透视表有什么作用？简单来说，数据透视表就是一个快速对详细数据进行各种分类汇总与计算的数据分析工具。它的优点在于快速灵活。我们可以从下面一个简单的例子来看。左边灰色部分是原始的数据表，右边是对应的两个数据透视表与数据透视图，只需要简单的几个步骤，就可以对各个公司，各个销售">
 <meta property="og:type" content="article">
 <meta property="og:title" content="技术帖  excel数据透视表">
 <meta property="og:url" content="http://example.com/2020/12/05/%E6%8A%80%E6%9C%AF%E5%B8%96-excel%E6%95%B0%E6%8D%AE%E9%80%8F%E8%A7%86%E8%A1%A8/index.html">
 <meta property="og:site_name" content="清华大学土木工程系暨建设管理系学生科协">
-<meta property="og:description" content="数据透视表常常被誉为excel中最强大的功能，那么它的作用到底有多强大呢？一起来了解一下吧~ 1.认识数据透视表      数据透视表有什么作用？     简单来说，数据透视表就是一个快速对详细数据进行各种分类汇总与计算的数据分析工具。它的优点在于快速灵活。我们可以从下面一个简单的例子来看。">
+<meta property="og:description" content="数据透视表常常被誉为excel中最强大的功能，那么它的作用到底有多强大呢？一起来了解一下吧~ 1.认识数据透视表       数据透视表有什么作用？简单来说，数据透视表就是一个快速对详细数据进行各种分类汇总与计算的数据分析工具。它的优点在于快速灵活。我们可以从下面一个简单的例子来看。左边灰色部分是原始的数据表，右边是对应的两个数据透视表与数据透视图，只需要简单的几个步骤，就可以对各个公司，各个销售">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/wp-content_uploads/2020/12/%E5%88%9B%E5%BB%BA3.jpg">
 <meta property="article:published_time" content="2020-12-05T04:33:59.000Z">
-<meta property="article:modified_time" content="2024-05-29T04:05:08.000Z">
+<meta property="article:modified_time" content="2024-10-05T12:55:00.921Z">
 <meta property="article:author" content="科协技术部">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/wp-content_uploads/2020/12/%E5%88%9B%E5%BB%BA3.jpg">
@@ -65,8 +65,6 @@
         
           <a class="main-nav-link" href="/news">新闻热点</a>
         
-          <a class="main-nav-link" href="/highlight">往期精彩</a>
-        
           <a class="main-nav-link" href="/about">联系我们</a>
         
           <a class="main-nav-link" href="/sign">注册登录</a>
@@ -114,11 +112,21 @@
     <!-- <div class="e-content article-entry" itemprop="articleBody">
       
         <p>数据透视表常常被誉为excel中最强大的功能，那么它的作用到底有多强大呢？一起来了解一下吧~</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-number">1</span>.认识数据透视表      <br>数据透视表有什么作用？     <br>简单来说，数据透视表就是一个快速对详细数据进行各种分类汇总与计算的数据分析工具。它的优点在于快速灵活。我们可以从下面一个简单的例子来看。     <br>                                                                      <br>左边灰色部分是原始的数据表，右边是对应的两个数据透视表与数据透视图，只需要简单的几个步骤，就可以对各个公司，各个销售员的销售额进行分类汇总。通过数据透视图，我们还可以对各部分进行直观的比较。      <br>数据透视表适用于哪些场景？       <br>有大量的数据需要分析，使用函数计算比较繁琐；需要分类整理各类表格；数据经常需要更新……      <br><span class="hljs-number">2</span>.创建一个简单的数据透视表     <br>规范数据格式      <br>（<span class="hljs-number">1</span>）不能有空字段、空行     <br>                                                                        <br>（<span class="hljs-number">2</span>）不能有合并单元格（如果字段所在行有合并单元格，还是会被视为空字段）     <br>（<span class="hljs-number">3</span>）不包含相同字段（相同的字段会自动添加序号以示区别）     <br>（<span class="hljs-number">4</span>）不包含文本型数字（可以通过选中文本后点击数据-分列，将数据格式改为常规）      <br>创建数据透视表     <br>（<span class="hljs-number">1</span>）点击工具栏<span class="hljs-selector-attr">[插入]</span>选项卡-数据透视图        <br>                                                                        <br>（<span class="hljs-number">2</span>）在弹出的创建窗口中，选择数据源区域以及数据透视表的放置位置     <br>                                                                        <br>（<span class="hljs-number">3</span>）选择列、行、值字段分别拖拽到下方区域，这里选择行字段，注意字段的上下顺序将决定数据透视表中字段的层级关系，越往上层级越高。值区间的数据则是我们需要整合计算的那部分数据。      <br>                                                                     <br><br></code></pre></td></tr></table></figure>
-
+<p>1.认识数据透视表      </p>
+<p>数据透视表有什么作用？<br>简单来说，数据透视表就是一个快速对详细数据进行各种分类汇总与计算的数据分析工具。它的优点在于快速灵活。我们可以从下面一个简单的例子来看。<br>左边灰色部分是原始的数据表，右边是对应的两个数据透视表与数据透视图，只需要简单的几个步骤，就可以对各个公司，各个销售员的销售额进行分类汇总。通过数据透视图，我们还可以对各部分进行直观的比较。<br>数据透视表适用于哪些场景？<br>有大量的数据需要分析，使用函数计算比较繁琐；需要分类整理各类表格；数据经常需要更新……<br>2.创建一个简单的数据透视表<br>规范数据格式<br>（1）不能有空字段、空行               </p>
+<p>（2）不能有合并单元格（如果字段所在行有合并单元格，还是会被视为空字段）     </p>
+<p>（3）不包含相同字段（相同的字段会自动添加序号以示区别）<br>（4）不包含文本型数字（可以通过选中文本后点击数据-分列，将数据格式改为常规）                                                              </p>
+<p>创建数据透视表<br>（1）点击工具栏[插入]选项卡-数据透视图        </p>
+<p>（2）在弹出的创建窗口中，选择数据源区域以及数据透视表的放置位置        </p>
+<p>（3）选择列、行、值字段分别拖拽到下方区域，这里选择行字段，注意字段的上下顺序将决定数据透视表中字段的层级关系，越往上层级越高。值区间的数据则是我们需要整合计算的那部分数据。                                                                    </p>
 <p>对于值字段，我们不止可以进行求和运算，还可以进行取平均、计数、求最大、最小值等操作，可以点开值字段的下拉列表，在[值字段设置]中选择计算类型。下面一个简单的例子展示了求平均运算的效果。</p>
 <p><img src="/../wp-content_uploads/2020/12/%E5%88%9B%E5%BB%BA3.jpg"></p>
-<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css">                                                                          <br>至此，一个简单的数据透视表已经完成！       <br>    <span class="hljs-number">3</span>.小技巧      <br>    制作数据透视表的步骤较为简单，但是其中也有很多需要注意的细节。        <br>    （<span class="hljs-number">1</span>）更改数据来源      <br>    若要更改数据来源，选择<span class="hljs-selector-attr">[分析]</span>选项卡-更改数据源-选择所需要的数据来源即可。       <br>                                                                            <br>    （<span class="hljs-number">2</span>）更新数据表       <br>    若原始数据表中的一些数据发生改变，我们需要手动右键单击数据透视表-刷新，以实现数据透视表的实时更新。       <br>    （<span class="hljs-number">3</span>）透视表筛选功能     <br>    拿之前的例子来说，假如我们现在只需要看一季度、二季度的销售额，可以通过点击时间字段的下拉列表-将三季度前的勾选消除，从而筛选掉三季度的数据。       <br>                                                                            <br>    （<span class="hljs-number">4</span>）数据透视表的美化        <br>    通过单击数据透视表-<span class="hljs-selector-attr">[设计]</span>选项卡，我们可以选择或新建想要的透视表样式；可以改变报表的整体布局（大纲、压缩或表格）还可以选择是否显示每个字段分类汇总的值；是否在每个项目之后加入空行。      <br>                                                                            <br>    （<span class="hljs-number">5</span>）切片器的使用      <br>    切片器的作用简单来说就是让数据透视表的筛选功能更加方便快捷，我们可以点击数据透视表-<span class="hljs-selector-attr">[分析]</span>选项卡-插入切片器-选择对应字段的切片器，下面的例子展示了在切片器中选择<span class="hljs-selector-attr">[时间]</span>项后的效果。     <br>    <br></code></pre></td></tr></table></figure>
+<p>至此，一个简单的数据透视表已经完成！</p>
+<p>3.小技巧<br>        制作数据透视表的步骤较为简单，但是其中也有很多需要注意的细节。<br>（1）更改数据来源<br>     若要更改数据来源，选择[分析]选项卡-更改数据源-选择所需要的数据来源即可。       </p>
+<p>（2）更新数据表<br>     若原始数据表中的一些数据发生改变，我们需要手动右键单击数据透视表-刷新，以实现数据透视表的实时更新。<br>（3）透视表筛选功能<br>     拿之前的例子来说，假如我们现在只需要看一季度、二季度的销售额，可以通过点击时间字段的下拉列表-将三季度前的勾选消除，从而筛选掉三季度的数据。   </p>
+<p>（4）数据透视表的美化<br>        通过单击数据透视表-[设计]选项卡，我们可以选择或新建想要的透视表样式；可以改变报表的整体布局（大纲、压缩或表格）还可以选择是否显示每个字段分类汇总的值；是否在每个项目之后加入空行。  </p>
+<p>（5）切片器的使用<br>        切片器的作用简单来说就是让数据透视表的筛选功能更加方便快捷，我们可以点击数据透视表-[分析]选项卡-插入切片器-选择对应字段的切片器，下面的例子展示了在切片器中选择[时间]项后的效果。                                                                    </p>
+
       
     </div> -->
     <div class="article-entry" itemprop="articleBody">
@@ -126,16 +134,26 @@
         
         
           <p>数据透视表常常被誉为excel中最强大的功能，那么它的作用到底有多强大呢？一起来了解一下吧~</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css"><span class="hljs-number">1</span>.认识数据透视表      <br>数据透视表有什么作用？     <br>简单来说，数据透视表就是一个快速对详细数据进行各种分类汇总与计算的数据分析工具。它的优点在于快速灵活。我们可以从下面一个简单的例子来看。     <br>                                                                      <br>左边灰色部分是原始的数据表，右边是对应的两个数据透视表与数据透视图，只需要简单的几个步骤，就可以对各个公司，各个销售员的销售额进行分类汇总。通过数据透视图，我们还可以对各部分进行直观的比较。      <br>数据透视表适用于哪些场景？       <br>有大量的数据需要分析，使用函数计算比较繁琐；需要分类整理各类表格；数据经常需要更新……      <br><span class="hljs-number">2</span>.创建一个简单的数据透视表     <br>规范数据格式      <br>（<span class="hljs-number">1</span>）不能有空字段、空行     <br>                                                                        <br>（<span class="hljs-number">2</span>）不能有合并单元格（如果字段所在行有合并单元格，还是会被视为空字段）     <br>（<span class="hljs-number">3</span>）不包含相同字段（相同的字段会自动添加序号以示区别）     <br>（<span class="hljs-number">4</span>）不包含文本型数字（可以通过选中文本后点击数据-分列，将数据格式改为常规）      <br>创建数据透视表     <br>（<span class="hljs-number">1</span>）点击工具栏<span class="hljs-selector-attr">[插入]</span>选项卡-数据透视图        <br>                                                                        <br>（<span class="hljs-number">2</span>）在弹出的创建窗口中，选择数据源区域以及数据透视表的放置位置     <br>                                                                        <br>（<span class="hljs-number">3</span>）选择列、行、值字段分别拖拽到下方区域，这里选择行字段，注意字段的上下顺序将决定数据透视表中字段的层级关系，越往上层级越高。值区间的数据则是我们需要整合计算的那部分数据。      <br>                                                                     <br><br></code></pre></td></tr></table></figure>
-
+<p>1.认识数据透视表      </p>
+<p>数据透视表有什么作用？<br>简单来说，数据透视表就是一个快速对详细数据进行各种分类汇总与计算的数据分析工具。它的优点在于快速灵活。我们可以从下面一个简单的例子来看。<br>左边灰色部分是原始的数据表，右边是对应的两个数据透视表与数据透视图，只需要简单的几个步骤，就可以对各个公司，各个销售员的销售额进行分类汇总。通过数据透视图，我们还可以对各部分进行直观的比较。<br>数据透视表适用于哪些场景？<br>有大量的数据需要分析，使用函数计算比较繁琐；需要分类整理各类表格；数据经常需要更新……<br>2.创建一个简单的数据透视表<br>规范数据格式<br>（1）不能有空字段、空行               </p>
+<p>（2）不能有合并单元格（如果字段所在行有合并单元格，还是会被视为空字段）     </p>
+<p>（3）不包含相同字段（相同的字段会自动添加序号以示区别）<br>（4）不包含文本型数字（可以通过选中文本后点击数据-分列，将数据格式改为常规）                                                              </p>
+<p>创建数据透视表<br>（1）点击工具栏[插入]选项卡-数据透视图        </p>
+<p>（2）在弹出的创建窗口中，选择数据源区域以及数据透视表的放置位置        </p>
+<p>（3）选择列、行、值字段分别拖拽到下方区域，这里选择行字段，注意字段的上下顺序将决定数据透视表中字段的层级关系，越往上层级越高。值区间的数据则是我们需要整合计算的那部分数据。                                                                    </p>
 <p>对于值字段，我们不止可以进行求和运算，还可以进行取平均、计数、求最大、最小值等操作，可以点开值字段的下拉列表，在[值字段设置]中选择计算类型。下面一个简单的例子展示了求平均运算的效果。</p>
 <p><img src="/../wp-content_uploads/2020/12/%E5%88%9B%E5%BB%BA3.jpg"></p>
-<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css">                                                                          <br>至此，一个简单的数据透视表已经完成！       <br>    <span class="hljs-number">3</span>.小技巧      <br>    制作数据透视表的步骤较为简单，但是其中也有很多需要注意的细节。        <br>    （<span class="hljs-number">1</span>）更改数据来源      <br>    若要更改数据来源，选择<span class="hljs-selector-attr">[分析]</span>选项卡-更改数据源-选择所需要的数据来源即可。       <br>                                                                            <br>    （<span class="hljs-number">2</span>）更新数据表       <br>    若原始数据表中的一些数据发生改变，我们需要手动右键单击数据透视表-刷新，以实现数据透视表的实时更新。       <br>    （<span class="hljs-number">3</span>）透视表筛选功能     <br>    拿之前的例子来说，假如我们现在只需要看一季度、二季度的销售额，可以通过点击时间字段的下拉列表-将三季度前的勾选消除，从而筛选掉三季度的数据。       <br>                                                                            <br>    （<span class="hljs-number">4</span>）数据透视表的美化        <br>    通过单击数据透视表-<span class="hljs-selector-attr">[设计]</span>选项卡，我们可以选择或新建想要的透视表样式；可以改变报表的整体布局（大纲、压缩或表格）还可以选择是否显示每个字段分类汇总的值；是否在每个项目之后加入空行。      <br>                                                                            <br>    （<span class="hljs-number">5</span>）切片器的使用      <br>    切片器的作用简单来说就是让数据透视表的筛选功能更加方便快捷，我们可以点击数据透视表-<span class="hljs-selector-attr">[分析]</span>选项卡-插入切片器-选择对应字段的切片器，下面的例子展示了在切片器中选择<span class="hljs-selector-attr">[时间]</span>项后的效果。     <br>    <br></code></pre></td></tr></table></figure>
+<p>至此，一个简单的数据透视表已经完成！</p>
+<p>3.小技巧<br>        制作数据透视表的步骤较为简单，但是其中也有很多需要注意的细节。<br>（1）更改数据来源<br>     若要更改数据来源，选择[分析]选项卡-更改数据源-选择所需要的数据来源即可。       </p>
+<p>（2）更新数据表<br>     若原始数据表中的一些数据发生改变，我们需要手动右键单击数据透视表-刷新，以实现数据透视表的实时更新。<br>（3）透视表筛选功能<br>     拿之前的例子来说，假如我们现在只需要看一季度、二季度的销售额，可以通过点击时间字段的下拉列表-将三季度前的勾选消除，从而筛选掉三季度的数据。   </p>
+<p>（4）数据透视表的美化<br>        通过单击数据透视表-[设计]选项卡，我们可以选择或新建想要的透视表样式；可以改变报表的整体布局（大纲、压缩或表格）还可以选择是否显示每个字段分类汇总的值；是否在每个项目之后加入空行。  </p>
+<p>（5）切片器的使用<br>        切片器的作用简单来说就是让数据透视表的筛选功能更加方便快捷，我们可以点击数据透视表-[分析]选项卡-插入切片器-选择对应字段的切片器，下面的例子展示了在切片器中选择[时间]项后的效果。                                                                    </p>
+
         
            
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/12/05/%E6%8A%80%E6%9C%AF%E5%B8%96-excel%E6%95%B0%E6%8D%AE%E9%80%8F%E8%A7%86%E8%A1%A8/" data-id="cm1qhgu5x017lvwtl5jym95b8" data-title="技术帖  excel数据透视表" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://example.com/2020/12/05/%E6%8A%80%E6%9C%AF%E5%B8%96-excel%E6%95%B0%E6%8D%AE%E9%80%8F%E8%A7%86%E8%A1%A8/" data-id="cm1yyak1k01mkkotl2icm0my3" data-title="技术帖  excel数据透视表" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -177,12 +195,12 @@
       <ul>
         
           <li>
-            <a href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a>
+            <a href="/categories/%E7%B2%BE%E5%BD%A9%E8%B5%9B%E4%BA%8B/">精彩赛事</a>
             
           </li>
         
           <li>
-            <a href="/categories/%E7%B2%BE%E5%BD%A9%E8%B5%9B%E4%BA%8B/">精彩赛事</a>
+            <a href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a>
             
           </li>
         
@@ -256,8 +274,6 @@
     <a href="/competition" class="mobile-nav-link">精彩赛事</a>
   
     <a href="/news" class="mobile-nav-link">新闻热点</a>
-  
-    <a href="/highlight" class="mobile-nav-link">往期精彩</a>
   
     <a href="/about" class="mobile-nav-link">联系我们</a>
   
