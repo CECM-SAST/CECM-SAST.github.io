@@ -31,7 +31,7 @@
   
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
 
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 7.1.1"></head>
 
 <body>
   <div id="container">
@@ -108,18 +108,18 @@
         <p>C#（读作「See Sharp」）是由微软开发的一种面向对象且类型安全的新式编程语言，运行在 .NET 上，开发人员利用 C#能够生成在 .NET 中运行的多种安全可靠的应用程序。C# 源自 C 系列语言，因此有过基本程设基础的同学可以很快上手使用，有过 C++ 基础的同学可以更快地掌握面向对象部分。当然没有完全也不要紧，本篇技术贴将带你从环境安装开始快速入门 C#。</p>
 <h2 id="环境安装和建立项目"><a href="#环境安装和建立项目" class="headerlink" title="环境安装和建立项目"></a>环境安装和建立项目</h2><p>对于 Windows 或 macOS，推荐使用 <a target="_blank" rel="noopener" href="https://visualstudio.microsoft.com/zh-hans/">Visual Studio</a>，目前对于个人用户这一强大的 IDE 是免费使用的，对于 Linux 用户，相信您一定不需要这份粗浅的教程可以考虑使用 <a target="_blank" rel="noopener" href="https://www.mono-project.com/download/stable/">Mono</a> 等。本文将以 Windows 平台为例进行演示。</p>
 <p>下载 Visual Studio 后，启动下好的安装包，将会为你安装 Visual Studio Installer 方便管理，全流程都是提供简体中文描述的，比较容易理解，整体而言一路下一步即可，注意在如图所示的「工作负载」部分要勾选「.NET 桌面开发」即可。（当然即使忘记了后续也可以通过 Visual Studio Installer 补上，所以放轻松！）</p>
-<p><img src="/../../wp-content_uploads/2022/03/1-1024x519.png"></p>
+<p><img src="/.top//../wp-content_uploads/2022/03/1-1024x519.png"></p>
 <p>安装过程由于需要现场下载几个 G 的内容，可能需要耗费一点时间，记得在这个过程中保持网络通畅。可以趁机冲一杯咖啡</p>
 <p>安装好后让我们来创建第一个项目：启动 Visual Studio，选择右侧的「创建新项目」-「控制台应用」，给项目起一个好听的名称，选择一个合适的存储位置，点击创建，就可以等待 Visual Studio 为你建好一个全新的项目了。</p>
 <h2 id="Hello-World-与程序结构"><a href="#Hello-World-与程序结构" class="headerlink" title="Hello, World! 与程序结构"></a>Hello, World! 与程序结构</h2><p>如果你和笔者一样使用的是非常新版本的 Visual Studio（比如刚刚下载好的 Visual Studio 2022），在建立新项目之后大概率会见到一个总共两行还有一行是注释的 Hello World! 程序：</p>
 <figure class="highlight c#"><table><tr><td class="code"><pre><code class="hljs C#"><span class="hljs-comment">// See https://aka.ms/new-console-template for more information</span><br>Console.WriteLine(<span class="hljs-string">&quot;Hello, World!&quot;</span>);<br></code></pre></td></tr></table></figure>
 
-<p><img src="/../../wp-content_uploads/2022/03/2-1024x655.png"></p>
+<p><img src="/.top//../wp-content_uploads/2022/03/2-1024x655.png"></p>
 <p>这是通过 C# 9.0 中新增的顶级语句特性实现的，暂时不在本文的讨论范围内，我们考虑一个标准的 Hello World! 程序：</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><code class="hljs C#"><span class="hljs-keyword">using</span> System;<br><br><span class="hljs-keyword">namespace</span> <span class="hljs-title">HelloWorld</span><br>&#123;<br>    <span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>    &#123;<br>        <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-built_in">string</span>[] <span class="hljs-keyword">args</span></span>)</span><br>        &#123;<br>            Console.WriteLine(<span class="hljs-string">&quot;Hello World!&quot;</span>);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight c#"><table><tr><td class="code"><pre><code class="hljs C#"><span class="hljs-keyword">using</span> System;<br><br><span class="hljs-keyword">namespace</span> <span class="hljs-title">HelloWorld</span><br>&#123;<br>    <span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>    &#123;<br>        <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-built_in">string</span>[] args</span>)</span><br>        &#123;<br>            Console.WriteLine(<span class="hljs-string">&quot;Hello World!&quot;</span>);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>用上述代码替换原先的极简版本，点击菜单栏下面的绿色箭头运行，当场可以得到输出了 Hello World! 的小黑框：</p>
-<p><img src="/../../wp-content_uploads/2022/03/3-1024x545.png"></p>
+<p><img src="/.top//../wp-content_uploads/2022/03/3-1024x545.png"></p>
 <p>我们观察这个程序的各个部分可以得到典型 C# 程序的基本结构和一些需要注意的关键点：</p>
 <ul>
 <li>第一行<code>using System;</code>使用了<code>using</code>关键字在程序中包含了<code>System</code>命名空间，一般 C# 程序通常会有多个<code>using</code>语句；</li>
@@ -179,7 +179,7 @@
            
     <!-- </div>
     <footer class="article-footer">
-      <a data-url="http://thuce.top/2022/03/26/c-%E6%95%99%E7%A8%8B%EF%BC%9A%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" data-id="cm8uc8kka0076isujh7a7812b" data-title="C# 教程：环境安装与快速入门" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://thuce.top/2022/03/26/c-%E6%95%99%E7%A8%8B%EF%BC%9A%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" data-id="cm8ud92k30047twuj6jkh5ilg" data-title="C# 教程：环境安装与快速入门" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -282,7 +282,7 @@
            
     <!-- </div>
     <footer class="article-footer">
-      <a data-url="http://thuce.top/2022/03/18/c%EF%BC%9A%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%88%9D%E6%AD%A5/" data-id="cm8uc8kkx008lisuj2zfd2wru" data-title="C#：面向对象初步" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://thuce.top/2022/03/18/c%EF%BC%9A%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%88%9D%E6%AD%A5/" data-id="cm8ud92k5004atwujfkq2dz7z" data-title="C#：面向对象初步" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -354,7 +354,7 @@
 
 
 <p>1）竖向荷载<br>竖向荷载将加载于模型的滑雪台坡面、坡面下部结构与其他功能分区的加载层上。其中，滑雪台坡面荷载可在组委会规定的荷载范围内自由搭配选择。<br>2）动荷载<br>动荷载将加载于滑雪台坡面。<br>3）地震作用<br>在地震作用加载阶段选手首先卸除滑雪台坡面上所有荷载，之后按照组委会规定的<strong>统一坡面荷载</strong>进行加载。地震作用加载阶段使用给定的地震波进行加载，地震作用分为小震和大震两级，基于地震基本波形采用不同的放大系数。加载方向为振动垂直于滑雪台长边。比赛中由振动台提供地震荷载，地震基本波形见<a href="../../wp-content_uploads/2021/10/%E9%99%84%E4%BB%B63-%E5%9C%B0%E9%9C%87%E6%B3%A2%E5%8E%9F%E5%A7%8B%E6%B3%A2%E5%BD%A2%E6%97%B6%E9%97%B4%E5%8A%A0%E9%80%9F%E5%BA%A6.csv">赛题附件3</a>。</p>
-<p><img src="/../../wp-content_uploads/2021/10/27jiesai-img2-1024x332.jpg"></p>
+<p><img src="/.top//../wp-content_uploads/2021/10/27jiesai-img2-1024x332.jpg"></p>
 <p>图2 初赛小震波形图</p>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><code class="hljs markdown"><span class="hljs-code">    加载说明       </span><br><span class="hljs-code">加载分为四级，分别为竖向荷载、动荷载、小震作用、大震作用。竖向荷载阶段最终荷载重量由选手自行决定并保持至动荷载加载阶段结束。地震作用阶段的竖向荷载由组委会进行统一规定。        </span><br><span class="hljs-code">                            </span><br><span class="hljs-code">                                                                           图3 结构加载示例</span><br><span class="hljs-code">                                </span><br><span class="hljs-code">    参赛对象       </span><br><span class="hljs-code"></span><br></code></pre></td></tr></table></figure>
 
@@ -379,7 +379,7 @@
            
     <!-- </div>
     <footer class="article-footer">
-      <a data-url="http://thuce.top/2021/10/20/%E7%BB%93%E8%B5%9B-%E5%91%BD%E9%A2%98%E7%AE%80%E4%BB%8B%E5%8F%8A%E6%8A%A5%E5%90%8D%E9%80%9A%E7%9F%A5/" data-id="cm8uc8kl70097isujc7p88j05" data-title="清华大学第二十七届结构设计大赛命题简介及报名通知" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://thuce.top/2021/10/20/%E7%BB%93%E8%B5%9B-%E5%91%BD%E9%A2%98%E7%AE%80%E4%BB%8B%E5%8F%8A%E6%8A%A5%E5%90%8D%E9%80%9A%E7%9F%A5/" data-id="cm8ud92ln006xtwuj1b6ydy0u" data-title="清华大学第二十七届结构设计大赛命题简介及报名通知" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -464,17 +464,17 @@
 
 <h3 id="Python魔术方法"><a href="#Python魔术方法" class="headerlink" title="Python魔术方法"></a>Python魔术方法</h3><p>提到类，就不得不先提一下Python的魔术方法。在Python中，所有以双下划线<code>__</code>包裹起来的方法，统称为魔术方法（Magic Method， 由于是双下划线，也可称dunder），它是一种特殊的方法，往往不会显式地调用。魔术方法在类或对象的某些事件触发后会自动运行，让类具有神奇的“魔力”。Python中的魔术方法很多，例如控制算术运算符的<code>__add__</code>, <code>__mul__</code>等，控制比较运算符的<code>__eq__</code>等，还有控制类型转换、属性操作、构造析构的魔术方法。这里对常用的<code>__init__</code>, <code>__repr__</code>稍作介绍。</p>
 <h3 id="init-初始化方法"><a href="#init-初始化方法" class="headerlink" title="__init__初始化方法"></a><code>__init__</code>初始化方法</h3><p><code>__init__</code>方法类似C++类中的构造函数。需要注意的是，<code>__init__</code>函数的第一个参数为实例本身，通常名字为<code>self</code>，通过<code>self</code>可以访问实例的属性。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span>:<br>    <span class="hljs-string">&quot;&quot;&quot;学生&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;初始化方法&quot;&quot;&quot;</span><br>        <span class="hljs-variable language_">self</span>.name = name<br>        <span class="hljs-variable language_">self</span>.age = age<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">study</span>(<span class="hljs-params">self, course_name</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;学习&quot;&quot;&quot;</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;self.name&#125;</span>正在学习<span class="hljs-subst">&#123;course_name&#125;</span>.&#x27;</span>)<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">play</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;玩耍&quot;&quot;&quot;</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;self.name&#125;</span>正在玩游戏.&#x27;</span>)<br><br>stu1 = Student(<span class="hljs-string">&#x27;程志刚&#x27;</span>, <span class="hljs-number">21</span>)<br>stu2 = Student(<span class="hljs-string">&#x27;XX&#x27;</span>, <span class="hljs-number">15</span>)<br>stu1.study(<span class="hljs-string">&#x27;Python程序设计&#x27;</span>)    <br><span class="hljs-comment"># 程志刚正在学习Python程序设计.</span><br>stu2.play()<br><span class="hljs-comment"># XX正在玩游戏.</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span>:<br>    <span class="hljs-string">&quot;&quot;&quot;学生&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;初始化方法&quot;&quot;&quot;</span><br>        self.name = name<br>        self.age = age<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">study</span>(<span class="hljs-params">self, course_name</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;学习&quot;&quot;&quot;</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;self.name&#125;</span>正在学习<span class="hljs-subst">&#123;course_name&#125;</span>.&#x27;</span>)<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">play</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;玩耍&quot;&quot;&quot;</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;self.name&#125;</span>正在玩游戏.&#x27;</span>)<br><br>stu1 = Student(<span class="hljs-string">&#x27;程志刚&#x27;</span>, <span class="hljs-number">21</span>)<br>stu2 = Student(<span class="hljs-string">&#x27;XX&#x27;</span>, <span class="hljs-number">15</span>)<br>stu1.study(<span class="hljs-string">&#x27;Python程序设计&#x27;</span>)    <br><span class="hljs-comment"># 程志刚正在学习Python程序设计.</span><br>stu2.play()<br><span class="hljs-comment"># XX正在玩游戏.</span><br></code></pre></td></tr></table></figure>
 
 <h3 id="repr-方法"><a href="#repr-方法" class="headerlink" title="__repr__方法"></a><code>__repr__</code>方法</h3><p><code>__repr__</code>方法可以改变<code>print</code>函数的行为。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span>:<br>    <span class="hljs-string">&quot;&quot;&quot;学生&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;初始化方法&quot;&quot;&quot;</span><br>        <span class="hljs-variable language_">self</span>.name = name<br>        <span class="hljs-variable language_">self</span>.age = age<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__repr__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;self.name&#125;</span>: <span class="hljs-subst">&#123;self.age&#125;</span>&#x27;</span><br><br>stu1 = Student(<span class="hljs-string">&#x27;程志刚&#x27;</span>, <span class="hljs-number">21</span>)<br><span class="hljs-built_in">print</span>(stu1)        <span class="hljs-comment"># 程志刚: 21</span><br>students = [<br>    stu1, <br>    Student(<span class="hljs-string">&#x27;张三&#x27;</span>, <span class="hljs-number">16</span>), <br>    Student(<span class="hljs-string">&#x27;李四&#x27;</span>, <span class="hljs-number">25</span>)<br>]<br><span class="hljs-built_in">print</span>(students)    <br><span class="hljs-comment"># [程志刚: 21, 张三: 16, 李四: 25]</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span>:<br>    <span class="hljs-string">&quot;&quot;&quot;学生&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;初始化方法&quot;&quot;&quot;</span><br>        self.name = name<br>        self.age = age<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__repr__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;self.name&#125;</span>: <span class="hljs-subst">&#123;self.age&#125;</span>&#x27;</span><br><br>stu1 = Student(<span class="hljs-string">&#x27;程志刚&#x27;</span>, <span class="hljs-number">21</span>)<br><span class="hljs-built_in">print</span>(stu1)        <span class="hljs-comment"># 程志刚: 21</span><br>students = [<br>    stu1, <br>    Student(<span class="hljs-string">&#x27;张三&#x27;</span>, <span class="hljs-number">16</span>), <br>    Student(<span class="hljs-string">&#x27;李四&#x27;</span>, <span class="hljs-number">25</span>)<br>]<br><span class="hljs-built_in">print</span>(students)    <br><span class="hljs-comment"># [程志刚: 21, 张三: 16, 李四: 25]</span><br></code></pre></td></tr></table></figure>
 
 <h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>封装是为了便利代码的使用者，即程序员在编写类的过程中，隐藏一切可以隐藏的实现细节，只向外界暴露简单的调用接口。例如对于钟表类，可以定义<code>run</code>函数处理小时、分钟、秒的进位，使用者只需调用<code>run</code>即可。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Clock</span>(<span class="hljs-title class_ inherited__">object</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;数字时钟&quot;&quot;&quot;</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, hour=<span class="hljs-number">0</span>, minute=<span class="hljs-number">0</span>, second=<span class="hljs-number">0</span></span>):<br>        <span class="hljs-variable language_">self</span>.hour = hour<br>        <span class="hljs-variable language_">self</span>.<span class="hljs-built_in">min</span> = minute<br>        <span class="hljs-variable language_">self</span>.sec = second<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">run</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-variable language_">self</span>.sec += <span class="hljs-number">1</span><br>        <span class="hljs-keyword">if</span> <span class="hljs-variable language_">self</span>.sec == <span class="hljs-number">60</span>:<br>            <span class="hljs-variable language_">self</span>.sec = <span class="hljs-number">0</span><br>            <span class="hljs-variable language_">self</span>.<span class="hljs-built_in">min</span> += <span class="hljs-number">1</span><br>            <span class="hljs-keyword">if</span> <span class="hljs-variable language_">self</span>.<span class="hljs-built_in">min</span> == <span class="hljs-number">60</span>:<br>                <span class="hljs-variable language_">self</span>.<span class="hljs-built_in">min</span> = <span class="hljs-number">0</span><br>                <span class="hljs-variable language_">self</span>.hour += <span class="hljs-number">1</span><br>                <span class="hljs-keyword">if</span> <span class="hljs-variable language_">self</span>.hour == <span class="hljs-number">24</span>:<br>                    <span class="hljs-variable language_">self</span>.hour = <span class="hljs-number">0</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">show</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;显示时间&quot;&quot;&quot;</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;self.hour:<span class="hljs-number">0</span>&gt;2d&#125;</span>:<span class="hljs-subst">&#123;self.<span class="hljs-built_in">min</span>:<span class="hljs-number">0</span>&gt;2d&#125;</span>:<span class="hljs-subst">&#123;self.sec:<span class="hljs-number">0</span>&gt;2d&#125;</span>&#x27;</span><br><br><span class="hljs-comment"># 创建时钟对象</span><br>clock = Clock(<span class="hljs-number">23</span>, <span class="hljs-number">59</span>, <span class="hljs-number">58</span>)<br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    <span class="hljs-comment"># 给时钟对象发消息读取时间</span><br>    <span class="hljs-built_in">print</span>(clock.show())<br>    <span class="hljs-comment"># 休眠1秒钟</span><br>    time.sleep(<span class="hljs-number">1</span>)<br>    <span class="hljs-comment"># 给时钟对象发消息使其走字</span><br>    clock.run()<br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Clock</span>(<span class="hljs-title class_ inherited__">object</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;数字时钟&quot;&quot;&quot;</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, hour=<span class="hljs-number">0</span>, minute=<span class="hljs-number">0</span>, second=<span class="hljs-number">0</span></span>):<br>        self.hour = hour<br>        self.<span class="hljs-built_in">min</span> = minute<br>        self.sec = second<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">run</span>(<span class="hljs-params">self</span>):<br>        self.sec += <span class="hljs-number">1</span><br>        <span class="hljs-keyword">if</span> self.sec == <span class="hljs-number">60</span>:<br>            self.sec = <span class="hljs-number">0</span><br>            self.<span class="hljs-built_in">min</span> += <span class="hljs-number">1</span><br>            <span class="hljs-keyword">if</span> self.<span class="hljs-built_in">min</span> == <span class="hljs-number">60</span>:<br>                self.<span class="hljs-built_in">min</span> = <span class="hljs-number">0</span><br>                self.hour += <span class="hljs-number">1</span><br>                <span class="hljs-keyword">if</span> self.hour == <span class="hljs-number">24</span>:<br>                    self.hour = <span class="hljs-number">0</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">show</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;显示时间&quot;&quot;&quot;</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;self.hour:<span class="hljs-number">0</span>&gt;2d&#125;</span>:<span class="hljs-subst">&#123;self.<span class="hljs-built_in">min</span>:<span class="hljs-number">0</span>&gt;2d&#125;</span>:<span class="hljs-subst">&#123;self.sec:<span class="hljs-number">0</span>&gt;2d&#125;</span>&#x27;</span><br><br><span class="hljs-comment"># 创建时钟对象</span><br>clock = Clock(<span class="hljs-number">23</span>, <span class="hljs-number">59</span>, <span class="hljs-number">58</span>)<br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    <span class="hljs-comment"># 给时钟对象发消息读取时间</span><br>    <span class="hljs-built_in">print</span>(clock.show())<br>    <span class="hljs-comment"># 休眠1秒钟</span><br>    time.sleep(<span class="hljs-number">1</span>)<br>    <span class="hljs-comment"># 给时钟对象发消息使其走字</span><br>    clock.run()<br></code></pre></td></tr></table></figure>
 
 <p>在本例中，将时钟的进位与显示封装起来，外部调用时，只需要调用相应函数即可。</p>
 <h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>面向对象的编程语言支持在已有类的基础上创建新类，从而减少重复代码的编写。提供继承信息的类叫做父类（超类、基类），得到继承信息的类叫做子类（派生类、衍生类）。由于Python2.x版本的遗留问题，虽然Python3.x已经不必显式继承<code>object</code>类，但依然建议大家显式继承。继承的语法为<code>class 类名(父类名):</code></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span>(<span class="hljs-title class_ inherited__">object</span>):    <span class="hljs-comment"># 此处显式继承了object类</span><br>    <span class="hljs-string">&quot;&quot;&quot;人类&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age</span>):<br>        <span class="hljs-variable language_">self</span>.name = name<br>        <span class="hljs-variable language_">self</span>.age = age<br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">eat</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;self.name&#125;</span>正在吃饭.&#x27;</span>)<br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">sleep</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;self.name&#125;</span>正在睡觉.&#x27;</span>)<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span>(<span class="hljs-title class_ inherited__">Person</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;学生类&quot;&quot;&quot;</span><br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age</span>):<br>        <span class="hljs-built_in">super</span>().__init__(name, age)<br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">study</span>(<span class="hljs-params">self, course_name</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;self.name&#125;</span>正在学习<span class="hljs-subst">&#123;course_name&#125;</span>.&#x27;</span>)<br><br>p = Person(<span class="hljs-string">&quot;CZG&quot;</span>, <span class="hljs-number">21</span>)<br>p.eat()                    <span class="hljs-comment"># CZG正在吃饭.</span><br>stu = Student(<span class="hljs-string">&quot;程志刚&quot;</span>, <span class="hljs-number">21</span>)<br>stu.study(<span class="hljs-string">&quot;Pytorch&quot;</span>)       <span class="hljs-comment"># 程志刚正在学习Pytorch.</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span>(<span class="hljs-title class_ inherited__">object</span>):    <span class="hljs-comment"># 此处显式继承了object类</span><br>    <span class="hljs-string">&quot;&quot;&quot;人类&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age</span>):<br>        self.name = name<br>        self.age = age<br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">eat</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;self.name&#125;</span>正在吃饭.&#x27;</span>)<br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">sleep</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;self.name&#125;</span>正在睡觉.&#x27;</span>)<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span>(<span class="hljs-title class_ inherited__">Person</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;学生类&quot;&quot;&quot;</span><br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age</span>):<br>        <span class="hljs-built_in">super</span>().__init__(name, age)<br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">study</span>(<span class="hljs-params">self, course_name</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;self.name&#125;</span>正在学习<span class="hljs-subst">&#123;course_name&#125;</span>.&#x27;</span>)<br><br>p = Person(<span class="hljs-string">&quot;CZG&quot;</span>, <span class="hljs-number">21</span>)<br>p.eat()                    <span class="hljs-comment"># CZG正在吃饭.</span><br>stu = Student(<span class="hljs-string">&quot;程志刚&quot;</span>, <span class="hljs-number">21</span>)<br>stu.study(<span class="hljs-string">&quot;Pytorch&quot;</span>)       <span class="hljs-comment"># 程志刚正在学习Pytorch.</span><br></code></pre></td></tr></table></figure>
 
 <p>注意在本例中，重写了子类的<code>__init__</code>方法，如果不重写，将自动调用父类构造方法进行构造，如果重写，则默认不会调用，需要自己通过<code>super().__init__</code>调用父类构造方法。</p>
 <h2 id="Python模块"><a href="#Python模块" class="headerlink" title="Python模块"></a>Python模块</h2><p>为了编写可维护的代码，我们把很多函数分组，分别放到不同的文件里，这样，每个文件包含的代码就相对较少，很多编程语言都采用这种组织代码的方式。Python中每个文件就代表了一个模块（module）。使用模块可以大大提升代码可维护性，同时，也让编写代码不必从零开始。当一个模块编写完毕，就可以被其他地方引用。我们在编写程序的时候，也经常引用其它模块，包括Python内置的模块和来自第三方的模块。</p>
@@ -544,7 +544,7 @@
            
     <!-- </div>
     <footer class="article-footer">
-      <a data-url="http://thuce.top/2021/10/11/python%E6%95%99%E7%A8%8B%E2%85%B1%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%88%9D%E6%AD%A5/" data-id="cm8uc8kkf007gisuj5fgc6kbo" data-title="Python教程Ⅱ面向对象编程初步" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://thuce.top/2021/10/11/python%E6%95%99%E7%A8%8B%E2%85%B1%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%88%9D%E6%AD%A5/" data-id="cm8ud92kj004stwuje9g04o5s" data-title="Python教程Ⅱ面向对象编程初步" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -607,7 +607,7 @@
 <p>Anaconda安装步骤：       </p>
 <p>[01] 下载Anaconda安装包</p>
 <p><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/">https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/</a></p>
-<p><img src="/../../wp-content_uploads/2021/08/%E5%9C%A8%E5%BC%80%E6%BA%90%E9%95%9C%E5%83%8F%E7%AB%99%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E5%8C%85-1024x325.jpg" alt="在开源镜像站下载安装包"></p>
+<p><img src="/.top//../wp-content_uploads/2021/08/%E5%9C%A8%E5%BC%80%E6%BA%90%E9%95%9C%E5%83%8F%E7%AB%99%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E5%8C%85-1024x325.jpg" alt="在开源镜像站下载安装包"></p>
 <p>  [02] 添加环境变量</p>
 <p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPZg4Gr9HX8ghnNwl3w8mmFs4EbHr4SHCp8ibVgk4eO4hgyiaLbUq84cARsvvIFQyKDQko8PKLt2XjDw/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="将Anaconda添加到环境变量中"></p>
 <p>环境变量可以认为是Windows搜索程序的路径，执行程序时，Windows系统会在环境变量中逐个搜索，如果找不到，则会返回找不到可执行文件。</p>
@@ -619,9 +619,9 @@
 <h3 id="02-输入如下命令"><a href="#02-输入如下命令" class="headerlink" title="[02] 输入如下命令"></a>[02] 输入如下命令</h3><p>&gt; conda activate base</p>
 <p>&gt; python</p>
 <h3 id="03-打开交互式命令行"><a href="#03-打开交互式命令行" class="headerlink" title="[03] 打开交互式命令行"></a>[03] 打开交互式命令行</h3><p>试试输入1124 ** 122 然后回车，这是在计算1124的122次方（于是你就获得了一个强大的计算器）</p>
-<p><img src="/../../wp-content_uploads/2021/08/%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E4%BB%A3%E7%A0%81.jpg" alt="测试环境代码"></p>
+<p><img src="/.top//../wp-content_uploads/2021/08/%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E4%BB%A3%E7%A0%81.jpg" alt="测试环境代码"></p>
 <p><strong>我不想在黑框框里编程！</strong><br>可安装文本编辑器（或集成开发环境， IDE）<br>Python脚本文件是纯文本文件，理论上只需要记事本即可编辑，编辑后即可使用Python解释器运行。但是记事本没有代码补全、代码高亮、代码警告等。</p>
-<p><img src="/../../wp-content_uploads/2021/08/%E9%80%9A%E8%BF%87%E8%AE%B0%E4%BA%8B%E6%9C%AC%E7%BC%96%E8%BE%91Python%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6.jpg" alt="通过记事本编辑Python脚本文件"></p>
+<p><img src="/.top//../wp-content_uploads/2021/08/%E9%80%9A%E8%BF%87%E8%AE%B0%E4%BA%8B%E6%9C%AC%E7%BC%96%E8%BE%91Python%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6.jpg" alt="通过记事本编辑Python脚本文件"></p>
 <p>通过记事本编辑Python脚本文件</p>
 <p><strong>1. 使用PyCharm</strong><br>JetBrain公司出品，堪称神器，参考<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/zfcjhdq/article/details/104919067">https://blog.csdn.net/zfcjhdq/article/details/104919067</a></p>
 <p><strong>2. 使用Vscode</strong><br>Microsoft出品，支持多种编程语言，本身是个文本编辑器，可通过扩展支持各类IDE功能，参考<br><a target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/languages/python">https://code.visualstudio.com/docs/languages/python</a> ，通过清华邮箱可申请专业版。</p>
@@ -710,7 +710,7 @@
 6 c = &quot;12.045&quot;  
 7 a = float(c)  # a = 12.045 
 </code></pre>
-<p>Python变量类型转换<br>    1 #include &lt;stdio.h&gt;<br>    2<br>    3 int main(){<br>    4     int a &#x3D; 100;<br>    5     double b &#x3D; 12.345;<br>    6     a &#x3D; b;            &#x2F;&#x2F;Not allowed!<br>    7     a &#x3D; (int)b;<br>    8     a &#x3D; (double)a;    &#x2F;&#x2F;Not allowed!<br>    9 }      xxxxxxxxxx 1 #include &lt;stdio.h&gt;  2   3 int main(){  4     int a &#x3D; 100;  5     double b &#x3D; 12.345;  6     a &#x3D; b;            &#x2F;&#x2F;Not allowed!  7     a &#x3D; (int)b;  8     a &#x3D; (double)a;    &#x2F;&#x2F;Not allowed!  9 }      #include &lt;stdio.h&gt;</code></pre><br>C变量类型转换<br>[05] Python输入输出<br>输入输出比C更加便捷                          </p>
+<p>Python变量类型转换<br>    1 #include &lt;stdio.h&gt;<br>    2<br>    3 int main(){<br>    4     int a &#x3D; 100;<br>    5     double b &#x3D; 12.345;<br>    6     a &#x3D; b;            &#x2F;&#x2F;Not allowed!<br>    7     a &#x3D; (int)b;<br>    8     a &#x3D; (double)a;    &#x2F;&#x2F;Not allowed!<br>    9 }      xxxxxxxxxx 1 #include &lt;stdio.h&gt;  2   3 int main(){  4     int a &#x3D; 100;  5     double b &#x3D; 12.345;  6     a &#x3D; b;            &#x2F;&#x2F;Not allowed!  7     a &#x3D; (int)b;  8     a &#x3D; (double)a;    &#x2F;&#x2F;Not allowed!  9 }      #include &lt;stdio.h&gt;<br>C变量类型转换<br>[05] Python输入输出<br>输入输出比C更加便捷                          </p>
 <pre><code>1  print(&#39;The quick brown fox&#39;, &#39;jumps over&#39;, &#39;the lazy dog&#39;)  
 2  print(&#39;100 + 200 =&#39;, 100 + 200)  
 3  a = 10  
@@ -807,7 +807,7 @@
            
     <!-- </div>
     <footer class="article-footer">
-      <a data-url="http://thuce.top/2021/08/23/python%E6%95%99%E7%A8%8B%E2%85%B0%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" data-id="cm8uc8kke007eisujc9mu0stx" data-title="Python教程Ⅰ环境安装与快速入门" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://thuce.top/2021/08/23/python%E6%95%99%E7%A8%8B%E2%85%B0%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" data-id="cm8ud92ke004mtwuj3l3237k9" data-title="Python教程Ⅰ环境安装与快速入门" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -905,7 +905,7 @@
            
     <!-- </div>
     <footer class="article-footer">
-      <a data-url="http://thuce.top/2021/05/17/%E5%85%B3%E4%BA%8E%E4%B8%BE%E5%8A%9E%E7%AC%AC%E5%9B%9B%E5%B1%8A%E8%8C%85%E4%BB%A5%E5%8D%87%E5%85%AC%E7%9B%8A%E6%A1%A5-%E5%B0%8F%E6%A1%A5%E5%B7%A5%E7%A8%8B-%E5%88%9B%E6%96%B0/" data-id="cm8uc8kkn007zisuj8flnczfl" data-title="关于举办第四届“茅以升公益桥—小桥工程” 创新设计大赛的通知" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://thuce.top/2021/05/17/%E5%85%B3%E4%BA%8E%E4%B8%BE%E5%8A%9E%E7%AC%AC%E5%9B%9B%E5%B1%8A%E8%8C%85%E4%BB%A5%E5%8D%87%E5%85%AC%E7%9B%8A%E6%A1%A5-%E5%B0%8F%E6%A1%A5%E5%B7%A5%E7%A8%8B-%E5%88%9B%E6%96%B0/" data-id="cm8ud92lp0071twuj9s9d7u06" data-title="关于举办第四届“茅以升公益桥—小桥工程” 创新设计大赛的通知" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -958,7 +958,7 @@
 <p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicPry7ckx9UiboZCcflfu8VDCVdkCcHo22J2TEL0ZqQABamlYgB9cjPNA/640?wx_fmt=png&wxfrom=13&tp=wxpic" alt="图 1 Main方法示例"></p>
 <p>我们使用SAP2000插件的用户操作流程基本上是依次点击：工具——插件——出现插件窗口——对窗口进行编辑——点击确认——插件执行命令；这对应于我们开发时的流程是：调用cPlugin.Main——呈现一个窗口（Form）——对窗口（Form）进行编辑——点击按键（button）时触发函数，实现插件功能。</p>
 <p><strong>要注意的是，虽然主程序直接调用cPlugin.Main，但是我们的实现思路是先从Main中呈现窗口，再在窗口中实现插件实际功能。</strong>因此Main函数只需要负责生成窗口就好了，具体的插件代码只需在Form中编写。接下来我们先向项目中添加一个窗口项。</p>
-<p><img src="/../../wp-content_uploads/2021/05/2551-2.png" alt="图 2 添加窗口（步骤1）"></p>
+<p><img src="/.top//../wp-content_uploads/2021/05/2551-2.png" alt="图 2 添加窗口（步骤1）"></p>
 <p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicniaibez34OXdcwqZIrk0DJpBiaRoYVRlUrpJLqyxUHo66OBQffNrsdcvg/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="图 3 添加窗口（步骤2）"></p>
 <p>而窗体本质上也是一个类，而要产生窗口的一个实例，我们需要在cPlugin.Main中添加如下代码。其中的Info方法用于在SAP主程序中呈现插件信息，在这里稍作呈现。  </p>
 <p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicn7DaP0e24sjJQ0YtUHsKf3kS7XkAFFGA9icfjuD4MHOkxxZNLZTjWiaA/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="图 4 cPlugin类的完整代码：实现弹出插件窗口"></p>
@@ -975,18 +975,18 @@
 <p>二、SAP2000库函数简介     </p>
 <p>在button_click函数中编写命令时，我们需要大量使用SAP2000附带的函数，以便插件能对SAP2000进行正确操作。这些函数在调用时能够在SAP2000中完成各种功能，包括实例的创建，对象的选取和相关信息的修改与获取。而为了能够正确调用这些函数，我们需要查阅SAP2000附带的OAPI文档，从中找到函数的功能。                                            </p>
 <p>打开OAPI文档（文档在SAP2000安装根目录下，文件名CSI_OAPI_Documentation.chm），点击左边索引菜单中的CSi OAPI Functions栏可以看到各类可供使用的函数，比如Object Model栏中可以查到跟对象操作有关的函数，Select栏中可以查到跟对象的选取有关的函数。在实际使用时就根据需要在左侧索引栏中一层一层找到自己想要的函数。</p>
-<p><img src="/../../wp-content_uploads/2021/05/2551-10.png"></p>
+<p><img src="/.top//../wp-content_uploads/2021/05/2551-10.png"></p>
 <p>图 10 函数一览在文档中的位置</p>
 <p>点击某个具体的函数后，在右侧会显示出这个函数有关的信息。Procedure栏中显示函数调用时会输入&#x2F;获得的变量，Parameters是针对这些变量的解释，Remarks是有关这个函数的说明。以图中选择的SapObject.SapModel.PointObj.GetCoordCartesian为例，这个函数会根据你输入的点的名称（ByVal Name As String）,告诉你这个点的三个坐标（x,y,z），图中第五个变量是指要得到这个点在哪个坐标系下的坐标，一般默认在是全局坐标系下的坐标。值得注意的是，OAPI文档里的使用信息都以VBA为例所写，在语法上与C#略有差异。</p>
 <p>在使用SAP2000库中函数时其函数基本通过传参的方式返回信息。具体来说就是在调用函数时在函数传入参数前加上一个ref。以上述函数为例，在实际使用时其语句为<code>ret=SapModel.PointObj.GetCoordCartesian ( Name ,ref x ,ref y ,ref z , “Globbal” )；</code> 句中的这个“ret&#x3D;”用于返回一个int类型的值以判断函数是否调用成功，成功为0，否则非0。调用函数时的四个变量，第一个Name是传递值，后面三个为传递引用，一般只有需要返回的变量前才需要添加ref。</p>
-<p><img src="/../../wp-content_uploads/2021/05/2551-11-1024x557.png"></p>
+<p><img src="/.top//../wp-content_uploads/2021/05/2551-11-1024x557.png"></p>
 <p>图 11 OAPI文档中对于函数的说明</p>
 <p>三、举个栗子<br>为了方便理解相关功能的使用，这里举一个简单的例子来进行说明</p>
 <p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicFLLWBLCbxMKpkRdt04o3ceDSicu4xiaiby0hVficWzOa4ibBL7rF6LUowxA/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="图 12 Form类核心代码（2）： botton_click"></p>
 <p>该段代码实现用户在点击按钮之后对所选点的坐标进行任意比例的缩放。其中第36行调用OAPI函数获得选择的对象。可以看到虽然之前我们在定义NumberItems,ObjectType_int和ObjectName_string时随意地声明了数组的大小，但是在调用OAPI方法后，API会自动根据结果修改数组并返回结果。在第44行调用函数获得的点坐标直接储存在变量x，y，z中，所以在46行就能直接利用函数获得的坐标值x,y,z和放大系数Ratio_X,Y,Z来进行缩放，而无需额外操作。</p>
 <p>需要注意的是，该例子的图示仅包含了Form类中button_click的函数，完整的插件开发仍需包含上一篇<a href="https://thuce.top/2488.html">《SAP2000二次开发初探之C#环境搭建》</a>的铺垫以及本篇前面对cPlugin类、Form1类的操作步骤。  </p>
 <p>最后以下图的框架结构为例，用户选择红圈内的点并启动插件，试图对该点坐标进行缩放操作，最后的效果如图所示：</p>
-<p><img src="/../../wp-content_uploads/2021/05/2551-13.png"></p>
+<p><img src="/.top//../wp-content_uploads/2021/05/2551-13.png"></p>
 <p>图 13 插件中输入比例系数</p>
 <p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicQTSELQ9a2X3KcqLSPfNN2TYAVgu81E5udnibjzyXHFVYtxawXT97sQw/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1"></p>
 <p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicZNBYschaguauc2wcOwSGAibiblBzoVBbKNIT6KyyWyaHxwbGiclmlCvQw/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="图 14 作用前后对比（上图/下图）"></p>
@@ -1008,7 +1008,7 @@
            
     <!-- </div>
     <footer class="article-footer">
-      <a data-url="http://thuce.top/2021/05/12/sap2000%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8%E4%B9%8B%E6%8F%92%E4%BB%B6%E6%A0%B7%E4%BE%8B/" data-id="cm8uc8kkg007kisujdpyge0j7" data-title="SAP2000二次开发入门之插件样例" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://thuce.top/2021/05/12/sap2000%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8%E4%B9%8B%E6%8F%92%E4%BB%B6%E6%A0%B7%E4%BE%8B/" data-id="cm8ud92kh004ptwuj1ej41ywo" data-title="SAP2000二次开发入门之插件样例" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -1061,37 +1061,37 @@
 <p>SAP2000的安装大家各有各的办法，正常安装即可，操作简单不多讲。而此前装过VS较早版本的同学建议更新到2019版。VS作为一个兼容性较强的IDE，其免费的社区版以及足够我们的使用，到官网下载安装程序即可。这里有几点笔者下载安装中遇到的一点小tips可以供大家参考。</p>
 <p>一、VS 2019的下载安装</p>
 <p>官网上下载VS 2019的安装引导程序，选择第一项community版即可。</p>
-<p><img src="/../../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%871.png"></p>
+<p><img src="/.top//../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%871.png"></p>
 <p>右键点击下载好的exe文件，选择“以管理员身份运行”，进入下面的界面：</p>
-<p><img src="/../../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%872.png"></p>
+<p><img src="/.top//../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%872.png"></p>
 <p>因为笔者已经安装了社区版，所以“可用”栏目下未显示community版本的VS 2019，大家没安装的点击community版本的安装选项即可。选择安装后会下载一下准备文件：</p>
-<p><img src="/../../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%873.png"></p>
+<p><img src="/.top//../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%873.png"></p>
 <p>接下来在出现的界面的“工作负载”栏目选择“.NET桌面开发”，即C#环境：</p>
-<p><img src="/../../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%874.png"></p>
+<p><img src="/.top//../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%874.png"></p>
 <p>然后点击“安装位置”栏目改一下安装位置，一般默认在C盘，但我想大家一般不会把一个3、4G大的软件安装到C盘。安装位置的第一项即IDE安装位置一定要是一个空文件夹，否则无法安装。另外的两个选项则是存下载缓存和一些共享组件等，可以是非空文件夹，大家按自己习惯改一下就好。“语言包栏”一般默认勾选了中文简体，如果有其他语言需求自己勾选一下即可；单个组件项目不建议小白随便进行删减（但删减也没关系，如果不幸删了核心组件重头再装就是了），如果有其他需求可以视情况增加需要的组件。</p>
-<p><img src="/../../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%875.png"></p>
+<p><img src="/.top//../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%875.png"></p>
 <p>然后我们就可以愉快的进行安装了，注意这里最好勾选下载时安装，会快一点。以及下载时的网络选择，笔者当时使用的是DIVI，速度连1MB&#x2F;s都达不到，于是怒而换Tsinghua-Secure，然后顺带关了一下ipv6协议，速度飙升到8MB&#x2F;s。关ipv6协议方法：控制面板—网络和 Internet—网络和共享中心—更改适配器设置—右键自己连接的WLAN—属性—取消勾选“Internet协议版本6（TCP&#x2F;IPv6）”—确定。不过在你重新连接网络后IPv6协议又会自己勾选上。</p>
-<p><img src="/../../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%876.png"></p>
+<p><img src="/.top//../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%876.png"></p>
 <p>然后等待下载安装结束，我们就可以愉快的用C#进行SAP2000二次开发了。</p>
 <h2 id="二、开发准备"><a href="#二、开发准备" class="headerlink" title="二、开发准备"></a>二、开发准备</h2><p>1、创建项目 </p>
 <p>打开VS 2019，创建新项目，选择类库（.Net Framework）。</p>
-<p><img src="/../../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%877.png"></p>
+<p><img src="/.top//../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%877.png"></p>
 <p>项目配置中可以设置项目名称和选择你的文件的存放位置，框架记得选择.Net Framework 4.7及以上。如果这里框架点开后发现没有.Net Framework 4.7及以上版本，可以到微软官网进行下载安装，当然一般不会出现这种情况。</p>
-<p><img src="/../../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%878.png"></p>
+<p><img src="/.top//../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%878.png"></p>
 <p>2、添加SAP2000类库的引用   </p>
 <p>这一步需要提前安装好SAP2000，点击“解决方案”中的“引用”一栏，右键选择“添加引用”：</p>
-<p><img src="/../../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%879.png"></p>
+<p><img src="/.top//../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%879.png"></p>
 <p>点击浏览，然后打开SAP2000的安装目录，找到SAP2000v1.dll，选中，确定。</p>
-<p><img src="/../../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%8710.png"></p>
+<p><img src="/.top//../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%8710.png"></p>
 <p>3、修改项目属性</p>
 <p>为了可以让我们使用C#从COM串口中读取数据，我们还需要修改一下项目属性，邮右键点击“解决方案”栏目下的项目名称，然后选择“属性”，在属性界面进行如下操作：1）“应用程序”—“程序集信息”—勾选“使程序集COM可见”；2）“生成”—目标平台改成“x64”—勾选“为COM互操作注册”。</p>
-<p><img src="/../../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%8712.png"></p>
+<p><img src="/.top//../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%8712.png"></p>
 <p>4、类名修改</p>
 <p>修改Class1类的名字为cPlugin（当然也可以另外添加一个），因为SAP2000插件的逻辑是在SAP里由主程序调用cPlugin这个类里面的Main方法。接下来就可以愉快的写代码了，不过要记得每个类的引用都需要加上“using SAP2000v1”(是数字1不是英文字母l)。</p>
-<p><img src="/../../wp-content_uploads/2021/04/F7HUAu5R5L-1024x611.png"></p>
+<p><img src="/.top//../wp-content_uploads/2021/04/F7HUAu5R5L-1024x611.png"></p>
 <p> 三、SAP插件添加</p>
 <p>当写好代码实现功能后，生成成功后，想要在SAP2000里导入插件，必须以管理员方式打开VS，然后再重新生成一次。这时打开SAP2000，点击“工具”这一栏，选择“添加”，然后输入VS里的项目名称，菜单名称可以写这个插件的功能，看个人习惯填写。然后可以看到状态为OK，就可以愉快的使用自己写的插件了~</p>
-<p><img src="/../../wp-content_uploads/2021/04/xnOq6cA3F4-1024x310.png">                                    </p>
+<p><img src="/.top//../wp-content_uploads/2021/04/xnOq6cA3F4-1024x310.png">                                    </p>
 
       
     </div> -->
@@ -1109,7 +1109,7 @@
            
     <!-- </div>
     <footer class="article-footer">
-      <a data-url="http://thuce.top/2021/04/09/sap2000%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E5%88%9D%E6%8E%A2%E4%B9%8Bc%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" data-id="cm8uc8kkh007misuj9eoy6lgc" data-title="SAP2000二次开发初探之C#环境搭建" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://thuce.top/2021/04/09/sap2000%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E5%88%9D%E6%8E%A2%E4%B9%8Bc%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" data-id="cm8ud92kk004vtwujdgupfa2g" data-title="SAP2000二次开发初探之C#环境搭建" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -1175,7 +1175,7 @@
            
     <!-- </div>
     <footer class="article-footer">
-      <a data-url="http://thuce.top/2020/12/22/%E6%B8%85%E5%8D%8E%E5%A4%A7%E5%AD%A6%E7%AC%AC%E4%BA%8C%E5%8D%81%E5%85%AD%E5%B1%8A%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%A4%A7%E8%B5%9B%E5%86%B3%E8%B5%9B%E7%8E%B0%E5%9C%BA/" data-id="cm8uc8kky008nisujdn0vhd96" data-title="清华大学第二十六届结构设计大赛决赛现场" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://thuce.top/2020/12/22/%E6%B8%85%E5%8D%8E%E5%A4%A7%E5%AD%A6%E7%AC%AC%E4%BA%8C%E5%8D%81%E5%85%AD%E5%B1%8A%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%A4%A7%E8%B5%9B%E5%86%B3%E8%B5%9B%E7%8E%B0%E5%9C%BA/" data-id="cm8ud92l8005ztwuj9bwdhrgd" data-title="清华大学第二十六届结构设计大赛决赛现场" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
