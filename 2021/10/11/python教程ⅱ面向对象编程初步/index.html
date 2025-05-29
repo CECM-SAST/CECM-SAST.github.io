@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Python教程Ⅱ面向对象编程初步 | 清华大学土木工程系暨建设管理系学生科协</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="上次教程中，我们简要介绍了Python安装与快速入门，本次教程将对Python数据类型、面向对象编程技术（OOP）初步、Python模块与包进行简要介绍，并向大家推荐Python后续学习资料。 Python数据类型上次介绍到Python内置数据类型有bool, int, float, complex, str，另外还有list, tuple, set, dict四类。其中，bool, int, f">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python教程Ⅱ面向对象编程初步">
+<meta property="og:url" content="http://thuce.top/2021/10/11/python%E6%95%99%E7%A8%8B%E2%85%B1%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%88%9D%E6%AD%A5/index.html">
+<meta property="og:site_name" content="清华大学土木工程系暨建设管理系学生科协">
+<meta property="og:description" content="上次教程中，我们简要介绍了Python安装与快速入门，本次教程将对Python数据类型、面向对象编程技术（OOP）初步、Python模块与包进行简要介绍，并向大家推荐Python后续学习资料。 Python数据类型上次介绍到Python内置数据类型有bool, int, float, complex, str，另外还有list, tuple, set, dict四类。其中，bool, int, f">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-10-11T12:56:04.000Z">
+<meta property="article:modified_time" content="2024-11-04T22:00:44.000Z">
+<meta property="article:author" content="科协技术部">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="清华大学土木工程系暨建设管理系学生科协" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">清华大学土木工程系暨建设管理系学生科协</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/organization">人员组织</a>
+        
+          <a class="main-nav-link" href="/technical">技术专区</a>
+        
+          <a class="main-nav-link" href="/competition">精彩赛事</a>
+        
+          <a class="main-nav-link" href="/news">新闻热点</a>
+        
+          <a class="main-nav-link" href="/about">联系我们</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://thuce.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-python教程ⅱ面向对象编程初步" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/10/11/python%E6%95%99%E7%A8%8B%E2%85%B1%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%88%9D%E6%AD%A5/" class="article-date">
+  <time class="dt-published" datetime="2021-10-11T12:56:04.000Z" itemprop="datePublished">2021-10-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Python教程Ⅱ面向对象编程初步
+    </h1>
+  
+
+      </header>
+    
+    <!-- <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>上次教程中，我们简要介绍了<a href="https://thuce.top/2801.html">Python安装与快速入门</a>，本次教程将对Python数据类型、面向对象编程技术（OOP）初步、Python模块与包进行简要介绍，并向大家推荐Python后续学习资料。</p>
+<h2 id="Python数据类型"><a href="#Python数据类型" class="headerlink" title="Python数据类型"></a>Python数据类型</h2><p>上次介绍到Python内置数据类型有<code>bool</code>, <code>int</code>, <code>float</code>, <code>complex</code>, <code>str</code>，另外还有<code>list</code>, <code>tuple</code>, <code>set</code>, <code>dict</code>四类。其中，<code>bool</code>, <code>int</code>, <code>float</code> 及 <code>complex</code>与C语言中对应类型非常相似，所以本教程不再详述，而是将重点放在介绍<code>str</code>, <code>list</code>, <code>tuple</code>, <code>set</code>, <code>dict</code>五种数据类型上。由于操作函数方法较多，本篇教程无法完全涉及，大家可以参考教程后的参考链接继续深入学习。</p>
+<h3 id="str类型"><a href="#str类型" class="headerlink" title="str类型"></a><code>str</code>类型</h3><p><code>str</code>类型即字符串类型，较C语言，Python中字符串支持许多编码格式，并且也有许多便利的运算方法。其中较常用的方法有<code>len</code>, <code>==</code>, <code>+</code>, <code>*</code>, <code>in</code>, <code>find</code>。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">s1 = <span class="hljs-string">&#x27;hello, world&#x27;</span><br><span class="hljs-built_in">print</span>(s1 + s1)       <span class="hljs-comment"># 字符串拼接</span><br><span class="hljs-built_in">print</span>(s1 * <span class="hljs-number">100</span>)      <span class="hljs-comment"># 字符串重复</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">len</span>(s1))       <span class="hljs-comment"># 字符串长度</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;wo&#x27;</span> <span class="hljs-keyword">in</span> s1)    <span class="hljs-comment"># True</span><br><br>s2 = <span class="hljs-string">&#x27;goodbye&#x27;</span><br><span class="hljs-built_in">print</span>(s2 <span class="hljs-keyword">in</span> s1)      <span class="hljs-comment"># False</span><br><span class="hljs-built_in">print</span>(s1 == s2)      <span class="hljs-comment"># False</span><br><br><span class="hljs-comment">## 以三个双引号或单引号开头的字符串可以折行</span><br>s3 = <span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">hello, </span><br><span class="hljs-string">world!</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="list类型"><a href="#list类型" class="headerlink" title="list类型"></a><code>list</code>类型</h3><p><code>list</code>类型即列表类型，与C中的动态数组类似，但使用更为方便。常用的方法有<code>len</code>, <code>[]</code>, <code>append</code>, <code>insert</code>, <code>clear</code>, <code>pop</code>, <code>remove</code>, <code>sort</code>, <code>+</code>, <code>*</code>。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">items = [<span class="hljs-string">&#x27;Python&#x27;</span>, <span class="hljs-string">&#x27;Java&#x27;</span>, <span class="hljs-string">&#x27;Go&#x27;</span>, <span class="hljs-string">&#x27;Kotlin&#x27;</span>]<br>items.append(<span class="hljs-string">&#x27;Swift&#x27;</span>)  <span class="hljs-comment"># [&#x27;Python&#x27;, &#x27;Java&#x27;, &#x27;Go&#x27;, &#x27;Kotlin&#x27;, &#x27;Swift&#x27;]</span><br>items.insert(<span class="hljs-number">2</span>, <span class="hljs-string">&#x27;SQL&#x27;</span>) <span class="hljs-comment"># [&#x27;Python&#x27;, &#x27;Java&#x27;, &#x27;SQL&#x27;, &#x27;Go&#x27;, &#x27;Kotlin&#x27;, &#x27;Swift&#x27;]</span><br>items.remove(<span class="hljs-string">&#x27;Java&#x27;</span>)   <span class="hljs-comment"># [&#x27;Python&#x27;, &#x27;SQL&#x27;, &#x27;Go&#x27;, &#x27;Kotlin&#x27;, &#x27;Swift&#x27;]</span><br>items.pop(<span class="hljs-number">0</span>)           <span class="hljs-comment"># [&#x27;SQL&#x27;, &#x27;Go&#x27;, &#x27;Kotlin&#x27;, &#x27;Swift&#x27;]</span><br>items.pop(<span class="hljs-built_in">len</span>(items) - <span class="hljs-number">1</span>) <span class="hljs-comment"># [&#x27;SQL&#x27;, &#x27;Go&#x27;, &#x27;Kotlin&#x27;]</span><br>items.clear()          <span class="hljs-comment"># []</span><br></code></pre></td></tr></table></figure>
+
+<p>在使用列表重复(<code>*</code>)运算时，要注意可能出现的问题，例如：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">scores = [[<span class="hljs-number">0</span>] * <span class="hljs-number">3</span>] * <span class="hljs-number">5</span><br><span class="hljs-built_in">print</span>(scores)    <span class="hljs-comment"># [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]</span><br>scores[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">95</span><br><span class="hljs-built_in">print</span>(scores)    <span class="hljs-comment"># [[95, 0, 0], [95, 0, 0], [95, 0, 0], [95, 0, 0], [95, 0, 0]]</span><br></code></pre></td></tr></table></figure>
+
+<p>正确的做法应该是：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">scores = [[<span class="hljs-number">0</span>] * <span class="hljs-number">3</span> <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">5</span>)]<br>scores[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">95</span><br><span class="hljs-built_in">print</span>(scores)    <span class="hljs-comment"># [[95, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="tuple类型"><a href="#tuple类型" class="headerlink" title="tuple类型"></a><code>tuple</code>类型</h3><p><code>tuple</code>类型即元组类型，类似一个不能改变元素的列表。元组常用于函数多变量返回，变量打包、解包中。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">a = (<span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">100</span>)    <span class="hljs-comment"># 打包</span><br>i, j, k = a         <span class="hljs-comment"># 解包</span><br><span class="hljs-built_in">print</span>(i, j, k)      <span class="hljs-comment"># 1 10 100</span><br></code></pre></td></tr></table></figure>
+
+<p>同时，我们可以借助<code>*</code>，完成不定长元素的推测解包。需要注意，一个解包语句中只能出现一个<code>*</code>，否则会产生歧义，编译器将不能理解如何解包。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">a = <span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">100</span>, <span class="hljs-number">1000</span><br>i, j, *k = a<br><span class="hljs-built_in">print</span>(i, j, k)          <span class="hljs-comment"># 1 10 [100, 1000]</span><br>i, *j, k = a<br><span class="hljs-built_in">print</span>(i, j, k)          <span class="hljs-comment"># 1 [10, 100] 1000</span><br>*i, j, k = a<br><span class="hljs-built_in">print</span>(i, j, k)          <span class="hljs-comment"># [1, 10] 100 1000</span><br>*i, j = a<br><span class="hljs-built_in">print</span>(i, j)             <span class="hljs-comment"># [1, 10, 100] 1000</span><br>i, *j = a<br><span class="hljs-built_in">print</span>(i, j)             <span class="hljs-comment"># 1 [10, 100, 1000]</span><br>i, j, k, *l = a<br><span class="hljs-built_in">print</span>(i, j, k, l)       <span class="hljs-comment"># 1 10 100 [1000]</span><br>i, j, k, l, *m = a<br><span class="hljs-built_in">print</span>(i, j, k, l, m)    <span class="hljs-comment"># 1 10 100 1000 []</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="set类型"><a href="#set类型" class="headerlink" title="set类型"></a><code>set</code>类型</h3><p><code>set</code>类型即集合类型，集合具有确定性、无序性和互异性，常用的有交并差及对称差。注意集合的运算使用的是Python中的位运算符。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">set1 = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>&#125;<br><span class="hljs-built_in">print</span>(set1)         <span class="hljs-comment"># &#123;1, 2, 3&#125;</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">len</span>(set1))    <span class="hljs-comment"># 3</span><br><br>set1 = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>&#125;<br>set2 = &#123;<span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>, <span class="hljs-number">10</span>&#125;<br><span class="hljs-comment">## 求交</span><br><span class="hljs-built_in">print</span>(set1 &amp; set2)  <span class="hljs-comment"># &#123;2, 4, 6&#125;</span><br><span class="hljs-comment">## 求并</span><br><span class="hljs-built_in">print</span>(set1  set2)  <span class="hljs-comment"># &#123;1, 2, 3, 4, 5, 6, 7, 8, 10&#125;</span><br><span class="hljs-comment">## 求差</span><br><span class="hljs-built_in">print</span>(set1 - set2)  <span class="hljs-comment"># &#123;1, 3, 5, 7&#125;</span><br><span class="hljs-comment">## 求对称差</span><br><span class="hljs-built_in">print</span>(set1 ^ set2)  <span class="hljs-comment"># &#123;1, 3, 5, 7, 8, 10&#125;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="dict类型"><a href="#dict类型" class="headerlink" title="dict类型"></a><code>dict</code>类型</h3><p><code>dict</code>类型即字典类型，通过键值对存储和访问数据。常用的有<code>items</code>, <code>keys</code>, <code>values</code>, <code>pop</code>等方法，类似列表生成式，也有字典生成式。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">person = &#123;<br>    <span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;CZG&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">55</span><br>&#125;<br><span class="hljs-built_in">print</span>(person[<span class="hljs-string">&#x27;name&#x27;</span>])     <span class="hljs-comment"># CZG</span><br><span class="hljs-built_in">print</span>(person.keys())      <span class="hljs-comment"># dict_keys([&#x27;name&#x27;, &#x27;age&#x27;])</span><br><span class="hljs-built_in">print</span>(person.items())     <span class="hljs-comment"># dict_items([(&#x27;name&#x27;, &#x27;CZG&#x27;), (&#x27;age&#x27;, 55)])</span><br><span class="hljs-built_in">print</span>(person.pop(<span class="hljs-string">&#x27;name&#x27;</span>)) <span class="hljs-comment"># CZG</span><br><span class="hljs-built_in">print</span>(person)             <span class="hljs-comment"># &#123;&#x27;age&#x27;: 55&#125;</span><br><br><span class="hljs-comment">## 字典生成式示例</span><br>stocks = &#123;<br>    <span class="hljs-string">&#x27;AAPL&#x27;</span>: <span class="hljs-number">191.88</span>, <span class="hljs-string">&#x27;GOOG&#x27;</span>: <span class="hljs-number">1186.96</span>, <span class="hljs-string">&#x27;IBM&#x27;</span>: <span class="hljs-number">149.24</span>,<br>    <span class="hljs-string">&#x27;ORCL&#x27;</span>: <span class="hljs-number">48.44</span>, <span class="hljs-string">&#x27;ACN&#x27;</span>: <span class="hljs-number">166.89</span>, <span class="hljs-string">&#x27;FB&#x27;</span>: <span class="hljs-number">208.09</span>, <span class="hljs-string">&#x27;SYMC&#x27;</span>: <span class="hljs-number">21.29</span><br>&#125;<br>stocks2 = &#123;key: value <span class="hljs-keyword">for</span> key, value <span class="hljs-keyword">in</span> stocks.items() <span class="hljs-keyword">if</span> value &gt; <span class="hljs-number">100</span>&#125;<br><span class="hljs-built_in">print</span>(stocks2)  <br><span class="hljs-comment"># &#123;&#x27;AAPL&#x27;: 191.88, &#x27;GOOG&#x27;: 1186.96, &#x27;IBM&#x27;: 149.24, &#x27;ACN&#x27;: 166.89, &#x27;FB&#x27;: 208.09&#125;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>以上几种数据类型构成了Python编程的基础，大家从这些数据类型的方法也能感受到Python语言的<strong>简洁与易理解</strong>。相比于C语言，Python更希望程序员写出<strong>容易理解的代码</strong>。</p>
+<h2 id="面向对象编程技术初步"><a href="#面向对象编程技术初步" class="headerlink" title="面向对象编程技术初步"></a>面向对象编程技术初步</h2><p>面向对象是一种目前比较流行的编程方法，是一种程序设计的方法论。相对于面向过程的编程方法，面向对象更契合人类正常的思维方式，更适用于开发、维护复杂系统。在这种编程方法下，程序中的数据和数据操作函数是一个逻辑上的整体，这个整体被称为对象。引用一段对面向对象编程的精辟描述：</p>
+<blockquote>
+<p>把一组数据和处理数据的方法组成<strong>对象</strong>，把行为相同的对象归纳为<strong>类</strong>，通过<strong>封装</strong>隐藏对象的内部细节，通过<strong>继承</strong>实现类的特化和泛化，通过<strong>多态</strong>实现基于对象类型的动态分派。</p>
+</blockquote>
+<p>这句话并不那么好理解，接下来我们将进行一些解释。</p>
+<p>在Python中，我们使用<code>class</code>关键字声明一个类，其语法结构为<code>class 类名:</code>，调用时，可以使用<code>.</code>运算符进行调用，具体参见下例：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">study</span>(<span class="hljs-params">self, course_name</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;学生正在学习<span class="hljs-subst">&#123;course_name&#125;</span>.&#x27;</span>)<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">play</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;学生正在玩游戏.&#x27;</span>)<br><br>stu1 = Student()<br>stu2 = Student()<br><span class="hljs-comment"># 通过“类.方法”调用方法，第一个参数是接收消息的对象，第二个参数是学习的课程名称</span><br>Student.study(stu1, <span class="hljs-string">&#x27;Python程序设计&#x27;</span>)    <span class="hljs-comment"># 学生正在学习Python程序设计.</span><br><span class="hljs-comment"># 通过“对象.方法”调用方法，点前面的对象就是接收消息的对象，只需要传入第二个参数</span><br>stu1.study(<span class="hljs-string">&#x27;Python程序设计&#x27;</span>)             <span class="hljs-comment"># 学生正在学习Python程序设计.</span><br>Student.play(stu2)    <span class="hljs-comment"># 学生正在玩游戏.</span><br>stu2.play()           <span class="hljs-comment"># 学生正在玩游戏. </span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Python魔术方法"><a href="#Python魔术方法" class="headerlink" title="Python魔术方法"></a>Python魔术方法</h3><p>提到类，就不得不先提一下Python的魔术方法。在Python中，所有以双下划线<code>__</code>包裹起来的方法，统称为魔术方法（Magic Method， 由于是双下划线，也可称dunder），它是一种特殊的方法，往往不会显式地调用。魔术方法在类或对象的某些事件触发后会自动运行，让类具有神奇的“魔力”。Python中的魔术方法很多，例如控制算术运算符的<code>__add__</code>, <code>__mul__</code>等，控制比较运算符的<code>__eq__</code>等，还有控制类型转换、属性操作、构造析构的魔术方法。这里对常用的<code>__init__</code>, <code>__repr__</code>稍作介绍。</p>
+<h3 id="init-初始化方法"><a href="#init-初始化方法" class="headerlink" title="__init__初始化方法"></a><code>__init__</code>初始化方法</h3><p><code>__init__</code>方法类似C++类中的构造函数。需要注意的是，<code>__init__</code>函数的第一个参数为实例本身，通常名字为<code>self</code>，通过<code>self</code>可以访问实例的属性。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span>:<br>    <span class="hljs-string">&quot;&quot;&quot;学生&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;初始化方法&quot;&quot;&quot;</span><br>        <span class="hljs-variable language_">self</span>.name = name<br>        <span class="hljs-variable language_">self</span>.age = age<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">study</span>(<span class="hljs-params">self, course_name</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;学习&quot;&quot;&quot;</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;self.name&#125;</span>正在学习<span class="hljs-subst">&#123;course_name&#125;</span>.&#x27;</span>)<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">play</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;玩耍&quot;&quot;&quot;</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;self.name&#125;</span>正在玩游戏.&#x27;</span>)<br><br>stu1 = Student(<span class="hljs-string">&#x27;程志刚&#x27;</span>, <span class="hljs-number">21</span>)<br>stu2 = Student(<span class="hljs-string">&#x27;XX&#x27;</span>, <span class="hljs-number">15</span>)<br>stu1.study(<span class="hljs-string">&#x27;Python程序设计&#x27;</span>)    <br><span class="hljs-comment"># 程志刚正在学习Python程序设计.</span><br>stu2.play()<br><span class="hljs-comment"># XX正在玩游戏.</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="repr-方法"><a href="#repr-方法" class="headerlink" title="__repr__方法"></a><code>__repr__</code>方法</h3><p><code>__repr__</code>方法可以改变<code>print</code>函数的行为。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span>:<br>    <span class="hljs-string">&quot;&quot;&quot;学生&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;初始化方法&quot;&quot;&quot;</span><br>        <span class="hljs-variable language_">self</span>.name = name<br>        <span class="hljs-variable language_">self</span>.age = age<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__repr__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;self.name&#125;</span>: <span class="hljs-subst">&#123;self.age&#125;</span>&#x27;</span><br><br>stu1 = Student(<span class="hljs-string">&#x27;程志刚&#x27;</span>, <span class="hljs-number">21</span>)<br><span class="hljs-built_in">print</span>(stu1)        <span class="hljs-comment"># 程志刚: 21</span><br>students = [<br>    stu1, <br>    Student(<span class="hljs-string">&#x27;张三&#x27;</span>, <span class="hljs-number">16</span>), <br>    Student(<span class="hljs-string">&#x27;李四&#x27;</span>, <span class="hljs-number">25</span>)<br>]<br><span class="hljs-built_in">print</span>(students)    <br><span class="hljs-comment"># [程志刚: 21, 张三: 16, 李四: 25]</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>封装是为了便利代码的使用者，即程序员在编写类的过程中，隐藏一切可以隐藏的实现细节，只向外界暴露简单的调用接口。例如对于钟表类，可以定义<code>run</code>函数处理小时、分钟、秒的进位，使用者只需调用<code>run</code>即可。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Clock</span>(<span class="hljs-title class_ inherited__">object</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;数字时钟&quot;&quot;&quot;</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, hour=<span class="hljs-number">0</span>, minute=<span class="hljs-number">0</span>, second=<span class="hljs-number">0</span></span>):<br>        <span class="hljs-variable language_">self</span>.hour = hour<br>        <span class="hljs-variable language_">self</span>.<span class="hljs-built_in">min</span> = minute<br>        <span class="hljs-variable language_">self</span>.sec = second<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">run</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-variable language_">self</span>.sec += <span class="hljs-number">1</span><br>        <span class="hljs-keyword">if</span> <span class="hljs-variable language_">self</span>.sec == <span class="hljs-number">60</span>:<br>            <span class="hljs-variable language_">self</span>.sec = <span class="hljs-number">0</span><br>            <span class="hljs-variable language_">self</span>.<span class="hljs-built_in">min</span> += <span class="hljs-number">1</span><br>            <span class="hljs-keyword">if</span> <span class="hljs-variable language_">self</span>.<span class="hljs-built_in">min</span> == <span class="hljs-number">60</span>:<br>                <span class="hljs-variable language_">self</span>.<span class="hljs-built_in">min</span> = <span class="hljs-number">0</span><br>                <span class="hljs-variable language_">self</span>.hour += <span class="hljs-number">1</span><br>                <span class="hljs-keyword">if</span> <span class="hljs-variable language_">self</span>.hour == <span class="hljs-number">24</span>:<br>                    <span class="hljs-variable language_">self</span>.hour = <span class="hljs-number">0</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">show</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;显示时间&quot;&quot;&quot;</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;self.hour:<span class="hljs-number">0</span>&gt;2d&#125;</span>:<span class="hljs-subst">&#123;self.<span class="hljs-built_in">min</span>:<span class="hljs-number">0</span>&gt;2d&#125;</span>:<span class="hljs-subst">&#123;self.sec:<span class="hljs-number">0</span>&gt;2d&#125;</span>&#x27;</span><br><br><span class="hljs-comment"># 创建时钟对象</span><br>clock = Clock(<span class="hljs-number">23</span>, <span class="hljs-number">59</span>, <span class="hljs-number">58</span>)<br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    <span class="hljs-comment"># 给时钟对象发消息读取时间</span><br>    <span class="hljs-built_in">print</span>(clock.show())<br>    <span class="hljs-comment"># 休眠1秒钟</span><br>    time.sleep(<span class="hljs-number">1</span>)<br>    <span class="hljs-comment"># 给时钟对象发消息使其走字</span><br>    clock.run()<br></code></pre></td></tr></table></figure>
+
+<p>在本例中，将时钟的进位与显示封装起来，外部调用时，只需要调用相应函数即可。</p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>面向对象的编程语言支持在已有类的基础上创建新类，从而减少重复代码的编写。提供继承信息的类叫做父类（超类、基类），得到继承信息的类叫做子类（派生类、衍生类）。由于Python2.x版本的遗留问题，虽然Python3.x已经不必显式继承<code>object</code>类，但依然建议大家显式继承。继承的语法为<code>class 类名(父类名):</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span>(<span class="hljs-title class_ inherited__">object</span>):    <span class="hljs-comment"># 此处显式继承了object类</span><br>    <span class="hljs-string">&quot;&quot;&quot;人类&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age</span>):<br>        <span class="hljs-variable language_">self</span>.name = name<br>        <span class="hljs-variable language_">self</span>.age = age<br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">eat</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;self.name&#125;</span>正在吃饭.&#x27;</span>)<br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">sleep</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;self.name&#125;</span>正在睡觉.&#x27;</span>)<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span>(<span class="hljs-title class_ inherited__">Person</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;学生类&quot;&quot;&quot;</span><br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age</span>):<br>        <span class="hljs-built_in">super</span>().__init__(name, age)<br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">study</span>(<span class="hljs-params">self, course_name</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;self.name&#125;</span>正在学习<span class="hljs-subst">&#123;course_name&#125;</span>.&#x27;</span>)<br><br>p = Person(<span class="hljs-string">&quot;CZG&quot;</span>, <span class="hljs-number">21</span>)<br>p.eat()                    <span class="hljs-comment"># CZG正在吃饭.</span><br>stu = Student(<span class="hljs-string">&quot;程志刚&quot;</span>, <span class="hljs-number">21</span>)<br>stu.study(<span class="hljs-string">&quot;Pytorch&quot;</span>)       <span class="hljs-comment"># 程志刚正在学习Pytorch.</span><br></code></pre></td></tr></table></figure>
+
+<p>注意在本例中，重写了子类的<code>__init__</code>方法，如果不重写，将自动调用父类构造方法进行构造，如果重写，则默认不会调用，需要自己通过<code>super().__init__</code>调用父类构造方法。</p>
+<h2 id="Python模块"><a href="#Python模块" class="headerlink" title="Python模块"></a>Python模块</h2><p>为了编写可维护的代码，我们把很多函数分组，分别放到不同的文件里，这样，每个文件包含的代码就相对较少，很多编程语言都采用这种组织代码的方式。Python中每个文件就代表了一个模块（module）。使用模块可以大大提升代码可维护性，同时，也让编写代码不必从零开始。当一个模块编写完毕，就可以被其他地方引用。我们在编写程序的时候，也经常引用其它模块，包括Python内置的模块和来自第三方的模块。</p>
+<p>当然，使用模块还可以避免函数名和变量名冲突。相同名字的函数、变量可以分别存在不同的模块中。在使用模块时，可以使用<code>import</code>关键字导入。</p>
+<p>例如在同一文件夹下，分别有<code>module1.py</code>, <code>module2.py</code>, <code>test.py</code>三个文件。</p>
+<p><code>module1.py</code>文件内容：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">foo</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;hello, world!&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p><code>module2.py</code>文件内容</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">foo</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;goodbye, world!&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p><code>test.py</code>文件内容</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> module1<br><span class="hljs-keyword">import</span> module2<br><span class="hljs-comment"># 用“模块名.函数名”的方式（完全限定名）调用函数</span><br>module1.foo()    <span class="hljs-comment"># hello, world!</span><br>module2.foo()    <span class="hljs-comment"># goodbye, world!</span><br></code></pre></td></tr></table></figure>
+
+<p>除了自己编写的模块外，Python本身还内置了许多模块，例如处理时间的<code>time</code>模块，处理文件系统的<code>os</code>模块等等。我们还可以自己安装第三方模块来进一步简化代码编写。例如<code>numpy</code>, <code>pandas</code>等就属于非常出名的第三方模块。</p>
+<p>限于篇幅，此处不在详述如何使用conda，pip管理模块，大家可以参考<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/fe8cc7b6f558%E3%80%82">https://www.jianshu.com/p/fe8cc7b6f558。</a></p>
+<p>安装模块的常用命令：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><code class="hljs c">conda install &lt;package-name&gt;<br>pip install &lt;package-name&gt;<br><br>e.g. <br><br>pip install numpy<br>conda install numpy<br>pip install scikit-learn<br></code></pre></td></tr></table></figure>
+
+<h2 id="后续学习"><a href="#后续学习" class="headerlink" title="后续学习"></a>后续学习</h2><p>以上是Python非常基础的语法，但Python核心语法不仅限于此。后续大家还可以学习Python标准库，文件读写，字符编码，正则表达式，面向对象进阶，函数式编程，各类包的使用（如numpy，pandas）以至机器学习……</p>
+<p>在这里，笔者再推荐几个网站。</p>
+<p>如果大家编程时，代码报错怎么办？</p>
+<p>原文：<a target="_blank" rel="noopener" href="https://realpython.com/python-traceback/">https://realpython.com/python-traceback/</a></p>
+<p>译文：<a target="_blank" rel="noopener" href="https://blog.csdn.net/muzico425/article/details/99688343">https://blog.csdn.net/muzico425/article/details/99688343</a></p>
+<p>比较好的Python教程：</p>
+<ol>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/jackfrued/Python-100-Days">https://github.com/jackfrued/Python-100-Days</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/jackfrued/Python-Core-50-Courses">https://github.com/jackfrued/Python-Core-50-Courses</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1016959663602400">https://www.liaoxuefeng.com/wiki/1016959663602400</a></p>
+</li>
+</ol>
+<p>官方文档：</p>
+<p><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/">https://docs.python.org/zh-cn/3/</a></p>
+<p>Python语法速查：</p>
+<ol>
+<li><p><a target="_blank" rel="noopener" href="https://www.pythoncheatsheet.org/">https://www.pythoncheatsheet.org/</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://programming-idioms.org/cheatsheet/Python">https://programming-idioms.org/cheatsheet/Python</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://programming-idioms.org/cheatsheet/C/Python">https://programming-idioms.org/cheatsheet/C/Python</a></p>
+</li>
+</ol>
+<p>提问或搜索：</p>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/">https://stackoverflow.com/</a></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>本篇技术贴部分参考以下内容</p>
+<p>[1] <a target="_blank" rel="noopener" href="https://github.com/jackfrued/Python-Core-50-Courses">https://github.com/jackfrued/Python-Core-50-Courses</a></p>
+<p>[2] <a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1016959663602400">https://www.liaoxuefeng.com/wiki/1016959663602400</a></p>
+<p>[3] <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/">https://docs.python.org/zh-cn/3/</a></p>
+<hr>
+<p>供稿 科协技术部 审核 顾燚 程志刚</p>
+
+      
+    </div> -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+        
+          <p>上次教程中，我们简要介绍了<a href="https://thuce.top/2801.html">Python安装与快速入门</a>，本次教程将对Python数据类型、面向对象编程技术（OOP）初步、Python模块与包进行简要介绍，并向大家推荐Python后续学习资料。</p>
+<h2 id="Python数据类型"><a href="#Python数据类型" class="headerlink" title="Python数据类型"></a>Python数据类型</h2><p>上次介绍到Python内置数据类型有<code>bool</code>, <code>int</code>, <code>float</code>, <code>complex</code>, <code>str</code>，另外还有<code>list</code>, <code>tuple</code>, <code>set</code>, <code>dict</code>四类。其中，<code>bool</code>, <code>int</code>, <code>float</code> 及 <code>complex</code>与C语言中对应类型非常相似，所以本教程不再详述，而是将重点放在介绍<code>str</code>, <code>list</code>, <code>tuple</code>, <code>set</code>, <code>dict</code>五种数据类型上。由于操作函数方法较多，本篇教程无法完全涉及，大家可以参考教程后的参考链接继续深入学习。</p>
+<h3 id="str类型"><a href="#str类型" class="headerlink" title="str类型"></a><code>str</code>类型</h3><p><code>str</code>类型即字符串类型，较C语言，Python中字符串支持许多编码格式，并且也有许多便利的运算方法。其中较常用的方法有<code>len</code>, <code>==</code>, <code>+</code>, <code>*</code>, <code>in</code>, <code>find</code>。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">s1 = <span class="hljs-string">&#x27;hello, world&#x27;</span><br><span class="hljs-built_in">print</span>(s1 + s1)       <span class="hljs-comment"># 字符串拼接</span><br><span class="hljs-built_in">print</span>(s1 * <span class="hljs-number">100</span>)      <span class="hljs-comment"># 字符串重复</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">len</span>(s1))       <span class="hljs-comment"># 字符串长度</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;wo&#x27;</span> <span class="hljs-keyword">in</span> s1)    <span class="hljs-comment"># True</span><br><br>s2 = <span class="hljs-string">&#x27;goodbye&#x27;</span><br><span class="hljs-built_in">print</span>(s2 <span class="hljs-keyword">in</span> s1)      <span class="hljs-comment"># False</span><br><span class="hljs-built_in">print</span>(s1 == s2)      <span class="hljs-comment"># False</span><br><br><span class="hljs-comment">## 以三个双引号或单引号开头的字符串可以折行</span><br>s3 = <span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">hello, </span><br><span class="hljs-string">world!</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="list类型"><a href="#list类型" class="headerlink" title="list类型"></a><code>list</code>类型</h3><p><code>list</code>类型即列表类型，与C中的动态数组类似，但使用更为方便。常用的方法有<code>len</code>, <code>[]</code>, <code>append</code>, <code>insert</code>, <code>clear</code>, <code>pop</code>, <code>remove</code>, <code>sort</code>, <code>+</code>, <code>*</code>。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">items = [<span class="hljs-string">&#x27;Python&#x27;</span>, <span class="hljs-string">&#x27;Java&#x27;</span>, <span class="hljs-string">&#x27;Go&#x27;</span>, <span class="hljs-string">&#x27;Kotlin&#x27;</span>]<br>items.append(<span class="hljs-string">&#x27;Swift&#x27;</span>)  <span class="hljs-comment"># [&#x27;Python&#x27;, &#x27;Java&#x27;, &#x27;Go&#x27;, &#x27;Kotlin&#x27;, &#x27;Swift&#x27;]</span><br>items.insert(<span class="hljs-number">2</span>, <span class="hljs-string">&#x27;SQL&#x27;</span>) <span class="hljs-comment"># [&#x27;Python&#x27;, &#x27;Java&#x27;, &#x27;SQL&#x27;, &#x27;Go&#x27;, &#x27;Kotlin&#x27;, &#x27;Swift&#x27;]</span><br>items.remove(<span class="hljs-string">&#x27;Java&#x27;</span>)   <span class="hljs-comment"># [&#x27;Python&#x27;, &#x27;SQL&#x27;, &#x27;Go&#x27;, &#x27;Kotlin&#x27;, &#x27;Swift&#x27;]</span><br>items.pop(<span class="hljs-number">0</span>)           <span class="hljs-comment"># [&#x27;SQL&#x27;, &#x27;Go&#x27;, &#x27;Kotlin&#x27;, &#x27;Swift&#x27;]</span><br>items.pop(<span class="hljs-built_in">len</span>(items) - <span class="hljs-number">1</span>) <span class="hljs-comment"># [&#x27;SQL&#x27;, &#x27;Go&#x27;, &#x27;Kotlin&#x27;]</span><br>items.clear()          <span class="hljs-comment"># []</span><br></code></pre></td></tr></table></figure>
+
+<p>在使用列表重复(<code>*</code>)运算时，要注意可能出现的问题，例如：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">scores = [[<span class="hljs-number">0</span>] * <span class="hljs-number">3</span>] * <span class="hljs-number">5</span><br><span class="hljs-built_in">print</span>(scores)    <span class="hljs-comment"># [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]</span><br>scores[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">95</span><br><span class="hljs-built_in">print</span>(scores)    <span class="hljs-comment"># [[95, 0, 0], [95, 0, 0], [95, 0, 0], [95, 0, 0], [95, 0, 0]]</span><br></code></pre></td></tr></table></figure>
+
+<p>正确的做法应该是：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">scores = [[<span class="hljs-number">0</span>] * <span class="hljs-number">3</span> <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">5</span>)]<br>scores[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">95</span><br><span class="hljs-built_in">print</span>(scores)    <span class="hljs-comment"># [[95, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="tuple类型"><a href="#tuple类型" class="headerlink" title="tuple类型"></a><code>tuple</code>类型</h3><p><code>tuple</code>类型即元组类型，类似一个不能改变元素的列表。元组常用于函数多变量返回，变量打包、解包中。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">a = (<span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">100</span>)    <span class="hljs-comment"># 打包</span><br>i, j, k = a         <span class="hljs-comment"># 解包</span><br><span class="hljs-built_in">print</span>(i, j, k)      <span class="hljs-comment"># 1 10 100</span><br></code></pre></td></tr></table></figure>
+
+<p>同时，我们可以借助<code>*</code>，完成不定长元素的推测解包。需要注意，一个解包语句中只能出现一个<code>*</code>，否则会产生歧义，编译器将不能理解如何解包。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">a = <span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">100</span>, <span class="hljs-number">1000</span><br>i, j, *k = a<br><span class="hljs-built_in">print</span>(i, j, k)          <span class="hljs-comment"># 1 10 [100, 1000]</span><br>i, *j, k = a<br><span class="hljs-built_in">print</span>(i, j, k)          <span class="hljs-comment"># 1 [10, 100] 1000</span><br>*i, j, k = a<br><span class="hljs-built_in">print</span>(i, j, k)          <span class="hljs-comment"># [1, 10] 100 1000</span><br>*i, j = a<br><span class="hljs-built_in">print</span>(i, j)             <span class="hljs-comment"># [1, 10, 100] 1000</span><br>i, *j = a<br><span class="hljs-built_in">print</span>(i, j)             <span class="hljs-comment"># 1 [10, 100, 1000]</span><br>i, j, k, *l = a<br><span class="hljs-built_in">print</span>(i, j, k, l)       <span class="hljs-comment"># 1 10 100 [1000]</span><br>i, j, k, l, *m = a<br><span class="hljs-built_in">print</span>(i, j, k, l, m)    <span class="hljs-comment"># 1 10 100 1000 []</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="set类型"><a href="#set类型" class="headerlink" title="set类型"></a><code>set</code>类型</h3><p><code>set</code>类型即集合类型，集合具有确定性、无序性和互异性，常用的有交并差及对称差。注意集合的运算使用的是Python中的位运算符。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">set1 = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>&#125;<br><span class="hljs-built_in">print</span>(set1)         <span class="hljs-comment"># &#123;1, 2, 3&#125;</span><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">len</span>(set1))    <span class="hljs-comment"># 3</span><br><br>set1 = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>&#125;<br>set2 = &#123;<span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>, <span class="hljs-number">10</span>&#125;<br><span class="hljs-comment">## 求交</span><br><span class="hljs-built_in">print</span>(set1 &amp; set2)  <span class="hljs-comment"># &#123;2, 4, 6&#125;</span><br><span class="hljs-comment">## 求并</span><br><span class="hljs-built_in">print</span>(set1  set2)  <span class="hljs-comment"># &#123;1, 2, 3, 4, 5, 6, 7, 8, 10&#125;</span><br><span class="hljs-comment">## 求差</span><br><span class="hljs-built_in">print</span>(set1 - set2)  <span class="hljs-comment"># &#123;1, 3, 5, 7&#125;</span><br><span class="hljs-comment">## 求对称差</span><br><span class="hljs-built_in">print</span>(set1 ^ set2)  <span class="hljs-comment"># &#123;1, 3, 5, 7, 8, 10&#125;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="dict类型"><a href="#dict类型" class="headerlink" title="dict类型"></a><code>dict</code>类型</h3><p><code>dict</code>类型即字典类型，通过键值对存储和访问数据。常用的有<code>items</code>, <code>keys</code>, <code>values</code>, <code>pop</code>等方法，类似列表生成式，也有字典生成式。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python">person = &#123;<br>    <span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;CZG&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">55</span><br>&#125;<br><span class="hljs-built_in">print</span>(person[<span class="hljs-string">&#x27;name&#x27;</span>])     <span class="hljs-comment"># CZG</span><br><span class="hljs-built_in">print</span>(person.keys())      <span class="hljs-comment"># dict_keys([&#x27;name&#x27;, &#x27;age&#x27;])</span><br><span class="hljs-built_in">print</span>(person.items())     <span class="hljs-comment"># dict_items([(&#x27;name&#x27;, &#x27;CZG&#x27;), (&#x27;age&#x27;, 55)])</span><br><span class="hljs-built_in">print</span>(person.pop(<span class="hljs-string">&#x27;name&#x27;</span>)) <span class="hljs-comment"># CZG</span><br><span class="hljs-built_in">print</span>(person)             <span class="hljs-comment"># &#123;&#x27;age&#x27;: 55&#125;</span><br><br><span class="hljs-comment">## 字典生成式示例</span><br>stocks = &#123;<br>    <span class="hljs-string">&#x27;AAPL&#x27;</span>: <span class="hljs-number">191.88</span>, <span class="hljs-string">&#x27;GOOG&#x27;</span>: <span class="hljs-number">1186.96</span>, <span class="hljs-string">&#x27;IBM&#x27;</span>: <span class="hljs-number">149.24</span>,<br>    <span class="hljs-string">&#x27;ORCL&#x27;</span>: <span class="hljs-number">48.44</span>, <span class="hljs-string">&#x27;ACN&#x27;</span>: <span class="hljs-number">166.89</span>, <span class="hljs-string">&#x27;FB&#x27;</span>: <span class="hljs-number">208.09</span>, <span class="hljs-string">&#x27;SYMC&#x27;</span>: <span class="hljs-number">21.29</span><br>&#125;<br>stocks2 = &#123;key: value <span class="hljs-keyword">for</span> key, value <span class="hljs-keyword">in</span> stocks.items() <span class="hljs-keyword">if</span> value &gt; <span class="hljs-number">100</span>&#125;<br><span class="hljs-built_in">print</span>(stocks2)  <br><span class="hljs-comment"># &#123;&#x27;AAPL&#x27;: 191.88, &#x27;GOOG&#x27;: 1186.96, &#x27;IBM&#x27;: 149.24, &#x27;ACN&#x27;: 166.89, &#x27;FB&#x27;: 208.09&#125;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>以上几种数据类型构成了Python编程的基础，大家从这些数据类型的方法也能感受到Python语言的<strong>简洁与易理解</strong>。相比于C语言，Python更希望程序员写出<strong>容易理解的代码</strong>。</p>
+<h2 id="面向对象编程技术初步"><a href="#面向对象编程技术初步" class="headerlink" title="面向对象编程技术初步"></a>面向对象编程技术初步</h2><p>面向对象是一种目前比较流行的编程方法，是一种程序设计的方法论。相对于面向过程的编程方法，面向对象更契合人类正常的思维方式，更适用于开发、维护复杂系统。在这种编程方法下，程序中的数据和数据操作函数是一个逻辑上的整体，这个整体被称为对象。引用一段对面向对象编程的精辟描述：</p>
+<blockquote>
+<p>把一组数据和处理数据的方法组成<strong>对象</strong>，把行为相同的对象归纳为<strong>类</strong>，通过<strong>封装</strong>隐藏对象的内部细节，通过<strong>继承</strong>实现类的特化和泛化，通过<strong>多态</strong>实现基于对象类型的动态分派。</p>
+</blockquote>
+<p>这句话并不那么好理解，接下来我们将进行一些解释。</p>
+<p>在Python中，我们使用<code>class</code>关键字声明一个类，其语法结构为<code>class 类名:</code>，调用时，可以使用<code>.</code>运算符进行调用，具体参见下例：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">study</span>(<span class="hljs-params">self, course_name</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;学生正在学习<span class="hljs-subst">&#123;course_name&#125;</span>.&#x27;</span>)<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">play</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;学生正在玩游戏.&#x27;</span>)<br><br>stu1 = Student()<br>stu2 = Student()<br><span class="hljs-comment"># 通过“类.方法”调用方法，第一个参数是接收消息的对象，第二个参数是学习的课程名称</span><br>Student.study(stu1, <span class="hljs-string">&#x27;Python程序设计&#x27;</span>)    <span class="hljs-comment"># 学生正在学习Python程序设计.</span><br><span class="hljs-comment"># 通过“对象.方法”调用方法，点前面的对象就是接收消息的对象，只需要传入第二个参数</span><br>stu1.study(<span class="hljs-string">&#x27;Python程序设计&#x27;</span>)             <span class="hljs-comment"># 学生正在学习Python程序设计.</span><br>Student.play(stu2)    <span class="hljs-comment"># 学生正在玩游戏.</span><br>stu2.play()           <span class="hljs-comment"># 学生正在玩游戏. </span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Python魔术方法"><a href="#Python魔术方法" class="headerlink" title="Python魔术方法"></a>Python魔术方法</h3><p>提到类，就不得不先提一下Python的魔术方法。在Python中，所有以双下划线<code>__</code>包裹起来的方法，统称为魔术方法（Magic Method， 由于是双下划线，也可称dunder），它是一种特殊的方法，往往不会显式地调用。魔术方法在类或对象的某些事件触发后会自动运行，让类具有神奇的“魔力”。Python中的魔术方法很多，例如控制算术运算符的<code>__add__</code>, <code>__mul__</code>等，控制比较运算符的<code>__eq__</code>等，还有控制类型转换、属性操作、构造析构的魔术方法。这里对常用的<code>__init__</code>, <code>__repr__</code>稍作介绍。</p>
+<h3 id="init-初始化方法"><a href="#init-初始化方法" class="headerlink" title="__init__初始化方法"></a><code>__init__</code>初始化方法</h3><p><code>__init__</code>方法类似C++类中的构造函数。需要注意的是，<code>__init__</code>函数的第一个参数为实例本身，通常名字为<code>self</code>，通过<code>self</code>可以访问实例的属性。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span>:<br>    <span class="hljs-string">&quot;&quot;&quot;学生&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;初始化方法&quot;&quot;&quot;</span><br>        <span class="hljs-variable language_">self</span>.name = name<br>        <span class="hljs-variable language_">self</span>.age = age<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">study</span>(<span class="hljs-params">self, course_name</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;学习&quot;&quot;&quot;</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;self.name&#125;</span>正在学习<span class="hljs-subst">&#123;course_name&#125;</span>.&#x27;</span>)<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">play</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;玩耍&quot;&quot;&quot;</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;self.name&#125;</span>正在玩游戏.&#x27;</span>)<br><br>stu1 = Student(<span class="hljs-string">&#x27;程志刚&#x27;</span>, <span class="hljs-number">21</span>)<br>stu2 = Student(<span class="hljs-string">&#x27;XX&#x27;</span>, <span class="hljs-number">15</span>)<br>stu1.study(<span class="hljs-string">&#x27;Python程序设计&#x27;</span>)    <br><span class="hljs-comment"># 程志刚正在学习Python程序设计.</span><br>stu2.play()<br><span class="hljs-comment"># XX正在玩游戏.</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="repr-方法"><a href="#repr-方法" class="headerlink" title="__repr__方法"></a><code>__repr__</code>方法</h3><p><code>__repr__</code>方法可以改变<code>print</code>函数的行为。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span>:<br>    <span class="hljs-string">&quot;&quot;&quot;学生&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;初始化方法&quot;&quot;&quot;</span><br>        <span class="hljs-variable language_">self</span>.name = name<br>        <span class="hljs-variable language_">self</span>.age = age<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__repr__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;self.name&#125;</span>: <span class="hljs-subst">&#123;self.age&#125;</span>&#x27;</span><br><br>stu1 = Student(<span class="hljs-string">&#x27;程志刚&#x27;</span>, <span class="hljs-number">21</span>)<br><span class="hljs-built_in">print</span>(stu1)        <span class="hljs-comment"># 程志刚: 21</span><br>students = [<br>    stu1, <br>    Student(<span class="hljs-string">&#x27;张三&#x27;</span>, <span class="hljs-number">16</span>), <br>    Student(<span class="hljs-string">&#x27;李四&#x27;</span>, <span class="hljs-number">25</span>)<br>]<br><span class="hljs-built_in">print</span>(students)    <br><span class="hljs-comment"># [程志刚: 21, 张三: 16, 李四: 25]</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>封装是为了便利代码的使用者，即程序员在编写类的过程中，隐藏一切可以隐藏的实现细节，只向外界暴露简单的调用接口。例如对于钟表类，可以定义<code>run</code>函数处理小时、分钟、秒的进位，使用者只需调用<code>run</code>即可。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Clock</span>(<span class="hljs-title class_ inherited__">object</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;数字时钟&quot;&quot;&quot;</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, hour=<span class="hljs-number">0</span>, minute=<span class="hljs-number">0</span>, second=<span class="hljs-number">0</span></span>):<br>        <span class="hljs-variable language_">self</span>.hour = hour<br>        <span class="hljs-variable language_">self</span>.<span class="hljs-built_in">min</span> = minute<br>        <span class="hljs-variable language_">self</span>.sec = second<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">run</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-variable language_">self</span>.sec += <span class="hljs-number">1</span><br>        <span class="hljs-keyword">if</span> <span class="hljs-variable language_">self</span>.sec == <span class="hljs-number">60</span>:<br>            <span class="hljs-variable language_">self</span>.sec = <span class="hljs-number">0</span><br>            <span class="hljs-variable language_">self</span>.<span class="hljs-built_in">min</span> += <span class="hljs-number">1</span><br>            <span class="hljs-keyword">if</span> <span class="hljs-variable language_">self</span>.<span class="hljs-built_in">min</span> == <span class="hljs-number">60</span>:<br>                <span class="hljs-variable language_">self</span>.<span class="hljs-built_in">min</span> = <span class="hljs-number">0</span><br>                <span class="hljs-variable language_">self</span>.hour += <span class="hljs-number">1</span><br>                <span class="hljs-keyword">if</span> <span class="hljs-variable language_">self</span>.hour == <span class="hljs-number">24</span>:<br>                    <span class="hljs-variable language_">self</span>.hour = <span class="hljs-number">0</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">show</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">&quot;&quot;&quot;显示时间&quot;&quot;&quot;</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;self.hour:<span class="hljs-number">0</span>&gt;2d&#125;</span>:<span class="hljs-subst">&#123;self.<span class="hljs-built_in">min</span>:<span class="hljs-number">0</span>&gt;2d&#125;</span>:<span class="hljs-subst">&#123;self.sec:<span class="hljs-number">0</span>&gt;2d&#125;</span>&#x27;</span><br><br><span class="hljs-comment"># 创建时钟对象</span><br>clock = Clock(<span class="hljs-number">23</span>, <span class="hljs-number">59</span>, <span class="hljs-number">58</span>)<br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    <span class="hljs-comment"># 给时钟对象发消息读取时间</span><br>    <span class="hljs-built_in">print</span>(clock.show())<br>    <span class="hljs-comment"># 休眠1秒钟</span><br>    time.sleep(<span class="hljs-number">1</span>)<br>    <span class="hljs-comment"># 给时钟对象发消息使其走字</span><br>    clock.run()<br></code></pre></td></tr></table></figure>
+
+<p>在本例中，将时钟的进位与显示封装起来，外部调用时，只需要调用相应函数即可。</p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>面向对象的编程语言支持在已有类的基础上创建新类，从而减少重复代码的编写。提供继承信息的类叫做父类（超类、基类），得到继承信息的类叫做子类（派生类、衍生类）。由于Python2.x版本的遗留问题，虽然Python3.x已经不必显式继承<code>object</code>类，但依然建议大家显式继承。继承的语法为<code>class 类名(父类名):</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span>(<span class="hljs-title class_ inherited__">object</span>):    <span class="hljs-comment"># 此处显式继承了object类</span><br>    <span class="hljs-string">&quot;&quot;&quot;人类&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age</span>):<br>        <span class="hljs-variable language_">self</span>.name = name<br>        <span class="hljs-variable language_">self</span>.age = age<br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">eat</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;self.name&#125;</span>正在吃饭.&#x27;</span>)<br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">sleep</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;self.name&#125;</span>正在睡觉.&#x27;</span>)<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span>(<span class="hljs-title class_ inherited__">Person</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;学生类&quot;&quot;&quot;</span><br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, name, age</span>):<br>        <span class="hljs-built_in">super</span>().__init__(name, age)<br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">study</span>(<span class="hljs-params">self, course_name</span>):<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;self.name&#125;</span>正在学习<span class="hljs-subst">&#123;course_name&#125;</span>.&#x27;</span>)<br><br>p = Person(<span class="hljs-string">&quot;CZG&quot;</span>, <span class="hljs-number">21</span>)<br>p.eat()                    <span class="hljs-comment"># CZG正在吃饭.</span><br>stu = Student(<span class="hljs-string">&quot;程志刚&quot;</span>, <span class="hljs-number">21</span>)<br>stu.study(<span class="hljs-string">&quot;Pytorch&quot;</span>)       <span class="hljs-comment"># 程志刚正在学习Pytorch.</span><br></code></pre></td></tr></table></figure>
+
+<p>注意在本例中，重写了子类的<code>__init__</code>方法，如果不重写，将自动调用父类构造方法进行构造，如果重写，则默认不会调用，需要自己通过<code>super().__init__</code>调用父类构造方法。</p>
+<h2 id="Python模块"><a href="#Python模块" class="headerlink" title="Python模块"></a>Python模块</h2><p>为了编写可维护的代码，我们把很多函数分组，分别放到不同的文件里，这样，每个文件包含的代码就相对较少，很多编程语言都采用这种组织代码的方式。Python中每个文件就代表了一个模块（module）。使用模块可以大大提升代码可维护性，同时，也让编写代码不必从零开始。当一个模块编写完毕，就可以被其他地方引用。我们在编写程序的时候，也经常引用其它模块，包括Python内置的模块和来自第三方的模块。</p>
+<p>当然，使用模块还可以避免函数名和变量名冲突。相同名字的函数、变量可以分别存在不同的模块中。在使用模块时，可以使用<code>import</code>关键字导入。</p>
+<p>例如在同一文件夹下，分别有<code>module1.py</code>, <code>module2.py</code>, <code>test.py</code>三个文件。</p>
+<p><code>module1.py</code>文件内容：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">foo</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;hello, world!&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p><code>module2.py</code>文件内容</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">foo</span>():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;goodbye, world!&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p><code>test.py</code>文件内容</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> module1<br><span class="hljs-keyword">import</span> module2<br><span class="hljs-comment"># 用“模块名.函数名”的方式（完全限定名）调用函数</span><br>module1.foo()    <span class="hljs-comment"># hello, world!</span><br>module2.foo()    <span class="hljs-comment"># goodbye, world!</span><br></code></pre></td></tr></table></figure>
+
+<p>除了自己编写的模块外，Python本身还内置了许多模块，例如处理时间的<code>time</code>模块，处理文件系统的<code>os</code>模块等等。我们还可以自己安装第三方模块来进一步简化代码编写。例如<code>numpy</code>, <code>pandas</code>等就属于非常出名的第三方模块。</p>
+<p>限于篇幅，此处不在详述如何使用conda，pip管理模块，大家可以参考<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/fe8cc7b6f558%E3%80%82">https://www.jianshu.com/p/fe8cc7b6f558。</a></p>
+<p>安装模块的常用命令：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><code class="hljs c">conda install &lt;package-name&gt;<br>pip install &lt;package-name&gt;<br><br>e.g. <br><br>pip install numpy<br>conda install numpy<br>pip install scikit-learn<br></code></pre></td></tr></table></figure>
+
+<h2 id="后续学习"><a href="#后续学习" class="headerlink" title="后续学习"></a>后续学习</h2><p>以上是Python非常基础的语法，但Python核心语法不仅限于此。后续大家还可以学习Python标准库，文件读写，字符编码，正则表达式，面向对象进阶，函数式编程，各类包的使用（如numpy，pandas）以至机器学习……</p>
+<p>在这里，笔者再推荐几个网站。</p>
+<p>如果大家编程时，代码报错怎么办？</p>
+<p>原文：<a target="_blank" rel="noopener" href="https://realpython.com/python-traceback/">https://realpython.com/python-traceback/</a></p>
+<p>译文：<a target="_blank" rel="noopener" href="https://blog.csdn.net/muzico425/article/details/99688343">https://blog.csdn.net/muzico425/article/details/99688343</a></p>
+<p>比较好的Python教程：</p>
+<ol>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/jackfrued/Python-100-Days">https://github.com/jackfrued/Python-100-Days</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/jackfrued/Python-Core-50-Courses">https://github.com/jackfrued/Python-Core-50-Courses</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1016959663602400">https://www.liaoxuefeng.com/wiki/1016959663602400</a></p>
+</li>
+</ol>
+<p>官方文档：</p>
+<p><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/">https://docs.python.org/zh-cn/3/</a></p>
+<p>Python语法速查：</p>
+<ol>
+<li><p><a target="_blank" rel="noopener" href="https://www.pythoncheatsheet.org/">https://www.pythoncheatsheet.org/</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://programming-idioms.org/cheatsheet/Python">https://programming-idioms.org/cheatsheet/Python</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://programming-idioms.org/cheatsheet/C/Python">https://programming-idioms.org/cheatsheet/C/Python</a></p>
+</li>
+</ol>
+<p>提问或搜索：</p>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/">https://stackoverflow.com/</a></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>本篇技术贴部分参考以下内容</p>
+<p>[1] <a target="_blank" rel="noopener" href="https://github.com/jackfrued/Python-Core-50-Courses">https://github.com/jackfrued/Python-Core-50-Courses</a></p>
+<p>[2] <a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1016959663602400">https://www.liaoxuefeng.com/wiki/1016959663602400</a></p>
+<p>[3] <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/">https://docs.python.org/zh-cn/3/</a></p>
+<hr>
+<p>供稿 科协技术部 审核 顾燚 程志刚</p>
+
+        
+           
+    <!-- </div>
+    <footer class="article-footer">
+      <a data-url="http://thuce.top/2021/10/11/python%E6%95%99%E7%A8%8B%E2%85%B1%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%88%9D%E6%AD%A5/" data-id="cmb9fujue008jwis6a8n79ad7" data-title="Python教程Ⅱ面向对象编程初步" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div> -->
+
+  <!-- <div class="article-entry"> -->
+  </div>
+  <footer class="article-footer">
+    <!-- 移除分享链接 -->
+    
+    
+    
+  </footer>
+</div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/10/20/%E7%BB%93%E8%B5%9B-%E5%91%BD%E9%A2%98%E7%AE%80%E4%BB%8B%E5%8F%8A%E6%8A%A5%E5%90%8D%E9%80%9A%E7%9F%A5/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          清华大学第二十七届结构设计大赛命题简介及报名通知
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/08/23/python%E6%95%99%E7%A8%8B%E2%85%B0%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">Python教程Ⅰ环境安装与快速入门</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+     
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/categories/%E7%B2%BE%E5%BD%A9%E8%B5%9B%E4%BA%8B/">精彩赛事</a>
+            
+          </li>
+        
+          <li>
+            <a href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a>
+            
+          </li>
+        
+          <li>
+            <a href="/categories/%E5%9B%A2%E9%98%9F%E4%BB%8B%E7%BB%8D/">团队介绍</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+  
+       
+    <div class="widget-wrap">
+      <h3 class="widget-title">最新文章</h3>
+      <div class="widget">
+        <ul>
+          
+            <li>
+              <a href="/2023/05/17/3814/">Linux 使用指南</a>
+            </li>
+          
+            <li>
+              <a href="/2023/04/19/%E6%8A%80%E6%9C%AF%E5%B8%96%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90%E5%8F%8A%E6%8A%80%E5%B7%A7%E4%BB%8B%E7%BB%8D/">技术帖笔记软件推荐及技巧介绍</a>
+            </li>
+          
+            <li>
+              <a href="/2022/05/31/windows-%E6%95%88%E7%8E%87%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/">Windows 效率软件推荐</a>
+            </li>
+          
+            <li>
+              <a href="/2022/05/14/autocad%E8%BF%9B%E9%98%B6%E6%95%99%E7%A8%8B/">AutoCAD进阶教程</a>
+            </li>
+          
+            <li>
+              <a href="/2022/03/26/c-%E6%95%99%E7%A8%8B%EF%BC%9A%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">C# 教程：环境安装与快速入门</a>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 科协技术部<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/organization" class="mobile-nav-link">人员组织</a>
+  
+    <a href="/technical" class="mobile-nav-link">技术专区</a>
+  
+    <a href="/competition" class="mobile-nav-link">精彩赛事</a>
+  
+    <a href="/news" class="mobile-nav-link">新闻热点</a>
+  
+    <a href="/about" class="mobile-nav-link">联系我们</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

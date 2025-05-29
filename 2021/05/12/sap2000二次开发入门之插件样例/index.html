@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>SAP2000二次开发入门之插件样例 | 清华大学土木工程系暨建设管理系学生科协</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="在上一篇《SAP2000二次开发初探之C#环境搭建》中，作者介绍了如何使用Mirosoft Visual Studio配置C#编程的环境，添加SAP2000库的引用和开发完成后的SAP插件添加。这篇文章会简单介绍完成上述准备工作之后如何使用C#进行插件开发，并给出了一个具体样例~ 一、添加插件窗口在像上一篇文章一样操作之后，我们就可以开始写插件了。现在我们已将Class.cs修改为cPlugin，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SAP2000二次开发入门之插件样例">
+<meta property="og:url" content="http://thuce.top/2021/05/12/sap2000%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8%E4%B9%8B%E6%8F%92%E4%BB%B6%E6%A0%B7%E4%BE%8B/index.html">
+<meta property="og:site_name" content="清华大学土木工程系暨建设管理系学生科协">
+<meta property="og:description" content="在上一篇《SAP2000二次开发初探之C#环境搭建》中，作者介绍了如何使用Mirosoft Visual Studio配置C#编程的环境，添加SAP2000库的引用和开发完成后的SAP插件添加。这篇文章会简单介绍完成上述准备工作之后如何使用C#进行插件开发，并给出了一个具体样例~ 一、添加插件窗口在像上一篇文章一样操作之后，我们就可以开始写插件了。现在我们已将Class.cs修改为cPlugin，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicPry7ckx9UiboZCcflfu8VDCVdkCcHo22J2TEL0ZqQABamlYgB9cjPNA/640?wx_fmt=png&wxfrom=13&tp=wxpic">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2021/05/2551-2.png">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicniaibez34OXdcwqZIrk0DJpBiaRoYVRlUrpJLqyxUHo66OBQffNrsdcvg/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicn7DaP0e24sjJQ0YtUHsKf3kS7XkAFFGA9icfjuD4MHOkxxZNLZTjWiaA/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicFd4cgYzjxqXnicQKtAcUFZRUcF86EJVdZZUNbtsfkJnjXOlFPgcxJibw/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicN9LoOjFYH0rOHQCQWIvaU4EJqQ5Ib1vic0fNPZiaa0K5y0WVEOd68PuQ/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicE6iaGk91J8I1EYkP5rowYIwJ1icvY3wib1huTW1DzGiauF4KjOAVgn8ibkQ/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicrH3Xnw00TUWia7QAhaLFqpgB5icvZPxR58UnibMh7ESM6AJ65ABB8W4iaA/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicgia3hjwkW3XZZO65mfGRicTic9BALa3ftQDkmxxknpa3gMtZvgC1MdZgA/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2021/05/2551-10.png">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2021/05/2551-11-1024x557.png">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicFLLWBLCbxMKpkRdt04o3ceDSicu4xiaiby0hVficWzOa4ibBL7rF6LUowxA/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2021/05/2551-13.png">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicQTSELQ9a2X3KcqLSPfNN2TYAVgu81E5udnibjzyXHFVYtxawXT97sQw/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicZNBYschaguauc2wcOwSGAibiblBzoVBbKNIT6KyyWyaHxwbGiclmlCvQw/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="article:published_time" content="2021-05-12T12:13:20.000Z">
+<meta property="article:modified_time" content="2025-05-29T10:08:19.036Z">
+<meta property="article:author" content="科协技术部">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicPry7ckx9UiboZCcflfu8VDCVdkCcHo22J2TEL0ZqQABamlYgB9cjPNA/640?wx_fmt=png&wxfrom=13&tp=wxpic">
+  
+    <link rel="alternate" href="/atom.xml" title="清华大学土木工程系暨建设管理系学生科协" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">清华大学土木工程系暨建设管理系学生科协</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/organization">人员组织</a>
+        
+          <a class="main-nav-link" href="/technical">技术专区</a>
+        
+          <a class="main-nav-link" href="/competition">精彩赛事</a>
+        
+          <a class="main-nav-link" href="/news">新闻热点</a>
+        
+          <a class="main-nav-link" href="/about">联系我们</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://thuce.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-sap2000二次开发入门之插件样例" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/12/sap2000%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8%E4%B9%8B%E6%8F%92%E4%BB%B6%E6%A0%B7%E4%BE%8B/" class="article-date">
+  <time class="dt-published" datetime="2021-05-12T12:13:20.000Z" itemprop="datePublished">2021-05-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      SAP2000二次开发入门之插件样例
+    </h1>
+  
+
+      </header>
+    
+    <!-- <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>在上一篇《SAP2000二次开发初探之C#环境搭建》中，作者介绍了如何使用Mirosoft Visual Studio配置C#编程的环境，添加SAP2000库的引用和开发完成后的SAP插件添加。这篇文章会简单介绍完成上述准备工作之后如何使用C#进行插件开发，并给出了一个具体样例~</p>
+<h2 id="一、添加插件窗口"><a href="#一、添加插件窗口" class="headerlink" title="一、添加插件窗口"></a>一、添加插件窗口</h2><p>在像上一篇文章一样操作之后，我们就可以开始写插件了。现在我们已将Class.cs修改为cPlugin，并添加了引用（using SAP2000v1），还在这个类里添加了Main方法。这个Main方法需要满足以下要求：1、需要用public void修饰语；2、传入2个参数：SapModel类的一个实例和cPluginCallback类的一个实例（这两个参数是由SAP2000主程序调用时提供）。当我们在SAP2000中点击插件时，就是让SAP主程序调用cPlugin类的Main方法。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicPry7ckx9UiboZCcflfu8VDCVdkCcHo22J2TEL0ZqQABamlYgB9cjPNA/640?wx_fmt=png&wxfrom=13&tp=wxpic" alt="图 1 Main方法示例"></p>
+<p>我们使用SAP2000插件的用户操作流程基本上是依次点击：工具——插件——出现插件窗口——对窗口进行编辑——点击确认——插件执行命令；这对应于我们开发时的流程是：调用cPlugin.Main——呈现一个窗口（Form）——对窗口（Form）进行编辑——点击按键（button）时触发函数，实现插件功能。</p>
+<p><strong>要注意的是，虽然主程序直接调用cPlugin.Main，但是我们的实现思路是先从Main中呈现窗口，再在窗口中实现插件实际功能。</strong>因此Main函数只需要负责生成窗口就好了，具体的插件代码只需在Form中编写。接下来我们先向项目中添加一个窗口项。</p>
+<p><img src="/../wp-content_uploads/2021/05/2551-2.png" alt="图 2 添加窗口（步骤1）"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicniaibez34OXdcwqZIrk0DJpBiaRoYVRlUrpJLqyxUHo66OBQffNrsdcvg/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="图 3 添加窗口（步骤2）"></p>
+<p>而窗体本质上也是一个类，而要产生窗口的一个实例，我们需要在cPlugin.Main中添加如下代码。其中的Info方法用于在SAP主程序中呈现插件信息，在这里稍作呈现。  </p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicn7DaP0e24sjJQ0YtUHsKf3kS7XkAFFGA9icfjuD4MHOkxxZNLZTjWiaA/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="图 4 cPlugin类的完整代码：实现弹出插件窗口"></p>
+<p>其中，为了在Form类中继续进行开发，我们需要把实例（model和plug）进行传参；而为了能成功传递，我们也要在Form类中编写相应的构造函数，并在类中加入一些局部变量。这样就可以让Form读取到传递进来的参数（model和plugin），随后在调用SAP2000库中的函数时就是调用model这个实例的方法。注意，打开Form1的代码窗口需要在Form1的设计窗口下按一次F7。 </p>
+<p>​         <img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicFd4cgYzjxqXnicQKtAcUFZRUcF86EJVdZZUNbtsfkJnjXOlFPgcxJibw/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="图 5 Form1类核心代码（1）：实现构造函数和局部变量">                      </p>
+<p>为了让这个窗口可以对按键作出反应，我们对窗口进行一些可视化编辑。此时我们回到Form1的设计窗口，然后利用左侧工具箱编辑这个窗口，添加若干个公共控件：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicN9LoOjFYH0rOHQCQWIvaU4EJqQ5Ib1vic0fNPZiaa0K5y0WVEOd68PuQ/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="图 6 编辑窗口控件"></p>
+<p>接下来双击右边窗口里的button1，然后会发现在Form1的代码窗口中自动生成了一个叫按键反应函数。在这个函数下编写的命令会在我们点击这个Button的时候开始执行。当点击了对应的button1，插件将执行该函数。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicE6iaGk91J8I1EYkP5rowYIwJ1icvY3wib1huTW1DzGiauF4KjOAVgn8ibkQ/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="图 7 双击button1自动生成的语句"></p>
+<p>之后，我们就能在这个button附带的函数中愉快地编写命令啦。因为大部分插件的运行过程是先让用户选择对象或者输入一些数值，然后再点击按钮运行插件功能，因此插件的功能大多要在这个按钮的函数下进行编写。有些插件需要用户输入数值，所以我们此前进行窗口设计时，已将文本框textBox拖入窗口中。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicrH3Xnw00TUWia7QAhaLFqpgB5icvZPxR58UnibMh7ESM6AJ65ABB8W4iaA/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="图 8 文本框示例"></p>
+<p>用户在这些文本框输入的数值可以被代码读取，每一个文本框有自己的编号：例如第一个是textBox1，后续依次为textBox2，textBox3，以此类推；也可以设计者自行确定名称。这些文本框的本质是textBox的一个实例，可以用其中的Text方法获得值，但需要注意该值是string类型，需要进行转换。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicgia3hjwkW3XZZO65mfGRicTic9BALa3ftQDkmxxknpa3gMtZvgC1MdZgA/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="图 9 获取文本框的值"></p>
+<p>二、SAP2000库函数简介     </p>
+<p>在button_click函数中编写命令时，我们需要大量使用SAP2000附带的函数，以便插件能对SAP2000进行正确操作。这些函数在调用时能够在SAP2000中完成各种功能，包括实例的创建，对象的选取和相关信息的修改与获取。而为了能够正确调用这些函数，我们需要查阅SAP2000附带的OAPI文档，从中找到函数的功能。                                            </p>
+<p>打开OAPI文档（文档在SAP2000安装根目录下，文件名CSI_OAPI_Documentation.chm），点击左边索引菜单中的CSi OAPI Functions栏可以看到各类可供使用的函数，比如Object Model栏中可以查到跟对象操作有关的函数，Select栏中可以查到跟对象的选取有关的函数。在实际使用时就根据需要在左侧索引栏中一层一层找到自己想要的函数。</p>
+<p><img src="/../wp-content_uploads/2021/05/2551-10.png"></p>
+<p>图 10 函数一览在文档中的位置</p>
+<p>点击某个具体的函数后，在右侧会显示出这个函数有关的信息。Procedure栏中显示函数调用时会输入&#x2F;获得的变量，Parameters是针对这些变量的解释，Remarks是有关这个函数的说明。以图中选择的SapObject.SapModel.PointObj.GetCoordCartesian为例，这个函数会根据你输入的点的名称（ByVal Name As String）,告诉你这个点的三个坐标（x,y,z），图中第五个变量是指要得到这个点在哪个坐标系下的坐标，一般默认在是全局坐标系下的坐标。值得注意的是，OAPI文档里的使用信息都以VBA为例所写，在语法上与C#略有差异。</p>
+<p>在使用SAP2000库中函数时其函数基本通过传参的方式返回信息。具体来说就是在调用函数时在函数传入参数前加上一个ref。以上述函数为例，在实际使用时其语句为<code>ret=SapModel.PointObj.GetCoordCartesian ( Name ,ref x ,ref y ,ref z , “Globbal” )；</code> 句中的这个“ret&#x3D;”用于返回一个int类型的值以判断函数是否调用成功，成功为0，否则非0。调用函数时的四个变量，第一个Name是传递值，后面三个为传递引用，一般只有需要返回的变量前才需要添加ref。</p>
+<p><img src="/../wp-content_uploads/2021/05/2551-11-1024x557.png"></p>
+<p>图 11 OAPI文档中对于函数的说明</p>
+<p>三、举个栗子<br>为了方便理解相关功能的使用，这里举一个简单的例子来进行说明</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicFLLWBLCbxMKpkRdt04o3ceDSicu4xiaiby0hVficWzOa4ibBL7rF6LUowxA/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="图 12 Form类核心代码（2）： botton_click"></p>
+<p>该段代码实现用户在点击按钮之后对所选点的坐标进行任意比例的缩放。其中第36行调用OAPI函数获得选择的对象。可以看到虽然之前我们在定义NumberItems,ObjectType_int和ObjectName_string时随意地声明了数组的大小，但是在调用OAPI方法后，API会自动根据结果修改数组并返回结果。在第44行调用函数获得的点坐标直接储存在变量x，y，z中，所以在46行就能直接利用函数获得的坐标值x,y,z和放大系数Ratio_X,Y,Z来进行缩放，而无需额外操作。</p>
+<p>需要注意的是，该例子的图示仅包含了Form类中button_click的函数，完整的插件开发仍需包含上一篇<a href="https://thuce.top/2488.html">《SAP2000二次开发初探之C#环境搭建》</a>的铺垫以及本篇前面对cPlugin类、Form1类的操作步骤。  </p>
+<p>最后以下图的框架结构为例，用户选择红圈内的点并启动插件，试图对该点坐标进行缩放操作，最后的效果如图所示：</p>
+<p><img src="/../wp-content_uploads/2021/05/2551-13.png"></p>
+<p>图 13 插件中输入比例系数</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicQTSELQ9a2X3KcqLSPfNN2TYAVgu81E5udnibjzyXHFVYtxawXT97sQw/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicZNBYschaguauc2wcOwSGAibiblBzoVBbKNIT6KyyWyaHxwbGiclmlCvQw/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="图 14 作用前后对比（上图/下图）"></p>
+<p>以上就是这一次介绍的一些SAP2000二次开发的入门操作啦，希望大家以后能够用上这些小知识进行愉快的二次开发~</p>
+
+      
+    </div> -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+        
+          <p>在上一篇《SAP2000二次开发初探之C#环境搭建》中，作者介绍了如何使用Mirosoft Visual Studio配置C#编程的环境，添加SAP2000库的引用和开发完成后的SAP插件添加。这篇文章会简单介绍完成上述准备工作之后如何使用C#进行插件开发，并给出了一个具体样例~</p>
+<h2 id="一、添加插件窗口"><a href="#一、添加插件窗口" class="headerlink" title="一、添加插件窗口"></a>一、添加插件窗口</h2><p>在像上一篇文章一样操作之后，我们就可以开始写插件了。现在我们已将Class.cs修改为cPlugin，并添加了引用（using SAP2000v1），还在这个类里添加了Main方法。这个Main方法需要满足以下要求：1、需要用public void修饰语；2、传入2个参数：SapModel类的一个实例和cPluginCallback类的一个实例（这两个参数是由SAP2000主程序调用时提供）。当我们在SAP2000中点击插件时，就是让SAP主程序调用cPlugin类的Main方法。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicPry7ckx9UiboZCcflfu8VDCVdkCcHo22J2TEL0ZqQABamlYgB9cjPNA/640?wx_fmt=png&wxfrom=13&tp=wxpic" alt="图 1 Main方法示例"></p>
+<p>我们使用SAP2000插件的用户操作流程基本上是依次点击：工具——插件——出现插件窗口——对窗口进行编辑——点击确认——插件执行命令；这对应于我们开发时的流程是：调用cPlugin.Main——呈现一个窗口（Form）——对窗口（Form）进行编辑——点击按键（button）时触发函数，实现插件功能。</p>
+<p><strong>要注意的是，虽然主程序直接调用cPlugin.Main，但是我们的实现思路是先从Main中呈现窗口，再在窗口中实现插件实际功能。</strong>因此Main函数只需要负责生成窗口就好了，具体的插件代码只需在Form中编写。接下来我们先向项目中添加一个窗口项。</p>
+<p><img src="/../wp-content_uploads/2021/05/2551-2.png" alt="图 2 添加窗口（步骤1）"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicniaibez34OXdcwqZIrk0DJpBiaRoYVRlUrpJLqyxUHo66OBQffNrsdcvg/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="图 3 添加窗口（步骤2）"></p>
+<p>而窗体本质上也是一个类，而要产生窗口的一个实例，我们需要在cPlugin.Main中添加如下代码。其中的Info方法用于在SAP主程序中呈现插件信息，在这里稍作呈现。  </p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicn7DaP0e24sjJQ0YtUHsKf3kS7XkAFFGA9icfjuD4MHOkxxZNLZTjWiaA/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="图 4 cPlugin类的完整代码：实现弹出插件窗口"></p>
+<p>其中，为了在Form类中继续进行开发，我们需要把实例（model和plug）进行传参；而为了能成功传递，我们也要在Form类中编写相应的构造函数，并在类中加入一些局部变量。这样就可以让Form读取到传递进来的参数（model和plugin），随后在调用SAP2000库中的函数时就是调用model这个实例的方法。注意，打开Form1的代码窗口需要在Form1的设计窗口下按一次F7。 </p>
+<p>​         <img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicFd4cgYzjxqXnicQKtAcUFZRUcF86EJVdZZUNbtsfkJnjXOlFPgcxJibw/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="图 5 Form1类核心代码（1）：实现构造函数和局部变量">                      </p>
+<p>为了让这个窗口可以对按键作出反应，我们对窗口进行一些可视化编辑。此时我们回到Form1的设计窗口，然后利用左侧工具箱编辑这个窗口，添加若干个公共控件：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicN9LoOjFYH0rOHQCQWIvaU4EJqQ5Ib1vic0fNPZiaa0K5y0WVEOd68PuQ/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="图 6 编辑窗口控件"></p>
+<p>接下来双击右边窗口里的button1，然后会发现在Form1的代码窗口中自动生成了一个叫按键反应函数。在这个函数下编写的命令会在我们点击这个Button的时候开始执行。当点击了对应的button1，插件将执行该函数。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicE6iaGk91J8I1EYkP5rowYIwJ1icvY3wib1huTW1DzGiauF4KjOAVgn8ibkQ/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="图 7 双击button1自动生成的语句"></p>
+<p>之后，我们就能在这个button附带的函数中愉快地编写命令啦。因为大部分插件的运行过程是先让用户选择对象或者输入一些数值，然后再点击按钮运行插件功能，因此插件的功能大多要在这个按钮的函数下进行编写。有些插件需要用户输入数值，所以我们此前进行窗口设计时，已将文本框textBox拖入窗口中。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicrH3Xnw00TUWia7QAhaLFqpgB5icvZPxR58UnibMh7ESM6AJ65ABB8W4iaA/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="图 8 文本框示例"></p>
+<p>用户在这些文本框输入的数值可以被代码读取，每一个文本框有自己的编号：例如第一个是textBox1，后续依次为textBox2，textBox3，以此类推；也可以设计者自行确定名称。这些文本框的本质是textBox的一个实例，可以用其中的Text方法获得值，但需要注意该值是string类型，需要进行转换。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicgia3hjwkW3XZZO65mfGRicTic9BALa3ftQDkmxxknpa3gMtZvgC1MdZgA/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="图 9 获取文本框的值"></p>
+<p>二、SAP2000库函数简介     </p>
+<p>在button_click函数中编写命令时，我们需要大量使用SAP2000附带的函数，以便插件能对SAP2000进行正确操作。这些函数在调用时能够在SAP2000中完成各种功能，包括实例的创建，对象的选取和相关信息的修改与获取。而为了能够正确调用这些函数，我们需要查阅SAP2000附带的OAPI文档，从中找到函数的功能。                                            </p>
+<p>打开OAPI文档（文档在SAP2000安装根目录下，文件名CSI_OAPI_Documentation.chm），点击左边索引菜单中的CSi OAPI Functions栏可以看到各类可供使用的函数，比如Object Model栏中可以查到跟对象操作有关的函数，Select栏中可以查到跟对象的选取有关的函数。在实际使用时就根据需要在左侧索引栏中一层一层找到自己想要的函数。</p>
+<p><img src="/../wp-content_uploads/2021/05/2551-10.png"></p>
+<p>图 10 函数一览在文档中的位置</p>
+<p>点击某个具体的函数后，在右侧会显示出这个函数有关的信息。Procedure栏中显示函数调用时会输入&#x2F;获得的变量，Parameters是针对这些变量的解释，Remarks是有关这个函数的说明。以图中选择的SapObject.SapModel.PointObj.GetCoordCartesian为例，这个函数会根据你输入的点的名称（ByVal Name As String）,告诉你这个点的三个坐标（x,y,z），图中第五个变量是指要得到这个点在哪个坐标系下的坐标，一般默认在是全局坐标系下的坐标。值得注意的是，OAPI文档里的使用信息都以VBA为例所写，在语法上与C#略有差异。</p>
+<p>在使用SAP2000库中函数时其函数基本通过传参的方式返回信息。具体来说就是在调用函数时在函数传入参数前加上一个ref。以上述函数为例，在实际使用时其语句为<code>ret=SapModel.PointObj.GetCoordCartesian ( Name ,ref x ,ref y ,ref z , “Globbal” )；</code> 句中的这个“ret&#x3D;”用于返回一个int类型的值以判断函数是否调用成功，成功为0，否则非0。调用函数时的四个变量，第一个Name是传递值，后面三个为传递引用，一般只有需要返回的变量前才需要添加ref。</p>
+<p><img src="/../wp-content_uploads/2021/05/2551-11-1024x557.png"></p>
+<p>图 11 OAPI文档中对于函数的说明</p>
+<p>三、举个栗子<br>为了方便理解相关功能的使用，这里举一个简单的例子来进行说明</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicFLLWBLCbxMKpkRdt04o3ceDSicu4xiaiby0hVficWzOa4ibBL7rF6LUowxA/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="图 12 Form类核心代码（2）： botton_click"></p>
+<p>该段代码实现用户在点击按钮之后对所选点的坐标进行任意比例的缩放。其中第36行调用OAPI函数获得选择的对象。可以看到虽然之前我们在定义NumberItems,ObjectType_int和ObjectName_string时随意地声明了数组的大小，但是在调用OAPI方法后，API会自动根据结果修改数组并返回结果。在第44行调用函数获得的点坐标直接储存在变量x，y，z中，所以在46行就能直接利用函数获得的坐标值x,y,z和放大系数Ratio_X,Y,Z来进行缩放，而无需额外操作。</p>
+<p>需要注意的是，该例子的图示仅包含了Form类中button_click的函数，完整的插件开发仍需包含上一篇<a href="https://thuce.top/2488.html">《SAP2000二次开发初探之C#环境搭建》</a>的铺垫以及本篇前面对cPlugin类、Form1类的操作步骤。  </p>
+<p>最后以下图的框架结构为例，用户选择红圈内的点并启动插件，试图对该点坐标进行缩放操作，最后的效果如图所示：</p>
+<p><img src="/../wp-content_uploads/2021/05/2551-13.png"></p>
+<p>图 13 插件中输入比例系数</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicQTSELQ9a2X3KcqLSPfNN2TYAVgu81E5udnibjzyXHFVYtxawXT97sQw/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicZNBYschaguauc2wcOwSGAibiblBzoVBbKNIT6KyyWyaHxwbGiclmlCvQw/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="图 14 作用前后对比（上图/下图）"></p>
+<p>以上就是这一次介绍的一些SAP2000二次开发的入门操作啦，希望大家以后能够用上这些小知识进行愉快的二次开发~</p>
+
+        
+           
+    <!-- </div>
+    <footer class="article-footer">
+      <a data-url="http://thuce.top/2021/05/12/sap2000%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8%E4%B9%8B%E6%8F%92%E4%BB%B6%E6%A0%B7%E4%BE%8B/" data-id="cmb9fujuf008rwis61a003zro" data-title="SAP2000二次开发入门之插件样例" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div> -->
+
+  <!-- <div class="article-entry"> -->
+  </div>
+  <footer class="article-footer">
+    <!-- 移除分享链接 -->
+    
+    
+    
+  </footer>
+</div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/05/17/%E5%85%B3%E4%BA%8E%E4%B8%BE%E5%8A%9E%E7%AC%AC%E5%9B%9B%E5%B1%8A%E8%8C%85%E4%BB%A5%E5%8D%87%E5%85%AC%E7%9B%8A%E6%A1%A5-%E5%B0%8F%E6%A1%A5%E5%B7%A5%E7%A8%8B-%E5%88%9B%E6%96%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          关于举办第四届“茅以升公益桥—小桥工程” 创新设计大赛的通知
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/04/09/sap2000%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E5%88%9D%E6%8E%A2%E4%B9%8Bc%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">SAP2000二次开发初探之C#环境搭建</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+     
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/categories/%E7%B2%BE%E5%BD%A9%E8%B5%9B%E4%BA%8B/">精彩赛事</a>
+            
+          </li>
+        
+          <li>
+            <a href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a>
+            
+          </li>
+        
+          <li>
+            <a href="/categories/%E5%9B%A2%E9%98%9F%E4%BB%8B%E7%BB%8D/">团队介绍</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+  
+       
+    <div class="widget-wrap">
+      <h3 class="widget-title">最新文章</h3>
+      <div class="widget">
+        <ul>
+          
+            <li>
+              <a href="/2023/05/17/3814/">Linux 使用指南</a>
+            </li>
+          
+            <li>
+              <a href="/2023/04/19/%E6%8A%80%E6%9C%AF%E5%B8%96%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90%E5%8F%8A%E6%8A%80%E5%B7%A7%E4%BB%8B%E7%BB%8D/">技术帖笔记软件推荐及技巧介绍</a>
+            </li>
+          
+            <li>
+              <a href="/2022/05/31/windows-%E6%95%88%E7%8E%87%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/">Windows 效率软件推荐</a>
+            </li>
+          
+            <li>
+              <a href="/2022/05/14/autocad%E8%BF%9B%E9%98%B6%E6%95%99%E7%A8%8B/">AutoCAD进阶教程</a>
+            </li>
+          
+            <li>
+              <a href="/2022/03/26/c-%E6%95%99%E7%A8%8B%EF%BC%9A%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">C# 教程：环境安装与快速入门</a>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 科协技术部<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/organization" class="mobile-nav-link">人员组织</a>
+  
+    <a href="/technical" class="mobile-nav-link">技术专区</a>
+  
+    <a href="/competition" class="mobile-nav-link">精彩赛事</a>
+  
+    <a href="/news" class="mobile-nav-link">新闻热点</a>
+  
+    <a href="/about" class="mobile-nav-link">联系我们</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

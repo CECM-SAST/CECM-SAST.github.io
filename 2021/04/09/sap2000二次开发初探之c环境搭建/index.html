@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>SAP2000二次开发初探之C#环境搭建 | 清华大学土木工程系暨建设管理系学生科协</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="SAP200作为进行结构分析的重要软件，其早在2007年就发布了开放的应用程序开发接口（OAPI），第三方开发者可以创建与SAP2000丰富紧密的双向连接，允许准确地转换模型至SAP2000，由SAP2000控制执行过程，并从SAP2000中提取分析和设计信息。SAP2000开放的API与大多数编程语言兼容，包括VBA（Visual Basic for Applications）、C#、pytho">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SAP2000二次开发初探之C#环境搭建">
+<meta property="og:url" content="http://thuce.top/2021/04/09/sap2000%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E5%88%9D%E6%8E%A2%E4%B9%8Bc%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/index.html">
+<meta property="og:site_name" content="清华大学土木工程系暨建设管理系学生科协">
+<meta property="og:description" content="SAP200作为进行结构分析的重要软件，其早在2007年就发布了开放的应用程序开发接口（OAPI），第三方开发者可以创建与SAP2000丰富紧密的双向连接，允许准确地转换模型至SAP2000，由SAP2000控制执行过程，并从SAP2000中提取分析和设计信息。SAP2000开放的API与大多数编程语言兼容，包括VBA（Visual Basic for Applications）、C#、pytho">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2021/04/%E5%9B%BE%E7%89%871.png">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2021/04/%E5%9B%BE%E7%89%872.png">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2021/04/%E5%9B%BE%E7%89%873.png">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2021/04/%E5%9B%BE%E7%89%874.png">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2021/04/%E5%9B%BE%E7%89%875.png">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2021/04/%E5%9B%BE%E7%89%876.png">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2021/04/%E5%9B%BE%E7%89%877.png">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2021/04/%E5%9B%BE%E7%89%878.png">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2021/04/%E5%9B%BE%E7%89%879.png">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2021/04/%E5%9B%BE%E7%89%8710.png">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2021/04/%E5%9B%BE%E7%89%8712.png">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2021/04/F7HUAu5R5L-1024x611.png">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2021/04/xnOq6cA3F4-1024x310.png">
+<meta property="article:published_time" content="2021-04-09T13:29:03.000Z">
+<meta property="article:modified_time" content="2025-05-29T10:07:45.073Z">
+<meta property="article:author" content="科协技术部">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://thuce.top/wp-content_uploads/2021/04/%E5%9B%BE%E7%89%871.png">
+  
+    <link rel="alternate" href="/atom.xml" title="清华大学土木工程系暨建设管理系学生科协" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">清华大学土木工程系暨建设管理系学生科协</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/organization">人员组织</a>
+        
+          <a class="main-nav-link" href="/technical">技术专区</a>
+        
+          <a class="main-nav-link" href="/competition">精彩赛事</a>
+        
+          <a class="main-nav-link" href="/news">新闻热点</a>
+        
+          <a class="main-nav-link" href="/about">联系我们</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://thuce.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-sap2000二次开发初探之c环境搭建" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/04/09/sap2000%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E5%88%9D%E6%8E%A2%E4%B9%8Bc%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="article-date">
+  <time class="dt-published" datetime="2021-04-09T13:29:03.000Z" itemprop="datePublished">2021-04-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      SAP2000二次开发初探之C#环境搭建
+    </h1>
+  
+
+      </header>
+    
+    <!-- <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>SAP200作为进行结构分析的重要软件，其早在2007年就发布了开放的应用程序开发接口（OAPI），第三方开发者可以创建与SAP2000丰富紧密的双向连接，允许准确地转换模型至SAP2000，由SAP2000控制执行过程，并从SAP2000中提取分析和设计信息。SAP2000开放的API与大多数编程语言兼容，包括VBA（Visual Basic for Applications）、C#、python等。今天就给大家介绍一下如何搭建C#环境进行SAP2000开发。</p>
+<p>工具：SAP2000 v15以上版本（建议v21以后更高级版本）、Mirosoft Visual Studio 2019 community (VS 2019)、.Net Framework4.7及以上。</p>
+<p>SAP2000的安装大家各有各的办法，正常安装即可，操作简单不多讲。而此前装过VS较早版本的同学建议更新到2019版。VS作为一个兼容性较强的IDE，其免费的社区版以及足够我们的使用，到官网下载安装程序即可。这里有几点笔者下载安装中遇到的一点小tips可以供大家参考。</p>
+<p>一、VS 2019的下载安装</p>
+<p>官网上下载VS 2019的安装引导程序，选择第一项community版即可。</p>
+<p><img src="/../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%871.png"></p>
+<p>右键点击下载好的exe文件，选择“以管理员身份运行”，进入下面的界面：</p>
+<p><img src="/.././wp-content_uploads/2021/04/%E5%9B%BE%E7%89%872.png"></p>
+<p>因为笔者已经安装了社区版，所以“可用”栏目下未显示community版本的VS 2019，大家没安装的点击community版本的安装选项即可。选择安装后会下载一下准备文件：</p>
+<p><img src="/.././wp-content_uploads/2021/04/%E5%9B%BE%E7%89%873.png"></p>
+<p>接下来在出现的界面的“工作负载”栏目选择“.NET桌面开发”，即C#环境：</p>
+<p><img src="/../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%874.png"></p>
+<p>然后点击“安装位置”栏目改一下安装位置，一般默认在C盘，但我想大家一般不会把一个3、4G大的软件安装到C盘。安装位置的第一项即IDE安装位置一定要是一个空文件夹，否则无法安装。另外的两个选项则是存下载缓存和一些共享组件等，可以是非空文件夹，大家按自己习惯改一下就好。“语言包栏”一般默认勾选了中文简体，如果有其他语言需求自己勾选一下即可；单个组件项目不建议小白随便进行删减（但删减也没关系，如果不幸删了核心组件重头再装就是了），如果有其他需求可以视情况增加需要的组件。</p>
+<p><img src="/.././wp-content_uploads/2021/04/%E5%9B%BE%E7%89%875.png"></p>
+<p>然后我们就可以愉快的进行安装了，注意这里最好勾选下载时安装，会快一点。以及下载时的网络选择，笔者当时使用的是DIVI，速度连1MB&#x2F;s都达不到，于是怒而换Tsinghua-Secure，然后顺带关了一下ipv6协议，速度飙升到8MB&#x2F;s。关ipv6协议方法：控制面板—网络和 Internet—网络和共享中心—更改适配器设置—右键自己连接的WLAN—属性—取消勾选“Internet协议版本6（TCP&#x2F;IPv6）”—确定。不过在你重新连接网络后IPv6协议又会自己勾选上。</p>
+<p><img src="/.././wp-content_uploads/2021/04/%E5%9B%BE%E7%89%876.png"></p>
+<p>然后等待下载安装结束，我们就可以愉快的用C#进行SAP2000二次开发了。</p>
+<h2 id="二、开发准备"><a href="#二、开发准备" class="headerlink" title="二、开发准备"></a>二、开发准备</h2><p>1、创建项目 </p>
+<p>打开VS 2019，创建新项目，选择类库（.Net Framework）。</p>
+<p><img src="/.././wp-content_uploads/2021/04/%E5%9B%BE%E7%89%877.png"></p>
+<p>项目配置中可以设置项目名称和选择你的文件的存放位置，框架记得选择.Net Framework 4.7及以上。如果这里框架点开后发现没有.Net Framework 4.7及以上版本，可以到微软官网进行下载安装，当然一般不会出现这种情况。</p>
+<p><img src="/.././wp-content_uploads/2021/04/%E5%9B%BE%E7%89%878.png"></p>
+<p>2、添加SAP2000类库的引用   </p>
+<p>这一步需要提前安装好SAP2000，点击“解决方案”中的“引用”一栏，右键选择“添加引用”：</p>
+<p><img src="/.././wp-content_uploads/2021/04/%E5%9B%BE%E7%89%879.png"></p>
+<p>点击浏览，然后打开SAP2000的安装目录，找到SAP2000v1.dll，选中，确定。</p>
+<p><img src="/.././wp-content_uploads/2021/04/%E5%9B%BE%E7%89%8710.png"></p>
+<p>3、修改项目属性</p>
+<p>为了可以让我们使用C#从COM串口中读取数据，我们还需要修改一下项目属性，邮右键点击“解决方案”栏目下的项目名称，然后选择“属性”，在属性界面进行如下操作：1）“应用程序”—“程序集信息”—勾选“使程序集COM可见”；2）“生成”—目标平台改成“x64”—勾选“为COM互操作注册”。</p>
+<p><img src="/.././wp-content_uploads/2021/04/%E5%9B%BE%E7%89%8712.png"></p>
+<p>4、类名修改</p>
+<p>修改Class1类的名字为cPlugin（当然也可以另外添加一个），因为SAP2000插件的逻辑是在SAP里由主程序调用cPlugin这个类里面的Main方法。接下来就可以愉快的写代码了，不过要记得每个类的引用都需要加上“using SAP2000v1”(是数字1不是英文字母l)。</p>
+<p><img src="/../wp-content_uploads/2021/04/F7HUAu5R5L-1024x611.png"></p>
+<p> 三、SAP插件添加</p>
+<p>当写好代码实现功能后，生成成功后，想要在SAP2000里导入插件，必须以管理员方式打开VS，然后再重新生成一次。这时打开SAP2000，点击“工具”这一栏，选择“添加”，然后输入VS里的项目名称，菜单名称可以写这个插件的功能，看个人习惯填写。然后可以看到状态为OK，就可以愉快的使用自己写的插件了~</p>
+<p><img src="/.././wp-content_uploads/2021/04/xnOq6cA3F4-1024x310.png">                                    </p>
+
+      
+    </div> -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+        
+          <p>SAP200作为进行结构分析的重要软件，其早在2007年就发布了开放的应用程序开发接口（OAPI），第三方开发者可以创建与SAP2000丰富紧密的双向连接，允许准确地转换模型至SAP2000，由SAP2000控制执行过程，并从SAP2000中提取分析和设计信息。SAP2000开放的API与大多数编程语言兼容，包括VBA（Visual Basic for Applications）、C#、python等。今天就给大家介绍一下如何搭建C#环境进行SAP2000开发。</p>
+<p>工具：SAP2000 v15以上版本（建议v21以后更高级版本）、Mirosoft Visual Studio 2019 community (VS 2019)、.Net Framework4.7及以上。</p>
+<p>SAP2000的安装大家各有各的办法，正常安装即可，操作简单不多讲。而此前装过VS较早版本的同学建议更新到2019版。VS作为一个兼容性较强的IDE，其免费的社区版以及足够我们的使用，到官网下载安装程序即可。这里有几点笔者下载安装中遇到的一点小tips可以供大家参考。</p>
+<p>一、VS 2019的下载安装</p>
+<p>官网上下载VS 2019的安装引导程序，选择第一项community版即可。</p>
+<p><img src="/../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%871.png"></p>
+<p>右键点击下载好的exe文件，选择“以管理员身份运行”，进入下面的界面：</p>
+<p><img src="/.././wp-content_uploads/2021/04/%E5%9B%BE%E7%89%872.png"></p>
+<p>因为笔者已经安装了社区版，所以“可用”栏目下未显示community版本的VS 2019，大家没安装的点击community版本的安装选项即可。选择安装后会下载一下准备文件：</p>
+<p><img src="/.././wp-content_uploads/2021/04/%E5%9B%BE%E7%89%873.png"></p>
+<p>接下来在出现的界面的“工作负载”栏目选择“.NET桌面开发”，即C#环境：</p>
+<p><img src="/../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%874.png"></p>
+<p>然后点击“安装位置”栏目改一下安装位置，一般默认在C盘，但我想大家一般不会把一个3、4G大的软件安装到C盘。安装位置的第一项即IDE安装位置一定要是一个空文件夹，否则无法安装。另外的两个选项则是存下载缓存和一些共享组件等，可以是非空文件夹，大家按自己习惯改一下就好。“语言包栏”一般默认勾选了中文简体，如果有其他语言需求自己勾选一下即可；单个组件项目不建议小白随便进行删减（但删减也没关系，如果不幸删了核心组件重头再装就是了），如果有其他需求可以视情况增加需要的组件。</p>
+<p><img src="/.././wp-content_uploads/2021/04/%E5%9B%BE%E7%89%875.png"></p>
+<p>然后我们就可以愉快的进行安装了，注意这里最好勾选下载时安装，会快一点。以及下载时的网络选择，笔者当时使用的是DIVI，速度连1MB&#x2F;s都达不到，于是怒而换Tsinghua-Secure，然后顺带关了一下ipv6协议，速度飙升到8MB&#x2F;s。关ipv6协议方法：控制面板—网络和 Internet—网络和共享中心—更改适配器设置—右键自己连接的WLAN—属性—取消勾选“Internet协议版本6（TCP&#x2F;IPv6）”—确定。不过在你重新连接网络后IPv6协议又会自己勾选上。</p>
+<p><img src="/.././wp-content_uploads/2021/04/%E5%9B%BE%E7%89%876.png"></p>
+<p>然后等待下载安装结束，我们就可以愉快的用C#进行SAP2000二次开发了。</p>
+<h2 id="二、开发准备"><a href="#二、开发准备" class="headerlink" title="二、开发准备"></a>二、开发准备</h2><p>1、创建项目 </p>
+<p>打开VS 2019，创建新项目，选择类库（.Net Framework）。</p>
+<p><img src="/.././wp-content_uploads/2021/04/%E5%9B%BE%E7%89%877.png"></p>
+<p>项目配置中可以设置项目名称和选择你的文件的存放位置，框架记得选择.Net Framework 4.7及以上。如果这里框架点开后发现没有.Net Framework 4.7及以上版本，可以到微软官网进行下载安装，当然一般不会出现这种情况。</p>
+<p><img src="/.././wp-content_uploads/2021/04/%E5%9B%BE%E7%89%878.png"></p>
+<p>2、添加SAP2000类库的引用   </p>
+<p>这一步需要提前安装好SAP2000，点击“解决方案”中的“引用”一栏，右键选择“添加引用”：</p>
+<p><img src="/.././wp-content_uploads/2021/04/%E5%9B%BE%E7%89%879.png"></p>
+<p>点击浏览，然后打开SAP2000的安装目录，找到SAP2000v1.dll，选中，确定。</p>
+<p><img src="/.././wp-content_uploads/2021/04/%E5%9B%BE%E7%89%8710.png"></p>
+<p>3、修改项目属性</p>
+<p>为了可以让我们使用C#从COM串口中读取数据，我们还需要修改一下项目属性，邮右键点击“解决方案”栏目下的项目名称，然后选择“属性”，在属性界面进行如下操作：1）“应用程序”—“程序集信息”—勾选“使程序集COM可见”；2）“生成”—目标平台改成“x64”—勾选“为COM互操作注册”。</p>
+<p><img src="/.././wp-content_uploads/2021/04/%E5%9B%BE%E7%89%8712.png"></p>
+<p>4、类名修改</p>
+<p>修改Class1类的名字为cPlugin（当然也可以另外添加一个），因为SAP2000插件的逻辑是在SAP里由主程序调用cPlugin这个类里面的Main方法。接下来就可以愉快的写代码了，不过要记得每个类的引用都需要加上“using SAP2000v1”(是数字1不是英文字母l)。</p>
+<p><img src="/../wp-content_uploads/2021/04/F7HUAu5R5L-1024x611.png"></p>
+<p> 三、SAP插件添加</p>
+<p>当写好代码实现功能后，生成成功后，想要在SAP2000里导入插件，必须以管理员方式打开VS，然后再重新生成一次。这时打开SAP2000，点击“工具”这一栏，选择“添加”，然后输入VS里的项目名称，菜单名称可以写这个插件的功能，看个人习惯填写。然后可以看到状态为OK，就可以愉快的使用自己写的插件了~</p>
+<p><img src="/.././wp-content_uploads/2021/04/xnOq6cA3F4-1024x310.png">                                    </p>
+
+        
+           
+    <!-- </div>
+    <footer class="article-footer">
+      <a data-url="http://thuce.top/2021/04/09/sap2000%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E5%88%9D%E6%8E%A2%E4%B9%8Bc%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" data-id="cmb9fujue008lwis60h4b8te9" data-title="SAP2000二次开发初探之C#环境搭建" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div> -->
+
+  <!-- <div class="article-entry"> -->
+  </div>
+  <footer class="article-footer">
+    <!-- 移除分享链接 -->
+    
+    
+    
+  </footer>
+</div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/05/12/sap2000%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8%E4%B9%8B%E6%8F%92%E4%BB%B6%E6%A0%B7%E4%BE%8B/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          SAP2000二次开发入门之插件样例
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/12/22/%E6%B8%85%E5%8D%8E%E5%A4%A7%E5%AD%A6%E7%AC%AC%E4%BA%8C%E5%8D%81%E5%85%AD%E5%B1%8A%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%A4%A7%E8%B5%9B%E5%86%B3%E8%B5%9B%E7%8E%B0%E5%9C%BA/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">清华大学第二十六届结构设计大赛决赛现场</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+     
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/categories/%E7%B2%BE%E5%BD%A9%E8%B5%9B%E4%BA%8B/">精彩赛事</a>
+            
+          </li>
+        
+          <li>
+            <a href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a>
+            
+          </li>
+        
+          <li>
+            <a href="/categories/%E5%9B%A2%E9%98%9F%E4%BB%8B%E7%BB%8D/">团队介绍</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+  
+       
+    <div class="widget-wrap">
+      <h3 class="widget-title">最新文章</h3>
+      <div class="widget">
+        <ul>
+          
+            <li>
+              <a href="/2023/05/17/3814/">Linux 使用指南</a>
+            </li>
+          
+            <li>
+              <a href="/2023/04/19/%E6%8A%80%E6%9C%AF%E5%B8%96%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90%E5%8F%8A%E6%8A%80%E5%B7%A7%E4%BB%8B%E7%BB%8D/">技术帖笔记软件推荐及技巧介绍</a>
+            </li>
+          
+            <li>
+              <a href="/2022/05/31/windows-%E6%95%88%E7%8E%87%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/">Windows 效率软件推荐</a>
+            </li>
+          
+            <li>
+              <a href="/2022/05/14/autocad%E8%BF%9B%E9%98%B6%E6%95%99%E7%A8%8B/">AutoCAD进阶教程</a>
+            </li>
+          
+            <li>
+              <a href="/2022/03/26/c-%E6%95%99%E7%A8%8B%EF%BC%9A%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">C# 教程：环境安装与快速入门</a>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 科协技术部<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/organization" class="mobile-nav-link">人员组织</a>
+  
+    <a href="/technical" class="mobile-nav-link">技术专区</a>
+  
+    <a href="/competition" class="mobile-nav-link">精彩赛事</a>
+  
+    <a href="/news" class="mobile-nav-link">新闻热点</a>
+  
+    <a href="/about" class="mobile-nav-link">联系我们</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

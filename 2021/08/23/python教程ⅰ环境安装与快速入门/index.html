@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Python教程Ⅰ环境安装与快速入门 | 清华大学土木工程系暨建设管理系学生科协</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="01 Python简介Python是一种解释型语言，对比C&#x2F;C++，Python程序不需要编译即可运行，因此具有很强的跨平台性。另外，所有的命令都是逐行发送到Python解释器执行，不需要经过链接过程，因此代码顺序十分重要。    Python应用领域广阔，在Web应用后端开发、云基础设施建设、网络数据采集（爬虫）、自动化测试、数据分析、机器学习等领域都有着广泛的应用。 Python也存">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python教程Ⅰ环境安装与快速入门">
+<meta property="og:url" content="http://thuce.top/2021/08/23/python%E6%95%99%E7%A8%8B%E2%85%B0%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:site_name" content="清华大学土木工程系暨建设管理系学生科协">
+<meta property="og:description" content="01 Python简介Python是一种解释型语言，对比C&#x2F;C++，Python程序不需要编译即可运行，因此具有很强的跨平台性。另外，所有的命令都是逐行发送到Python解释器执行，不需要经过链接过程，因此代码顺序十分重要。    Python应用领域广阔，在Web应用后端开发、云基础设施建设、网络数据采集（爬虫）、自动化测试、数据分析、机器学习等领域都有着广泛的应用。 Python也存">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPZg4Gr9HX8ghnNwl3w8mmFszKUsYqWRGmW2gqFqFAg5EjB7WttkMOLYmtypwLoIibEa2tDrRcb4xtQ/640?wx_fmt=png&wxfrom=13&tp=wxpic">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPZg4Gr9HX8ghnNwl3w8mmFsqD7tZXXWSjFEMiaRRVG3cqLGYyFhnhibPzw7Qlh11VXsPXHibBW5yjyag/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2021/08/%E5%9C%A8%E5%BC%80%E6%BA%90%E9%95%9C%E5%83%8F%E7%AB%99%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E5%8C%85-1024x325.jpg">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPZg4Gr9HX8ghnNwl3w8mmFs4EbHr4SHCp8ibVgk4eO4hgyiaLbUq84cARsvvIFQyKDQko8PKLt2XjDw/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPZg4Gr9HX8ghnNwl3w8mmFsnaqKC9zJpO1XBzKNmgYDLqcLDibkGlRuIicBD5eyDzxdHY0VY76ibHrjA/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2021/08/%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E4%BB%A3%E7%A0%81.jpg">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2021/08/%E9%80%9A%E8%BF%87%E8%AE%B0%E4%BA%8B%E6%9C%AC%E7%BC%96%E8%BE%91Python%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6.jpg">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPZg4Gr9HX8ghnNwl3w8mmFs3lIS1jWbEDxBxTqQ2Wav2DiaDXxia0dz7jDNGq19dJqDWQJwzTXKSC5g/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="article:published_time" content="2021-08-23T14:05:10.000Z">
+<meta property="article:modified_time" content="2025-05-29T10:06:51.083Z">
+<meta property="article:author" content="科协技术部">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPZg4Gr9HX8ghnNwl3w8mmFszKUsYqWRGmW2gqFqFAg5EjB7WttkMOLYmtypwLoIibEa2tDrRcb4xtQ/640?wx_fmt=png&wxfrom=13&tp=wxpic">
+  
+    <link rel="alternate" href="/atom.xml" title="清华大学土木工程系暨建设管理系学生科协" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">清华大学土木工程系暨建设管理系学生科协</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/organization">人员组织</a>
+        
+          <a class="main-nav-link" href="/technical">技术专区</a>
+        
+          <a class="main-nav-link" href="/competition">精彩赛事</a>
+        
+          <a class="main-nav-link" href="/news">新闻热点</a>
+        
+          <a class="main-nav-link" href="/about">联系我们</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://thuce.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-python教程ⅰ环境安装与快速入门" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/08/23/python%E6%95%99%E7%A8%8B%E2%85%B0%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" class="article-date">
+  <time class="dt-published" datetime="2021-08-23T14:05:10.000Z" itemprop="datePublished">2021-08-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Python教程Ⅰ环境安装与快速入门
+    </h1>
+  
+
+      </header>
+    
+    <!-- <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="01-Python简介"><a href="#01-Python简介" class="headerlink" title="01 Python简介"></a>01 Python简介</h2><p>Python是一种解释型语言，对比C&#x2F;C++，Python程序不需要编译即可运行，因此具有很强的跨平台性。另外，所有的命令都是逐行发送到Python解释器执行，不需要经过链接过程，因此代码顺序十分重要。  </p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPZg4Gr9HX8ghnNwl3w8mmFszKUsYqWRGmW2gqFqFAg5EjB7WttkMOLYmtypwLoIibEa2tDrRcb4xtQ/640?wx_fmt=png&wxfrom=13&tp=wxpic" alt="C/C++(左)与Python(右)的程序执行对比"></p>
+<p><strong>Python应用领域广阔</strong>，在Web应用后端开发、云基础设施建设、网络数据采集（爬虫）、自动化测试、数据分析、机器学习等领域都有着广泛的应用。</p>
+<p><strong>Python也存在一些缺点</strong>，例如执行效率稍低、代码无法加密以及框架太多，良莠不齐等。</p>
+<h2 id="02-如何学习Python"><a href="#02-如何学习Python" class="headerlink" title="02 如何学习Python"></a>02 如何学习Python</h2><p>本次教程将主要从已学的C&#x2F;C++出发，讲解Python基本语法，大家也可以基于此学习流程控制、面向对象的编程方法（OOP）。</p>
+<p><strong>阅读Python教程</strong><br>网络上Python教程良莠不齐，此处推荐<br><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1016959663602400">https://www.liaoxuefeng.com/wiki/1016959663602400</a><br>官方文档本身就是不错的教程， 见<br><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/">https://docs.python.org/zh-cn/3/</a>。</p>
+<p><strong>观看视频学习，不建议，为什么</strong><br>观看视频更多是一种观察 + 模仿，而阅读文档是读书 + 思考，前者更适用于入门，但对于深入学习，往往后者效率更高。并且文档的时效性更强，有许多修正，需要培养阅读文档的能力。</p>
+<p><strong>多练习！！！</strong></p>
+<h2 id="03-环境安装"><a href="#03-环境安装" class="headerlink" title="03 环境安装"></a>03 环境安装</h2><p>首先，让我们来安装环境！</p>
+<p>对Windows系统，推荐使用Anaconda环境，对Linux或Mac OS系统，推荐使用Miniconda环境。</p>
+<p>为什么不使用纯Python环境呢？尽管Anaconda也有体积较大等缺点，但首先，<strong>纯Python环境包版本管理不便</strong>，例如进行机器学习时，学习他人代码往往需要不同版本的TF与Pytorch，创建虚拟环境就可以很好解决这一问题；其次，<strong>纯Python环境需要自己安装需要数据科学必要的包</strong>。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPZg4Gr9HX8ghnNwl3w8mmFsqD7tZXXWSjFEMiaRRVG3cqLGYyFhnhibPzw7Qlh11VXsPXHibBW5yjyag/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="Anaconda"></p>
+<p>Anaconda安装步骤：       </p>
+<p>[01] 下载Anaconda安装包</p>
+<p><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/">https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/</a></p>
+<p><img src="/../wp-content_uploads/2021/08/%E5%9C%A8%E5%BC%80%E6%BA%90%E9%95%9C%E5%83%8F%E7%AB%99%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E5%8C%85-1024x325.jpg" alt="在开源镜像站下载安装包"></p>
+<p>  [02] 添加环境变量</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPZg4Gr9HX8ghnNwl3w8mmFs4EbHr4SHCp8ibVgk4eO4hgyiaLbUq84cARsvvIFQyKDQko8PKLt2XjDw/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="将Anaconda添加到环境变量中"></p>
+<p>环境变量可以认为是Windows搜索程序的路径，执行程序时，Windows系统会在环境变量中逐个搜索，如果找不到，则会返回找不到可执行文件。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPZg4Gr9HX8ghnNwl3w8mmFsnaqKC9zJpO1XBzKNmgYDLqcLDibkGlRuIicBD5eyDzxdHY0VY76ibHrjA/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="未搜索到环境变量">       </p>
+<p>[03] 修改源                                </p>
+<p><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/">https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/</a> ；<br>修改pip源，具体参见<br><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/pypi/">https://mirrors.tuna.tsinghua.edu.cn/help/pypi/</a></p>
+<p><strong>让我们来测试环境！</strong></p>
+<h3 id="01-打开命令提示符"><a href="#01-打开命令提示符" class="headerlink" title="[01] 打开命令提示符"></a>[01] 打开命令提示符</h3><p>  Win+S 搜索命令提示符 或 Win+R 输入cmd然后回车      </p>
+<h3 id="02-输入如下命令"><a href="#02-输入如下命令" class="headerlink" title="[02] 输入如下命令"></a>[02] 输入如下命令</h3><p>&gt; conda activate base</p>
+<p>&gt; python</p>
+<h3 id="03-打开交互式命令行"><a href="#03-打开交互式命令行" class="headerlink" title="[03] 打开交互式命令行"></a>[03] 打开交互式命令行</h3><p>试试输入1124 ** 122 然后回车，这是在计算1124的122次方（于是你就获得了一个强大的计算器）</p>
+<p><img src="/../wp-content_uploads/2021/08/%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E4%BB%A3%E7%A0%81.jpg" alt="测试环境代码"></p>
+<p><strong>我不想在黑框框里编程！</strong><br>可安装文本编辑器（或集成开发环境， IDE）<br>Python脚本文件是纯文本文件，理论上只需要记事本即可编辑，编辑后即可使用Python解释器运行。但是记事本没有代码补全、代码高亮、代码警告等。</p>
+<p><img src="/../wp-content_uploads/2021/08/%E9%80%9A%E8%BF%87%E8%AE%B0%E4%BA%8B%E6%9C%AC%E7%BC%96%E8%BE%91Python%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6.jpg" alt="通过记事本编辑Python脚本文件"></p>
+<p>通过记事本编辑Python脚本文件</p>
+<p><strong>1. 使用PyCharm</strong><br>JetBrain公司出品，堪称神器，参考<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/zfcjhdq/article/details/104919067">https://blog.csdn.net/zfcjhdq/article/details/104919067</a></p>
+<p><strong>2. 使用Vscode</strong><br>Microsoft出品，支持多种编程语言，本身是个文本编辑器，可通过扩展支持各类IDE功能，参考<br><a target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/languages/python">https://code.visualstudio.com/docs/languages/python</a> ，通过清华邮箱可申请专业版。</p>
+<h2 id="04-快速入门"><a href="#04-快速入门" class="headerlink" title="04 快速入门"></a>04 快速入门</h2><p>[01] 第一个Python程序</p>
+<p>新建文件，修改文件名及后缀名为hello.py</p>
+<p>用文本编辑器打开这个文件，添加内容</p>
+<pre><code>print(&#39;Hello, world!&#39;)`
+</code></pre>
+<p>在此处打开cmd，输入python hello.py</p>
+<p>​    <img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPZg4Gr9HX8ghnNwl3w8mmFs3lIS1jWbEDxBxTqQ2Wav2DiaDXxia0dz7jDNGq19dJqDWQJwzTXKSC5g/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="第一个Python程序">   </p>
+<p>对比C，这就十分简洁</p>
+<pre><code>1  #include &lt;stdio.h&gt;  
+2 
+3  int main() &#123;  
+4      printf(&quot;Hello, world!&quot;);  
+5      return 0
+6  &#125;  
+</code></pre>
+<p>与C语言对比</p>
+<p>[02] Python数据类型及变量     </p>
+<p>Python是一种强类型语言同时也属于动态类型语言， Python的变量具有明确的类型，虽然这种类型可以改变。        </p>
+<pre><code>1  #include &lt;stdio.h&gt;  
+1  a = 100  
+2  b = 12.345  
+3  c = 1 + 5j  
+4  d = &#39;hello, world&#39;  
+5  e = True  
+6  print(type(a))    # &lt;class &#39;int&#39;&gt;  
+7  print(type(b))    # &lt;class &#39;float&#39;&gt;  
+8  print(type(c))    # &lt;class &#39;complex&#39;&gt;  
+9  print(type(d))    # &lt;class &#39;str&#39;&gt;  
+10 print(type(e))    # &lt;class &#39;bool&#39;&gt;    
+</code></pre>
+<p>Python的各种数据类型</p>
+<pre><code>1  int a = 100;  
+2  double b = 12.345;  
+3   
+4  #include &lt;complex.h&gt;  
+5  double _Complex c = 1.0+5.0*I;  
+6   
+7  const char* d = &quot;hello, world&quot;;
+</code></pre>
+<p>C的数据类型<br>[03] Python运算符     </p>
+<p>Python运算符与C差异不大，需要注意的是除法与C定义不同。Python &#x2F;&#x2F; 被称为 floor divide（除之后向下取整）       </p>
+<pre><code>1  a = 29  
+2  b = 3  
+3  print(&#39;%d + %d = %d&#39; % (a, b, a + b))   #29 + 3 = 32  
+4  print(&#39;%d - %d = %d&#39; % (a, b, a - b))   #29 - 3 = 26  
+5  print(&#39;%d * %d = %d&#39; % (a, b, a * b))   #29 * 3 = 87  
+6  print(&#39;%d / %d = %f&#39; % (a, b, a / b))   #29 / 3 = 9.666667  
+7  print(&#39;%d // %d = %d&#39; % (a, b, a // b)) #29 // 3 = 9  
+8  print(&#39;%d %% %d = %d&#39; % (a, b, a % b))  #29 % 3 = 2  
+9  print(&#39;%d ** %d = %d&#39; % (a, b, a ** b)) #29 ** 3 = 24389  
+</code></pre>
+<p>Python中运算符</p>
+<p>那么，Python中 -1&#x2F;&#x2F;2 与C中 -1&#x2F;2 相同吗？</p>
+<p>Python中&#x2F;&#x2F;是除后向下取整，结果为-1，C的除法&#x2F;采取截断，结果为0。</p>
+<pre><code>1  a = 10  
+2  b = 3  
+3  a += b       # 相当于: a = a + b  
+4  a *= a + 2   # 相当于: a = a * (a + 2)  
+5  print(a)     # 算一下这里会输出什么   
+</code></pre>
+<p>Python其他运算符                   </p>
+<pre><code>1  flag0 = 1 == 1  
+2  flag1 = 3 &gt; 2  
+3  flag2 = 2 &lt; 1  
+4  flag3 = flag1 and flag2  
+5  flag4 = flag1 or flag2  
+6  flag5 = not (1 != 2)  
+7  print(&#39;flag0 =&#39;, flag0)  # flag0 = True  
+8  print(&#39;flag1 =&#39;, flag1)  # flag1 = True  
+9  print(&#39;flag2 =&#39;, flag2)  # flag2 = False  
+10 print(&#39;flag3 =&#39;, flag3)  # flag3 = False  
+11 print(&#39;flag4 =&#39;, flag4)  # flag4 = True  
+12 print(&#39;flag5 =&#39;, flag5)  # flag5 = False   
+</code></pre>
+<p>Python逻辑运算符</p>
+<p>Python有一个神奇的运算符，但并不推荐使用<br>    1  x &#x3D; 10  <br>    2  print(7 &lt;&#x3D; x &lt;&#x3D; 11)  # True, which equals to (7 &lt;&#x3D; x) and (x &lt;&#x3D; 11)  <br>    3  print(7 &lt;&#x3D; x &lt;&#x3D; 9)   # False  <br>为什么不推荐使用呢？C&#x2F;C++的残留编程习惯可能会造成一些错误！比如说：<br>    print(False &#x3D;&#x3D; False &#x3D;&#x3D; False) # Is True or False?</p>
+<p>True<br>[04] Python类型转换<br>Python是一种强类型语言， Python的变量具有明确的类型，虽然这种类型可以改变               </p>
+<pre><code>1 a = 100  
+2 b = 12.345  
+3 a = b  # a = 12.345  
+4 a = int(b)  # a = 12  
+5 a = float(a)  # a = 12.0  
+6 c = &quot;12.045&quot;  
+7 a = float(c)  # a = 12.045 
+</code></pre>
+<p>Python变量类型转换<br>    1 #include &lt;stdio.h&gt;<br>    2<br>    3 int main(){<br>    4     int a &#x3D; 100;<br>    5     double b &#x3D; 12.345;<br>    6     a &#x3D; b;            &#x2F;&#x2F;Not allowed!<br>    7     a &#x3D; (int)b;<br>    8     a &#x3D; (double)a;    &#x2F;&#x2F;Not allowed!<br>    9 }      xxxxxxxxxx 1 #include &lt;stdio.h&gt;  2   3 int main(){  4     int a &#x3D; 100;  5     double b &#x3D; 12.345;  6     a &#x3D; b;            &#x2F;&#x2F;Not allowed!  7     a &#x3D; (int)b;  8     a &#x3D; (double)a;    &#x2F;&#x2F;Not allowed!  9 }      #include &lt;stdio.h&gt;</code></pre><br>C变量类型转换<br>[05] Python输入输出<br>输入输出比C更加便捷                          </p>
+<pre><code>1  print(&#39;The quick brown fox&#39;, &#39;jumps over&#39;, &#39;the lazy dog&#39;)  
+2  print(&#39;100 + 200 =&#39;, 100 + 200)  
+3  a = 10  
+4  b = 20  
+5  print(str(a) + &#39; + &#39; + str(b) + &#39; = &#39; + str(a + b))  
+6  print(a, &#39;+&#39;, b, &#39;=&#39;, a + b)  
+7  print(&#39;%d + %d = %d&#39; % (a, b, a + b))  
+8  name = input(&quot;请输入名字：&quot;)  
+9  age = int(input(&quot;请输入年龄：&quot;))  
+10 print(name,&quot;的年龄为&quot;, age) 
+</code></pre>
+<p>Python输入输出<br>[06] Python字符串及常用数据结构<br>Python中，字符串格式化与C相同                           </p>
+<pre><code>1 print(&#39;Hi, %s, you have $%d.&#39; % (&#39;Michael&#39;, 1000000))  
+2 A = &quot;hello&quot;  
+3 if A == &quot;&quot;:  
+4     print(&quot;A is a empty string&quot;)  
+</code></pre>
+<p>Python字符串格式化<br> [07] Python流程控制<br> Python使用缩进来表示代码块，一般我们使用4个空格作为缩进，请不要使用Tab！严禁混用。流程控制语句如以下例子， if for while后有冒号: 请不要遗漏！                      </p>
+<pre><code>1  age = 28  
+2  if age &gt;= 18：  
+3      print(&#39;your age is&#39;, age)  
+4      print(&#39;adult&#39;)  
+5  Other code...  
+
+1 age = 3  
+2 if age &gt;= 18:  
+3     print(&#39;your age is&#39;, age)  
+4     print(&#39;adult&#39;)  
+5 else:  
+6     print(&#39;your age is&#39;, age)  
+7     print(&#39;teenager&#39;) 
+1 age = 3  
+2 if age &gt;= 18:  
+3     print(&#39;adult&#39;)  
+4 elif age &gt;= 6:  
+5     print(&#39;teenager&#39;)  
+6 else:  
+7     print(&#39;kid&#39;) 
+
+1 sum = 0  
+2 for x in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]:  
+3     sum = sum + x  
+4 print(sum)  
+5   
+6 sum = 0  
+7 for x in range(11):  
+8     sum += x  
+9 print(sum)   
+</code></pre>
+<p>for循环（对象必须可以遍历）</p>
+<pre><code>1 sum = 0  
+2 n = 99  
+3 while n &gt; 0:  
+4     sum = sum + n  
+5     n = n - 2  
+6 print(sum)
+</code></pre>
+<p>while循环</p>
+<p>[08] Python函数  </p>
+<p>Python使用def关键字来定义函数  </p>
+<pre><code>1  def add(a, b):  
+2       return a + b   
+</code></pre>
+<p>定义函数</p>
+<pre><code>1  def acc(a, b, c):  
+2      return a, a + b, a + b + c
+</code></pre>
+<p>函数可返回多个返回值</p>
+<p>读者可做一个小练习：编写一个函数 fib(n)，返回第 n 个斐波那契数<br>[09] Python其他常用语法<br> 交换两个对象的值                    </p>
+<pre><code>a, b = b, a
+</code></pre>
+<p>列表推导式    </p>
+<figure class="highlight lisp"><table><tr><td class="code"><pre><code class="hljs lisp">print([x ** <span class="hljs-number">2</span> for x in range(<span class="hljs-number">11</span>)])<br></code></pre></td></tr></table></figure>
+
+
+<p>还有很多语法糖……        </p>
+<p>[10] Python面向对象编程、字典、集合、dunder（魔术方法）、Python包管理工具<br>此部分已经在下一次教程推出，点击标题即可查看！<br>05 参考阅读<br>[1] <a target="_blank" rel="noopener" href="https://github.com/jackfrued/Python-100-Days">https://github.com/jackfrued/Python-100-Days</a></p>
+<p>[2] <a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1016959663602400">https://www.liaoxuefeng.com/wiki/1016959663602400</a></p>
+<p>[3] <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/">https://docs.python.org/zh-cn/3/</a><br>技术贴征稿事宜<br>暑假期间我们将继续开放技术贴征稿！<br>技术贴推送是向全系同学传播与分享软件技术知识的良好渠道，我们致力于为同学们提供最实用的技术知识，为同学们的学习科研带来更多便利。<br>如果你有自己独特的技术小技巧，如果你乐于分享自己常用的实用工具软件，如果你希望与大家交流技术知识，欢迎联系我们投稿！成功过稿将会获得稿费噢！</p>
+
+      
+    </div> -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+        
+          <h2 id="01-Python简介"><a href="#01-Python简介" class="headerlink" title="01 Python简介"></a>01 Python简介</h2><p>Python是一种解释型语言，对比C&#x2F;C++，Python程序不需要编译即可运行，因此具有很强的跨平台性。另外，所有的命令都是逐行发送到Python解释器执行，不需要经过链接过程，因此代码顺序十分重要。  </p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPZg4Gr9HX8ghnNwl3w8mmFszKUsYqWRGmW2gqFqFAg5EjB7WttkMOLYmtypwLoIibEa2tDrRcb4xtQ/640?wx_fmt=png&wxfrom=13&tp=wxpic" alt="C/C++(左)与Python(右)的程序执行对比"></p>
+<p><strong>Python应用领域广阔</strong>，在Web应用后端开发、云基础设施建设、网络数据采集（爬虫）、自动化测试、数据分析、机器学习等领域都有着广泛的应用。</p>
+<p><strong>Python也存在一些缺点</strong>，例如执行效率稍低、代码无法加密以及框架太多，良莠不齐等。</p>
+<h2 id="02-如何学习Python"><a href="#02-如何学习Python" class="headerlink" title="02 如何学习Python"></a>02 如何学习Python</h2><p>本次教程将主要从已学的C&#x2F;C++出发，讲解Python基本语法，大家也可以基于此学习流程控制、面向对象的编程方法（OOP）。</p>
+<p><strong>阅读Python教程</strong><br>网络上Python教程良莠不齐，此处推荐<br><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1016959663602400">https://www.liaoxuefeng.com/wiki/1016959663602400</a><br>官方文档本身就是不错的教程， 见<br><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/">https://docs.python.org/zh-cn/3/</a>。</p>
+<p><strong>观看视频学习，不建议，为什么</strong><br>观看视频更多是一种观察 + 模仿，而阅读文档是读书 + 思考，前者更适用于入门，但对于深入学习，往往后者效率更高。并且文档的时效性更强，有许多修正，需要培养阅读文档的能力。</p>
+<p><strong>多练习！！！</strong></p>
+<h2 id="03-环境安装"><a href="#03-环境安装" class="headerlink" title="03 环境安装"></a>03 环境安装</h2><p>首先，让我们来安装环境！</p>
+<p>对Windows系统，推荐使用Anaconda环境，对Linux或Mac OS系统，推荐使用Miniconda环境。</p>
+<p>为什么不使用纯Python环境呢？尽管Anaconda也有体积较大等缺点，但首先，<strong>纯Python环境包版本管理不便</strong>，例如进行机器学习时，学习他人代码往往需要不同版本的TF与Pytorch，创建虚拟环境就可以很好解决这一问题；其次，<strong>纯Python环境需要自己安装需要数据科学必要的包</strong>。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPZg4Gr9HX8ghnNwl3w8mmFsqD7tZXXWSjFEMiaRRVG3cqLGYyFhnhibPzw7Qlh11VXsPXHibBW5yjyag/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="Anaconda"></p>
+<p>Anaconda安装步骤：       </p>
+<p>[01] 下载Anaconda安装包</p>
+<p><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/">https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/</a></p>
+<p><img src="/../wp-content_uploads/2021/08/%E5%9C%A8%E5%BC%80%E6%BA%90%E9%95%9C%E5%83%8F%E7%AB%99%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E5%8C%85-1024x325.jpg" alt="在开源镜像站下载安装包"></p>
+<p>  [02] 添加环境变量</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPZg4Gr9HX8ghnNwl3w8mmFs4EbHr4SHCp8ibVgk4eO4hgyiaLbUq84cARsvvIFQyKDQko8PKLt2XjDw/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="将Anaconda添加到环境变量中"></p>
+<p>环境变量可以认为是Windows搜索程序的路径，执行程序时，Windows系统会在环境变量中逐个搜索，如果找不到，则会返回找不到可执行文件。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPZg4Gr9HX8ghnNwl3w8mmFsnaqKC9zJpO1XBzKNmgYDLqcLDibkGlRuIicBD5eyDzxdHY0VY76ibHrjA/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="未搜索到环境变量">       </p>
+<p>[03] 修改源                                </p>
+<p><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/">https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/</a> ；<br>修改pip源，具体参见<br><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/pypi/">https://mirrors.tuna.tsinghua.edu.cn/help/pypi/</a></p>
+<p><strong>让我们来测试环境！</strong></p>
+<h3 id="01-打开命令提示符"><a href="#01-打开命令提示符" class="headerlink" title="[01] 打开命令提示符"></a>[01] 打开命令提示符</h3><p>  Win+S 搜索命令提示符 或 Win+R 输入cmd然后回车      </p>
+<h3 id="02-输入如下命令"><a href="#02-输入如下命令" class="headerlink" title="[02] 输入如下命令"></a>[02] 输入如下命令</h3><p>&gt; conda activate base</p>
+<p>&gt; python</p>
+<h3 id="03-打开交互式命令行"><a href="#03-打开交互式命令行" class="headerlink" title="[03] 打开交互式命令行"></a>[03] 打开交互式命令行</h3><p>试试输入1124 ** 122 然后回车，这是在计算1124的122次方（于是你就获得了一个强大的计算器）</p>
+<p><img src="/../wp-content_uploads/2021/08/%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E4%BB%A3%E7%A0%81.jpg" alt="测试环境代码"></p>
+<p><strong>我不想在黑框框里编程！</strong><br>可安装文本编辑器（或集成开发环境， IDE）<br>Python脚本文件是纯文本文件，理论上只需要记事本即可编辑，编辑后即可使用Python解释器运行。但是记事本没有代码补全、代码高亮、代码警告等。</p>
+<p><img src="/../wp-content_uploads/2021/08/%E9%80%9A%E8%BF%87%E8%AE%B0%E4%BA%8B%E6%9C%AC%E7%BC%96%E8%BE%91Python%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6.jpg" alt="通过记事本编辑Python脚本文件"></p>
+<p>通过记事本编辑Python脚本文件</p>
+<p><strong>1. 使用PyCharm</strong><br>JetBrain公司出品，堪称神器，参考<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/zfcjhdq/article/details/104919067">https://blog.csdn.net/zfcjhdq/article/details/104919067</a></p>
+<p><strong>2. 使用Vscode</strong><br>Microsoft出品，支持多种编程语言，本身是个文本编辑器，可通过扩展支持各类IDE功能，参考<br><a target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/languages/python">https://code.visualstudio.com/docs/languages/python</a> ，通过清华邮箱可申请专业版。</p>
+<h2 id="04-快速入门"><a href="#04-快速入门" class="headerlink" title="04 快速入门"></a>04 快速入门</h2><p>[01] 第一个Python程序</p>
+<p>新建文件，修改文件名及后缀名为hello.py</p>
+<p>用文本编辑器打开这个文件，添加内容</p>
+<pre><code>print(&#39;Hello, world!&#39;)`
+</code></pre>
+<p>在此处打开cmd，输入python hello.py</p>
+<p>​    <img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPZg4Gr9HX8ghnNwl3w8mmFs3lIS1jWbEDxBxTqQ2Wav2DiaDXxia0dz7jDNGq19dJqDWQJwzTXKSC5g/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="第一个Python程序">   </p>
+<p>对比C，这就十分简洁</p>
+<pre><code>1  #include &lt;stdio.h&gt;  
+2 
+3  int main() &#123;  
+4      printf(&quot;Hello, world!&quot;);  
+5      return 0
+6  &#125;  
+</code></pre>
+<p>与C语言对比</p>
+<p>[02] Python数据类型及变量     </p>
+<p>Python是一种强类型语言同时也属于动态类型语言， Python的变量具有明确的类型，虽然这种类型可以改变。        </p>
+<pre><code>1  #include &lt;stdio.h&gt;  
+1  a = 100  
+2  b = 12.345  
+3  c = 1 + 5j  
+4  d = &#39;hello, world&#39;  
+5  e = True  
+6  print(type(a))    # &lt;class &#39;int&#39;&gt;  
+7  print(type(b))    # &lt;class &#39;float&#39;&gt;  
+8  print(type(c))    # &lt;class &#39;complex&#39;&gt;  
+9  print(type(d))    # &lt;class &#39;str&#39;&gt;  
+10 print(type(e))    # &lt;class &#39;bool&#39;&gt;    
+</code></pre>
+<p>Python的各种数据类型</p>
+<pre><code>1  int a = 100;  
+2  double b = 12.345;  
+3   
+4  #include &lt;complex.h&gt;  
+5  double _Complex c = 1.0+5.0*I;  
+6   
+7  const char* d = &quot;hello, world&quot;;
+</code></pre>
+<p>C的数据类型<br>[03] Python运算符     </p>
+<p>Python运算符与C差异不大，需要注意的是除法与C定义不同。Python &#x2F;&#x2F; 被称为 floor divide（除之后向下取整）       </p>
+<pre><code>1  a = 29  
+2  b = 3  
+3  print(&#39;%d + %d = %d&#39; % (a, b, a + b))   #29 + 3 = 32  
+4  print(&#39;%d - %d = %d&#39; % (a, b, a - b))   #29 - 3 = 26  
+5  print(&#39;%d * %d = %d&#39; % (a, b, a * b))   #29 * 3 = 87  
+6  print(&#39;%d / %d = %f&#39; % (a, b, a / b))   #29 / 3 = 9.666667  
+7  print(&#39;%d // %d = %d&#39; % (a, b, a // b)) #29 // 3 = 9  
+8  print(&#39;%d %% %d = %d&#39; % (a, b, a % b))  #29 % 3 = 2  
+9  print(&#39;%d ** %d = %d&#39; % (a, b, a ** b)) #29 ** 3 = 24389  
+</code></pre>
+<p>Python中运算符</p>
+<p>那么，Python中 -1&#x2F;&#x2F;2 与C中 -1&#x2F;2 相同吗？</p>
+<p>Python中&#x2F;&#x2F;是除后向下取整，结果为-1，C的除法&#x2F;采取截断，结果为0。</p>
+<pre><code>1  a = 10  
+2  b = 3  
+3  a += b       # 相当于: a = a + b  
+4  a *= a + 2   # 相当于: a = a * (a + 2)  
+5  print(a)     # 算一下这里会输出什么   
+</code></pre>
+<p>Python其他运算符                   </p>
+<pre><code>1  flag0 = 1 == 1  
+2  flag1 = 3 &gt; 2  
+3  flag2 = 2 &lt; 1  
+4  flag3 = flag1 and flag2  
+5  flag4 = flag1 or flag2  
+6  flag5 = not (1 != 2)  
+7  print(&#39;flag0 =&#39;, flag0)  # flag0 = True  
+8  print(&#39;flag1 =&#39;, flag1)  # flag1 = True  
+9  print(&#39;flag2 =&#39;, flag2)  # flag2 = False  
+10 print(&#39;flag3 =&#39;, flag3)  # flag3 = False  
+11 print(&#39;flag4 =&#39;, flag4)  # flag4 = True  
+12 print(&#39;flag5 =&#39;, flag5)  # flag5 = False   
+</code></pre>
+<p>Python逻辑运算符</p>
+<p>Python有一个神奇的运算符，但并不推荐使用<br>    1  x &#x3D; 10  <br>    2  print(7 &lt;&#x3D; x &lt;&#x3D; 11)  # True, which equals to (7 &lt;&#x3D; x) and (x &lt;&#x3D; 11)  <br>    3  print(7 &lt;&#x3D; x &lt;&#x3D; 9)   # False  <br>为什么不推荐使用呢？C&#x2F;C++的残留编程习惯可能会造成一些错误！比如说：<br>    print(False &#x3D;&#x3D; False &#x3D;&#x3D; False) # Is True or False?</p>
+<p>True<br>[04] Python类型转换<br>Python是一种强类型语言， Python的变量具有明确的类型，虽然这种类型可以改变               </p>
+<pre><code>1 a = 100  
+2 b = 12.345  
+3 a = b  # a = 12.345  
+4 a = int(b)  # a = 12  
+5 a = float(a)  # a = 12.0  
+6 c = &quot;12.045&quot;  
+7 a = float(c)  # a = 12.045 
+</code></pre>
+<p>Python变量类型转换<br>    1 #include &lt;stdio.h&gt;<br>    2<br>    3 int main(){<br>    4     int a &#x3D; 100;<br>    5     double b &#x3D; 12.345;<br>    6     a &#x3D; b;            &#x2F;&#x2F;Not allowed!<br>    7     a &#x3D; (int)b;<br>    8     a &#x3D; (double)a;    &#x2F;&#x2F;Not allowed!<br>    9 }      xxxxxxxxxx 1 #include &lt;stdio.h&gt;  2   3 int main(){  4     int a &#x3D; 100;  5     double b &#x3D; 12.345;  6     a &#x3D; b;            &#x2F;&#x2F;Not allowed!  7     a &#x3D; (int)b;  8     a &#x3D; (double)a;    &#x2F;&#x2F;Not allowed!  9 }      #include &lt;stdio.h&gt;</code></pre><br>C变量类型转换<br>[05] Python输入输出<br>输入输出比C更加便捷                          </p>
+<pre><code>1  print(&#39;The quick brown fox&#39;, &#39;jumps over&#39;, &#39;the lazy dog&#39;)  
+2  print(&#39;100 + 200 =&#39;, 100 + 200)  
+3  a = 10  
+4  b = 20  
+5  print(str(a) + &#39; + &#39; + str(b) + &#39; = &#39; + str(a + b))  
+6  print(a, &#39;+&#39;, b, &#39;=&#39;, a + b)  
+7  print(&#39;%d + %d = %d&#39; % (a, b, a + b))  
+8  name = input(&quot;请输入名字：&quot;)  
+9  age = int(input(&quot;请输入年龄：&quot;))  
+10 print(name,&quot;的年龄为&quot;, age) 
+</code></pre>
+<p>Python输入输出<br>[06] Python字符串及常用数据结构<br>Python中，字符串格式化与C相同                           </p>
+<pre><code>1 print(&#39;Hi, %s, you have $%d.&#39; % (&#39;Michael&#39;, 1000000))  
+2 A = &quot;hello&quot;  
+3 if A == &quot;&quot;:  
+4     print(&quot;A is a empty string&quot;)  
+</code></pre>
+<p>Python字符串格式化<br> [07] Python流程控制<br> Python使用缩进来表示代码块，一般我们使用4个空格作为缩进，请不要使用Tab！严禁混用。流程控制语句如以下例子， if for while后有冒号: 请不要遗漏！                      </p>
+<pre><code>1  age = 28  
+2  if age &gt;= 18：  
+3      print(&#39;your age is&#39;, age)  
+4      print(&#39;adult&#39;)  
+5  Other code...  
+
+1 age = 3  
+2 if age &gt;= 18:  
+3     print(&#39;your age is&#39;, age)  
+4     print(&#39;adult&#39;)  
+5 else:  
+6     print(&#39;your age is&#39;, age)  
+7     print(&#39;teenager&#39;) 
+1 age = 3  
+2 if age &gt;= 18:  
+3     print(&#39;adult&#39;)  
+4 elif age &gt;= 6:  
+5     print(&#39;teenager&#39;)  
+6 else:  
+7     print(&#39;kid&#39;) 
+
+1 sum = 0  
+2 for x in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]:  
+3     sum = sum + x  
+4 print(sum)  
+5   
+6 sum = 0  
+7 for x in range(11):  
+8     sum += x  
+9 print(sum)   
+</code></pre>
+<p>for循环（对象必须可以遍历）</p>
+<pre><code>1 sum = 0  
+2 n = 99  
+3 while n &gt; 0:  
+4     sum = sum + n  
+5     n = n - 2  
+6 print(sum)
+</code></pre>
+<p>while循环</p>
+<p>[08] Python函数  </p>
+<p>Python使用def关键字来定义函数  </p>
+<pre><code>1  def add(a, b):  
+2       return a + b   
+</code></pre>
+<p>定义函数</p>
+<pre><code>1  def acc(a, b, c):  
+2      return a, a + b, a + b + c
+</code></pre>
+<p>函数可返回多个返回值</p>
+<p>读者可做一个小练习：编写一个函数 fib(n)，返回第 n 个斐波那契数<br>[09] Python其他常用语法<br> 交换两个对象的值                    </p>
+<pre><code>a, b = b, a
+</code></pre>
+<p>列表推导式    </p>
+<figure class="highlight lisp"><table><tr><td class="code"><pre><code class="hljs lisp">print([x ** <span class="hljs-number">2</span> for x in range(<span class="hljs-number">11</span>)])<br></code></pre></td></tr></table></figure>
+
+
+<p>还有很多语法糖……        </p>
+<p>[10] Python面向对象编程、字典、集合、dunder（魔术方法）、Python包管理工具<br>此部分已经在下一次教程推出，点击标题即可查看！<br>05 参考阅读<br>[1] <a target="_blank" rel="noopener" href="https://github.com/jackfrued/Python-100-Days">https://github.com/jackfrued/Python-100-Days</a></p>
+<p>[2] <a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1016959663602400">https://www.liaoxuefeng.com/wiki/1016959663602400</a></p>
+<p>[3] <a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/">https://docs.python.org/zh-cn/3/</a><br>技术贴征稿事宜<br>暑假期间我们将继续开放技术贴征稿！<br>技术贴推送是向全系同学传播与分享软件技术知识的良好渠道，我们致力于为同学们提供最实用的技术知识，为同学们的学习科研带来更多便利。<br>如果你有自己独特的技术小技巧，如果你乐于分享自己常用的实用工具软件，如果你希望与大家交流技术知识，欢迎联系我们投稿！成功过稿将会获得稿费噢！</p>
+
+        
+           
+    <!-- </div>
+    <footer class="article-footer">
+      <a data-url="http://thuce.top/2021/08/23/python%E6%95%99%E7%A8%8B%E2%85%B0%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" data-id="cmb9fujud008hwis6fbwv84pm" data-title="Python教程Ⅰ环境安装与快速入门" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div> -->
+
+  <!-- <div class="article-entry"> -->
+  </div>
+  <footer class="article-footer">
+    <!-- 移除分享链接 -->
+    
+    
+    
+  </footer>
+</div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/10/11/python%E6%95%99%E7%A8%8B%E2%85%B1%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%88%9D%E6%AD%A5/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          Python教程Ⅱ面向对象编程初步
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/05/17/%E5%85%B3%E4%BA%8E%E4%B8%BE%E5%8A%9E%E7%AC%AC%E5%9B%9B%E5%B1%8A%E8%8C%85%E4%BB%A5%E5%8D%87%E5%85%AC%E7%9B%8A%E6%A1%A5-%E5%B0%8F%E6%A1%A5%E5%B7%A5%E7%A8%8B-%E5%88%9B%E6%96%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">关于举办第四届“茅以升公益桥—小桥工程” 创新设计大赛的通知</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+     
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/categories/%E7%B2%BE%E5%BD%A9%E8%B5%9B%E4%BA%8B/">精彩赛事</a>
+            
+          </li>
+        
+          <li>
+            <a href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a>
+            
+          </li>
+        
+          <li>
+            <a href="/categories/%E5%9B%A2%E9%98%9F%E4%BB%8B%E7%BB%8D/">团队介绍</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+  
+       
+    <div class="widget-wrap">
+      <h3 class="widget-title">最新文章</h3>
+      <div class="widget">
+        <ul>
+          
+            <li>
+              <a href="/2023/05/17/3814/">Linux 使用指南</a>
+            </li>
+          
+            <li>
+              <a href="/2023/04/19/%E6%8A%80%E6%9C%AF%E5%B8%96%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90%E5%8F%8A%E6%8A%80%E5%B7%A7%E4%BB%8B%E7%BB%8D/">技术帖笔记软件推荐及技巧介绍</a>
+            </li>
+          
+            <li>
+              <a href="/2022/05/31/windows-%E6%95%88%E7%8E%87%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/">Windows 效率软件推荐</a>
+            </li>
+          
+            <li>
+              <a href="/2022/05/14/autocad%E8%BF%9B%E9%98%B6%E6%95%99%E7%A8%8B/">AutoCAD进阶教程</a>
+            </li>
+          
+            <li>
+              <a href="/2022/03/26/c-%E6%95%99%E7%A8%8B%EF%BC%9A%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">C# 教程：环境安装与快速入门</a>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 科协技术部<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/organization" class="mobile-nav-link">人员组织</a>
+  
+    <a href="/technical" class="mobile-nav-link">技术专区</a>
+  
+    <a href="/competition" class="mobile-nav-link">精彩赛事</a>
+  
+    <a href="/news" class="mobile-nav-link">新闻热点</a>
+  
+    <a href="/about" class="mobile-nav-link">联系我们</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

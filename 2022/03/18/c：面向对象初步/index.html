@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>C#：面向对象初步 | 清华大学土木工程系暨建设管理系学生科协</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="上一篇技术贴中我们介绍了 C# 的开发环境搭建、程序基本结构、常用数据类型和流程控制等基本语法，本次我们将对 C# 面向对象编程做简要介绍。 面向对象是一种目前比较流行的编程方法，是一种程序设计的方法论。相对于面向过程的编程方法，面向对象更契合人类正常的思维方式，更适用于开发、维护复杂系统。在这种编程方法下，程序中的数据和数据操作函数是一个逻辑上的整体，这个整体被称为对象。下面我们围绕类这一核心，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C#：面向对象初步">
+<meta property="og:url" content="http://thuce.top/2022/03/18/c%EF%BC%9A%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%88%9D%E6%AD%A5/index.html">
+<meta property="og:site_name" content="清华大学土木工程系暨建设管理系学生科协">
+<meta property="og:description" content="上一篇技术贴中我们介绍了 C# 的开发环境搭建、程序基本结构、常用数据类型和流程控制等基本语法，本次我们将对 C# 面向对象编程做简要介绍。 面向对象是一种目前比较流行的编程方法，是一种程序设计的方法论。相对于面向过程的编程方法，面向对象更契合人类正常的思维方式，更适用于开发、维护复杂系统。在这种编程方法下，程序中的数据和数据操作函数是一个逻辑上的整体，这个整体被称为对象。下面我们围绕类这一核心，">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-18T12:06:58.000Z">
+<meta property="article:modified_time" content="2024-11-04T22:00:44.000Z">
+<meta property="article:author" content="科协技术部">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="清华大学土木工程系暨建设管理系学生科协" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">清华大学土木工程系暨建设管理系学生科协</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/organization">人员组织</a>
+        
+          <a class="main-nav-link" href="/technical">技术专区</a>
+        
+          <a class="main-nav-link" href="/competition">精彩赛事</a>
+        
+          <a class="main-nav-link" href="/news">新闻热点</a>
+        
+          <a class="main-nav-link" href="/about">联系我们</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://thuce.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-c：面向对象初步" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/18/c%EF%BC%9A%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%88%9D%E6%AD%A5/" class="article-date">
+  <time class="dt-published" datetime="2022-03-18T12:06:58.000Z" itemprop="datePublished">2022-03-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      C#：面向对象初步
+    </h1>
+  
+
+      </header>
+    
+    <!-- <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>上一篇技术贴中我们介绍了 C# 的开发环境搭建、程序基本结构、常用数据类型和流程控制等基本语法，本次我们将对 C# 面向对象编程做简要介绍。</p>
+<p>面向对象是一种目前比较流行的编程方法，是一种程序设计的方法论。相对于面向过程的编程方法，面向对象更契合人类正常的思维方式，更适用于开发、维护复杂系统。在这种编程方法下，程序中的数据和数据操作函数是一个逻辑上的整体，这个整体被称为对象。下面我们围绕类这一核心，结合示例代码，帮助大家快速上手 C# 面向对象编程中的常用概念。</p>
+<h2 id="类的定义和使用"><a href="#类的定义和使用" class="headerlink" title="类的定义和使用"></a>类的定义和使用</h2><p>在 C# 中，类的定义以 class 关键字开始，后面为类的名称和大括号包裹的类的成员。类的成员可以分为三种类型，字段、属性和方法：</p>
+<ul>
+<li>字段是类的数据成员，是用于存储类和类的示例相关数据的变量；</li>
+<li>属性是代表类的一个实例或类中一个数据的函数成员。在 C# 中对类的属性的设定和获取一般是通过 set 和 get 访问器完成的；</li>
+<li>方法即类的函数成员，是为类实现某一特定功能的函数。</li>
+</ul>
+<p>除了极特殊情况外，C# 中类的成员均需要一个访问标志符，最常用的访问标志符有：</p>
+<ul>
+<li>public： 限制最宽的修饰符，允许类内及类外的访问；</li>
+<li>private：限制最严格的修饰符，只允许类内成员访问；</li>
+<li>protected：与 private 类似，但允许派生的子类成员访问。</li>
+</ul>
+<p>此外类中含有两类特殊的成员函数：构造函数和析构函数。构造函数在创建类的新对象时被执行，默认不执行任何操作，可以通过在类中声明与类名相同的成员函数但参数列表不同的多个重载构造函数来实现自己的需求。析构函数则在类的对象超出范围时执行，可以通过波浪线~加类名的成员函数来编写自己的析构函数，但是析构函数不能被继承或重载。</p>
+<p>在 C# 中通过 new() 运算符实例化类的对象，通过 . 运算符访问类的成员，下面的代码演示了上述知识：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">namespace</span> <span class="hljs-title">ClassDemo</span><br>&#123;<br>    <span class="hljs-keyword">class</span> <span class="hljs-title">Box</span><br>    &#123;<br>        <span class="hljs-comment">// 字段</span><br>        <span class="hljs-keyword">private</span> <span class="hljs-built_in">double</span> length;<br>        <span class="hljs-keyword">private</span> <span class="hljs-built_in">double</span> height;<br>        <span class="hljs-keyword">private</span> <span class="hljs-built_in">double</span> width;<br>        <span class="hljs-comment">// 属性</span><br>        <span class="hljs-keyword">public</span> <span class="hljs-built_in">double</span> Length &#123; <span class="hljs-keyword">get</span> &#123; <span class="hljs-keyword">return</span> length; &#125; <span class="hljs-keyword">set</span> &#123; length = <span class="hljs-keyword">value</span>; &#125; &#125;<br>        <span class="hljs-keyword">public</span> <span class="hljs-built_in">double</span> Height &#123; <span class="hljs-keyword">get</span> &#123; <span class="hljs-keyword">return</span> height; &#125; <span class="hljs-keyword">set</span> &#123; height = <span class="hljs-keyword">value</span>; &#125; &#125;<br>        <span class="hljs-keyword">public</span> <span class="hljs-built_in">double</span> Width &#123; <span class="hljs-keyword">get</span> &#123; <span class="hljs-keyword">return</span> width; &#125; <span class="hljs-keyword">set</span> &#123; width = <span class="hljs-keyword">value</span>; &#125; &#125;<br>        <span class="hljs-comment">// 构造函数</span><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Box</span>()</span><br>        &#123;<br>            Console.WriteLine(<span class="hljs-string">&quot;Use Box()&quot;</span>);<br>        &#125;<br>        <span class="hljs-comment">// 重载构造函数</span><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Box</span>(<span class="hljs-params"><span class="hljs-built_in">double</span> l, <span class="hljs-built_in">double</span> h, <span class="hljs-built_in">double</span> w</span>)</span><br>        &#123;<br>            Console.WriteLine(<span class="hljs-string">&quot;Use Box(l,h,w)&quot;</span>);<br>            Length = l;<br>            Height = h;<br>            Width = w;<br>        &#125;<br>        <span class="hljs-comment">// 方法</span><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-built_in">double</span> <span class="hljs-title">Calculate</span>()</span><br>        &#123;<br>            <span class="hljs-keyword">return</span> length * height * width;<br>        &#125;<br><br>    &#125;<br><br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title">BoxRunner</span><br>    &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">RunBox</span>()</span><br>        &#123;<br>            Box box1 = <span class="hljs-keyword">new</span> Box(); <span class="hljs-comment">// 实例化一个Box类对象</span><br>            <span class="hljs-comment">// 访问类的属性成员</span><br>            box1.Length = <span class="hljs-number">1</span>; <br>            box1.Height = <span class="hljs-number">1</span>;<br>            box1.Width = <span class="hljs-number">1</span>;<br>            Console.WriteLine(<span class="hljs-string">&quot;&#123;0&#125;\n------------------&quot;</span>, box1.Calculate());<br>            <span class="hljs-comment">// 调用不同的构造函数实例化Box类对象</span><br>            Box box2 = <span class="hljs-keyword">new</span> Box(<span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>);<br>            Console.WriteLine(box2.Calculate());<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="类的继承与派生"><a href="#类的继承与派生" class="headerlink" title="类的继承与派生"></a>类的继承与派生</h2><p>继承是面向对象编程中的一个重要概念，允许我们根据一个类（基类&#x2F;父类）定义新的类（派生类&#x2F;子类），这样有利于代码的维护和复用，也能大大减少开发时间。</p>
+<p>继承的思想实现了「属于」关系，例如哺乳动物「属于」动物、学生「属于」人、鸡「属于」鸟类等。</p>
+<p>C# 中一个类可以继承自一个基类和多个接口，对应语法很简单，只需要在定义类时在类名后加上 : &lt;基类&#x2F;接口名&gt; 即可。请注意，基类中 public 和 protected 类型的成员才能被子类访问到。</p>
+<h2 id="抽象类、抽象方法和虚方法"><a href="#抽象类、抽象方法和虚方法" class="headerlink" title="抽象类、抽象方法和虚方法"></a>抽象类、抽象方法和虚方法</h2><p>抽象（abstract）和虚方法（virtual）都可以被用来实现所谓动态多态性。（静态多态性是通过运算符重载和上文利用构造函数介绍过的函数重载实现的）两者十分相似，但又有一些区别：</p>
+<ul>
+<li>C# 中可在类名前加 abstract 关键字将类声明为抽象类，抽象类不能被实例化，只能被继承。</li>
+<li>在方法名前加关键字 abstract 可将方法声明为抽象方法，抽象方法只能声明在抽象类中。在声明抽象方法的抽象类中不能有方法主体，继承了抽象类的子类必须实现所有基类中的抽象方法。</li>
+<li>在方法名前加关键字 virtual 可将方法声明为虚方法，虚方法可以声明在任何类中，声明是必须给出方法主体。继承含虚方法的基类后重写虚方法不是必须的。</li>
+<li>在子类中重写虚方法或抽象方法都需要在方法名前加 override 关键字以避免命名错误。</li>
+</ul>
+<p>下面的代码演示了上述概念：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">namespace</span> <span class="hljs-title">InheritanceDemo</span><br>&#123;<br>    <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Bird</span> <span class="hljs-comment">// 抽象类</span><br>    &#123;<br>        <span class="hljs-comment">// 请注意：此处为了编码方便直接将字段设置为了public，实际操作中为了数据安全建议参考上段演示代码使用字段进行封装</span><br>        <span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> birdNum = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> eggNum = <span class="hljs-number">0</span>;<br>        <span class="hljs-comment">// 虚方法，基类中必须有实现</span><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Lay</span>()</span><br>        &#123;<br>            Console.WriteLine(<span class="hljs-string">&quot;&#123;0&#125; bird laid &#123;1&#125; eggs&quot;</span>, birdNum, eggNum);<br>        &#125;<br>        <span class="hljs-comment">// 抽象方法，基类中不能有实现</span><br>        <span class="hljs-function"><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Sleep</span>()</span>;<br><br>    &#125;<br>    <span class="hljs-keyword">class</span> <span class="hljs-title">Chicken</span> : <span class="hljs-title">Bird</span>  <span class="hljs-comment">// 子类，继承自基类Bird</span><br>    &#123;<br>        <span class="hljs-comment">// 重写基类中的虚方法</span><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Lay</span>()</span><br>        &#123;<br>            Console.WriteLine(<span class="hljs-string">&quot;&#123;0&#125; chickens laid &#123;1&#125; eggs&quot;</span>, birdNum, eggNum);<br>        &#125;<br>        <span class="hljs-comment">// 重写基类中的抽象方法</span><br>        <span class="hljs-function"><span class="hljs-keyword">override</span> <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Sleep</span>()</span><br>        &#123;<br>            Console.WriteLine(<span class="hljs-string">&quot;&#123;0&#125; chickens are sleeping&quot;</span>, birdNum);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title">InheritanceRunner</span><br>        &#123;<br>            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">RunInheritance</span>()</span><br>            &#123;<br>                Bird bird = <span class="hljs-keyword">new</span> Bird(); <span class="hljs-comment">// 错误：不能实例化抽象类</span><br>                Chicken chicken = <span class="hljs-keyword">new</span> Chicken();<br>                chicken.eggNum = <span class="hljs-number">128</span>;<br>                chicken.birdNum = <span class="hljs-number">256</span>;<br>                chicken.Lay();<br>                chicken.Sleep();<br>            &#125;<br>        &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="静态类和静态方法"><a href="#静态类和静态方法" class="headerlink" title="静态类和静态方法"></a>静态类和静态方法</h2><p>静态类使用关键字 static 修饰，内部只能包含同样使用 static 修饰的静态成员。对于静态的成员，可以直接通过类名访问。例如，参考上段参考代码，可以在 Main 函数中直接通过 InheritanceDemo.InheritanceRunner.RunInheritance(); 访问 InheritanceDemo 命名空间下 InheritanceRunner 类（静态）中的 RunInheritance() 方法（静态）。细节可以参考文末阅读原文链接中的示例代码文件。</p>
+<h2 id="还可以学什么"><a href="#还可以学什么" class="headerlink" title="还可以学什么"></a>还可以学什么</h2><p>近期两篇技术贴大致介绍了 C# 中比较常用的基本概念，希望进一步系统学习可以考虑阅读官方文档，亦可以考虑通过 Revit 二次开发等实际操作熟练，在实践中对新概念单独查询搜索。</p>
+<ul>
+<li>C# 文档：<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/dotnet/csharp/">https://docs.microsoft.com/zh-cn/dotnet/csharp/</a></li>
+<li>遇到问题可以考虑在 Stack Overflow 搜索或提问：<a target="_blank" rel="noopener" href="https://stackoverflow.com/">https://stackoverflow.com/</a></li>
+<li>如何优雅地使用 Stack Overflow：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20824615">https://www.zhihu.com/question/20824615</a></li>
+</ul>
+
+      
+    </div> -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+        
+          <p>上一篇技术贴中我们介绍了 C# 的开发环境搭建、程序基本结构、常用数据类型和流程控制等基本语法，本次我们将对 C# 面向对象编程做简要介绍。</p>
+<p>面向对象是一种目前比较流行的编程方法，是一种程序设计的方法论。相对于面向过程的编程方法，面向对象更契合人类正常的思维方式，更适用于开发、维护复杂系统。在这种编程方法下，程序中的数据和数据操作函数是一个逻辑上的整体，这个整体被称为对象。下面我们围绕类这一核心，结合示例代码，帮助大家快速上手 C# 面向对象编程中的常用概念。</p>
+<h2 id="类的定义和使用"><a href="#类的定义和使用" class="headerlink" title="类的定义和使用"></a>类的定义和使用</h2><p>在 C# 中，类的定义以 class 关键字开始，后面为类的名称和大括号包裹的类的成员。类的成员可以分为三种类型，字段、属性和方法：</p>
+<ul>
+<li>字段是类的数据成员，是用于存储类和类的示例相关数据的变量；</li>
+<li>属性是代表类的一个实例或类中一个数据的函数成员。在 C# 中对类的属性的设定和获取一般是通过 set 和 get 访问器完成的；</li>
+<li>方法即类的函数成员，是为类实现某一特定功能的函数。</li>
+</ul>
+<p>除了极特殊情况外，C# 中类的成员均需要一个访问标志符，最常用的访问标志符有：</p>
+<ul>
+<li>public： 限制最宽的修饰符，允许类内及类外的访问；</li>
+<li>private：限制最严格的修饰符，只允许类内成员访问；</li>
+<li>protected：与 private 类似，但允许派生的子类成员访问。</li>
+</ul>
+<p>此外类中含有两类特殊的成员函数：构造函数和析构函数。构造函数在创建类的新对象时被执行，默认不执行任何操作，可以通过在类中声明与类名相同的成员函数但参数列表不同的多个重载构造函数来实现自己的需求。析构函数则在类的对象超出范围时执行，可以通过波浪线~加类名的成员函数来编写自己的析构函数，但是析构函数不能被继承或重载。</p>
+<p>在 C# 中通过 new() 运算符实例化类的对象，通过 . 运算符访问类的成员，下面的代码演示了上述知识：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">namespace</span> <span class="hljs-title">ClassDemo</span><br>&#123;<br>    <span class="hljs-keyword">class</span> <span class="hljs-title">Box</span><br>    &#123;<br>        <span class="hljs-comment">// 字段</span><br>        <span class="hljs-keyword">private</span> <span class="hljs-built_in">double</span> length;<br>        <span class="hljs-keyword">private</span> <span class="hljs-built_in">double</span> height;<br>        <span class="hljs-keyword">private</span> <span class="hljs-built_in">double</span> width;<br>        <span class="hljs-comment">// 属性</span><br>        <span class="hljs-keyword">public</span> <span class="hljs-built_in">double</span> Length &#123; <span class="hljs-keyword">get</span> &#123; <span class="hljs-keyword">return</span> length; &#125; <span class="hljs-keyword">set</span> &#123; length = <span class="hljs-keyword">value</span>; &#125; &#125;<br>        <span class="hljs-keyword">public</span> <span class="hljs-built_in">double</span> Height &#123; <span class="hljs-keyword">get</span> &#123; <span class="hljs-keyword">return</span> height; &#125; <span class="hljs-keyword">set</span> &#123; height = <span class="hljs-keyword">value</span>; &#125; &#125;<br>        <span class="hljs-keyword">public</span> <span class="hljs-built_in">double</span> Width &#123; <span class="hljs-keyword">get</span> &#123; <span class="hljs-keyword">return</span> width; &#125; <span class="hljs-keyword">set</span> &#123; width = <span class="hljs-keyword">value</span>; &#125; &#125;<br>        <span class="hljs-comment">// 构造函数</span><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Box</span>()</span><br>        &#123;<br>            Console.WriteLine(<span class="hljs-string">&quot;Use Box()&quot;</span>);<br>        &#125;<br>        <span class="hljs-comment">// 重载构造函数</span><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Box</span>(<span class="hljs-params"><span class="hljs-built_in">double</span> l, <span class="hljs-built_in">double</span> h, <span class="hljs-built_in">double</span> w</span>)</span><br>        &#123;<br>            Console.WriteLine(<span class="hljs-string">&quot;Use Box(l,h,w)&quot;</span>);<br>            Length = l;<br>            Height = h;<br>            Width = w;<br>        &#125;<br>        <span class="hljs-comment">// 方法</span><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-built_in">double</span> <span class="hljs-title">Calculate</span>()</span><br>        &#123;<br>            <span class="hljs-keyword">return</span> length * height * width;<br>        &#125;<br><br>    &#125;<br><br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title">BoxRunner</span><br>    &#123;<br>       <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">RunBox</span>()</span><br>        &#123;<br>            Box box1 = <span class="hljs-keyword">new</span> Box(); <span class="hljs-comment">// 实例化一个Box类对象</span><br>            <span class="hljs-comment">// 访问类的属性成员</span><br>            box1.Length = <span class="hljs-number">1</span>; <br>            box1.Height = <span class="hljs-number">1</span>;<br>            box1.Width = <span class="hljs-number">1</span>;<br>            Console.WriteLine(<span class="hljs-string">&quot;&#123;0&#125;\n------------------&quot;</span>, box1.Calculate());<br>            <span class="hljs-comment">// 调用不同的构造函数实例化Box类对象</span><br>            Box box2 = <span class="hljs-keyword">new</span> Box(<span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>);<br>            Console.WriteLine(box2.Calculate());<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="类的继承与派生"><a href="#类的继承与派生" class="headerlink" title="类的继承与派生"></a>类的继承与派生</h2><p>继承是面向对象编程中的一个重要概念，允许我们根据一个类（基类&#x2F;父类）定义新的类（派生类&#x2F;子类），这样有利于代码的维护和复用，也能大大减少开发时间。</p>
+<p>继承的思想实现了「属于」关系，例如哺乳动物「属于」动物、学生「属于」人、鸡「属于」鸟类等。</p>
+<p>C# 中一个类可以继承自一个基类和多个接口，对应语法很简单，只需要在定义类时在类名后加上 : &lt;基类&#x2F;接口名&gt; 即可。请注意，基类中 public 和 protected 类型的成员才能被子类访问到。</p>
+<h2 id="抽象类、抽象方法和虚方法"><a href="#抽象类、抽象方法和虚方法" class="headerlink" title="抽象类、抽象方法和虚方法"></a>抽象类、抽象方法和虚方法</h2><p>抽象（abstract）和虚方法（virtual）都可以被用来实现所谓动态多态性。（静态多态性是通过运算符重载和上文利用构造函数介绍过的函数重载实现的）两者十分相似，但又有一些区别：</p>
+<ul>
+<li>C# 中可在类名前加 abstract 关键字将类声明为抽象类，抽象类不能被实例化，只能被继承。</li>
+<li>在方法名前加关键字 abstract 可将方法声明为抽象方法，抽象方法只能声明在抽象类中。在声明抽象方法的抽象类中不能有方法主体，继承了抽象类的子类必须实现所有基类中的抽象方法。</li>
+<li>在方法名前加关键字 virtual 可将方法声明为虚方法，虚方法可以声明在任何类中，声明是必须给出方法主体。继承含虚方法的基类后重写虚方法不是必须的。</li>
+<li>在子类中重写虚方法或抽象方法都需要在方法名前加 override 关键字以避免命名错误。</li>
+</ul>
+<p>下面的代码演示了上述概念：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><code class="hljs csharp"><span class="hljs-keyword">namespace</span> <span class="hljs-title">InheritanceDemo</span><br>&#123;<br>    <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Bird</span> <span class="hljs-comment">// 抽象类</span><br>    &#123;<br>        <span class="hljs-comment">// 请注意：此处为了编码方便直接将字段设置为了public，实际操作中为了数据安全建议参考上段演示代码使用字段进行封装</span><br>        <span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> birdNum = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> eggNum = <span class="hljs-number">0</span>;<br>        <span class="hljs-comment">// 虚方法，基类中必须有实现</span><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Lay</span>()</span><br>        &#123;<br>            Console.WriteLine(<span class="hljs-string">&quot;&#123;0&#125; bird laid &#123;1&#125; eggs&quot;</span>, birdNum, eggNum);<br>        &#125;<br>        <span class="hljs-comment">// 抽象方法，基类中不能有实现</span><br>        <span class="hljs-function"><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Sleep</span>()</span>;<br><br>    &#125;<br>    <span class="hljs-keyword">class</span> <span class="hljs-title">Chicken</span> : <span class="hljs-title">Bird</span>  <span class="hljs-comment">// 子类，继承自基类Bird</span><br>    &#123;<br>        <span class="hljs-comment">// 重写基类中的虚方法</span><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Lay</span>()</span><br>        &#123;<br>            Console.WriteLine(<span class="hljs-string">&quot;&#123;0&#125; chickens laid &#123;1&#125; eggs&quot;</span>, birdNum, eggNum);<br>        &#125;<br>        <span class="hljs-comment">// 重写基类中的抽象方法</span><br>        <span class="hljs-function"><span class="hljs-keyword">override</span> <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Sleep</span>()</span><br>        &#123;<br>            Console.WriteLine(<span class="hljs-string">&quot;&#123;0&#125; chickens are sleeping&quot;</span>, birdNum);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title">InheritanceRunner</span><br>        &#123;<br>            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">RunInheritance</span>()</span><br>            &#123;<br>                Bird bird = <span class="hljs-keyword">new</span> Bird(); <span class="hljs-comment">// 错误：不能实例化抽象类</span><br>                Chicken chicken = <span class="hljs-keyword">new</span> Chicken();<br>                chicken.eggNum = <span class="hljs-number">128</span>;<br>                chicken.birdNum = <span class="hljs-number">256</span>;<br>                chicken.Lay();<br>                chicken.Sleep();<br>            &#125;<br>        &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="静态类和静态方法"><a href="#静态类和静态方法" class="headerlink" title="静态类和静态方法"></a>静态类和静态方法</h2><p>静态类使用关键字 static 修饰，内部只能包含同样使用 static 修饰的静态成员。对于静态的成员，可以直接通过类名访问。例如，参考上段参考代码，可以在 Main 函数中直接通过 InheritanceDemo.InheritanceRunner.RunInheritance(); 访问 InheritanceDemo 命名空间下 InheritanceRunner 类（静态）中的 RunInheritance() 方法（静态）。细节可以参考文末阅读原文链接中的示例代码文件。</p>
+<h2 id="还可以学什么"><a href="#还可以学什么" class="headerlink" title="还可以学什么"></a>还可以学什么</h2><p>近期两篇技术贴大致介绍了 C# 中比较常用的基本概念，希望进一步系统学习可以考虑阅读官方文档，亦可以考虑通过 Revit 二次开发等实际操作熟练，在实践中对新概念单独查询搜索。</p>
+<ul>
+<li>C# 文档：<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/dotnet/csharp/">https://docs.microsoft.com/zh-cn/dotnet/csharp/</a></li>
+<li>遇到问题可以考虑在 Stack Overflow 搜索或提问：<a target="_blank" rel="noopener" href="https://stackoverflow.com/">https://stackoverflow.com/</a></li>
+<li>如何优雅地使用 Stack Overflow：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20824615">https://www.zhihu.com/question/20824615</a></li>
+</ul>
+
+        
+           
+    <!-- </div>
+    <footer class="article-footer">
+      <a data-url="http://thuce.top/2022/03/18/c%EF%BC%9A%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%88%9D%E6%AD%A5/" data-id="cmb9fujud008bwis6am043j2m" data-title="C#：面向对象初步" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div> -->
+
+  <!-- <div class="article-entry"> -->
+  </div>
+  <footer class="article-footer">
+    <!-- 移除分享链接 -->
+    
+    
+    
+  </footer>
+</div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/03/26/c-%E6%95%99%E7%A8%8B%EF%BC%9A%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          C# 教程：环境安装与快速入门
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/10/20/%E7%BB%93%E8%B5%9B-%E5%91%BD%E9%A2%98%E7%AE%80%E4%BB%8B%E5%8F%8A%E6%8A%A5%E5%90%8D%E9%80%9A%E7%9F%A5/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">清华大学第二十七届结构设计大赛命题简介及报名通知</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+     
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/categories/%E7%B2%BE%E5%BD%A9%E8%B5%9B%E4%BA%8B/">精彩赛事</a>
+            
+          </li>
+        
+          <li>
+            <a href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a>
+            
+          </li>
+        
+          <li>
+            <a href="/categories/%E5%9B%A2%E9%98%9F%E4%BB%8B%E7%BB%8D/">团队介绍</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+  
+       
+    <div class="widget-wrap">
+      <h3 class="widget-title">最新文章</h3>
+      <div class="widget">
+        <ul>
+          
+            <li>
+              <a href="/2023/05/17/3814/">Linux 使用指南</a>
+            </li>
+          
+            <li>
+              <a href="/2023/04/19/%E6%8A%80%E6%9C%AF%E5%B8%96%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90%E5%8F%8A%E6%8A%80%E5%B7%A7%E4%BB%8B%E7%BB%8D/">技术帖笔记软件推荐及技巧介绍</a>
+            </li>
+          
+            <li>
+              <a href="/2022/05/31/windows-%E6%95%88%E7%8E%87%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/">Windows 效率软件推荐</a>
+            </li>
+          
+            <li>
+              <a href="/2022/05/14/autocad%E8%BF%9B%E9%98%B6%E6%95%99%E7%A8%8B/">AutoCAD进阶教程</a>
+            </li>
+          
+            <li>
+              <a href="/2022/03/26/c-%E6%95%99%E7%A8%8B%EF%BC%9A%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">C# 教程：环境安装与快速入门</a>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 科协技术部<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/organization" class="mobile-nav-link">人员组织</a>
+  
+    <a href="/technical" class="mobile-nav-link">技术专区</a>
+  
+    <a href="/competition" class="mobile-nav-link">精彩赛事</a>
+  
+    <a href="/news" class="mobile-nav-link">新闻热点</a>
+  
+    <a href="/about" class="mobile-nav-link">联系我们</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

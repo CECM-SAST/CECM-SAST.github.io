@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>技术贴  计算地震作用的常用方法 | 清华大学土木工程系暨建设管理系学生科协</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="对于大多数结构而言，设计结构的时候需要考虑地震作用的影响以保证结构的安全。地震作用分为水平地震作用和竖向地震作用。其中，水平地震作用计算的三种常用方法为：反应谱底部剪力法、振型分解反应谱法、弹性时程分析法。由于第一种方法主要适用于不超过40层的建筑，符合本次结赛的需要，因此以下主要介绍第一种方法。   1 反应谱的基本概念   反应谱指一定阻尼比、一系列单自由度弹性体系的地震最大反应值与周期关系的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="技术贴  计算地震作用的常用方法">
+<meta property="og:url" content="http://thuce.top/2020/10/26/%E6%8A%80%E6%9C%AF%E8%B4%B4-%E8%AE%A1%E7%AE%97%E5%9C%B0%E9%9C%87%E4%BD%9C%E7%94%A8%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:site_name" content="清华大学土木工程系暨建设管理系学生科协">
+<meta property="og:description" content="对于大多数结构而言，设计结构的时候需要考虑地震作用的影响以保证结构的安全。地震作用分为水平地震作用和竖向地震作用。其中，水平地震作用计算的三种常用方法为：反应谱底部剪力法、振型分解反应谱法、弹性时程分析法。由于第一种方法主要适用于不超过40层的建筑，符合本次结赛的需要，因此以下主要介绍第一种方法。   1 反应谱的基本概念   反应谱指一定阻尼比、一系列单自由度弹性体系的地震最大反应值与周期关系的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2020/10/6-1603721747.png">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2020/10/8-1603721748.png">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2020/10/9-1603721748.png">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2020/10/3-1603721748.png">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2020/10/4-1603721748.png">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2020/10/2-1603721749.png">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2020/10/7-1603721749.png">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2020/10/1-1603721749.png">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2020/10/3-1603721749.png">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2020/10/5-1603721749.png">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2020/10/7-1603721750.png">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2020/10/1-1603721750.png">
+<meta property="article:published_time" content="2020-10-26T14:15:47.000Z">
+<meta property="article:modified_time" content="2025-05-29T10:14:15.446Z">
+<meta property="article:author" content="科协技术部">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://thuce.top/wp-content_uploads/2020/10/6-1603721747.png">
+  
+    <link rel="alternate" href="/atom.xml" title="清华大学土木工程系暨建设管理系学生科协" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">清华大学土木工程系暨建设管理系学生科协</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/organization">人员组织</a>
+        
+          <a class="main-nav-link" href="/technical">技术专区</a>
+        
+          <a class="main-nav-link" href="/competition">精彩赛事</a>
+        
+          <a class="main-nav-link" href="/news">新闻热点</a>
+        
+          <a class="main-nav-link" href="/about">联系我们</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://thuce.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-技术贴-计算地震作用的常用方法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/10/26/%E6%8A%80%E6%9C%AF%E8%B4%B4-%E8%AE%A1%E7%AE%97%E5%9C%B0%E9%9C%87%E4%BD%9C%E7%94%A8%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" class="article-date">
+  <time class="dt-published" datetime="2020-10-26T14:15:47.000Z" itemprop="datePublished">2020-10-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      技术贴  计算地震作用的常用方法
+    </h1>
+  
+
+      </header>
+    
+    <!-- <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>对于大多数结构而言，设计结构的时候需要考虑地震作用的影响以保证结构的安全。地震作用分为水平地震作用和竖向地震作用。其中，水平地震作用计算的三种常用方法为：<strong>反应谱底部剪力法、振型分解反应谱法、弹性时程分析法</strong>。由于第一种方法主要适用于不超过40层的建筑，符合本次结赛的需要，因此以下主要介绍<strong>第一种方法</strong>。  </p>
+<p><strong>1</strong></p>
+<p>反应谱的基本概念  </p>
+<p>反应谱指一定阻尼比、一系列单自由度弹性体系的地震最大反应值与周期关系的曲线。反应谱可以分为三类：加速度反应谱、速度反应谱、位移反应谱。其中，加速度反应谱与地震作用计算密切相关。以下图为例进行说明：</p>
+<p><img src="/.././wp-content_uploads/2020/10/6-1603721747.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p>图1 加速度反应谱</p>
+<p>不同的结构有不同的自振周期。现有自振周期为T1、T2的两个结构，在特定地震波下随着时间t的推移，有着一系列变化的加速度。其中，加速度的最大值分别为Sa1与Sa2，也就对应了加速度反应谱上的两点(T1, Sa1)与(T2, Sa2)。  </p>
+<p><strong>2</strong></p>
+<p>设计反应谱</p>
+<p>地震作用是随机的，无法预知未来场地地震的情况。然而在设计结构时，需要确定的地震作用大小。如何处理这一矛盾呢？</p>
+<p>《建筑抗震设计规范》规定了设计反应谱，是以地震影响系数曲线的形式给出。该曲线是基于国内外大量地震加速度纪录反应谱得到。我国规范设计反应谱（地震影响系数α谱曲线）如下：</p>
+<p><img src="/.././wp-content_uploads/2020/10/8-1603721748.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p>其中，曲线下降段各参数确定方法如下：  </p>
+<p><img src="/.././wp-content_uploads/2020/10/9-1603721748.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p><img src="/../wp-content_uploads/2020/10/3-1603721748.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p>地震影响系数最大值和特征周期指确定如下：  </p>
+<p><img src="/../wp-content_uploads/2020/10/4-1603721748.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p><strong>3</strong></p>
+<p>反应谱底部剪力法  </p>
+<p><strong>适用范围：不超过40层，以剪切变形为主且质量和刚度沿高度分布比较均匀的结构，以及近似于单自由度的结构。</strong>在反应谱底部剪力法中，地震作用相当于给各层施加了一个横向荷载。具体而言，计算过程较为简单：  </p>
+<p><img src="/../wp-content_uploads/2020/10/2-1603721749.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p>各参数的意义与确定方式如下（提到的规范即《建筑抗震设计规范》GB50011-2010）：  </p>
+<p><img src="/../wp-content_uploads/2020/10/7-1603721749.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p><img src="/../wp-content_uploads/2020/10/1-1603721749.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p><img src="/.././wp-content_uploads/2020/10/3-1603721749.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p><img src="/.././wp-content_uploads/2020/10/5-1603721749.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p><strong>4</strong></p>
+<p>计算样例</p>
+<p>下面以一单自由度水塔为例，体现上述的计算过程。</p>
+<p>题目：一水塔，简化为单自由度体系，集中质量m&#x3D;6×10^5kg，刚度k&#x3D;9×10^6N&#x2F;m, III类场地，设计地震分组为第一组，8度设防，阻尼比为0.03。请用规范中给出的设计反应谱（amax&#x3D;0.16）求该结构在多遇地震下的底部剪力。</p>
+<p>解答：  </p>
+<p><img src="/.././wp-content_uploads/2020/10/7-1603721750.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p>注：（1）部分内容（第一节）来自于纪晓东老师《地震工程导论》课件</p>
+<p>（2）文中涉及的规范为《建筑抗震设计规范》GB50011-2010  </p>
+<p><strong>致谢：</strong></p>
+<p>感谢远洋集团、世茂集团、华为赛事基金对本次大赛的大力支持</p>
+<p>感谢清华大学学生学习与发展指导中心对“技术贴”项目的大力支持</p>
+<p><img src="/.././wp-content_uploads/2020/10/1-1603721750.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p>编辑 张天野</p>
+<p>排版 孟姣</p>
+<p>审核 陈旺</p>
+
+      
+    </div> -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+        
+          <p>对于大多数结构而言，设计结构的时候需要考虑地震作用的影响以保证结构的安全。地震作用分为水平地震作用和竖向地震作用。其中，水平地震作用计算的三种常用方法为：<strong>反应谱底部剪力法、振型分解反应谱法、弹性时程分析法</strong>。由于第一种方法主要适用于不超过40层的建筑，符合本次结赛的需要，因此以下主要介绍<strong>第一种方法</strong>。  </p>
+<p><strong>1</strong></p>
+<p>反应谱的基本概念  </p>
+<p>反应谱指一定阻尼比、一系列单自由度弹性体系的地震最大反应值与周期关系的曲线。反应谱可以分为三类：加速度反应谱、速度反应谱、位移反应谱。其中，加速度反应谱与地震作用计算密切相关。以下图为例进行说明：</p>
+<p><img src="/.././wp-content_uploads/2020/10/6-1603721747.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p>图1 加速度反应谱</p>
+<p>不同的结构有不同的自振周期。现有自振周期为T1、T2的两个结构，在特定地震波下随着时间t的推移，有着一系列变化的加速度。其中，加速度的最大值分别为Sa1与Sa2，也就对应了加速度反应谱上的两点(T1, Sa1)与(T2, Sa2)。  </p>
+<p><strong>2</strong></p>
+<p>设计反应谱</p>
+<p>地震作用是随机的，无法预知未来场地地震的情况。然而在设计结构时，需要确定的地震作用大小。如何处理这一矛盾呢？</p>
+<p>《建筑抗震设计规范》规定了设计反应谱，是以地震影响系数曲线的形式给出。该曲线是基于国内外大量地震加速度纪录反应谱得到。我国规范设计反应谱（地震影响系数α谱曲线）如下：</p>
+<p><img src="/.././wp-content_uploads/2020/10/8-1603721748.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p>其中，曲线下降段各参数确定方法如下：  </p>
+<p><img src="/.././wp-content_uploads/2020/10/9-1603721748.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p><img src="/../wp-content_uploads/2020/10/3-1603721748.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p>地震影响系数最大值和特征周期指确定如下：  </p>
+<p><img src="/../wp-content_uploads/2020/10/4-1603721748.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p><strong>3</strong></p>
+<p>反应谱底部剪力法  </p>
+<p><strong>适用范围：不超过40层，以剪切变形为主且质量和刚度沿高度分布比较均匀的结构，以及近似于单自由度的结构。</strong>在反应谱底部剪力法中，地震作用相当于给各层施加了一个横向荷载。具体而言，计算过程较为简单：  </p>
+<p><img src="/../wp-content_uploads/2020/10/2-1603721749.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p>各参数的意义与确定方式如下（提到的规范即《建筑抗震设计规范》GB50011-2010）：  </p>
+<p><img src="/../wp-content_uploads/2020/10/7-1603721749.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p><img src="/../wp-content_uploads/2020/10/1-1603721749.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p><img src="/.././wp-content_uploads/2020/10/3-1603721749.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p><img src="/.././wp-content_uploads/2020/10/5-1603721749.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p><strong>4</strong></p>
+<p>计算样例</p>
+<p>下面以一单自由度水塔为例，体现上述的计算过程。</p>
+<p>题目：一水塔，简化为单自由度体系，集中质量m&#x3D;6×10^5kg，刚度k&#x3D;9×10^6N&#x2F;m, III类场地，设计地震分组为第一组，8度设防，阻尼比为0.03。请用规范中给出的设计反应谱（amax&#x3D;0.16）求该结构在多遇地震下的底部剪力。</p>
+<p>解答：  </p>
+<p><img src="/.././wp-content_uploads/2020/10/7-1603721750.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p>注：（1）部分内容（第一节）来自于纪晓东老师《地震工程导论》课件</p>
+<p>（2）文中涉及的规范为《建筑抗震设计规范》GB50011-2010  </p>
+<p><strong>致谢：</strong></p>
+<p>感谢远洋集团、世茂集团、华为赛事基金对本次大赛的大力支持</p>
+<p>感谢清华大学学生学习与发展指导中心对“技术贴”项目的大力支持</p>
+<p><img src="/.././wp-content_uploads/2020/10/1-1603721750.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p>编辑 张天野</p>
+<p>排版 孟姣</p>
+<p>审核 陈旺</p>
+
+        
+           
+    <!-- </div>
+    <footer class="article-footer">
+      <a data-url="http://thuce.top/2020/10/26/%E6%8A%80%E6%9C%AF%E8%B4%B4-%E8%AE%A1%E7%AE%97%E5%9C%B0%E9%9C%87%E4%BD%9C%E7%94%A8%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" data-id="cmb9fujui009bwis69m4kan2x" data-title="技术贴  计算地震作用的常用方法" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div> -->
+
+  <!-- <div class="article-entry"> -->
+  </div>
+  <footer class="article-footer">
+    <!-- 移除分享链接 -->
+    
+    
+    
+  </footer>
+</div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/10/26/983a4498e4/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          技术贴  高层建筑结构体系及抗震设计
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/10/26/a5cc300785/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">技术贴  如何确定小木条的材料性质</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+     
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/categories/%E7%B2%BE%E5%BD%A9%E8%B5%9B%E4%BA%8B/">精彩赛事</a>
+            
+          </li>
+        
+          <li>
+            <a href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a>
+            
+          </li>
+        
+          <li>
+            <a href="/categories/%E5%9B%A2%E9%98%9F%E4%BB%8B%E7%BB%8D/">团队介绍</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+  
+       
+    <div class="widget-wrap">
+      <h3 class="widget-title">最新文章</h3>
+      <div class="widget">
+        <ul>
+          
+            <li>
+              <a href="/2023/05/17/3814/">Linux 使用指南</a>
+            </li>
+          
+            <li>
+              <a href="/2023/04/19/%E6%8A%80%E6%9C%AF%E5%B8%96%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90%E5%8F%8A%E6%8A%80%E5%B7%A7%E4%BB%8B%E7%BB%8D/">技术帖笔记软件推荐及技巧介绍</a>
+            </li>
+          
+            <li>
+              <a href="/2022/05/31/windows-%E6%95%88%E7%8E%87%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/">Windows 效率软件推荐</a>
+            </li>
+          
+            <li>
+              <a href="/2022/05/14/autocad%E8%BF%9B%E9%98%B6%E6%95%99%E7%A8%8B/">AutoCAD进阶教程</a>
+            </li>
+          
+            <li>
+              <a href="/2022/03/26/c-%E6%95%99%E7%A8%8B%EF%BC%9A%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">C# 教程：环境安装与快速入门</a>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 科协技术部<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/organization" class="mobile-nav-link">人员组织</a>
+  
+    <a href="/technical" class="mobile-nav-link">技术专区</a>
+  
+    <a href="/competition" class="mobile-nav-link">精彩赛事</a>
+  
+    <a href="/news" class="mobile-nav-link">新闻热点</a>
+  
+    <a href="/about" class="mobile-nav-link">联系我们</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

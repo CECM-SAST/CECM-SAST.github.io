@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>技术贴  结构力学求解器&amp;SAP2000 | 清华大学土木工程系暨建设管理系学生科协</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="本文介绍了结构力学求解器和SAP2000这两款软件的使用方法。 结构力学求解器 结构力学求解器是一款绿色软件，下载即可使用，无需安装。 1、下载链接：https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1SwxgZTMqwyGgQxDtoJePjg 提取码：z9x8 2、解压所下载的文件，打开，在其中找到可执行文件SMSolver.exe.  2、右键单击、以管理员方式运行，即可打开软件。    3、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="技术贴  结构力学求解器&amp;SAP2000">
+<meta property="og:url" content="http://thuce.top/2020/05/08/2323570d60/index.html">
+<meta property="og:site_name" content="清华大学土木工程系暨建设管理系学生科协">
+<meta property="og:description" content="本文介绍了结构力学求解器和SAP2000这两款软件的使用方法。 结构力学求解器 结构力学求解器是一款绿色软件，下载即可使用，无需安装。 1、下载链接：https:&#x2F;&#x2F;pan.baidu.com&#x2F;s&#x2F;1SwxgZTMqwyGgQxDtoJePjg 提取码：z9x8 2、解压所下载的文件，打开，在其中找到可执行文件SMSolver.exe.  2、右键单击、以管理员方式运行，即可打开软件。    3、">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2020/05/5-1588945538.png">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2020/05/2-1588945538.png">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2020/05/9-1588945540.png">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2020/05/5-1588945541.png">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2020/05/4-1588945542.png">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2020/05/1-1588945543.jpeg">
+<meta property="article:published_time" content="2020-05-08T13:45:37.000Z">
+<meta property="article:modified_time" content="2025-05-29T09:59:29.002Z">
+<meta property="article:author" content="科协技术部">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://thuce.top/wp-content_uploads/2020/05/5-1588945538.png">
+  
+    <link rel="alternate" href="/atom.xml" title="清华大学土木工程系暨建设管理系学生科协" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">清华大学土木工程系暨建设管理系学生科协</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/organization">人员组织</a>
+        
+          <a class="main-nav-link" href="/technical">技术专区</a>
+        
+          <a class="main-nav-link" href="/competition">精彩赛事</a>
+        
+          <a class="main-nav-link" href="/news">新闻热点</a>
+        
+          <a class="main-nav-link" href="/about">联系我们</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://thuce.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2323570d60" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/05/08/2323570d60/" class="article-date">
+  <time class="dt-published" datetime="2020-05-08T13:45:37.000Z" itemprop="datePublished">2020-05-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      技术贴  结构力学求解器&amp;SAP2000
+    </h1>
+  
+
+      </header>
+    
+    <!-- <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>本文介绍了结构力学求解器和SAP2000这两款软件的使用方法。</p>
+<h3 id="结构力学求解器"><a href="#结构力学求解器" class="headerlink" title="结构力学求解器"></a>结构力学求解器</h3><p> 结构力学求解器是一款绿色软件，下载即可使用，无需安装。</p>
+<p>1、下载链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1SwxgZTMqwyGgQxDtoJePjg">https://pan.baidu.com/s/1SwxgZTMqwyGgQxDtoJePjg</a></p>
+<p>提取码：z9x8</p>
+<p>2、解压所下载的文件，打开，在其中找到可执行文件SMSolver.exe.</p>
+<p><img src="/../wp-content_uploads/2020/05/5-1588945538.png" alt="技术贴  结构力学求解器&amp;SAP2000" title="技术贴  结构力学求解器&amp;SAP2000"></p>
+<p>2、右键单击、以管理员方式运行，即可打开软件。  </p>
+<p><img src="/../wp-content_uploads/2020/05/2-1588945538.png" alt="技术贴  结构力学求解器&amp;SAP2000" title="技术贴  结构力学求解器&amp;SAP2000"></p>
+<p>3、右键单击、选择发送到桌面快捷方式，可创建桌面快捷方式。  </p>
+<p><img src="/../wp-content_uploads/2020/05/9-1588945540.png" alt="技术贴  结构力学求解器&amp;SAP2000" title="技术贴  结构力学求解器&amp;SAP2000"></p>
+<p><img src="/../wp-content_uploads/2020/05/5-1588945541.png" alt="技术贴  结构力学求解器&amp;SAP2000" title="技术贴  结构力学求解器&amp;SAP2000"></p>
+<p><strong>视频教学：</strong></p>
+<p>点击边框调出视频工具条</p>
+<h3 id="SAP2000"><a href="#SAP2000" class="headerlink" title="SAP2000"></a>SAP2000</h3><p>SAP2000是一款结构分析软件，可以模拟大量的结构形式，包括<strong>房屋建筑、桥梁、水坝、油罐、地下结构</strong>等等。同时具有<strong>建模功能、编辑功能、分析功能、荷载功能、自定义功能、以及设计功能</strong>等等。</p>
+<p><strong>视频教学：</strong></p>
+<p>点击边框调出视频工具条</p>
+<p><strong>推荐使用电脑观看</strong>  </p>
+<p><strong>No.3</strong></p>
+<p>大家好，我是杜杜，平时有任何技术方面的问题，欢迎来问我呀。扫描下面的二维码，就可以添加我为微信好友啦。</p>
+<p>平时有一些技术方面的小技巧，也可以给我投稿，将有机会被选入新的技术的当中。被采纳的同学，可以获得科协送出的精美礼品哦。</p>
+<p>对技术帖的任何建议，也欢迎大家向我反馈。</p>
+<p><img src="/../wp-content_uploads/2020/05/4-1588945542.png" alt="技术贴  结构力学求解器&amp;SAP2000" title="技术贴  结构力学求解器&amp;SAP2000"></p>
+<p>图文 张天野  孟姣</p>
+<p>审核 陈旺  陈佳荷</p>
+<p><img src="/../wp-content_uploads/2020/05/1-1588945543.jpeg" alt="技术贴  结构力学求解器&amp;SAP2000" title="技术贴  结构力学求解器&amp;SAP2000"></p>
+
+      
+    </div> -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+        
+          <p>本文介绍了结构力学求解器和SAP2000这两款软件的使用方法。</p>
+<h3 id="结构力学求解器"><a href="#结构力学求解器" class="headerlink" title="结构力学求解器"></a>结构力学求解器</h3><p> 结构力学求解器是一款绿色软件，下载即可使用，无需安装。</p>
+<p>1、下载链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1SwxgZTMqwyGgQxDtoJePjg">https://pan.baidu.com/s/1SwxgZTMqwyGgQxDtoJePjg</a></p>
+<p>提取码：z9x8</p>
+<p>2、解压所下载的文件，打开，在其中找到可执行文件SMSolver.exe.</p>
+<p><img src="/../wp-content_uploads/2020/05/5-1588945538.png" alt="技术贴  结构力学求解器&amp;SAP2000" title="技术贴  结构力学求解器&amp;SAP2000"></p>
+<p>2、右键单击、以管理员方式运行，即可打开软件。  </p>
+<p><img src="/../wp-content_uploads/2020/05/2-1588945538.png" alt="技术贴  结构力学求解器&amp;SAP2000" title="技术贴  结构力学求解器&amp;SAP2000"></p>
+<p>3、右键单击、选择发送到桌面快捷方式，可创建桌面快捷方式。  </p>
+<p><img src="/../wp-content_uploads/2020/05/9-1588945540.png" alt="技术贴  结构力学求解器&amp;SAP2000" title="技术贴  结构力学求解器&amp;SAP2000"></p>
+<p><img src="/../wp-content_uploads/2020/05/5-1588945541.png" alt="技术贴  结构力学求解器&amp;SAP2000" title="技术贴  结构力学求解器&amp;SAP2000"></p>
+<p><strong>视频教学：</strong></p>
+<p>点击边框调出视频工具条</p>
+<h3 id="SAP2000"><a href="#SAP2000" class="headerlink" title="SAP2000"></a>SAP2000</h3><p>SAP2000是一款结构分析软件，可以模拟大量的结构形式，包括<strong>房屋建筑、桥梁、水坝、油罐、地下结构</strong>等等。同时具有<strong>建模功能、编辑功能、分析功能、荷载功能、自定义功能、以及设计功能</strong>等等。</p>
+<p><strong>视频教学：</strong></p>
+<p>点击边框调出视频工具条</p>
+<p><strong>推荐使用电脑观看</strong>  </p>
+<p><strong>No.3</strong></p>
+<p>大家好，我是杜杜，平时有任何技术方面的问题，欢迎来问我呀。扫描下面的二维码，就可以添加我为微信好友啦。</p>
+<p>平时有一些技术方面的小技巧，也可以给我投稿，将有机会被选入新的技术的当中。被采纳的同学，可以获得科协送出的精美礼品哦。</p>
+<p>对技术帖的任何建议，也欢迎大家向我反馈。</p>
+<p><img src="/../wp-content_uploads/2020/05/4-1588945542.png" alt="技术贴  结构力学求解器&amp;SAP2000" title="技术贴  结构力学求解器&amp;SAP2000"></p>
+<p>图文 张天野  孟姣</p>
+<p>审核 陈旺  陈佳荷</p>
+<p><img src="/../wp-content_uploads/2020/05/1-1588945543.jpeg" alt="技术贴  结构力学求解器&amp;SAP2000" title="技术贴  结构力学求解器&amp;SAP2000"></p>
+
+        
+           
+    <!-- </div>
+    <footer class="article-footer">
+      <a data-url="http://thuce.top/2020/05/08/2323570d60/" data-id="cmb9fujtm006kwis62z6f95lj" data-title="技术贴  结构力学求解器&amp;SAP2000" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div> -->
+
+  <!-- <div class="article-entry"> -->
+  </div>
+  <footer class="article-footer">
+    <!-- 移除分享链接 -->
+    
+    
+    
+  </footer>
+</div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/05/08/e3a61707be/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          技术贴  Office使用小技巧
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/08/sap2000%E6%95%99%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">SAP2000教程</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+     
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/categories/%E7%B2%BE%E5%BD%A9%E8%B5%9B%E4%BA%8B/">精彩赛事</a>
+            
+          </li>
+        
+          <li>
+            <a href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a>
+            
+          </li>
+        
+          <li>
+            <a href="/categories/%E5%9B%A2%E9%98%9F%E4%BB%8B%E7%BB%8D/">团队介绍</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+  
+       
+    <div class="widget-wrap">
+      <h3 class="widget-title">最新文章</h3>
+      <div class="widget">
+        <ul>
+          
+            <li>
+              <a href="/2023/05/17/3814/">Linux 使用指南</a>
+            </li>
+          
+            <li>
+              <a href="/2023/04/19/%E6%8A%80%E6%9C%AF%E5%B8%96%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90%E5%8F%8A%E6%8A%80%E5%B7%A7%E4%BB%8B%E7%BB%8D/">技术帖笔记软件推荐及技巧介绍</a>
+            </li>
+          
+            <li>
+              <a href="/2022/05/31/windows-%E6%95%88%E7%8E%87%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/">Windows 效率软件推荐</a>
+            </li>
+          
+            <li>
+              <a href="/2022/05/14/autocad%E8%BF%9B%E9%98%B6%E6%95%99%E7%A8%8B/">AutoCAD进阶教程</a>
+            </li>
+          
+            <li>
+              <a href="/2022/03/26/c-%E6%95%99%E7%A8%8B%EF%BC%9A%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">C# 教程：环境安装与快速入门</a>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 科协技术部<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/organization" class="mobile-nav-link">人员组织</a>
+  
+    <a href="/technical" class="mobile-nav-link">技术专区</a>
+  
+    <a href="/competition" class="mobile-nav-link">精彩赛事</a>
+  
+    <a href="/news" class="mobile-nav-link">新闻热点</a>
+  
+    <a href="/about" class="mobile-nav-link">联系我们</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

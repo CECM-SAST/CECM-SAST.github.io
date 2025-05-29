@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>技术贴  SAP2000计算地震力教程 | 清华大学土木工程系暨建设管理系学生科协</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="为帮助选手理解材料性质，提高结构分析能力以及动手能力，更好地准备比赛，科协将以技术贴的形式为各位热爱结赛的选手提供相应指导。相关内容主要包括以下四部分： （****1）如何结合材性试验来确定桐木的材料性质（2）计算地震力的常见方法（3）SAP2000建模以及计算地震力教程 （4）常见的高层结构体系以及抗震设计 本篇技术贴将为大家介绍如何用SAP2000计算地震力。在计算之前，先补充一些基础知识。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="技术贴  SAP2000计算地震力教程">
+<meta property="og:url" content="http://thuce.top/2020/10/22/%E6%8A%80%E6%9C%AF%E8%B4%B4-sap2000%E8%AE%A1%E7%AE%97%E5%9C%B0%E9%9C%87%E5%8A%9B%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="清华大学土木工程系暨建设管理系学生科协">
+<meta property="og:description" content="为帮助选手理解材料性质，提高结构分析能力以及动手能力，更好地准备比赛，科协将以技术贴的形式为各位热爱结赛的选手提供相应指导。相关内容主要包括以下四部分： （****1）如何结合材性试验来确定桐木的材料性质（2）计算地震力的常见方法（3）SAP2000建模以及计算地震力教程 （4）常见的高层结构体系以及抗震设计 本篇技术贴将为大家介绍如何用SAP2000计算地震力。在计算之前，先补充一些基础知识。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2020/10/1-1603721750-1024x540.png">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2020/10/6-1603722731-1024x682.png">
+<meta property="article:published_time" content="2020-10-22T14:35:25.000Z">
+<meta property="article:modified_time" content="2025-05-29T10:13:02.706Z">
+<meta property="article:author" content="科协技术部">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://thuce.top/wp-content_uploads/2020/10/1-1603721750-1024x540.png">
+  
+    <link rel="alternate" href="/atom.xml" title="清华大学土木工程系暨建设管理系学生科协" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">清华大学土木工程系暨建设管理系学生科协</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/organization">人员组织</a>
+        
+          <a class="main-nav-link" href="/technical">技术专区</a>
+        
+          <a class="main-nav-link" href="/competition">精彩赛事</a>
+        
+          <a class="main-nav-link" href="/news">新闻热点</a>
+        
+          <a class="main-nav-link" href="/about">联系我们</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://thuce.top"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-技术贴-sap2000计算地震力教程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/10/22/%E6%8A%80%E6%9C%AF%E8%B4%B4-sap2000%E8%AE%A1%E7%AE%97%E5%9C%B0%E9%9C%87%E5%8A%9B%E6%95%99%E7%A8%8B/" class="article-date">
+  <time class="dt-published" datetime="2020-10-22T14:35:25.000Z" itemprop="datePublished">2020-10-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      技术贴  SAP2000计算地震力教程
+    </h1>
+  
+
+      </header>
+    
+    <!-- <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>为帮助选手理解材料性质，提高结构分析能力以及动手能力，更好地准备比赛，科协将以技术贴的形式为各位热爱结赛的选手提供相应指导。相关内容主要包括以下四部分：</p>
+<p><strong>（****1）如何结合材性试验来确定桐木的材料性质<br>（2）计算地震力的常见方法<br>（3）SAP2000建模以及计算地震力教程</strong></p>
+<p><strong>（4）常见的高层结构体系以及抗震设计</strong></p>
+<p>本篇技术贴将为大家介绍如何用SAP2000计算地震力。在计算之前，先补充一些基础知识。</p>
+<h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><p><strong>刚性楼板假定</strong>：假定楼板在自身平面内刚度无穷大，在平面外的刚度则忽略不计。这一假设减少的结构的自由度，简化了计算方法。</p>
+<h3 id="视频教学"><a href="#视频教学" class="headerlink" title="视频教学"></a>视频教学</h3><p>视频链接：<a target="_blank" rel="noopener" href="https://v.qq.com/x/page/u316287qanu.html">https://v.qq.com/x/page/u316287qanu.html</a></p>
+<h3 id="勘误"><a href="#勘误" class="headerlink" title="勘误"></a>勘误</h3><p>（1）视频中默认的<strong>桐木密度偏大</strong>，会使得计算的力偏大，选手可以根据桐木的质量和体积自行计算密度，或者参考网站确定（<strong>280 kg&#x2F;m^3</strong>）：</p>
+<p><a target="_blank" rel="noopener" href="https://www.wood-database.com/paulownia/">https://www.wood-database.com/paulownia/</a></p>
+<p>（2）定义荷载模式的时候，<strong>砝码荷载的自重系数应该定义为0</strong>；且本教程中无需定义地震荷载。</p>
+<p>（3）<strong>定义刚性楼板假定时，需要把每层所有的节点选中。</strong></p>
+<p>（4）分析结果时，可以<strong>根据不同杆件之间受力的相对大小来决定杆件的相对刚度</strong>；也可以根据杆件的最大受力（轴力、剪力、弯矩）情况来判断杆件是否会发生破坏（<strong>受剪破坏、受弯破坏</strong>等）。</p>
+<h3 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h3><p>感谢远洋集团、世茂集团、华为赛事基金对本次大赛的大力支持</p>
+<p>感谢清华大学学生学习与发展指导中心对“技术贴”项目的大力支持</p>
+<p><img src="/../wp-content_uploads/2020/10/1-1603721750-1024x540.png"></p>
+<p>视频 陈旺</p>
+<p>文案 陈旺</p>
+<p>排版 陈旺</p>
+<p>审核 陈旺</p>
+<p><img src="/.././wp-content_uploads/2020/10/6-1603722731-1024x682.png"></p>
+
+      
+    </div> -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+        
+          <p>为帮助选手理解材料性质，提高结构分析能力以及动手能力，更好地准备比赛，科协将以技术贴的形式为各位热爱结赛的选手提供相应指导。相关内容主要包括以下四部分：</p>
+<p><strong>（****1）如何结合材性试验来确定桐木的材料性质<br>（2）计算地震力的常见方法<br>（3）SAP2000建模以及计算地震力教程</strong></p>
+<p><strong>（4）常见的高层结构体系以及抗震设计</strong></p>
+<p>本篇技术贴将为大家介绍如何用SAP2000计算地震力。在计算之前，先补充一些基础知识。</p>
+<h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><p><strong>刚性楼板假定</strong>：假定楼板在自身平面内刚度无穷大，在平面外的刚度则忽略不计。这一假设减少的结构的自由度，简化了计算方法。</p>
+<h3 id="视频教学"><a href="#视频教学" class="headerlink" title="视频教学"></a>视频教学</h3><p>视频链接：<a target="_blank" rel="noopener" href="https://v.qq.com/x/page/u316287qanu.html">https://v.qq.com/x/page/u316287qanu.html</a></p>
+<h3 id="勘误"><a href="#勘误" class="headerlink" title="勘误"></a>勘误</h3><p>（1）视频中默认的<strong>桐木密度偏大</strong>，会使得计算的力偏大，选手可以根据桐木的质量和体积自行计算密度，或者参考网站确定（<strong>280 kg&#x2F;m^3</strong>）：</p>
+<p><a target="_blank" rel="noopener" href="https://www.wood-database.com/paulownia/">https://www.wood-database.com/paulownia/</a></p>
+<p>（2）定义荷载模式的时候，<strong>砝码荷载的自重系数应该定义为0</strong>；且本教程中无需定义地震荷载。</p>
+<p>（3）<strong>定义刚性楼板假定时，需要把每层所有的节点选中。</strong></p>
+<p>（4）分析结果时，可以<strong>根据不同杆件之间受力的相对大小来决定杆件的相对刚度</strong>；也可以根据杆件的最大受力（轴力、剪力、弯矩）情况来判断杆件是否会发生破坏（<strong>受剪破坏、受弯破坏</strong>等）。</p>
+<h3 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h3><p>感谢远洋集团、世茂集团、华为赛事基金对本次大赛的大力支持</p>
+<p>感谢清华大学学生学习与发展指导中心对“技术贴”项目的大力支持</p>
+<p><img src="/../wp-content_uploads/2020/10/1-1603721750-1024x540.png"></p>
+<p>视频 陈旺</p>
+<p>文案 陈旺</p>
+<p>排版 陈旺</p>
+<p>审核 陈旺</p>
+<p><img src="/.././wp-content_uploads/2020/10/6-1603722731-1024x682.png"></p>
+
+        
+           
+    <!-- </div>
+    <footer class="article-footer">
+      <a data-url="http://thuce.top/2020/10/22/%E6%8A%80%E6%9C%AF%E8%B4%B4-sap2000%E8%AE%A1%E7%AE%97%E5%9C%B0%E9%9C%87%E5%8A%9B%E6%95%99%E7%A8%8B/" data-id="cmb9fujui0097wis6411rf9sh" data-title="技术贴  SAP2000计算地震力教程" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div> -->
+
+  <!-- <div class="article-entry"> -->
+  </div>
+  <footer class="article-footer">
+    <!-- 移除分享链接 -->
+    
+    
+    
+  </footer>
+</div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/10/25/%E7%BB%93%E8%B5%9B%E6%8A%A5%E5%90%8D%E9%80%9A%E7%9F%A5/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          结赛报名通知
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/18/b6b671e526/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">技术帖  Office小技巧介绍（一）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+     
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/categories/%E7%B2%BE%E5%BD%A9%E8%B5%9B%E4%BA%8B/">精彩赛事</a>
+            
+          </li>
+        
+          <li>
+            <a href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a>
+            
+          </li>
+        
+          <li>
+            <a href="/categories/%E5%9B%A2%E9%98%9F%E4%BB%8B%E7%BB%8D/">团队介绍</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+  
+       
+    <div class="widget-wrap">
+      <h3 class="widget-title">最新文章</h3>
+      <div class="widget">
+        <ul>
+          
+            <li>
+              <a href="/2023/05/17/3814/">Linux 使用指南</a>
+            </li>
+          
+            <li>
+              <a href="/2023/04/19/%E6%8A%80%E6%9C%AF%E5%B8%96%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90%E5%8F%8A%E6%8A%80%E5%B7%A7%E4%BB%8B%E7%BB%8D/">技术帖笔记软件推荐及技巧介绍</a>
+            </li>
+          
+            <li>
+              <a href="/2022/05/31/windows-%E6%95%88%E7%8E%87%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90/">Windows 效率软件推荐</a>
+            </li>
+          
+            <li>
+              <a href="/2022/05/14/autocad%E8%BF%9B%E9%98%B6%E6%95%99%E7%A8%8B/">AutoCAD进阶教程</a>
+            </li>
+          
+            <li>
+              <a href="/2022/03/26/c-%E6%95%99%E7%A8%8B%EF%BC%9A%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">C# 教程：环境安装与快速入门</a>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 科协技术部<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/organization" class="mobile-nav-link">人员组织</a>
+  
+    <a href="/technical" class="mobile-nav-link">技术专区</a>
+  
+    <a href="/competition" class="mobile-nav-link">精彩赛事</a>
+  
+    <a href="/news" class="mobile-nav-link">新闻热点</a>
+  
+    <a href="/about" class="mobile-nav-link">联系我们</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
