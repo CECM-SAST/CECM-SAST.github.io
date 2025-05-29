@@ -13,14 +13,14 @@
 <meta property="og:site_name" content="清华大学土木工程系暨建设管理系学生科协">
 <meta property="og:description" content="C#（读作「See Sharp」）是由微软开发的一种面向对象且类型安全的新式编程语言，运行在 .NET 上，开发人员利用 C#能够生成在 .NET 中运行的多种安全可靠的应用程序。C# 源自 C 系列语言，因此有过基本程设基础的同学可以很快上手使用，有过 C++ 基础的同学可以更快地掌握面向对象部分。当然没有完全也不要紧，本篇技术贴将带你从环境安装开始快速入门 C#。 环境安装和建立项目对于 Wi">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://thuce.top/wp-content_uploads/2022/03/1-1024x519.png">
-<meta property="og:image" content="http://thuce.top/wp-content_uploads/2022/03/2-1024x655.png">
-<meta property="og:image" content="http://thuce.top/wp-content_uploads/2022/03/3-1024x545.png">
+<meta property="og:image" content="http://thuce.top/.top//wp-content_uploads/2022/03/1-1024x519.png">
+<meta property="og:image" content="http://thuce.top/.top//wp-content_uploads/2022/03/2-1024x655.png">
+<meta property="og:image" content="http://thuce.top/.top//wp-content_uploads/2022/03/3-1024x545.png">
 <meta property="article:published_time" content="2022-03-26T14:51:32.000Z">
 <meta property="article:modified_time" content="2025-05-29T10:03:45.367Z">
 <meta property="article:author" content="科协技术部">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://thuce.top/wp-content_uploads/2022/03/1-1024x519.png">
+<meta name="twitter:image" content="http://thuce.top/.top//wp-content_uploads/2022/03/1-1024x519.png">
   
     <link rel="alternate" href="/atom.xml" title="清华大学土木工程系暨建设管理系学生科协" type="application/atom+xml">
   
@@ -39,7 +39,7 @@
   
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
 
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 7.1.1"></head>
 
 <body>
   <div id="container">
@@ -114,18 +114,18 @@
         <p>C#（读作「See Sharp」）是由微软开发的一种面向对象且类型安全的新式编程语言，运行在 .NET 上，开发人员利用 C#能够生成在 .NET 中运行的多种安全可靠的应用程序。C# 源自 C 系列语言，因此有过基本程设基础的同学可以很快上手使用，有过 C++ 基础的同学可以更快地掌握面向对象部分。当然没有完全也不要紧，本篇技术贴将带你从环境安装开始快速入门 C#。</p>
 <h2 id="环境安装和建立项目"><a href="#环境安装和建立项目" class="headerlink" title="环境安装和建立项目"></a>环境安装和建立项目</h2><p>对于 Windows 或 macOS，推荐使用 <a target="_blank" rel="noopener" href="https://visualstudio.microsoft.com/zh-hans/">Visual Studio</a>，目前对于个人用户这一强大的 IDE 是免费使用的，对于 Linux 用户，相信您一定不需要这份粗浅的教程可以考虑使用 <a target="_blank" rel="noopener" href="https://www.mono-project.com/download/stable/">Mono</a> 等。本文将以 Windows 平台为例进行演示。</p>
 <p>下载 Visual Studio 后，启动下好的安装包，将会为你安装 Visual Studio Installer 方便管理，全流程都是提供简体中文描述的，比较容易理解，整体而言一路下一步即可，注意在如图所示的「工作负载」部分要勾选「.NET 桌面开发」即可。（当然即使忘记了后续也可以通过 Visual Studio Installer 补上，所以放轻松！）</p>
-<p><img src="/.././wp-content_uploads/2022/03/1-1024x519.png"></p>
+<p><img src="/.top//wp-content_uploads/2022/03/1-1024x519.png"></p>
 <p>安装过程由于需要现场下载几个 G 的内容，可能需要耗费一点时间，记得在这个过程中保持网络通畅。可以趁机冲一杯咖啡</p>
 <p>安装好后让我们来创建第一个项目：启动 Visual Studio，选择右侧的「创建新项目」-「控制台应用」，给项目起一个好听的名称，选择一个合适的存储位置，点击创建，就可以等待 Visual Studio 为你建好一个全新的项目了。</p>
 <h2 id="Hello-World-与程序结构"><a href="#Hello-World-与程序结构" class="headerlink" title="Hello, World! 与程序结构"></a>Hello, World! 与程序结构</h2><p>如果你和笔者一样使用的是非常新版本的 Visual Studio（比如刚刚下载好的 Visual Studio 2022），在建立新项目之后大概率会见到一个总共两行还有一行是注释的 Hello World! 程序：</p>
 <figure class="highlight c#"><table><tr><td class="code"><pre><code class="hljs C#"><span class="hljs-comment">// See https://aka.ms/new-console-template for more information</span><br>Console.WriteLine(<span class="hljs-string">&quot;Hello, World!&quot;</span>);<br></code></pre></td></tr></table></figure>
 
-<p><img src="/.././wp-content_uploads/2022/03/2-1024x655.png"></p>
+<p><img src="/.top//wp-content_uploads/2022/03/2-1024x655.png"></p>
 <p>这是通过 C# 9.0 中新增的顶级语句特性实现的，暂时不在本文的讨论范围内，我们考虑一个标准的 Hello World! 程序：</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><code class="hljs C#"><span class="hljs-keyword">using</span> System;<br><br><span class="hljs-keyword">namespace</span> <span class="hljs-title">HelloWorld</span><br>&#123;<br>    <span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>    &#123;<br>        <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-built_in">string</span>[] <span class="hljs-keyword">args</span></span>)</span><br>        &#123;<br>            Console.WriteLine(<span class="hljs-string">&quot;Hello World!&quot;</span>);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight c#"><table><tr><td class="code"><pre><code class="hljs C#"><span class="hljs-keyword">using</span> System;<br><br><span class="hljs-keyword">namespace</span> <span class="hljs-title">HelloWorld</span><br>&#123;<br>    <span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>    &#123;<br>        <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-built_in">string</span>[] args</span>)</span><br>        &#123;<br>            Console.WriteLine(<span class="hljs-string">&quot;Hello World!&quot;</span>);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>用上述代码替换原先的极简版本，点击菜单栏下面的绿色箭头运行，当场可以得到输出了 Hello World! 的小黑框：</p>
-<p><img src="/.././wp-content_uploads/2022/03/3-1024x545.png"></p>
+<p><img src="/.top//wp-content_uploads/2022/03/3-1024x545.png"></p>
 <p>我们观察这个程序的各个部分可以得到典型 C# 程序的基本结构和一些需要注意的关键点：</p>
 <ul>
 <li>第一行<code>using System;</code>使用了<code>using</code>关键字在程序中包含了<code>System</code>命名空间，一般 C# 程序通常会有多个<code>using</code>语句；</li>
@@ -178,18 +178,18 @@
           <p>C#（读作「See Sharp」）是由微软开发的一种面向对象且类型安全的新式编程语言，运行在 .NET 上，开发人员利用 C#能够生成在 .NET 中运行的多种安全可靠的应用程序。C# 源自 C 系列语言，因此有过基本程设基础的同学可以很快上手使用，有过 C++ 基础的同学可以更快地掌握面向对象部分。当然没有完全也不要紧，本篇技术贴将带你从环境安装开始快速入门 C#。</p>
 <h2 id="环境安装和建立项目"><a href="#环境安装和建立项目" class="headerlink" title="环境安装和建立项目"></a>环境安装和建立项目</h2><p>对于 Windows 或 macOS，推荐使用 <a target="_blank" rel="noopener" href="https://visualstudio.microsoft.com/zh-hans/">Visual Studio</a>，目前对于个人用户这一强大的 IDE 是免费使用的，对于 Linux 用户，相信您一定不需要这份粗浅的教程可以考虑使用 <a target="_blank" rel="noopener" href="https://www.mono-project.com/download/stable/">Mono</a> 等。本文将以 Windows 平台为例进行演示。</p>
 <p>下载 Visual Studio 后，启动下好的安装包，将会为你安装 Visual Studio Installer 方便管理，全流程都是提供简体中文描述的，比较容易理解，整体而言一路下一步即可，注意在如图所示的「工作负载」部分要勾选「.NET 桌面开发」即可。（当然即使忘记了后续也可以通过 Visual Studio Installer 补上，所以放轻松！）</p>
-<p><img src="/.././wp-content_uploads/2022/03/1-1024x519.png"></p>
+<p><img src="/.top//wp-content_uploads/2022/03/1-1024x519.png"></p>
 <p>安装过程由于需要现场下载几个 G 的内容，可能需要耗费一点时间，记得在这个过程中保持网络通畅。可以趁机冲一杯咖啡</p>
 <p>安装好后让我们来创建第一个项目：启动 Visual Studio，选择右侧的「创建新项目」-「控制台应用」，给项目起一个好听的名称，选择一个合适的存储位置，点击创建，就可以等待 Visual Studio 为你建好一个全新的项目了。</p>
 <h2 id="Hello-World-与程序结构"><a href="#Hello-World-与程序结构" class="headerlink" title="Hello, World! 与程序结构"></a>Hello, World! 与程序结构</h2><p>如果你和笔者一样使用的是非常新版本的 Visual Studio（比如刚刚下载好的 Visual Studio 2022），在建立新项目之后大概率会见到一个总共两行还有一行是注释的 Hello World! 程序：</p>
 <figure class="highlight c#"><table><tr><td class="code"><pre><code class="hljs C#"><span class="hljs-comment">// See https://aka.ms/new-console-template for more information</span><br>Console.WriteLine(<span class="hljs-string">&quot;Hello, World!&quot;</span>);<br></code></pre></td></tr></table></figure>
 
-<p><img src="/.././wp-content_uploads/2022/03/2-1024x655.png"></p>
+<p><img src="/.top//wp-content_uploads/2022/03/2-1024x655.png"></p>
 <p>这是通过 C# 9.0 中新增的顶级语句特性实现的，暂时不在本文的讨论范围内，我们考虑一个标准的 Hello World! 程序：</p>
-<figure class="highlight c#"><table><tr><td class="code"><pre><code class="hljs C#"><span class="hljs-keyword">using</span> System;<br><br><span class="hljs-keyword">namespace</span> <span class="hljs-title">HelloWorld</span><br>&#123;<br>    <span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>    &#123;<br>        <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-built_in">string</span>[] <span class="hljs-keyword">args</span></span>)</span><br>        &#123;<br>            Console.WriteLine(<span class="hljs-string">&quot;Hello World!&quot;</span>);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight c#"><table><tr><td class="code"><pre><code class="hljs C#"><span class="hljs-keyword">using</span> System;<br><br><span class="hljs-keyword">namespace</span> <span class="hljs-title">HelloWorld</span><br>&#123;<br>    <span class="hljs-keyword">class</span> <span class="hljs-title">Program</span><br>    &#123;<br>        <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Main</span>(<span class="hljs-params"><span class="hljs-built_in">string</span>[] args</span>)</span><br>        &#123;<br>            Console.WriteLine(<span class="hljs-string">&quot;Hello World!&quot;</span>);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>用上述代码替换原先的极简版本，点击菜单栏下面的绿色箭头运行，当场可以得到输出了 Hello World! 的小黑框：</p>
-<p><img src="/.././wp-content_uploads/2022/03/3-1024x545.png"></p>
+<p><img src="/.top//wp-content_uploads/2022/03/3-1024x545.png"></p>
 <p>我们观察这个程序的各个部分可以得到典型 C# 程序的基本结构和一些需要注意的关键点：</p>
 <ul>
 <li>第一行<code>using System;</code>使用了<code>using</code>关键字在程序中包含了<code>System</code>命名空间，一般 C# 程序通常会有多个<code>using</code>语句；</li>
@@ -237,7 +237,7 @@
            
     <!-- </div>
     <footer class="article-footer">
-      <a data-url="http://thuce.top/2022/03/26/c-%E6%95%99%E7%A8%8B%EF%BC%9A%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" data-id="cmb9fujuc0085wis6erol91hl" data-title="C# 教程：环境安装与快速入门" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://thuce.top/2022/03/26/c-%E6%95%99%E7%A8%8B%EF%BC%9A%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E4%B8%8E%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" data-id="cmb9ip9zg004zmes6bkib3b73" data-title="C# 教程：环境安装与快速入门" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -289,12 +289,12 @@
       <ul>
         
           <li>
-            <a href="/categories/%E7%B2%BE%E5%BD%A9%E8%B5%9B%E4%BA%8B/">精彩赛事</a>
+            <a href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a>
             
           </li>
         
           <li>
-            <a href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a>
+            <a href="/categories/%E7%B2%BE%E5%BD%A9%E8%B5%9B%E4%BA%8B/">精彩赛事</a>
             
           </li>
         

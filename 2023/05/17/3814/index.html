@@ -39,7 +39,7 @@
   
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
 
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 7.1.1"></head>
 
 <body>
   <div id="container">
@@ -170,7 +170,7 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">whatis 命令语法COPYwhatis <span class="hljs-built_in">command</span><br></code></pre></td></tr></table></figure>
 
 <p>例如：</p>
-<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><code class="hljs jboss-cli">whatis 命令示例COPYwhatis <span class="hljs-keyword">echo</span><br><span class="hljs-comment"># output: </span><br><span class="hljs-comment"># echo (1)             - display a line of text</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">whatis 命令示例COPYwhatis <span class="hljs-built_in">echo</span><br><span class="hljs-comment"># output: </span><br><span class="hljs-comment"># echo (1)             - display a line of text</span><br></code></pre></td></tr></table></figure>
 
 <h4 id="help-选项"><a href="#help-选项" class="headerlink" title="--help 选项"></a><code>--help</code> 选项</h4><p>在命令后加上 <code>--help</code> 通常可以显示使用方法和参数列表，有些时候，这个选项可以简写为 <code>-h</code>，但要注意并不是所有命令都能如此简写，例如后面将要介绍的 <code>ls -h</code> 就是代表以人类可读的方式显示结果，这里 <code>-h</code> 是 <code>--human-readable</code> 的简写。因此，使用 <code>--help</code> 更具兼容性，命令语法：</p>
 <figure class="highlight jboss-cli"><table><tr><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-params">--help</span> 选项语法COPY<span class="hljs-keyword">command</span> <span class="hljs-params">--help</span><br></code></pre></td></tr></table></figure>
@@ -244,7 +244,7 @@
 <p>为了与后面的 github 更好地兼容，我们运行以下命令生成一对密钥：</p>
 <p>ssh-keygen 使用个人邮箱生成密钥对</p>
 <p>COPY</p>
-<p>ssh-keygen -t rsa -b 4096 -C “your_<a href="mailto:&#101;&#109;&#97;&#x69;&#108;&#64;&#101;&#x78;&#97;&#109;&#112;&#x6c;&#x65;&#46;&#x63;&#111;&#109;">&#101;&#109;&#97;&#x69;&#108;&#64;&#101;&#x78;&#97;&#109;&#112;&#x6c;&#x65;&#46;&#x63;&#111;&#109;</a>“  </p>
+<p>ssh-keygen -t rsa -b 4096 -C “your_<a href="mailto:&#x65;&#109;&#x61;&#105;&#x6c;&#x40;&#101;&#x78;&#x61;&#109;&#112;&#108;&#101;&#x2e;&#x63;&#x6f;&#x6d;">&#x65;&#109;&#x61;&#105;&#x6c;&#x40;&#101;&#x78;&#x61;&#109;&#112;&#108;&#101;&#x2e;&#x63;&#x6f;&#x6d;</a>“  </p>
 <p>注意将 <code>your_email@example.com</code> 改为你的邮箱，如果你有 github 的账号，请改为你的 github 账号的注册邮箱。按回车后，会提示密钥的存储位置，这里保持默认即可。确认后，提示输入密钥的密码，通常情况下，这里可以留空，所以直接回车即可。按回车后，需要重复一遍密码，由于上次留空，这里再按一次回车即可。这样就生成好了公钥、私钥对。通常默认命名下，公钥是 <code>id_rsa.pub</code> 后缀是 public 的前三个字母，私钥是 <code>id_rsa</code> 无后缀。</p>
 <p>私钥可以认为就是你的电脑的指纹，请务必妥善保存，否则别人就可以任意登录你的服务器，这是非常危险的！请注意，任何网站或服务器都不会索要你的私钥，因此请记住，私钥不上网！</p>
 <p>第二步，就是在服务器上安装公钥。这一步只需运行命令：</p>
@@ -313,12 +313,12 @@
 <h4 id="复制、移动、创建、删除文件或目录"><a href="#复制、移动、创建、删除文件或目录" class="headerlink" title="复制、移动、创建、删除文件或目录"></a>复制、移动、创建、删除文件或目录</h4><ul>
 <li><code>cp</code> cp 可以复制文件或目录，是 copy 的缩写。</li>
 </ul>
-<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css">cp 命令示例COPYcp <span class="hljs-selector-attr">[OPTION]</span>... <span class="hljs-selector-attr">[-T]</span> <span class="hljs-selector-tag">SOURCE</span> DEST<br>cp <span class="hljs-selector-attr">[OPTION]</span>... <span class="hljs-selector-tag">SOURCE</span>... DIRECTORY<br>cp <span class="hljs-selector-attr">[OPTION]</span>... -t DIRECTORY <span class="hljs-selector-tag">SOURCE</span>...<br># e<span class="hljs-selector-class">.g</span>.<br>cp <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.txt</span> <span class="hljs-selector-tag">b</span><span class="hljs-selector-class">.txt</span>  # 复制 <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.txt</span> 并另存为 <span class="hljs-selector-tag">b</span><span class="hljs-selector-class">.txt</span><br>cp <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.txt</span> ../    # 复制 <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.txt</span> 到父目录<br>cp -<span class="hljs-attribute">r</span> ./<span class="hljs-selector-tag">a</span> ../   # -<span class="hljs-attribute">r</span> (<span class="hljs-attr">--recursive</span>) 可以递归复制文件夹，这个命令是将文件夹 <span class="hljs-selector-tag">a</span> 及其所有<br>                # 内容复制到父目录<br></code></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css">cp 命令示例COPYcp <span class="hljs-selector-attr">[OPTION]</span>... <span class="hljs-selector-attr">[-T]</span> SOURCE DEST<br>cp <span class="hljs-selector-attr">[OPTION]</span>... SOURCE... DIRECTORY<br>cp <span class="hljs-selector-attr">[OPTION]</span>... -t DIRECTORY SOURCE...<br># e<span class="hljs-selector-class">.g</span>.<br>cp <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.txt</span> <span class="hljs-selector-tag">b</span><span class="hljs-selector-class">.txt</span>  # 复制 <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.txt</span> 并另存为 <span class="hljs-selector-tag">b</span><span class="hljs-selector-class">.txt</span><br>cp <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.txt</span> ../    # 复制 <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.txt</span> 到父目录<br>cp -r ./<span class="hljs-selector-tag">a</span> ../   # -r (<span class="hljs-attr">--recursive</span>) 可以递归复制文件夹，这个命令是将文件夹 <span class="hljs-selector-tag">a</span> 及其所有<br>                # 内容复制到父目录<br></code></pre></td></tr></table></figure>
 
 <ul>
 <li><code>mv</code> mv 可以移动或重命名文件，是 move 的缩写。</li>
 </ul>
-<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css">mv 命令示例COPYmv <span class="hljs-selector-attr">[OPTION]</span>... <span class="hljs-selector-attr">[-T]</span> <span class="hljs-selector-tag">SOURCE</span> DEST<br>mv <span class="hljs-selector-attr">[OPTION]</span>... <span class="hljs-selector-tag">SOURCE</span>... DIRECTORY<br>mv <span class="hljs-selector-attr">[OPTION]</span>... -t DIRECTORY <span class="hljs-selector-tag">SOURCE</span>...<br># e<span class="hljs-selector-class">.g</span>.<br>mv <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.txt</span> <span class="hljs-selector-tag">b</span><span class="hljs-selector-class">.txt</span> # 将 <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.txt</span> 重命名为 <span class="hljs-selector-tag">b</span><span class="hljs-selector-class">.txt</span><br>mv <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.txt</span> ../   # 移动 <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.txt</span> 到父目录<br>mv ./<span class="hljs-selector-tag">a</span> ../     # 移动文件夹 <span class="hljs-selector-tag">a</span> 到父目录，注意 mv 可以直接移动文件夹所有内容，不需要<br>               # 加上递归选项<br></code></pre></td></tr></table></figure>
+<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><code class="hljs jboss-cli">mv 命令示例COPYmv [OPTION]<span class="hljs-string">...</span> [-T] SOURCE DEST<br>mv [OPTION]<span class="hljs-string">...</span> SOURCE.<span class="hljs-string">..</span> DIRECTORY<br>mv [OPTION]<span class="hljs-string">...</span> -t DIRECTORY SOURCE.<span class="hljs-string">..</span><br><span class="hljs-comment"># e.g.</span><br>mv a.txt b.txt <span class="hljs-comment"># 将 a.txt 重命名为 b.txt</span><br>mv a.txt <span class="hljs-string">../</span>   <span class="hljs-comment"># 移动 a.txt 到父目录</span><br>mv <span class="hljs-string">./a</span> <span class="hljs-string">../</span>     <span class="hljs-comment"># 移动文件夹 a 到父目录，注意 mv 可以直接移动文件夹所有内容，不需要</span><br>               <span class="hljs-comment"># 加上递归选项</span><br></code></pre></td></tr></table></figure>
 
 <ul>
 <li><code>touch</code> touch 可以创建一个空白文件，如果当前目录有同样的文件，则会更新文件的修改时间</li>
@@ -328,7 +328,7 @@
 <ul>
 <li><code>rm</code> rm 可以删除文件或文件夹，是 remove 的缩写。</li>
 </ul>
-<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css">rm 命令示例COPYrm <span class="hljs-selector-attr">[OPTION]</span>... <span class="hljs-selector-attr">[FILE]</span>...<br># e<span class="hljs-selector-class">.g</span>.<br>rm ./<span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.txt</span>    # 删除文件 <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.txt</span><br>rm -<span class="hljs-attribute">r</span> ./<span class="hljs-selector-tag">a</span>     # -<span class="hljs-attribute">r</span> (<span class="hljs-attr">--recursive</span>) 递归删除文件夹 <span class="hljs-selector-tag">a</span><br>rm -f <span class="hljs-selector-attr">[FILE]</span>  # -f (<span class="hljs-attr">--force</span>) 强制删除<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">rm</span> 命令示例COPYrm [OPTION]... [FILE]...<br><span class="hljs-comment"># e.g.</span><br><span class="hljs-built_in">rm</span> ./a.txt    <span class="hljs-comment"># 删除文件 a.txt</span><br><span class="hljs-built_in">rm</span> -r ./a     <span class="hljs-comment"># -r (--recursive) 递归删除文件夹 a</span><br><span class="hljs-built_in">rm</span> -f [FILE]  <span class="hljs-comment"># -f (--force) 强制删除</span><br></code></pre></td></tr></table></figure>
 
 <p><code>rm</code> 命令是一个非常危险的命令，不像 Windows 系统，Linux 系统没有回收站，因此删除后就无法找回。因此，一般的 shell 会将 <code>rm</code> 作为 <code>rm -i</code> 的别名，具体的别名方式会在第三章介绍，这里只需要知道在 bash 中，<code>rm</code> 其实是 <code>rm -i</code>，而 <code>-i</code> 选项会在每次移除时提示你，并要求你做确认。</p>
 <p>！！！如果不是特殊需求，慎用 <code>-f</code> 选项强制删除！！！</p>
@@ -429,7 +429,7 @@
 <p>其中，<code>&gt;</code> 直接把内容生成到指定文件，会 覆盖 源文件中的内容，如果文件不存在会直接生成该文件；<code>&gt;&gt;</code> 则在文件尾部 追加，不会覆盖掉文件中原有的内容，如果文件不存在会直接生成该文件。</p>
 <p>重定向深入讲解（点击可以展开）</p>
 <h4 id="在一行执行多条命令"><a href="#在一行执行多条命令" class="headerlink" title="在一行执行多条命令"></a>在一行执行多条命令</h4><p>很多情况下，我们需要在同一行输入多条命令，或是根据上一条命令的结果执行一些命令，这时可以使用 <code>&amp;&amp;</code>, 完成命令的连接，用法如下：</p>
-<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><code class="hljs jboss-cli">&amp;&amp;,  使用示例COPY<span class="hljs-keyword">command</span>1 &amp;&amp; <span class="hljs-keyword">command</span>2<br><span class="hljs-keyword">command</span>1  <span class="hljs-keyword">command</span>2<br></code></pre></td></tr></table></figure>
+<figure class="highlight gcode"><table><tr><td class="code"><pre><code class="hljs gcode">&amp;&amp;,  使用示例COPYcomma<span class="hljs-symbol">nd1</span> &amp;&amp; comma<span class="hljs-symbol">nd2</span><br>comma<span class="hljs-symbol">nd1</span>  comma<span class="hljs-symbol">nd2</span><br></code></pre></td></tr></table></figure>
 
 <p>其中，<code>&amp;&amp;</code> 是如果前一条命令执行成功则执行下一条命令，即如果 <code>command1</code> 执行成功，则执行 <code>command2</code>； 与 <code>&amp;&amp;</code> 命令相反，执行不成功时执行后续命令，即如果 <code>command1</code> 执行失败，则执行 <code>command2</code>。</p>
 <p>例如我们可以使用</p>
@@ -437,7 +437,7 @@
 
 <p>这样就可以先创建文件夹 a，如果文件夹创建成功，则进入文件夹 a。</p>
 <p>还有一种不同寻常的命令连接方式，就是通过管道运算符 ，使用如下：</p>
-<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><code class="hljs jboss-cli">管道运算示例COPY<span class="hljs-keyword">command</span>1  <span class="hljs-keyword">command</span>2<br></code></pre></td></tr></table></figure>
+<figure class="highlight gcode"><table><tr><td class="code"><pre><code class="hljs gcode">管道运算示例COPYcomma<span class="hljs-symbol">nd1</span>  comma<span class="hljs-symbol">nd2</span><br></code></pre></td></tr></table></figure>
 
 <p>管道运算可以将前面进程的输出（stdout）直接作为下一个进程的输入（stdin），这在一些命令使用时非常便利。</p>
 <figure class="highlight dos"><table><tr><td class="code"><pre><code class="hljs dos">管道使用示例COPYps <span class="hljs-built_in">aux</span>  grep bash<br></code></pre></td></tr></table></figure>
@@ -510,7 +510,7 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">whatis 命令语法COPYwhatis <span class="hljs-built_in">command</span><br></code></pre></td></tr></table></figure>
 
 <p>例如：</p>
-<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><code class="hljs jboss-cli">whatis 命令示例COPYwhatis <span class="hljs-keyword">echo</span><br><span class="hljs-comment"># output: </span><br><span class="hljs-comment"># echo (1)             - display a line of text</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">whatis 命令示例COPYwhatis <span class="hljs-built_in">echo</span><br><span class="hljs-comment"># output: </span><br><span class="hljs-comment"># echo (1)             - display a line of text</span><br></code></pre></td></tr></table></figure>
 
 <h4 id="help-选项"><a href="#help-选项" class="headerlink" title="--help 选项"></a><code>--help</code> 选项</h4><p>在命令后加上 <code>--help</code> 通常可以显示使用方法和参数列表，有些时候，这个选项可以简写为 <code>-h</code>，但要注意并不是所有命令都能如此简写，例如后面将要介绍的 <code>ls -h</code> 就是代表以人类可读的方式显示结果，这里 <code>-h</code> 是 <code>--human-readable</code> 的简写。因此，使用 <code>--help</code> 更具兼容性，命令语法：</p>
 <figure class="highlight jboss-cli"><table><tr><td class="code"><pre><code class="hljs jboss-cli"><span class="hljs-params">--help</span> 选项语法COPY<span class="hljs-keyword">command</span> <span class="hljs-params">--help</span><br></code></pre></td></tr></table></figure>
@@ -584,7 +584,7 @@
 <p>为了与后面的 github 更好地兼容，我们运行以下命令生成一对密钥：</p>
 <p>ssh-keygen 使用个人邮箱生成密钥对</p>
 <p>COPY</p>
-<p>ssh-keygen -t rsa -b 4096 -C “your_<a href="mailto:&#101;&#109;&#97;&#x69;&#108;&#64;&#101;&#x78;&#97;&#109;&#112;&#x6c;&#x65;&#46;&#x63;&#111;&#109;">&#101;&#109;&#97;&#x69;&#108;&#64;&#101;&#x78;&#97;&#109;&#112;&#x6c;&#x65;&#46;&#x63;&#111;&#109;</a>“  </p>
+<p>ssh-keygen -t rsa -b 4096 -C “your_<a href="mailto:&#x65;&#109;&#x61;&#105;&#x6c;&#x40;&#101;&#x78;&#x61;&#109;&#112;&#108;&#101;&#x2e;&#x63;&#x6f;&#x6d;">&#x65;&#109;&#x61;&#105;&#x6c;&#x40;&#101;&#x78;&#x61;&#109;&#112;&#108;&#101;&#x2e;&#x63;&#x6f;&#x6d;</a>“  </p>
 <p>注意将 <code>your_email@example.com</code> 改为你的邮箱，如果你有 github 的账号，请改为你的 github 账号的注册邮箱。按回车后，会提示密钥的存储位置，这里保持默认即可。确认后，提示输入密钥的密码，通常情况下，这里可以留空，所以直接回车即可。按回车后，需要重复一遍密码，由于上次留空，这里再按一次回车即可。这样就生成好了公钥、私钥对。通常默认命名下，公钥是 <code>id_rsa.pub</code> 后缀是 public 的前三个字母，私钥是 <code>id_rsa</code> 无后缀。</p>
 <p>私钥可以认为就是你的电脑的指纹，请务必妥善保存，否则别人就可以任意登录你的服务器，这是非常危险的！请注意，任何网站或服务器都不会索要你的私钥，因此请记住，私钥不上网！</p>
 <p>第二步，就是在服务器上安装公钥。这一步只需运行命令：</p>
@@ -653,12 +653,12 @@
 <h4 id="复制、移动、创建、删除文件或目录"><a href="#复制、移动、创建、删除文件或目录" class="headerlink" title="复制、移动、创建、删除文件或目录"></a>复制、移动、创建、删除文件或目录</h4><ul>
 <li><code>cp</code> cp 可以复制文件或目录，是 copy 的缩写。</li>
 </ul>
-<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css">cp 命令示例COPYcp <span class="hljs-selector-attr">[OPTION]</span>... <span class="hljs-selector-attr">[-T]</span> <span class="hljs-selector-tag">SOURCE</span> DEST<br>cp <span class="hljs-selector-attr">[OPTION]</span>... <span class="hljs-selector-tag">SOURCE</span>... DIRECTORY<br>cp <span class="hljs-selector-attr">[OPTION]</span>... -t DIRECTORY <span class="hljs-selector-tag">SOURCE</span>...<br># e<span class="hljs-selector-class">.g</span>.<br>cp <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.txt</span> <span class="hljs-selector-tag">b</span><span class="hljs-selector-class">.txt</span>  # 复制 <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.txt</span> 并另存为 <span class="hljs-selector-tag">b</span><span class="hljs-selector-class">.txt</span><br>cp <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.txt</span> ../    # 复制 <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.txt</span> 到父目录<br>cp -<span class="hljs-attribute">r</span> ./<span class="hljs-selector-tag">a</span> ../   # -<span class="hljs-attribute">r</span> (<span class="hljs-attr">--recursive</span>) 可以递归复制文件夹，这个命令是将文件夹 <span class="hljs-selector-tag">a</span> 及其所有<br>                # 内容复制到父目录<br></code></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css">cp 命令示例COPYcp <span class="hljs-selector-attr">[OPTION]</span>... <span class="hljs-selector-attr">[-T]</span> SOURCE DEST<br>cp <span class="hljs-selector-attr">[OPTION]</span>... SOURCE... DIRECTORY<br>cp <span class="hljs-selector-attr">[OPTION]</span>... -t DIRECTORY SOURCE...<br># e<span class="hljs-selector-class">.g</span>.<br>cp <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.txt</span> <span class="hljs-selector-tag">b</span><span class="hljs-selector-class">.txt</span>  # 复制 <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.txt</span> 并另存为 <span class="hljs-selector-tag">b</span><span class="hljs-selector-class">.txt</span><br>cp <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.txt</span> ../    # 复制 <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.txt</span> 到父目录<br>cp -r ./<span class="hljs-selector-tag">a</span> ../   # -r (<span class="hljs-attr">--recursive</span>) 可以递归复制文件夹，这个命令是将文件夹 <span class="hljs-selector-tag">a</span> 及其所有<br>                # 内容复制到父目录<br></code></pre></td></tr></table></figure>
 
 <ul>
 <li><code>mv</code> mv 可以移动或重命名文件，是 move 的缩写。</li>
 </ul>
-<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css">mv 命令示例COPYmv <span class="hljs-selector-attr">[OPTION]</span>... <span class="hljs-selector-attr">[-T]</span> <span class="hljs-selector-tag">SOURCE</span> DEST<br>mv <span class="hljs-selector-attr">[OPTION]</span>... <span class="hljs-selector-tag">SOURCE</span>... DIRECTORY<br>mv <span class="hljs-selector-attr">[OPTION]</span>... -t DIRECTORY <span class="hljs-selector-tag">SOURCE</span>...<br># e<span class="hljs-selector-class">.g</span>.<br>mv <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.txt</span> <span class="hljs-selector-tag">b</span><span class="hljs-selector-class">.txt</span> # 将 <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.txt</span> 重命名为 <span class="hljs-selector-tag">b</span><span class="hljs-selector-class">.txt</span><br>mv <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.txt</span> ../   # 移动 <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.txt</span> 到父目录<br>mv ./<span class="hljs-selector-tag">a</span> ../     # 移动文件夹 <span class="hljs-selector-tag">a</span> 到父目录，注意 mv 可以直接移动文件夹所有内容，不需要<br>               # 加上递归选项<br></code></pre></td></tr></table></figure>
+<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><code class="hljs jboss-cli">mv 命令示例COPYmv [OPTION]<span class="hljs-string">...</span> [-T] SOURCE DEST<br>mv [OPTION]<span class="hljs-string">...</span> SOURCE.<span class="hljs-string">..</span> DIRECTORY<br>mv [OPTION]<span class="hljs-string">...</span> -t DIRECTORY SOURCE.<span class="hljs-string">..</span><br><span class="hljs-comment"># e.g.</span><br>mv a.txt b.txt <span class="hljs-comment"># 将 a.txt 重命名为 b.txt</span><br>mv a.txt <span class="hljs-string">../</span>   <span class="hljs-comment"># 移动 a.txt 到父目录</span><br>mv <span class="hljs-string">./a</span> <span class="hljs-string">../</span>     <span class="hljs-comment"># 移动文件夹 a 到父目录，注意 mv 可以直接移动文件夹所有内容，不需要</span><br>               <span class="hljs-comment"># 加上递归选项</span><br></code></pre></td></tr></table></figure>
 
 <ul>
 <li><code>touch</code> touch 可以创建一个空白文件，如果当前目录有同样的文件，则会更新文件的修改时间</li>
@@ -668,7 +668,7 @@
 <ul>
 <li><code>rm</code> rm 可以删除文件或文件夹，是 remove 的缩写。</li>
 </ul>
-<figure class="highlight css"><table><tr><td class="code"><pre><code class="hljs css">rm 命令示例COPYrm <span class="hljs-selector-attr">[OPTION]</span>... <span class="hljs-selector-attr">[FILE]</span>...<br># e<span class="hljs-selector-class">.g</span>.<br>rm ./<span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.txt</span>    # 删除文件 <span class="hljs-selector-tag">a</span><span class="hljs-selector-class">.txt</span><br>rm -<span class="hljs-attribute">r</span> ./<span class="hljs-selector-tag">a</span>     # -<span class="hljs-attribute">r</span> (<span class="hljs-attr">--recursive</span>) 递归删除文件夹 <span class="hljs-selector-tag">a</span><br>rm -f <span class="hljs-selector-attr">[FILE]</span>  # -f (<span class="hljs-attr">--force</span>) 强制删除<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">rm</span> 命令示例COPYrm [OPTION]... [FILE]...<br><span class="hljs-comment"># e.g.</span><br><span class="hljs-built_in">rm</span> ./a.txt    <span class="hljs-comment"># 删除文件 a.txt</span><br><span class="hljs-built_in">rm</span> -r ./a     <span class="hljs-comment"># -r (--recursive) 递归删除文件夹 a</span><br><span class="hljs-built_in">rm</span> -f [FILE]  <span class="hljs-comment"># -f (--force) 强制删除</span><br></code></pre></td></tr></table></figure>
 
 <p><code>rm</code> 命令是一个非常危险的命令，不像 Windows 系统，Linux 系统没有回收站，因此删除后就无法找回。因此，一般的 shell 会将 <code>rm</code> 作为 <code>rm -i</code> 的别名，具体的别名方式会在第三章介绍，这里只需要知道在 bash 中，<code>rm</code> 其实是 <code>rm -i</code>，而 <code>-i</code> 选项会在每次移除时提示你，并要求你做确认。</p>
 <p>！！！如果不是特殊需求，慎用 <code>-f</code> 选项强制删除！！！</p>
@@ -769,7 +769,7 @@
 <p>其中，<code>&gt;</code> 直接把内容生成到指定文件，会 覆盖 源文件中的内容，如果文件不存在会直接生成该文件；<code>&gt;&gt;</code> 则在文件尾部 追加，不会覆盖掉文件中原有的内容，如果文件不存在会直接生成该文件。</p>
 <p>重定向深入讲解（点击可以展开）</p>
 <h4 id="在一行执行多条命令"><a href="#在一行执行多条命令" class="headerlink" title="在一行执行多条命令"></a>在一行执行多条命令</h4><p>很多情况下，我们需要在同一行输入多条命令，或是根据上一条命令的结果执行一些命令，这时可以使用 <code>&amp;&amp;</code>, 完成命令的连接，用法如下：</p>
-<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><code class="hljs jboss-cli">&amp;&amp;,  使用示例COPY<span class="hljs-keyword">command</span>1 &amp;&amp; <span class="hljs-keyword">command</span>2<br><span class="hljs-keyword">command</span>1  <span class="hljs-keyword">command</span>2<br></code></pre></td></tr></table></figure>
+<figure class="highlight gcode"><table><tr><td class="code"><pre><code class="hljs gcode">&amp;&amp;,  使用示例COPYcomma<span class="hljs-symbol">nd1</span> &amp;&amp; comma<span class="hljs-symbol">nd2</span><br>comma<span class="hljs-symbol">nd1</span>  comma<span class="hljs-symbol">nd2</span><br></code></pre></td></tr></table></figure>
 
 <p>其中，<code>&amp;&amp;</code> 是如果前一条命令执行成功则执行下一条命令，即如果 <code>command1</code> 执行成功，则执行 <code>command2</code>； 与 <code>&amp;&amp;</code> 命令相反，执行不成功时执行后续命令，即如果 <code>command1</code> 执行失败，则执行 <code>command2</code>。</p>
 <p>例如我们可以使用</p>
@@ -777,7 +777,7 @@
 
 <p>这样就可以先创建文件夹 a，如果文件夹创建成功，则进入文件夹 a。</p>
 <p>还有一种不同寻常的命令连接方式，就是通过管道运算符 ，使用如下：</p>
-<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><code class="hljs jboss-cli">管道运算示例COPY<span class="hljs-keyword">command</span>1  <span class="hljs-keyword">command</span>2<br></code></pre></td></tr></table></figure>
+<figure class="highlight gcode"><table><tr><td class="code"><pre><code class="hljs gcode">管道运算示例COPYcomma<span class="hljs-symbol">nd1</span>  comma<span class="hljs-symbol">nd2</span><br></code></pre></td></tr></table></figure>
 
 <p>管道运算可以将前面进程的输出（stdout）直接作为下一个进程的输入（stdin），这在一些命令使用时非常便利。</p>
 <figure class="highlight dos"><table><tr><td class="code"><pre><code class="hljs dos">管道使用示例COPYps <span class="hljs-built_in">aux</span>  grep bash<br></code></pre></td></tr></table></figure>
@@ -789,7 +789,7 @@
            
     <!-- </div>
     <footer class="article-footer">
-      <a data-url="http://thuce.top/2023/05/17/3814/" data-id="cmb9fujtm006iwis6ai7c4pq1" data-title="Linux 使用指南" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://thuce.top/2023/05/17/3814/" data-id="cmb9ip9z00031mes6dnsd5hxc" data-title="Linux 使用指南" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -841,12 +841,12 @@
       <ul>
         
           <li>
-            <a href="/categories/%E7%B2%BE%E5%BD%A9%E8%B5%9B%E4%BA%8B/">精彩赛事</a>
+            <a href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a>
             
           </li>
         
           <li>
-            <a href="/categories/%E6%8A%80%E6%9C%AF%E8%B4%B4/">技术贴</a>
+            <a href="/categories/%E7%B2%BE%E5%BD%A9%E8%B5%9B%E4%BA%8B/">精彩赛事</a>
             
           </li>
         
