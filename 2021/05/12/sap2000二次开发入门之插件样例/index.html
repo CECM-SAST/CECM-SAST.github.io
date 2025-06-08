@@ -14,7 +14,7 @@
 <meta property="og:description" content="在上一篇《SAP2000二次开发初探之C#环境搭建》中，作者介绍了如何使用Mirosoft Visual Studio配置C#编程的环境，添加SAP2000库的引用和开发完成后的SAP插件添加。这篇文章会简单介绍完成上述准备工作之后如何使用C#进行插件开发，并给出了一个具体样例~ 一、添加插件窗口在像上一篇文章一样操作之后，我们就可以开始写插件了。现在我们已将Class.cs修改为cPlugin，">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicPry7ckx9UiboZCcflfu8VDCVdkCcHo22J2TEL0ZqQABamlYgB9cjPNA/640?wx_fmt=png&wxfrom=13&tp=wxpic">
-<meta property="og:image" content="http://thuce.top/.top//wp-content_uploads/2021/05/2551-2.png">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2021/05/2551-2.png">
 <meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicniaibez34OXdcwqZIrk0DJpBiaRoYVRlUrpJLqyxUHo66OBQffNrsdcvg/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1">
 <meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicn7DaP0e24sjJQ0YtUHsKf3kS7XkAFFGA9icfjuD4MHOkxxZNLZTjWiaA/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1">
 <meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicFd4cgYzjxqXnicQKtAcUFZRUcF86EJVdZZUNbtsfkJnjXOlFPgcxJibw/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1">
@@ -22,10 +22,10 @@
 <meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicE6iaGk91J8I1EYkP5rowYIwJ1icvY3wib1huTW1DzGiauF4KjOAVgn8ibkQ/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1">
 <meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicrH3Xnw00TUWia7QAhaLFqpgB5icvZPxR58UnibMh7ESM6AJ65ABB8W4iaA/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1">
 <meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicgia3hjwkW3XZZO65mfGRicTic9BALa3ftQDkmxxknpa3gMtZvgC1MdZgA/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1">
-<meta property="og:image" content="http://thuce.top/.top//wp-content_uploads/2021/05/2551-10.png">
-<meta property="og:image" content="http://thuce.top/.top//wp-content_uploads/2021/05/2551-11-1024x557.png">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2021/05/2551-10.png">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2021/05/2551-11-1024x557.png">
 <meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicFLLWBLCbxMKpkRdt04o3ceDSicu4xiaiby0hVficWzOa4ibBL7rF6LUowxA/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1">
-<meta property="og:image" content="http://thuce.top/.top//wp-content_uploads/2021/05/2551-13.png">
+<meta property="og:image" content="http://thuce.top/wp-content_uploads/2021/05/2551-13.png">
 <meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicQTSELQ9a2X3KcqLSPfNN2TYAVgu81E5udnibjzyXHFVYtxawXT97sQw/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1">
 <meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicZNBYschaguauc2wcOwSGAibiblBzoVBbKNIT6KyyWyaHxwbGiclmlCvQw/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1">
 <meta property="article:published_time" content="2021-05-12T12:13:20.000Z">
@@ -128,7 +128,7 @@
 <p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicPry7ckx9UiboZCcflfu8VDCVdkCcHo22J2TEL0ZqQABamlYgB9cjPNA/640?wx_fmt=png&wxfrom=13&tp=wxpic" alt="图 1 Main方法示例"></p>
 <p>我们使用SAP2000插件的用户操作流程基本上是依次点击：工具——插件——出现插件窗口——对窗口进行编辑——点击确认——插件执行命令；这对应于我们开发时的流程是：调用cPlugin.Main——呈现一个窗口（Form）——对窗口（Form）进行编辑——点击按键（button）时触发函数，实现插件功能。</p>
 <p><strong>要注意的是，虽然主程序直接调用cPlugin.Main，但是我们的实现思路是先从Main中呈现窗口，再在窗口中实现插件实际功能。</strong>因此Main函数只需要负责生成窗口就好了，具体的插件代码只需在Form中编写。接下来我们先向项目中添加一个窗口项。</p>
-<p><img src="/.top//wp-content_uploads/2021/05/2551-2.png" alt="图 2 添加窗口（步骤1）"></p>
+<p><img src="/../wp-content_uploads/2021/05/2551-2.png" alt="图 2 添加窗口（步骤1）"></p>
 <p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicniaibez34OXdcwqZIrk0DJpBiaRoYVRlUrpJLqyxUHo66OBQffNrsdcvg/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="图 3 添加窗口（步骤2）"></p>
 <p>而窗体本质上也是一个类，而要产生窗口的一个实例，我们需要在cPlugin.Main中添加如下代码。其中的Info方法用于在SAP主程序中呈现插件信息，在这里稍作呈现。  </p>
 <p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicn7DaP0e24sjJQ0YtUHsKf3kS7XkAFFGA9icfjuD4MHOkxxZNLZTjWiaA/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="图 4 cPlugin类的完整代码：实现弹出插件窗口"></p>
@@ -145,18 +145,18 @@
 <p>二、SAP2000库函数简介     </p>
 <p>在button_click函数中编写命令时，我们需要大量使用SAP2000附带的函数，以便插件能对SAP2000进行正确操作。这些函数在调用时能够在SAP2000中完成各种功能，包括实例的创建，对象的选取和相关信息的修改与获取。而为了能够正确调用这些函数，我们需要查阅SAP2000附带的OAPI文档，从中找到函数的功能。                                            </p>
 <p>打开OAPI文档（文档在SAP2000安装根目录下，文件名CSI_OAPI_Documentation.chm），点击左边索引菜单中的CSi OAPI Functions栏可以看到各类可供使用的函数，比如Object Model栏中可以查到跟对象操作有关的函数，Select栏中可以查到跟对象的选取有关的函数。在实际使用时就根据需要在左侧索引栏中一层一层找到自己想要的函数。</p>
-<p><img src="/.top//wp-content_uploads/2021/05/2551-10.png"></p>
+<p><img src="/../wp-content_uploads/2021/05/2551-10.png"></p>
 <p>图 10 函数一览在文档中的位置</p>
 <p>点击某个具体的函数后，在右侧会显示出这个函数有关的信息。Procedure栏中显示函数调用时会输入&#x2F;获得的变量，Parameters是针对这些变量的解释，Remarks是有关这个函数的说明。以图中选择的SapObject.SapModel.PointObj.GetCoordCartesian为例，这个函数会根据你输入的点的名称（ByVal Name As String）,告诉你这个点的三个坐标（x,y,z），图中第五个变量是指要得到这个点在哪个坐标系下的坐标，一般默认在是全局坐标系下的坐标。值得注意的是，OAPI文档里的使用信息都以VBA为例所写，在语法上与C#略有差异。</p>
 <p>在使用SAP2000库中函数时其函数基本通过传参的方式返回信息。具体来说就是在调用函数时在函数传入参数前加上一个ref。以上述函数为例，在实际使用时其语句为<code>ret=SapModel.PointObj.GetCoordCartesian ( Name ,ref x ,ref y ,ref z , “Globbal” )；</code> 句中的这个“ret&#x3D;”用于返回一个int类型的值以判断函数是否调用成功，成功为0，否则非0。调用函数时的四个变量，第一个Name是传递值，后面三个为传递引用，一般只有需要返回的变量前才需要添加ref。</p>
-<p><img src="/.top//wp-content_uploads/2021/05/2551-11-1024x557.png"></p>
+<p><img src="/../wp-content_uploads/2021/05/2551-11-1024x557.png"></p>
 <p>图 11 OAPI文档中对于函数的说明</p>
 <p>三、举个栗子<br>为了方便理解相关功能的使用，这里举一个简单的例子来进行说明</p>
 <p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicFLLWBLCbxMKpkRdt04o3ceDSicu4xiaiby0hVficWzOa4ibBL7rF6LUowxA/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="图 12 Form类核心代码（2）： botton_click"></p>
 <p>该段代码实现用户在点击按钮之后对所选点的坐标进行任意比例的缩放。其中第36行调用OAPI函数获得选择的对象。可以看到虽然之前我们在定义NumberItems,ObjectType_int和ObjectName_string时随意地声明了数组的大小，但是在调用OAPI方法后，API会自动根据结果修改数组并返回结果。在第44行调用函数获得的点坐标直接储存在变量x，y，z中，所以在46行就能直接利用函数获得的坐标值x,y,z和放大系数Ratio_X,Y,Z来进行缩放，而无需额外操作。</p>
 <p>需要注意的是，该例子的图示仅包含了Form类中button_click的函数，完整的插件开发仍需包含上一篇<a href="https://thuce.top/2488.html">《SAP2000二次开发初探之C#环境搭建》</a>的铺垫以及本篇前面对cPlugin类、Form1类的操作步骤。  </p>
 <p>最后以下图的框架结构为例，用户选择红圈内的点并启动插件，试图对该点坐标进行缩放操作，最后的效果如图所示：</p>
-<p><img src="/.top//wp-content_uploads/2021/05/2551-13.png"></p>
+<p><img src="/../wp-content_uploads/2021/05/2551-13.png"></p>
 <p>图 13 插件中输入比例系数</p>
 <p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicQTSELQ9a2X3KcqLSPfNN2TYAVgu81E5udnibjzyXHFVYtxawXT97sQw/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1"></p>
 <p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicZNBYschaguauc2wcOwSGAibiblBzoVBbKNIT6KyyWyaHxwbGiclmlCvQw/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="图 14 作用前后对比（上图/下图）"></p>
@@ -173,7 +173,7 @@
 <p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicPry7ckx9UiboZCcflfu8VDCVdkCcHo22J2TEL0ZqQABamlYgB9cjPNA/640?wx_fmt=png&wxfrom=13&tp=wxpic" alt="图 1 Main方法示例"></p>
 <p>我们使用SAP2000插件的用户操作流程基本上是依次点击：工具——插件——出现插件窗口——对窗口进行编辑——点击确认——插件执行命令；这对应于我们开发时的流程是：调用cPlugin.Main——呈现一个窗口（Form）——对窗口（Form）进行编辑——点击按键（button）时触发函数，实现插件功能。</p>
 <p><strong>要注意的是，虽然主程序直接调用cPlugin.Main，但是我们的实现思路是先从Main中呈现窗口，再在窗口中实现插件实际功能。</strong>因此Main函数只需要负责生成窗口就好了，具体的插件代码只需在Form中编写。接下来我们先向项目中添加一个窗口项。</p>
-<p><img src="/.top//wp-content_uploads/2021/05/2551-2.png" alt="图 2 添加窗口（步骤1）"></p>
+<p><img src="/../wp-content_uploads/2021/05/2551-2.png" alt="图 2 添加窗口（步骤1）"></p>
 <p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicniaibez34OXdcwqZIrk0DJpBiaRoYVRlUrpJLqyxUHo66OBQffNrsdcvg/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="图 3 添加窗口（步骤2）"></p>
 <p>而窗体本质上也是一个类，而要产生窗口的一个实例，我们需要在cPlugin.Main中添加如下代码。其中的Info方法用于在SAP主程序中呈现插件信息，在这里稍作呈现。  </p>
 <p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicn7DaP0e24sjJQ0YtUHsKf3kS7XkAFFGA9icfjuD4MHOkxxZNLZTjWiaA/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="图 4 cPlugin类的完整代码：实现弹出插件窗口"></p>
@@ -190,18 +190,18 @@
 <p>二、SAP2000库函数简介     </p>
 <p>在button_click函数中编写命令时，我们需要大量使用SAP2000附带的函数，以便插件能对SAP2000进行正确操作。这些函数在调用时能够在SAP2000中完成各种功能，包括实例的创建，对象的选取和相关信息的修改与获取。而为了能够正确调用这些函数，我们需要查阅SAP2000附带的OAPI文档，从中找到函数的功能。                                            </p>
 <p>打开OAPI文档（文档在SAP2000安装根目录下，文件名CSI_OAPI_Documentation.chm），点击左边索引菜单中的CSi OAPI Functions栏可以看到各类可供使用的函数，比如Object Model栏中可以查到跟对象操作有关的函数，Select栏中可以查到跟对象的选取有关的函数。在实际使用时就根据需要在左侧索引栏中一层一层找到自己想要的函数。</p>
-<p><img src="/.top//wp-content_uploads/2021/05/2551-10.png"></p>
+<p><img src="/../wp-content_uploads/2021/05/2551-10.png"></p>
 <p>图 10 函数一览在文档中的位置</p>
 <p>点击某个具体的函数后，在右侧会显示出这个函数有关的信息。Procedure栏中显示函数调用时会输入&#x2F;获得的变量，Parameters是针对这些变量的解释，Remarks是有关这个函数的说明。以图中选择的SapObject.SapModel.PointObj.GetCoordCartesian为例，这个函数会根据你输入的点的名称（ByVal Name As String）,告诉你这个点的三个坐标（x,y,z），图中第五个变量是指要得到这个点在哪个坐标系下的坐标，一般默认在是全局坐标系下的坐标。值得注意的是，OAPI文档里的使用信息都以VBA为例所写，在语法上与C#略有差异。</p>
 <p>在使用SAP2000库中函数时其函数基本通过传参的方式返回信息。具体来说就是在调用函数时在函数传入参数前加上一个ref。以上述函数为例，在实际使用时其语句为<code>ret=SapModel.PointObj.GetCoordCartesian ( Name ,ref x ,ref y ,ref z , “Globbal” )；</code> 句中的这个“ret&#x3D;”用于返回一个int类型的值以判断函数是否调用成功，成功为0，否则非0。调用函数时的四个变量，第一个Name是传递值，后面三个为传递引用，一般只有需要返回的变量前才需要添加ref。</p>
-<p><img src="/.top//wp-content_uploads/2021/05/2551-11-1024x557.png"></p>
+<p><img src="/../wp-content_uploads/2021/05/2551-11-1024x557.png"></p>
 <p>图 11 OAPI文档中对于函数的说明</p>
 <p>三、举个栗子<br>为了方便理解相关功能的使用，这里举一个简单的例子来进行说明</p>
 <p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicFLLWBLCbxMKpkRdt04o3ceDSicu4xiaiby0hVficWzOa4ibBL7rF6LUowxA/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="图 12 Form类核心代码（2）： botton_click"></p>
 <p>该段代码实现用户在点击按钮之后对所选点的坐标进行任意比例的缩放。其中第36行调用OAPI函数获得选择的对象。可以看到虽然之前我们在定义NumberItems,ObjectType_int和ObjectName_string时随意地声明了数组的大小，但是在调用OAPI方法后，API会自动根据结果修改数组并返回结果。在第44行调用函数获得的点坐标直接储存在变量x，y，z中，所以在46行就能直接利用函数获得的坐标值x,y,z和放大系数Ratio_X,Y,Z来进行缩放，而无需额外操作。</p>
 <p>需要注意的是，该例子的图示仅包含了Form类中button_click的函数，完整的插件开发仍需包含上一篇<a href="https://thuce.top/2488.html">《SAP2000二次开发初探之C#环境搭建》</a>的铺垫以及本篇前面对cPlugin类、Form1类的操作步骤。  </p>
 <p>最后以下图的框架结构为例，用户选择红圈内的点并启动插件，试图对该点坐标进行缩放操作，最后的效果如图所示：</p>
-<p><img src="/.top//wp-content_uploads/2021/05/2551-13.png"></p>
+<p><img src="/../wp-content_uploads/2021/05/2551-13.png"></p>
 <p>图 13 插件中输入比例系数</p>
 <p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicQTSELQ9a2X3KcqLSPfNN2TYAVgu81E5udnibjzyXHFVYtxawXT97sQw/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1"></p>
 <p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicZNBYschaguauc2wcOwSGAibiblBzoVBbKNIT6KyyWyaHxwbGiclmlCvQw/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="图 14 作用前后对比（上图/下图）"></p>
@@ -211,7 +211,7 @@
            
     <!-- </div>
     <footer class="article-footer">
-      <a data-url="http://thuce.top/2021/05/12/sap2000%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8%E4%B9%8B%E6%8F%92%E4%BB%B6%E6%A0%B7%E4%BE%8B/" data-id="cmbaog6wq0084a9s6afec9qj9" data-title="SAP2000二次开发入门之插件样例" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://thuce.top/2021/05/12/sap2000%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8%E4%B9%8B%E6%8F%92%E4%BB%B6%E6%A0%B7%E4%BE%8B/" data-id="cmbnixdbj00597vs6aki2ed7b" data-title="SAP2000二次开发入门之插件样例" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       

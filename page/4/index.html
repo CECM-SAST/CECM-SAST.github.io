@@ -110,7 +110,7 @@
 <p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicPry7ckx9UiboZCcflfu8VDCVdkCcHo22J2TEL0ZqQABamlYgB9cjPNA/640?wx_fmt=png&wxfrom=13&tp=wxpic" alt="图 1 Main方法示例"></p>
 <p>我们使用SAP2000插件的用户操作流程基本上是依次点击：工具——插件——出现插件窗口——对窗口进行编辑——点击确认——插件执行命令；这对应于我们开发时的流程是：调用cPlugin.Main——呈现一个窗口（Form）——对窗口（Form）进行编辑——点击按键（button）时触发函数，实现插件功能。</p>
 <p><strong>要注意的是，虽然主程序直接调用cPlugin.Main，但是我们的实现思路是先从Main中呈现窗口，再在窗口中实现插件实际功能。</strong>因此Main函数只需要负责生成窗口就好了，具体的插件代码只需在Form中编写。接下来我们先向项目中添加一个窗口项。</p>
-<p><img src="/.top//wp-content_uploads/2021/05/2551-2.png" alt="图 2 添加窗口（步骤1）"></p>
+<p><img src="/../wp-content_uploads/2021/05/2551-2.png" alt="图 2 添加窗口（步骤1）"></p>
 <p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicniaibez34OXdcwqZIrk0DJpBiaRoYVRlUrpJLqyxUHo66OBQffNrsdcvg/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="图 3 添加窗口（步骤2）"></p>
 <p>而窗体本质上也是一个类，而要产生窗口的一个实例，我们需要在cPlugin.Main中添加如下代码。其中的Info方法用于在SAP主程序中呈现插件信息，在这里稍作呈现。  </p>
 <p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicn7DaP0e24sjJQ0YtUHsKf3kS7XkAFFGA9icfjuD4MHOkxxZNLZTjWiaA/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="图 4 cPlugin类的完整代码：实现弹出插件窗口"></p>
@@ -127,18 +127,18 @@
 <p>二、SAP2000库函数简介     </p>
 <p>在button_click函数中编写命令时，我们需要大量使用SAP2000附带的函数，以便插件能对SAP2000进行正确操作。这些函数在调用时能够在SAP2000中完成各种功能，包括实例的创建，对象的选取和相关信息的修改与获取。而为了能够正确调用这些函数，我们需要查阅SAP2000附带的OAPI文档，从中找到函数的功能。                                            </p>
 <p>打开OAPI文档（文档在SAP2000安装根目录下，文件名CSI_OAPI_Documentation.chm），点击左边索引菜单中的CSi OAPI Functions栏可以看到各类可供使用的函数，比如Object Model栏中可以查到跟对象操作有关的函数，Select栏中可以查到跟对象的选取有关的函数。在实际使用时就根据需要在左侧索引栏中一层一层找到自己想要的函数。</p>
-<p><img src="/.top//wp-content_uploads/2021/05/2551-10.png"></p>
+<p><img src="/../wp-content_uploads/2021/05/2551-10.png"></p>
 <p>图 10 函数一览在文档中的位置</p>
 <p>点击某个具体的函数后，在右侧会显示出这个函数有关的信息。Procedure栏中显示函数调用时会输入&#x2F;获得的变量，Parameters是针对这些变量的解释，Remarks是有关这个函数的说明。以图中选择的SapObject.SapModel.PointObj.GetCoordCartesian为例，这个函数会根据你输入的点的名称（ByVal Name As String）,告诉你这个点的三个坐标（x,y,z），图中第五个变量是指要得到这个点在哪个坐标系下的坐标，一般默认在是全局坐标系下的坐标。值得注意的是，OAPI文档里的使用信息都以VBA为例所写，在语法上与C#略有差异。</p>
 <p>在使用SAP2000库中函数时其函数基本通过传参的方式返回信息。具体来说就是在调用函数时在函数传入参数前加上一个ref。以上述函数为例，在实际使用时其语句为<code>ret=SapModel.PointObj.GetCoordCartesian ( Name ,ref x ,ref y ,ref z , “Globbal” )；</code> 句中的这个“ret&#x3D;”用于返回一个int类型的值以判断函数是否调用成功，成功为0，否则非0。调用函数时的四个变量，第一个Name是传递值，后面三个为传递引用，一般只有需要返回的变量前才需要添加ref。</p>
-<p><img src="/.top//wp-content_uploads/2021/05/2551-11-1024x557.png"></p>
+<p><img src="/../wp-content_uploads/2021/05/2551-11-1024x557.png"></p>
 <p>图 11 OAPI文档中对于函数的说明</p>
 <p>三、举个栗子<br>为了方便理解相关功能的使用，这里举一个简单的例子来进行说明</p>
 <p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicFLLWBLCbxMKpkRdt04o3ceDSicu4xiaiby0hVficWzOa4ibBL7rF6LUowxA/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="图 12 Form类核心代码（2）： botton_click"></p>
 <p>该段代码实现用户在点击按钮之后对所选点的坐标进行任意比例的缩放。其中第36行调用OAPI函数获得选择的对象。可以看到虽然之前我们在定义NumberItems,ObjectType_int和ObjectName_string时随意地声明了数组的大小，但是在调用OAPI方法后，API会自动根据结果修改数组并返回结果。在第44行调用函数获得的点坐标直接储存在变量x，y，z中，所以在46行就能直接利用函数获得的坐标值x,y,z和放大系数Ratio_X,Y,Z来进行缩放，而无需额外操作。</p>
 <p>需要注意的是，该例子的图示仅包含了Form类中button_click的函数，完整的插件开发仍需包含上一篇<a href="https://thuce.top/2488.html">《SAP2000二次开发初探之C#环境搭建》</a>的铺垫以及本篇前面对cPlugin类、Form1类的操作步骤。  </p>
 <p>最后以下图的框架结构为例，用户选择红圈内的点并启动插件，试图对该点坐标进行缩放操作，最后的效果如图所示：</p>
-<p><img src="/.top//wp-content_uploads/2021/05/2551-13.png"></p>
+<p><img src="/../wp-content_uploads/2021/05/2551-13.png"></p>
 <p>图 13 插件中输入比例系数</p>
 <p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicQTSELQ9a2X3KcqLSPfNN2TYAVgu81E5udnibjzyXHFVYtxawXT97sQw/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1"></p>
 <p><img src="https://mmbiz.qpic.cn/mmbiz_png/3jYicNE9hAPaNwlhjj3IIUTaPlb6M7raicZNBYschaguauc2wcOwSGAibiblBzoVBbKNIT6KyyWyaHxwbGiclmlCvQw/640?wx_fmt=png&tp=wxpic&wxfrom=5&wx_lazy=1&wx_co=1" alt="图 14 作用前后对比（上图/下图）"></p>
@@ -160,7 +160,7 @@
            
     <!-- </div>
     <footer class="article-footer">
-      <a data-url="http://thuce.top/2021/05/12/sap2000%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8%E4%B9%8B%E6%8F%92%E4%BB%B6%E6%A0%B7%E4%BE%8B/" data-id="cmbaog6wq0084a9s6afec9qj9" data-title="SAP2000二次开发入门之插件样例" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://thuce.top/2021/05/12/sap2000%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8%E4%B9%8B%E6%8F%92%E4%BB%B6%E6%A0%B7%E4%BE%8B/" data-id="cmbnixdbj00597vs6aki2ed7b" data-title="SAP2000二次开发入门之插件样例" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -213,37 +213,37 @@
 <p>SAP2000的安装大家各有各的办法，正常安装即可，操作简单不多讲。而此前装过VS较早版本的同学建议更新到2019版。VS作为一个兼容性较强的IDE，其免费的社区版以及足够我们的使用，到官网下载安装程序即可。这里有几点笔者下载安装中遇到的一点小tips可以供大家参考。</p>
 <p>一、VS 2019的下载安装</p>
 <p>官网上下载VS 2019的安装引导程序，选择第一项community版即可。</p>
-<p><img src="/.top//wp-content_uploads/2021/04/%E5%9B%BE%E7%89%871.png"></p>
+<p><img src="/../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%871.png"></p>
 <p>右键点击下载好的exe文件，选择“以管理员身份运行”，进入下面的界面：</p>
-<p><img src="/.top//wp-content_uploads/2021/04/%E5%9B%BE%E7%89%872.png"></p>
+<p><img src="/.././wp-content_uploads/2021/04/%E5%9B%BE%E7%89%872.png"></p>
 <p>因为笔者已经安装了社区版，所以“可用”栏目下未显示community版本的VS 2019，大家没安装的点击community版本的安装选项即可。选择安装后会下载一下准备文件：</p>
-<p><img src="/.top//wp-content_uploads/2021/04/%E5%9B%BE%E7%89%873.png"></p>
+<p><img src="/.././wp-content_uploads/2021/04/%E5%9B%BE%E7%89%873.png"></p>
 <p>接下来在出现的界面的“工作负载”栏目选择“.NET桌面开发”，即C#环境：</p>
-<p><img src="/.top//wp-content_uploads/2021/04/%E5%9B%BE%E7%89%874.png"></p>
+<p><img src="/../wp-content_uploads/2021/04/%E5%9B%BE%E7%89%874.png"></p>
 <p>然后点击“安装位置”栏目改一下安装位置，一般默认在C盘，但我想大家一般不会把一个3、4G大的软件安装到C盘。安装位置的第一项即IDE安装位置一定要是一个空文件夹，否则无法安装。另外的两个选项则是存下载缓存和一些共享组件等，可以是非空文件夹，大家按自己习惯改一下就好。“语言包栏”一般默认勾选了中文简体，如果有其他语言需求自己勾选一下即可；单个组件项目不建议小白随便进行删减（但删减也没关系，如果不幸删了核心组件重头再装就是了），如果有其他需求可以视情况增加需要的组件。</p>
-<p><img src="/.top//wp-content_uploads/2021/04/%E5%9B%BE%E7%89%875.png"></p>
+<p><img src="/.././wp-content_uploads/2021/04/%E5%9B%BE%E7%89%875.png"></p>
 <p>然后我们就可以愉快的进行安装了，注意这里最好勾选下载时安装，会快一点。以及下载时的网络选择，笔者当时使用的是DIVI，速度连1MB&#x2F;s都达不到，于是怒而换Tsinghua-Secure，然后顺带关了一下ipv6协议，速度飙升到8MB&#x2F;s。关ipv6协议方法：控制面板—网络和 Internet—网络和共享中心—更改适配器设置—右键自己连接的WLAN—属性—取消勾选“Internet协议版本6（TCP&#x2F;IPv6）”—确定。不过在你重新连接网络后IPv6协议又会自己勾选上。</p>
-<p><img src="/.top//wp-content_uploads/2021/04/%E5%9B%BE%E7%89%876.png"></p>
+<p><img src="/.././wp-content_uploads/2021/04/%E5%9B%BE%E7%89%876.png"></p>
 <p>然后等待下载安装结束，我们就可以愉快的用C#进行SAP2000二次开发了。</p>
 <h2 id="二、开发准备"><a href="#二、开发准备" class="headerlink" title="二、开发准备"></a>二、开发准备</h2><p>1、创建项目 </p>
 <p>打开VS 2019，创建新项目，选择类库（.Net Framework）。</p>
-<p><img src="/.top//wp-content_uploads/2021/04/%E5%9B%BE%E7%89%877.png"></p>
+<p><img src="/.././wp-content_uploads/2021/04/%E5%9B%BE%E7%89%877.png"></p>
 <p>项目配置中可以设置项目名称和选择你的文件的存放位置，框架记得选择.Net Framework 4.7及以上。如果这里框架点开后发现没有.Net Framework 4.7及以上版本，可以到微软官网进行下载安装，当然一般不会出现这种情况。</p>
-<p><img src="/.top//wp-content_uploads/2021/04/%E5%9B%BE%E7%89%878.png"></p>
+<p><img src="/.././wp-content_uploads/2021/04/%E5%9B%BE%E7%89%878.png"></p>
 <p>2、添加SAP2000类库的引用   </p>
 <p>这一步需要提前安装好SAP2000，点击“解决方案”中的“引用”一栏，右键选择“添加引用”：</p>
-<p><img src="/.top//wp-content_uploads/2021/04/%E5%9B%BE%E7%89%879.png"></p>
+<p><img src="/.././wp-content_uploads/2021/04/%E5%9B%BE%E7%89%879.png"></p>
 <p>点击浏览，然后打开SAP2000的安装目录，找到SAP2000v1.dll，选中，确定。</p>
-<p><img src="/.top//wp-content_uploads/2021/04/%E5%9B%BE%E7%89%8710.png"></p>
+<p><img src="/.././wp-content_uploads/2021/04/%E5%9B%BE%E7%89%8710.png"></p>
 <p>3、修改项目属性</p>
 <p>为了可以让我们使用C#从COM串口中读取数据，我们还需要修改一下项目属性，邮右键点击“解决方案”栏目下的项目名称，然后选择“属性”，在属性界面进行如下操作：1）“应用程序”—“程序集信息”—勾选“使程序集COM可见”；2）“生成”—目标平台改成“x64”—勾选“为COM互操作注册”。</p>
-<p><img src="/.top//wp-content_uploads/2021/04/%E5%9B%BE%E7%89%8712.png"></p>
+<p><img src="/.././wp-content_uploads/2021/04/%E5%9B%BE%E7%89%8712.png"></p>
 <p>4、类名修改</p>
 <p>修改Class1类的名字为cPlugin（当然也可以另外添加一个），因为SAP2000插件的逻辑是在SAP里由主程序调用cPlugin这个类里面的Main方法。接下来就可以愉快的写代码了，不过要记得每个类的引用都需要加上“using SAP2000v1”(是数字1不是英文字母l)。</p>
-<p><img src="/.top//wp-content_uploads/2021/04/F7HUAu5R5L-1024x611.png"></p>
+<p><img src="/../wp-content_uploads/2021/04/F7HUAu5R5L-1024x611.png"></p>
 <p> 三、SAP插件添加</p>
 <p>当写好代码实现功能后，生成成功后，想要在SAP2000里导入插件，必须以管理员方式打开VS，然后再重新生成一次。这时打开SAP2000，点击“工具”这一栏，选择“添加”，然后输入VS里的项目名称，菜单名称可以写这个插件的功能，看个人习惯填写。然后可以看到状态为OK，就可以愉快的使用自己写的插件了~</p>
-<p><img src="/.top//wp-content_uploads/2021/04/xnOq6cA3F4-1024x310.png">                                    </p>
+<p><img src="/.././wp-content_uploads/2021/04/xnOq6cA3F4-1024x310.png">                                    </p>
 
       
     </div> -->
@@ -261,7 +261,7 @@
            
     <!-- </div>
     <footer class="article-footer">
-      <a data-url="http://thuce.top/2021/04/09/sap2000%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E5%88%9D%E6%8E%A2%E4%B9%8Bc%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" data-id="cmbaog6wr008aa9s623x0bt5w" data-title="SAP2000二次开发初探之C#环境搭建" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://thuce.top/2021/04/09/sap2000%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E5%88%9D%E6%8E%A2%E4%B9%8Bc%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" data-id="cmbnixdbj005f7vs6e8bmfoe1" data-title="SAP2000二次开发初探之C#环境搭建" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -327,7 +327,7 @@
            
     <!-- </div>
     <footer class="article-footer">
-      <a data-url="http://thuce.top/2020/12/22/%E6%B8%85%E5%8D%8E%E5%A4%A7%E5%AD%A6%E7%AC%AC%E4%BA%8C%E5%8D%81%E5%85%AD%E5%B1%8A%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%A4%A7%E8%B5%9B%E5%86%B3%E8%B5%9B%E7%8E%B0%E5%9C%BA/" data-id="cmbaog6x0009ka9s67a5cegp5" data-title="清华大学第二十六届结构设计大赛决赛现场" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://thuce.top/2020/12/22/%E6%B8%85%E5%8D%8E%E5%A4%A7%E5%AD%A6%E7%AC%AC%E4%BA%8C%E5%8D%81%E5%85%AD%E5%B1%8A%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%A4%A7%E8%B5%9B%E5%86%B3%E8%B5%9B%E7%8E%B0%E5%9C%BA/" data-id="cmbnixdbr006q7vs685af8iv7" data-title="清华大学第二十六届结构设计大赛决赛现场" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -407,7 +407,7 @@
 <figure class="highlight erlang-repl"><table><tr><td class="code"><pre><code class="hljs erlang-repl">hello world!<br>如果您是一名程序员，您一定不需要阅读这份粗浅的教程qwq<br></code></pre></td></tr></table></figure></li>
 </ol>
 <p>如果看到了这里，恭喜你已经掌握了Markdown的基础语法，当然无论是typora编辑器还是Markdown本身都还有更多高阶玩法，可以在未来慢慢发掘~</p>
-<h2 id="公式输入专题"><a href="#公式输入专题" class="headerlink" title="公式输入专题"></a>公式输入专题</h2><p><img src="/.top//wp-content_uploads/2020/12/%E5%85%AC%E5%BC%8F%E8%BE%93%E5%85%A5%E4%B8%93%E9%A2%98.png"> 由于某些未知原因上面部分只能通过图片方式发出，图中涉及到的链接如下</p>
+<h2 id="公式输入专题"><a href="#公式输入专题" class="headerlink" title="公式输入专题"></a>公式输入专题</h2><p><img src="/.././wp-content_uploads/2020/12/%E5%85%AC%E5%BC%8F%E8%BE%93%E5%85%A5%E4%B8%93%E9%A2%98.png"> 由于某些未知原因上面部分只能通过图片方式发出，图中涉及到的链接如下</p>
 <ul>
 <li>识别工具<a target="_blank" rel="noopener" href="https://mathpix.com/">mathpix</a></li>
 <li>一份更详细的Markdown说明文档：<a target="_blank" rel="noopener" href="http://www.wowubuntu.com/markdown/index.html">http://www.wowubuntu.com/markdown/index.html</a></li>
@@ -430,7 +430,7 @@
            
     <!-- </div>
     <footer class="article-footer">
-      <a data-url="http://thuce.top/2020/12/06/%E6%8A%80%E6%9C%AF%E8%B4%B4-%E4%B8%80%E7%AF%87%E4%BD%BF%E7%94%A8markdown%E7%BC%96%E8%BE%91%E7%9A%84markdown%E6%95%99%E7%A8%8B/" data-id="cmbaog6wx0098a9s60p77hyrv" data-title="技术贴  一篇使用Markdown编辑的Markdown教程" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://thuce.top/2020/12/06/%E6%8A%80%E6%9C%AF%E8%B4%B4-%E4%B8%80%E7%AF%87%E4%BD%BF%E7%94%A8markdown%E7%BC%96%E8%BE%91%E7%9A%84markdown%E6%95%99%E7%A8%8B/" data-id="cmbnixdbp006d7vs63hko1hg8" data-title="技术贴  一篇使用Markdown编辑的Markdown教程" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -487,7 +487,7 @@
 <p>（2）在弹出的创建窗口中，选择数据源区域以及数据透视表的放置位置        </p>
 <p>（3）选择列、行、值字段分别拖拽到下方区域，这里选择行字段，注意字段的上下顺序将决定数据透视表中字段的层级关系，越往上层级越高。值区间的数据则是我们需要整合计算的那部分数据。                                                                    </p>
 <p>对于值字段，我们不止可以进行求和运算，还可以进行取平均、计数、求最大、最小值等操作，可以点开值字段的下拉列表，在[值字段设置]中选择计算类型。下面一个简单的例子展示了求平均运算的效果。</p>
-<p><img src="/.top//wp-content_uploads/2020/12/%E5%88%9B%E5%BB%BA3.jpg"></p>
+<p><img src="/.././wp-content_uploads/2020/12/%E5%88%9B%E5%BB%BA3.jpg"></p>
 <p>至此，一个简单的数据透视表已经完成！</p>
 <p>3.小技巧<br>        制作数据透视表的步骤较为简单，但是其中也有很多需要注意的细节。<br>（1）更改数据来源<br>     若要更改数据来源，选择[分析]选项卡-更改数据源-选择所需要的数据来源即可。       </p>
 <p>（2）更新数据表<br>     若原始数据表中的一些数据发生改变，我们需要手动右键单击数据透视表-刷新，以实现数据透视表的实时更新。<br>（3）透视表筛选功能<br>     拿之前的例子来说，假如我们现在只需要看一季度、二季度的销售额，可以通过点击时间字段的下拉列表-将三季度前的勾选消除，从而筛选掉三季度的数据。   </p>
@@ -510,7 +510,7 @@
            
     <!-- </div>
     <footer class="article-footer">
-      <a data-url="http://thuce.top/2020/12/05/%E6%8A%80%E6%9C%AF%E5%B8%96-excel%E6%95%B0%E6%8D%AE%E9%80%8F%E8%A7%86%E8%A1%A8/" data-id="cmbaog6wu008sa9s6bfns7ad1" data-title="技术帖  excel数据透视表" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://thuce.top/2020/12/05/%E6%8A%80%E6%9C%AF%E5%B8%96-excel%E6%95%B0%E6%8D%AE%E9%80%8F%E8%A7%86%E8%A1%A8/" data-id="cmbnixdbm005u7vs60o9eb3ty" data-title="技术帖  excel数据透视表" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -590,7 +590,7 @@
 <p>框架结构</p>
 <p>1、组成单元：梁、柱组成的结构单元为框架单元。全部竖向荷载和水平荷载由框架承担的结构体系，称为框架结构。</p>
 <p>2、结构布置：平面布置灵活，可用隔墙分割空间，适用于各种使用功能的建筑。沿高度方向布置时，柱网尺寸一般不变，轴线位置尽可能不变。梁截面尺寸一般不变，柱截面尺寸可以若干层变化一次。</p>
-<p><img src="/.top//wp-content_uploads/2020/10/0-1603722726.png" alt="技术贴  高层建筑结构体系及抗震设计" title="技术贴  高层建筑结构体系及抗震设计"></p>
+<p><img src="/../wp-content_uploads/2020/10/0-1603722726.png" alt="技术贴  高层建筑结构体系及抗震设计" title="技术贴  高层建筑结构体系及抗震设计"></p>
 <p>框架结构平面柱网布置图</p>
 <p>3、受力及变形特点：框架结构为平面抗侧力结构，需要在两个正交的方向设置框架。在水平力的作用下，结构变形曲线为剪切型位移曲线，底部层间位移最大，但由于底部固端约束较强，一般2或3层层间位移最大。相对而言，框架结构的刚度比较小，结构适用高度低于下述其他结构体系。  </p>
 <p>4、抗震设计：</p>
@@ -601,7 +601,7 @@
 <p>02</p>
 <p>剪力墙结构</p>
 <p>1、结构组成：全部为钢筋混凝土剪力墙承受竖向荷载和抵抗水平力的结构成为剪力墙结构。剪力墙结构的主要组成单元为剪力墙。</p>
-<p><img src="/.top//wp-content_uploads/2020/10/5-1603722727.png" alt="技术贴  高层建筑结构体系及抗震设计" title="技术贴  高层建筑结构体系及抗震设计"></p>
+<p><img src="/../wp-content_uploads/2020/10/5-1603722727.png" alt="技术贴  高层建筑结构体系及抗震设计" title="技术贴  高层建筑结构体系及抗震设计"></p>
 <p>三种剪力墙</p>
 <p>2、平面布置：开间小，建筑平面布置不灵活。  </p>
 <p>3、受力及变形特点：剪力墙结构的整体性好，承载力大，侧向刚度比较大，但自重较大。适用的房屋高度要高于框架结构。建筑的最大允许高度要高于框架结构。在水平力作用下，剪力墙的变形曲线为弯曲型，即类似于在竖直细长杆顶部施加水平集中力，杆件的弯曲变形的形状。楼层层间位移从下往上，逐渐增大。</p>
@@ -619,7 +619,7 @@
 <p>2、剪力墙布置要求：数量适当，双向布置，平面内对称布置，竖向贯穿建筑物全高，沿高度连续均匀。平面形状凹凸较大时，宜在凸出部分的端部附近布置剪力墙。</p>
 <p>3、受力特点：在小震作用下，剪力墙承受大部分荷载。在大震作用下，剪力墙之间的连梁首先屈服，框架受到的层剪力增大。如果框架的承载能力和延性不够大，有可能严重破坏。</p>
 <p>4、变形特点：在地震等水平荷载作用下，框架和剪力墙的侧向位移通过楼板协调，其变形曲线呈弯剪型。层间位移沿高度分布比较均匀，改善了框架结构及剪力墙结构的抗震性能，有利于减小小震下非结构构件的破坏。</p>
-<p><img src="/.top//wp-content_uploads/2020/10/9-1603722727.png" alt="技术贴  高层建筑结构体系及抗震设计" title="技术贴  高层建筑结构体系及抗震设计"></p>
+<p><img src="/../wp-content_uploads/2020/10/9-1603722727.png" alt="技术贴  高层建筑结构体系及抗震设计" title="技术贴  高层建筑结构体系及抗震设计"></p>
 <p>上海宾馆结构平面布置图（框架-剪力墙结构）</p>
 <p>04</p>
 <p>板柱-剪力墙结构</p>
@@ -633,13 +633,13 @@
 <p>3、变形特点：在水平力作用下，框架和支撑框架的侧移协调，结构整体侧移曲线为弯剪型。</p>
 <p>4、支撑形式：常见的支撑形式包括单斜杆支撑，X形交叉支撑，人字形支撑，V形支撑，跨层交叉支撑。其中K形支撑不适用于抗震结构。</p>
 <p>采用单斜杆支撑时，必须在其它跨内布置反向的单斜杆支撑，以避免支撑受压屈曲后两个方向的刚度不同、侧移一边倒。</p>
-<p><img src="/.top//wp-content_uploads/2020/10/1-1603722727.png" alt="技术贴  高层建筑结构体系及抗震设计" title="技术贴  高层建筑结构体系及抗震设计"></p>
+<p><img src="/../wp-content_uploads/2020/10/1-1603722727.png" alt="技术贴  高层建筑结构体系及抗震设计" title="技术贴  高层建筑结构体系及抗震设计"></p>
 <p>框架-支撑结构中四种支撑形式</p>
 <p>5、抗震设计：实际工程中为控制结构的破坏模式，设置偏心框架（支撑连接位置偏离梁柱节点），形成消能梁段，以控制结构的破坏模式。</p>
 <p>06</p>
 <p>筒体结构</p>
 <p><strong>框筒结构</strong>  </p>
-<p><img src="/.top//wp-content_uploads/2020/10/9-1603722728.png" alt="技术贴  高层建筑结构体系及抗震设计" title="技术贴  高层建筑结构体系及抗震设计"></p>
+<p><img src="/../wp-content_uploads/2020/10/9-1603722728.png" alt="技术贴  高层建筑结构体系及抗震设计" title="技术贴  高层建筑结构体系及抗震设计"></p>
 <p>从实腹到框筒</p>
 <p>1、结构组成：由布置在建筑物周边的柱距小，梁截面高的密柱深梁框架组成的结构。</p>
 <p>2、结构特点：内部可形成无柱大空间，充分利用建筑材料，适用高度高于前述结构体系，但由于密柱深梁，对外视线较差，抗倒塌能力差。</p>
@@ -647,30 +647,30 @@
 <p>框筒结构存在剪应力滞后现象，剪力滞后使水平力作用下，结构同侧的角柱的轴力大，中部柱的轴力小。</p>
 <p><strong>桁架筒结构</strong></p>
 <p>1、结构组成：由建筑4个立面上的竖向桁架组成的结构称为桁架筒结构。竖向桁架由稀柱、间隔若干楼层的水平杆件以及横向跨越建筑立面的边长、竖向跨越数个楼层的支撑斜杆组成。</p>
-<p><img src="/.top//wp-content_uploads/2020/10/10-1603722728.png" alt="技术贴  高层建筑结构体系及抗震设计" title="技术贴  高层建筑结构体系及抗震设计"></p>
+<p><img src="/../wp-content_uploads/2020/10/10-1603722728.png" alt="技术贴  高层建筑结构体系及抗震设计" title="技术贴  高层建筑结构体系及抗震设计"></p>
 <p>John Hancock大厦结构体系示意图</p>
 <p>2、结构特点：柱距大，支撑跨越数层，两个相邻立面的支撑相交在角柱，水平力通过支撑斜杆的轴力传至柱和基础。桁架筒结构比框架的刚度大，适用于更高的建筑。</p>
 <p><strong>筒中筒结构</strong></p>
 <p>1、结构组成：外筒（框筒）+内筒，包括混凝土外框筒+剪力墙内井筒、钢框外筒+钢支撑内井筒、钢框外筒+剪力墙内井筒。</p>
-<p><img src="/.top//wp-content_uploads/2020/10/7-1603722728.png" alt="技术贴  高层建筑结构体系及抗震设计" title="技术贴  高层建筑结构体系及抗震设计"></p>
+<p><img src="/../wp-content_uploads/2020/10/7-1603722728.png" alt="技术贴  高层建筑结构体系及抗震设计" title="技术贴  高层建筑结构体系及抗震设计"></p>
 <p>筒中筒结构</p>
 <p>2、变形及受力特点：在水平力作用下，结构整体侧移曲线为弯剪型。外框架与核心筒构成双重抗侧力体系，外筒抵抗倾覆力矩和扭矩，内筒主要抵抗水平剪力。筒中筒的适用高度比框筒更高。</p>
 <p><strong>束筒结构</strong></p>
 <p>两个或两个以上的框筒排列在一起，能够缓解剪力滞后效应，使柱的轴力分布比较均匀。</p>
-<p><img src="/.top//wp-content_uploads/2020/10/8-1603722729.png" alt="技术贴  高层建筑结构体系及抗震设计" title="技术贴  高层建筑结构体系及抗震设计"></p>
+<p><img src="/../wp-content_uploads/2020/10/8-1603722729.png" alt="技术贴  高层建筑结构体系及抗震设计" title="技术贴  高层建筑结构体系及抗震设计"></p>
 <p>束筒结构</p>
 <p>07</p>
 <p>框架-核心筒结构</p>
 <p>1、结构体系：加大外框筒的柱距，减小梁的高度，周边成为稀柱框架，与内筒共同形成框架-核心筒结构。</p>
 <p>2、受力特点：周边框架为平面框架，没有框筒的空间作用。核心筒为抗侧力的主体，刚度和承载能力远大于周边框架。但框架应能承担一定的地震力，形成双重抗侧力体系。</p>
 <p>3、加强层：设置伸臂构件的楼层称为加强层。伸臂构件一般为连接核心筒和周边框架柱之间的一层高或两层高的钢桁架。当建筑高度较大时，侧向刚度不满足刚度要求时，应设置加强层，增大结构刚度，形成框架-核心筒-伸臂结构体系。为保证周边柱都能发挥作用，亦可设置周边环带桁架，增大结构刚度。</p>
-<p><img src="/.top//wp-content_uploads/2020/10/5-1603722729.png" alt="技术贴  高层建筑结构体系及抗震设计" title="技术贴  高层建筑结构体系及抗震设计"></p>
+<p><img src="/../wp-content_uploads/2020/10/5-1603722729.png" alt="技术贴  高层建筑结构体系及抗震设计" title="技术贴  高层建筑结构体系及抗震设计"></p>
 <p>框架-核心筒结构</p>
 <p>08</p>
 <p>巨型结构</p>
 <p><strong>巨型框架结构</strong></p>
 <p>1、结构组成：巨型框架（巨柱+巨梁）+次框架，其中次框架是巨梁与巨柱之间的框架，是普通截面尺寸框架，由巨梁或桁架支撑。</p>
-<p><img src="/.top//wp-content_uploads/2020/10/7-1603722730.png" alt="技术贴  高层建筑结构体系及抗震设计" title="技术贴  高层建筑结构体系及抗震设计"></p>
+<p><img src="/../wp-content_uploads/2020/10/7-1603722730.png" alt="技术贴  高层建筑结构体系及抗震设计" title="技术贴  高层建筑结构体系及抗震设计"></p>
 <p>日本东京市政大厅结构体系（巨型结构）</p>
 <p>2、受力特点：水平荷载由巨型框架承担，次框架承受竖向荷载，竖向荷载由巨柱框架传至基础。巨型框架设置在建筑周边，中间无柱，形成较大的自由使用空间。</p>
 <p><strong>巨型支撑框架结构</strong></p>
@@ -694,11 +694,11 @@
 <p><strong>致谢</strong></p>
 <p>感谢远洋集团、世茂集团、华为赛事基金对本次大赛的大力支持</p>
 <p>感谢清华大学学生学习与发展指导中心对“技术贴”项目的大力支持</p>
-<p><img src="/.top//wp-content_uploads/2020/10/9-1603722730.png" alt="技术贴  高层建筑结构体系及抗震设计" title="技术贴  高层建筑结构体系及抗震设计"></p>
+<p><img src="/../wp-content_uploads/2020/10/9-1603722730.png" alt="技术贴  高层建筑结构体系及抗震设计" title="技术贴  高层建筑结构体系及抗震设计"></p>
 <p>文案 周思源 张天野</p>
 <p>排版 周思源</p>
 <p>审核 周思源 陈旺</p>
-<p><img src="/.top//wp-content_uploads/2020/10/6-1603722731.png" alt="技术贴  高层建筑结构体系及抗震设计" title="技术贴  高层建筑结构体系及抗震设计"></p>
+<p><img src="/../wp-content_uploads/2020/10/6-1603722731.png" alt="技术贴  高层建筑结构体系及抗震设计" title="技术贴  高层建筑结构体系及抗震设计"></p>
 
       
     </div> -->
@@ -716,7 +716,7 @@
            
     <!-- </div>
     <footer class="article-footer">
-      <a data-url="http://thuce.top/2020/10/26/983a4498e4/" data-id="cmbaog6wg006sa9s64zmhbwtk" data-title="技术贴  高层建筑结构体系及抗震设计" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://thuce.top/2020/10/26/983a4498e4/" data-id="cmbnixdb7003p7vs62vmn7g62" data-title="技术贴  高层建筑结构体系及抗震设计" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -768,40 +768,40 @@
 <p><strong>1</strong></p>
 <p>反应谱的基本概念  </p>
 <p>反应谱指一定阻尼比、一系列单自由度弹性体系的地震最大反应值与周期关系的曲线。反应谱可以分为三类：加速度反应谱、速度反应谱、位移反应谱。其中，加速度反应谱与地震作用计算密切相关。以下图为例进行说明：</p>
-<p><img src="/.top//wp-content_uploads/2020/10/6-1603721747.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p><img src="/.././wp-content_uploads/2020/10/6-1603721747.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
 <p>图1 加速度反应谱</p>
 <p>不同的结构有不同的自振周期。现有自振周期为T1、T2的两个结构，在特定地震波下随着时间t的推移，有着一系列变化的加速度。其中，加速度的最大值分别为Sa1与Sa2，也就对应了加速度反应谱上的两点(T1, Sa1)与(T2, Sa2)。  </p>
 <p><strong>2</strong></p>
 <p>设计反应谱</p>
 <p>地震作用是随机的，无法预知未来场地地震的情况。然而在设计结构时，需要确定的地震作用大小。如何处理这一矛盾呢？</p>
 <p>《建筑抗震设计规范》规定了设计反应谱，是以地震影响系数曲线的形式给出。该曲线是基于国内外大量地震加速度纪录反应谱得到。我国规范设计反应谱（地震影响系数α谱曲线）如下：</p>
-<p><img src="/.top//wp-content_uploads/2020/10/8-1603721748.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p><img src="/.././wp-content_uploads/2020/10/8-1603721748.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
 <p>其中，曲线下降段各参数确定方法如下：  </p>
-<p><img src="/.top//wp-content_uploads/2020/10/9-1603721748.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
-<p><img src="/.top//wp-content_uploads/2020/10/3-1603721748.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p><img src="/.././wp-content_uploads/2020/10/9-1603721748.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p><img src="/../wp-content_uploads/2020/10/3-1603721748.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
 <p>地震影响系数最大值和特征周期指确定如下：  </p>
-<p><img src="/.top//wp-content_uploads/2020/10/4-1603721748.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p><img src="/../wp-content_uploads/2020/10/4-1603721748.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
 <p><strong>3</strong></p>
 <p>反应谱底部剪力法  </p>
 <p><strong>适用范围：不超过40层，以剪切变形为主且质量和刚度沿高度分布比较均匀的结构，以及近似于单自由度的结构。</strong>在反应谱底部剪力法中，地震作用相当于给各层施加了一个横向荷载。具体而言，计算过程较为简单：  </p>
-<p><img src="/.top//wp-content_uploads/2020/10/2-1603721749.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p><img src="/../wp-content_uploads/2020/10/2-1603721749.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
 <p>各参数的意义与确定方式如下（提到的规范即《建筑抗震设计规范》GB50011-2010）：  </p>
-<p><img src="/.top//wp-content_uploads/2020/10/7-1603721749.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
-<p><img src="/.top//wp-content_uploads/2020/10/1-1603721749.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
-<p><img src="/.top//wp-content_uploads/2020/10/3-1603721749.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
-<p><img src="/.top//wp-content_uploads/2020/10/5-1603721749.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p><img src="/../wp-content_uploads/2020/10/7-1603721749.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p><img src="/../wp-content_uploads/2020/10/1-1603721749.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p><img src="/.././wp-content_uploads/2020/10/3-1603721749.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p><img src="/.././wp-content_uploads/2020/10/5-1603721749.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
 <p><strong>4</strong></p>
 <p>计算样例</p>
 <p>下面以一单自由度水塔为例，体现上述的计算过程。</p>
 <p>题目：一水塔，简化为单自由度体系，集中质量m&#x3D;6×10^5kg，刚度k&#x3D;9×10^6N&#x2F;m, III类场地，设计地震分组为第一组，8度设防，阻尼比为0.03。请用规范中给出的设计反应谱（amax&#x3D;0.16）求该结构在多遇地震下的底部剪力。</p>
 <p>解答：  </p>
-<p><img src="/.top//wp-content_uploads/2020/10/7-1603721750.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p><img src="/.././wp-content_uploads/2020/10/7-1603721750.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
 <p>注：（1）部分内容（第一节）来自于纪晓东老师《地震工程导论》课件</p>
 <p>（2）文中涉及的规范为《建筑抗震设计规范》GB50011-2010  </p>
 <p><strong>致谢：</strong></p>
 <p>感谢远洋集团、世茂集团、华为赛事基金对本次大赛的大力支持</p>
 <p>感谢清华大学学生学习与发展指导中心对“技术贴”项目的大力支持</p>
-<p><img src="/.top//wp-content_uploads/2020/10/1-1603721750.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
+<p><img src="/.././wp-content_uploads/2020/10/1-1603721750.png" alt="技术贴  计算地震作用的常用方法" title="技术贴  计算地震作用的常用方法"></p>
 <p>编辑 张天野</p>
 <p>排版 孟姣</p>
 <p>审核 陈旺</p>
@@ -822,7 +822,7 @@
            
     <!-- </div>
     <footer class="article-footer">
-      <a data-url="http://thuce.top/2020/10/26/%E6%8A%80%E6%9C%AF%E8%B4%B4-%E8%AE%A1%E7%AE%97%E5%9C%B0%E9%9C%87%E4%BD%9C%E7%94%A8%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" data-id="cmbaog6wy009ea9s6e5261fcs" data-title="技术贴  计算地震作用的常用方法" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://thuce.top/2020/10/26/%E6%8A%80%E6%9C%AF%E8%B4%B4-%E8%AE%A1%E7%AE%97%E5%9C%B0%E9%9C%87%E4%BD%9C%E7%94%A8%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" data-id="cmbnixdbq006h7vs6bl0z54j1" data-title="技术贴  计算地震作用的常用方法" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -878,21 +878,21 @@
 <p>本篇技术贴将为大家介绍第26届结构设计大赛所用的主要材料——桐木的一些性质。此次主要介绍如何确定桐木的杨氏模量E，在计算之前，先补充一些基础知识。</p>
 <p><strong>相关知识</strong></p>
 <p><strong>应力：</strong>分布内力在一点的集度，单位N&#x2F;mm^2等，即一点上内力的大小。按照应力与作用面的位置，其中垂直于作用面的应力称为正应力，平行于作用面的应力称为剪应力，其中正应力用σ表示，剪应力用τ表示。</p>
-<p><img src="/.top//wp-content_uploads/2020/10/4-1603721505-1.png" alt="技术贴  如何确定小木条的材料性质" title="技术贴  如何确定小木条的材料性质"></p>
+<p><img src="/../wp-content_uploads/2020/10/4-1603721505-1.png" alt="技术贴  如何确定小木条的材料性质" title="技术贴  如何确定小木条的材料性质"></p>
 <p>正应力σ</p>
-<p><img src="/.top//wp-content_uploads/2020/10/10-1603721506.png" alt="技术贴  如何确定小木条的材料性质" title="技术贴  如何确定小木条的材料性质"></p>
+<p><img src="/../wp-content_uploads/2020/10/10-1603721506.png" alt="技术贴  如何确定小木条的材料性质" title="技术贴  如何确定小木条的材料性质"></p>
 <p>剪应力τ</p>
 <p>取材料中一微元体进行分析，其中Δ?为所取微元体的受力面积，_ΔFN_与_ΔFQ_表示作用在Δ?面积上的正应力以及剪应力，当Δ?趋向于0时，下面两式所求结果分别为一点的正应力、剪应力的大小。</p>
-<p><img src="/.top//wp-content_uploads/2020/10/9-1603721506.png" alt="技术贴  如何确定小木条的材料性质" title="技术贴  如何确定小木条的材料性质"></p>
-<p><img src="/.top//wp-content_uploads/2020/10/8-1603721506.png" alt="技术贴  如何确定小木条的材料性质" title="技术贴  如何确定小木条的材料性质"></p>
+<p><img src="/../wp-content_uploads/2020/10/9-1603721506.png" alt="技术贴  如何确定小木条的材料性质" title="技术贴  如何确定小木条的材料性质"></p>
+<p><img src="/../wp-content_uploads/2020/10/8-1603721506.png" alt="技术贴  如何确定小木条的材料性质" title="技术贴  如何确定小木条的材料性质"></p>
 <p><strong>强度：</strong>构件受力后不发生破坏或不产生不可恢复变形的能力。其中抗拉强度即材料在受拉极限状态下的应力。</p>
 <p>**<br>应变：**一点的变形程度，用材料变形与材料本身尺寸的比值来反映。包括正应变与剪应变等。其中正应变表示引起的线变形的程度，用ε表示，比如截面不变的细长均匀直杆在受到端部均匀拉力时，引起的应变。剪应变为剪应力引起的角变形的程度，用γ表示，剪应变用直角的改变量度量。</p>
-<p><img src="/.top//wp-content_uploads/2020/10/1-1603721506.png" alt="技术贴  如何确定小木条的材料性质" title="技术贴  如何确定小木条的材料性质"></p>
-<p><img src="/.top//wp-content_uploads/2020/10/7-1603721507.png" alt="技术贴  如何确定小木条的材料性质" title="技术贴  如何确定小木条的材料性质"></p>
+<p><img src="/../wp-content_uploads/2020/10/1-1603721506.png" alt="技术贴  如何确定小木条的材料性质" title="技术贴  如何确定小木条的材料性质"></p>
+<p><img src="/../wp-content_uploads/2020/10/7-1603721507.png" alt="技术贴  如何确定小木条的材料性质" title="技术贴  如何确定小木条的材料性质"></p>
 <p><strong>杨氏模量E</strong>：在物体的弹性限度内，发生单位正应变时所需的正应力的大小，对于线弹性材料，E为定值，即σ-ε曲线的斜率。从其定义可以看出，杨氏模量只和材料本身的性质有关系，而与材料的尺寸形状无关。</p>
-<p><img src="/.top//wp-content_uploads/2020/10/1-1603721507.png" alt="技术贴  如何确定小木条的材料性质" title="技术贴  如何确定小木条的材料性质"></p>
+<p><img src="/../wp-content_uploads/2020/10/1-1603721507.png" alt="技术贴  如何确定小木条的材料性质" title="技术贴  如何确定小木条的材料性质"></p>
 <p><strong>剪切模量G：</strong>类似于杨氏模量，是剪应力与剪应变的比值，同样只与材料本身的性质有关。</p>
-<p><img src="/.top//wp-content_uploads/2020/10/6-1603721507.png" alt="技术贴  如何确定小木条的材料性质" title="技术贴  如何确定小木条的材料性质"></p>
+<p><img src="/../wp-content_uploads/2020/10/6-1603721507.png" alt="技术贴  如何确定小木条的材料性质" title="技术贴  如何确定小木条的材料性质"></p>
 <p><strong>各向异性：</strong>材料各个方向的性质不相同。如桐木顺纹的抗拉强度与横纹的抗拉强度是不同的。  </p>
 <p>**<br>稳定性：**</p>
 <p>构件在压缩荷载下，保持平衡形式不发生突然转变的能力（如细长直杆在轴向压力作用下，当压力达到一定值后，在外界扰动下，直杆会从直线平衡模式变为曲线平衡模式）。<strong>对于细长构件，抗压承载力通常由稳定性控制。</strong></p>
@@ -901,19 +901,19 @@
 <p>由于木材的各向异性，以及加工处理中的误差，<strong>比赛中所用桐木的性能存在一定的离散性。</strong></p>
 <p><strong>桐木杨氏模量求解</strong></p>
 <p>本次桐木材性实验在韩建国老师帮助下完成，主要有四个试验，分别包括桐木杆的单轴抗压试验、单轴抗拉试验，以及桐木板的顺纹拉伸试验及横纹拉伸试验。这里<strong>以单轴抗拉试验为例</strong>，求解试验所用试件B2的杨氏模量。</p>
-<p><img src="/.top//wp-content_uploads/2020/10/10-1603721507.png" alt="技术贴  如何确定小木条的材料性质" title="技术贴  如何确定小木条的材料性质"></p>
+<p><img src="/../wp-content_uploads/2020/10/10-1603721507.png" alt="技术贴  如何确定小木条的材料性质" title="技术贴  如何确定小木条的材料性质"></p>
 <p>实验构件B2示意图</p>
-<p><img src="/.top//wp-content_uploads/2020/10/7-1603721507-1.png" alt="技术贴  如何确定小木条的材料性质" title="技术贴  如何确定小木条的材料性质"></p>
+<p><img src="/../wp-content_uploads/2020/10/7-1603721507-1.png" alt="技术贴  如何确定小木条的材料性质" title="技术贴  如何确定小木条的材料性质"></p>
 <p>荷载—位移曲线</p>
 <p>（1）应变（此处假设拉应变只发生在试件中央100mm的范围）：</p>
-<p><img src="/.top//wp-content_uploads/2020/10/0-1603721507.png" alt="技术贴  如何确定小木条的材料性质" title="技术贴  如何确定小木条的材料性质"></p>
+<p><img src="/../wp-content_uploads/2020/10/0-1603721507.png" alt="技术贴  如何确定小木条的材料性质" title="技术贴  如何确定小木条的材料性质"></p>
 <p>（2）极限拉应力&#x2F;抗拉强度（认为构件受拉时，截面受力均匀）：</p>
-<p><img src="/.top//wp-content_uploads/2020/10/5-1603721508.png" alt="技术贴  如何确定小木条的材料性质" title="技术贴  如何确定小木条的材料性质"></p>
+<p><img src="/../wp-content_uploads/2020/10/5-1603721508.png" alt="技术贴  如何确定小木条的材料性质" title="技术贴  如何确定小木条的材料性质"></p>
 <p>（3）杨氏（弹性）模量：</p>
-<p><img src="/.top//wp-content_uploads/2020/10/0-1603721508.png" alt="技术贴  如何确定小木条的材料性质" title="技术贴  如何确定小木条的材料性质"></p>
+<p><img src="/../wp-content_uploads/2020/10/0-1603721508.png" alt="技术贴  如何确定小木条的材料性质" title="技术贴  如何确定小木条的材料性质"></p>
 <p>按照以上方法，可以求出B3，B4的抗拉强度以及杨氏模量如下表所示，实际计算中可采用算数平均值作为木材抗拉强度，或考虑到三个试件试验结果相差较大，计算时偏于安全地采用三者中最小值作为抗拉强度。</p>
 <p>选手应结合实际确定相应的材料参数。  </p>
-<p><img src="/.top//wp-content_uploads/2020/10/3-1603721508.png" alt="技术贴  如何确定小木条的材料性质" title="技术贴  如何确定小木条的材料性质"></p>
+<p><img src="/../wp-content_uploads/2020/10/3-1603721508.png" alt="技术贴  如何确定小木条的材料性质" title="技术贴  如何确定小木条的材料性质"></p>
 <p><strong>结论</strong></p>
 <p>（1）桐木的顺纹方向与木条、木板的长度方向不严格一致，受力性能上可能会存在较大的差异性。<br>（2）<strong>材性试验所用试验构件数量有限，试验结果存在一定偶然性，实验结果供选手参考。</strong></p>
 <p>（3）鼓励选手根据需要自行进行简单的试验，确定构件或结构的实际受力性能。  </p>
@@ -923,12 +923,12 @@
 <p>感谢韩建国老师对本次实验的大力支持</p>
 <p>感谢远洋集团、世茂集团、华为赛事基金对本次大赛的大力支持</p>
 <p>感谢清华大学学生学习与发展指导中心对“技术贴”项目的大力支持  </p>
-<p><img src="/.top//wp-content_uploads/2020/10/3-1603721508-1.png" alt="技术贴  如何确定小木条的材料性质" title="技术贴  如何确定小木条的材料性质"></p>
+<p><img src="/../wp-content_uploads/2020/10/3-1603721508-1.png" alt="技术贴  如何确定小木条的材料性质" title="技术贴  如何确定小木条的材料性质"></p>
 <p>实验 赛事中心</p>
 <p>文案 周思源</p>
 <p>排版 陈旺</p>
 <p>审核 陈旺 周思源</p>
-<p><img src="/.top//wp-content_uploads/2020/10/9-1603721509.png" alt="技术贴  如何确定小木条的材料性质" title="技术贴  如何确定小木条的材料性质"></p>
+<p><img src="/../wp-content_uploads/2020/10/9-1603721509.png" alt="技术贴  如何确定小木条的材料性质" title="技术贴  如何确定小木条的材料性质"></p>
 
       
     </div> -->
@@ -946,7 +946,7 @@
            
     <!-- </div>
     <footer class="article-footer">
-      <a data-url="http://thuce.top/2020/10/26/a5cc300785/" data-id="cmbaog6wi0073a9s6bj4z6yq1" data-title="技术贴  如何确定小木条的材料性质" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://thuce.top/2020/10/26/a5cc300785/" data-id="cmbnixdbb00477vs60q8t7h54" data-title="技术贴  如何确定小木条的材料性质" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -1015,7 +1015,7 @@
            
     <!-- </div>
     <footer class="article-footer">
-      <a data-url="http://thuce.top/2020/10/25/%E7%BB%93%E8%B5%9B%E6%8A%A5%E5%90%8D%E9%80%9A%E7%9F%A5/" data-id="cmbaog6x400a6a9s62apvcgvp" data-title="结赛报名通知" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="http://thuce.top/2020/10/25/%E7%BB%93%E8%B5%9B%E6%8A%A5%E5%90%8D%E9%80%9A%E7%9F%A5/" data-id="cmbnixdbx007q7vs63h5p7xle" data-title="结赛报名通知" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
